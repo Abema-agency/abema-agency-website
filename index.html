@@ -36,7 +36,8 @@
     * { scroll-behavior: smooth; }
     body { font-family: 'Figtree', sans-serif; }
     p { max-width: 70ch; }
-    h2 { font-size: clamp(1.75rem, 1rem + 2.5vw, 2.5rem); }
+    h2 { font-size: clamp(1.75rem, 1rem + 2.5vw, 2.5rem); font-family: 'Bricolage Grotesque', sans-serif; }
+    h3 { font-family: 'Bricolage Grotesque', sans-serif; }
     .card-hover { transition: all 0.3s ease; }
     .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(200,164,78,0.15); }
     .badge-popular { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); }
@@ -97,11 +98,12 @@
   </div>
 
   <!-- NAV -->
-  <nav class="sticky top-0 z-50 bg-foreground/95 backdrop-blur-md border-b border-white/10">
+  <nav class="sticky top-0 z-50 bg-foreground/95 backdrop-blur-md border-b border-[#F5EDE0]/10">
     <div class="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
       <a href="#" class="flex items-center gap-2">
         <img src="logo.png" alt="ABEMA AGENCY" class="h-8" />
       </a>
+      <!-- Desktop nav -->
       <div class="hidden md:flex items-center gap-8 text-sm font-medium text-[#C8BDA8]">
         <a href="#services" class="hover:text-primary-light transition">Services</a>
         <a href="#methode" class="hover:text-primary-light transition">Méthode</a>
@@ -109,7 +111,24 @@
         <a href="#faq" class="hover:text-primary-light transition">FAQ</a>
         <a href="#contact" class="hover:text-primary-light transition">Contact</a>
       </div>
-      <a href="#contact" class="bg-primary hover:bg-primary-dark text-foreground px-5 py-2 rounded-lg text-sm font-semibold transition">Audit gratuit</a>
+      <!-- Mobile hamburger -->
+      <button onclick="toggleMobileNav()" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Menu" aria-expanded="false" id="nav-toggle">
+        <span class="block w-6 h-0.5 bg-[#C8BDA8] transition-all duration-300 nav-line-1"></span>
+        <span class="block w-6 h-0.5 bg-[#C8BDA8] transition-all duration-300 nav-line-2"></span>
+        <span class="block w-4 h-0.5 bg-[#C8BDA8] transition-all duration-300 nav-line-3"></span>
+      </button>
+      <a href="#contact" class="hidden md:inline-flex bg-primary hover:bg-primary-dark text-foreground px-5 py-2 rounded-lg text-sm font-semibold transition">Audit gratuit</a>
+    </div>
+    <!-- Mobile nav panel -->
+    <div id="mobile-nav" class="md:hidden hidden border-t border-[#F5EDE0]/10 bg-foreground/98 backdrop-blur-md">
+      <div class="max-w-6xl mx-auto px-4 py-6 flex flex-col gap-4">
+        <a href="#services" onclick="closeMobileNav()" class="text-[#C8BDA8] hover:text-primary-light transition text-base font-medium py-1">Services</a>
+        <a href="#methode" onclick="closeMobileNav()" class="text-[#C8BDA8] hover:text-primary-light transition text-base font-medium py-1">Méthode</a>
+        <a href="#offres" onclick="closeMobileNav()" class="text-[#C8BDA8] hover:text-primary-light transition text-base font-medium py-1">Offres</a>
+        <a href="#faq" onclick="closeMobileNav()" class="text-[#C8BDA8] hover:text-primary-light transition text-base font-medium py-1">FAQ</a>
+        <a href="#contact" onclick="closeMobileNav()" class="text-[#C8BDA8] hover:text-primary-light transition text-base font-medium py-1">Contact</a>
+        <a href="#contact" onclick="closeMobileNav()" class="bg-primary hover:bg-primary-dark text-foreground px-5 py-3 rounded-lg text-sm font-semibold transition text-center mt-2">Audit gratuit</a>
+      </div>
     </div>
   </nav>
 
@@ -131,24 +150,24 @@
       </div>
 
       <!-- Heading -->
-      <h1 class="reveal reveal-d2 font-display font-800 text-5xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight mb-8">
-        <span class="block text-white/90">Vos tâches répétitives</span>
+      <h1 class="reveal reveal-d2 font-display font-extrabold text-5xl md:text-7xl lg:text-8xl leading-[1.05] tracking-tight mb-8">
+        <span class="block text-[#F5EDE0]">Vos tâches répétitives</span>
         <span class="block gold-accent mt-2">vous coûtent 12h/semaine.</span>
-        <span class="block text-white/90 mt-2">Reprenez-les.</span>
+        <span class="block text-[#F5EDE0] mt-2">Reprenez-les.</span>
       </h1>
 
       <!-- Subtitle -->
       <p class="reveal reveal-d3 font-body text-lg md:text-xl text-[#B0A898] max-w-2xl mx-auto mb-10 leading-relaxed">
         Agents IA sur mesure — réponses clients, devis, relances, prospection.<br class="hidden md:block" />
-        <span class="text-white/70">Opérationnel en 48h. Sans compétence technique.</span>
+        <span class="text-[#D8CEBD]">Opérationnel en 48h. Sans compétence technique.</span>
       </p>
 
       <!-- CTAs -->
       <div class="reveal reveal-d4 flex flex-col sm:flex-row gap-4 justify-center mb-16">
-        <a href="#contact" class="btn-shine bg-gradient-to-r from-primary to-primary-light text-foreground px-10 py-4 rounded-xl text-base font-display font-700 tracking-wide transition-all duration-300 hover:shadow-[0_0_40px_rgba(200,164,78,0.4)] hover:scale-105">
+        <a href="#contact" class="btn-shine bg-gradient-to-r from-primary to-primary-light text-foreground px-10 py-4 rounded-xl text-base font-display font-bold tracking-wide transition-all duration-300 hover:shadow-[0_0_40px_rgba(200,164,78,0.4)] hover:scale-105">
           Réserver mon audit offert
         </a>
-        <a href="#offres" class="group border border-white/15 bg-white/5 backdrop-blur-sm text-white px-10 py-4 rounded-xl text-base font-display font-600 transition-all duration-300 hover:border-primary/60 hover:bg-primary/5">
+        <a href="#offres" class="group border border-[#F5EDE0]/15 bg-[#F5EDE0]/5 backdrop-blur-sm text-[#F5EDE0] px-10 py-4 rounded-xl text-base font-display font-semibold transition-all duration-300 hover:border-primary/60 hover:bg-primary/5">
           Voir les offres
           <span class="inline-block ml-1 transition-transform group-hover:translate-x-1">&rarr;</span>
         </a>
@@ -158,12 +177,12 @@
       <div class="reveal reveal-d5">
         <p class="font-body text-xs tracking-[0.25em] uppercase text-[#9A917E] mb-5">Je suis…</p>
         <div class="flex flex-wrap justify-center gap-2.5" id="roles">
-          <button onclick="selectRole(this)" data-text="Devis en 30 secondes, relances automatiques, agenda rempli sans décrocher." class="role-btn font-body px-5 py-2.5 rounded-full border border-white/10 text-sm text-[#B0A898] hover:border-primary/60 hover:text-primary-light hover:bg-primary/5 transition-all duration-300">Artisan</button>
-          <button onclick="selectRole(this)" data-text="Chatbot WhatsApp 24h/24, commandes qualifiées, zéro appel manqué." class="role-btn font-body px-5 py-2.5 rounded-full border border-white/10 text-sm text-[#B0A898] hover:border-primary/60 hover:text-primary-light hover:bg-primary/5 transition-all duration-300">Commerçant</button>
-          <button onclick="selectRole(this)" data-text="Séquences emails, onboarding client, suivi personnalisé sans effort." class="role-btn font-body px-5 py-2.5 rounded-full border border-white/10 text-sm text-[#B0A898] hover:border-primary/60 hover:text-primary-light hover:bg-primary/5 transition-all duration-300">Coach & Consultant</button>
-          <button onclick="selectRole(this)" data-text="RDV automatique, rappels, documents générés à la volée." class="role-btn font-body px-5 py-2.5 rounded-full border border-white/10 text-sm text-[#B0A898] hover:border-primary/60 hover:text-primary-light hover:bg-primary/5 transition-all duration-300">Profession libérale</button>
-          <button onclick="selectRole(this)" data-text="Réceptionniste IA qui décroche tous vos appels et qualifie vos prospects." class="role-btn font-body px-5 py-2.5 rounded-full border border-white/10 text-sm text-[#B0A898] hover:border-primary/60 hover:text-primary-light hover:bg-primary/5 transition-all duration-300">Agent immobilier</button>
-          <button onclick="selectRole(this)" data-text="Dites-nous votre activité, on identifie vos gains en 30 minutes." class="role-btn font-body px-5 py-2.5 rounded-full border border-white/10 text-sm text-[#B0A898] hover:border-primary/60 hover:text-primary-light hover:bg-primary/5 transition-all duration-300">Autre entreprise</button>
+          <button onclick="selectRole(this)" data-text="Devis en 30 secondes, relances automatiques, agenda rempli sans décrocher." class="role-btn font-body px-5 py-2.5 rounded-full border border-[#F5EDE0]/10 text-sm text-[#B0A898] hover:border-primary/60 hover:text-primary-light hover:bg-primary/5 transition-all duration-300">Artisan</button>
+          <button onclick="selectRole(this)" data-text="Chatbot WhatsApp 24h/24, commandes qualifiées, zéro appel manqué." class="role-btn font-body px-5 py-2.5 rounded-full border border-[#F5EDE0]/10 text-sm text-[#B0A898] hover:border-primary/60 hover:text-primary-light hover:bg-primary/5 transition-all duration-300">Commerçant</button>
+          <button onclick="selectRole(this)" data-text="Séquences emails, onboarding client, suivi personnalisé sans effort." class="role-btn font-body px-5 py-2.5 rounded-full border border-[#F5EDE0]/10 text-sm text-[#B0A898] hover:border-primary/60 hover:text-primary-light hover:bg-primary/5 transition-all duration-300">Coach & Consultant</button>
+          <button onclick="selectRole(this)" data-text="RDV automatique, rappels, documents générés à la volée." class="role-btn font-body px-5 py-2.5 rounded-full border border-[#F5EDE0]/10 text-sm text-[#B0A898] hover:border-primary/60 hover:text-primary-light hover:bg-primary/5 transition-all duration-300">Profession libérale</button>
+          <button onclick="selectRole(this)" data-text="Réceptionniste IA qui décroche tous vos appels et qualifie vos prospects." class="role-btn font-body px-5 py-2.5 rounded-full border border-[#F5EDE0]/10 text-sm text-[#B0A898] hover:border-primary/60 hover:text-primary-light hover:bg-primary/5 transition-all duration-300">Agent immobilier</button>
+          <button onclick="selectRole(this)" data-text="Dites-nous votre activité, on identifie vos gains en 30 minutes." class="role-btn font-body px-5 py-2.5 rounded-full border border-[#F5EDE0]/10 text-sm text-[#B0A898] hover:border-primary/60 hover:text-primary-light hover:bg-primary/5 transition-all duration-300">Autre entreprise</button>
         </div>
         <p id="role-text" class="mt-4 font-body text-primary-light/80 text-sm h-6 transition-all duration-500"></p>
       </div>
@@ -171,19 +190,19 @@
       <!-- Stats -->
       <div class="reveal reveal-d6 grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 max-w-3xl mx-auto">
         <div class="text-center group">
-          <div class="font-display text-4xl font-800 text-primary-light stat-glow transition-all group-hover:scale-110 duration-300" data-count="12">0h</div>
+          <div class="font-display text-4xl font-extrabold text-primary-light stat-glow transition-all group-hover:scale-110 duration-300" data-count="12">0h</div>
           <div class="font-body text-xs tracking-widest uppercase text-[#9A917E] mt-2">économisées / sem.</div>
         </div>
         <div class="text-center group">
-          <div class="font-display text-4xl font-800 text-primary-light stat-glow transition-all group-hover:scale-110 duration-300">3&times;</div>
+          <div class="font-display text-4xl font-extrabold text-primary-light stat-glow transition-all group-hover:scale-110 duration-300">3&times;</div>
           <div class="font-body text-xs tracking-widest uppercase text-[#9A917E] mt-2">réactivité client</div>
         </div>
         <div class="text-center group">
-          <div class="font-display text-4xl font-800 text-primary-light stat-glow transition-all group-hover:scale-110 duration-300">48h</div>
+          <div class="font-display text-4xl font-extrabold text-primary-light stat-glow transition-all group-hover:scale-110 duration-300">48h</div>
           <div class="font-body text-xs tracking-widest uppercase text-[#9A917E] mt-2">mise en place</div>
         </div>
         <div class="text-center group">
-          <div class="font-display text-4xl font-800 text-primary-light stat-glow transition-all group-hover:scale-110 duration-300">97%</div>
+          <div class="font-display text-4xl font-extrabold text-primary-light stat-glow transition-all group-hover:scale-110 duration-300">97%</div>
           <div class="font-body text-xs tracking-widest uppercase text-[#9A917E] mt-2">satisfaction</div>
         </div>
       </div>
@@ -208,7 +227,7 @@
     <!-- Scroll indicator -->
     <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 opacity-50">
       <span class="font-body text-[10px] tracking-[0.3em] uppercase text-[#9A917E]">Scroll</span>
-      <div class="w-5 h-8 rounded-full border border-white/20 flex justify-center pt-1.5">
+      <div class="w-5 h-8 rounded-full border border-[#F5EDE0]/20 flex justify-center pt-1.5">
         <div class="w-1 h-2 rounded-full bg-primary-light scroll-dot"></div>
       </div>
     </div>
@@ -220,34 +239,34 @@
     <div class="max-w-6xl mx-auto">
       <div class="max-w-2xl mb-14">
         <p class="text-primary-light font-semibold text-sm mb-2">Vous vous reconnaissez ?</p>
-        <h2 class="text-3xl md:text-4xl font-bold text-white">Les freins quotidiens des entreprises ambitieuses</h2>
+        <h2 class="text-3xl md:text-4xl font-bold text-[#F5EDE0]">Les freins quotidiens des entreprises ambitieuses</h2>
       </div>
       <div class="grid md:grid-cols-2 gap-6">
         <div class="md:col-span-2 bg-primary/5 border border-primary/20 rounded-2xl p-10 card-hover">
-          <span class="font-display text-6xl font-800 text-primary/20 leading-none">12h</span>
-          <h3 class="text-2xl font-bold mt-3 mb-2 text-white">Noyé dans les tâches répétitives</h3>
+          <span class="font-display text-6xl font-extrabold text-primary/20 leading-none">12h</span>
+          <h3 class="text-2xl font-bold mt-3 mb-2 text-[#F5EDE0]">Noyé dans les tâches répétitives</h3>
           <p class="text-[#B0A898] max-w-xl">Répondre aux mêmes messages, relancer les mêmes clients, recréer les mêmes documents. Des heures perdues chaque semaine qui ne font pas avancer votre chiffre.</p>
         </div>
-        <div class="flex gap-5 items-start bg-white/5 border border-white/10 rounded-2xl p-8 card-hover">
-          <span class="font-display text-3xl font-800 text-primary/40 shrink-0">01</span>
+        <div class="flex gap-5 items-start bg-[#F5EDE0]/5 border border-[#F5EDE0]/10 rounded-2xl p-8 card-hover">
+          <span class="font-display text-3xl font-extrabold text-primary/40 shrink-0">01</span>
           <div>
-            <h3 class="text-xl font-bold mb-2 text-white">Une équipe complète, c'est trop cher</h3>
+            <h3 class="text-xl font-bold mb-2 text-[#F5EDE0]">Une équipe complète, c'est trop cher</h3>
             <p class="text-[#B0A898]">Un assistant à 1 800 €/mois, inaccessible pour une petite entreprise. Votre agent IA coûte 10 fois moins et ne prend jamais de congés.</p>
           </div>
         </div>
-        <div class="flex gap-5 items-start bg-white/5 border border-white/10 rounded-2xl p-8 card-hover">
-          <span class="font-display text-3xl font-800 text-primary/40 shrink-0">02</span>
+        <div class="flex gap-5 items-start bg-[#F5EDE0]/5 border border-[#F5EDE0]/10 rounded-2xl p-8 card-hover">
+          <span class="font-display text-3xl font-extrabold text-primary/40 shrink-0">02</span>
           <div>
-            <h3 class="text-xl font-bold mb-2 text-white">Vos clients n'attendent pas</h3>
+            <h3 class="text-xl font-bold mb-2 text-[#F5EDE0]">Vos clients n'attendent pas</h3>
             <p class="text-[#B0A898]">Un prospect pose une question à 22h. S'il n'a pas de réponse dans la minute, il appelle le concurrent.</p>
           </div>
         </div>
-        <div class="md:col-span-2 bg-white/5 border border-white/10 rounded-2xl p-8 card-hover flex flex-col md:flex-row gap-6 md:items-center">
+        <div class="md:col-span-2 bg-[#F5EDE0]/5 border border-[#F5EDE0]/10 rounded-2xl p-8 card-hover flex flex-col md:flex-row gap-6 md:items-center">
           <div class="shrink-0">
-            <span class="font-display text-3xl font-800 text-primary/40">03</span>
+            <span class="font-display text-3xl font-extrabold text-primary/40">03</span>
           </div>
           <div>
-            <h3 class="text-xl font-bold mb-2 text-white">L'IA vous intéresse mais par où commencer ?</h3>
+            <h3 class="text-xl font-bold mb-2 text-[#F5EDE0]">L'IA vous intéresse mais par où commencer ?</h3>
             <p class="text-[#B0A898]">Trop d'outils, trop de promesses. On fait le tri et on déploie ce qui marche.</p>
           </div>
           <a href="#contact" class="shrink-0 bg-primary/10 border border-primary/30 text-primary-light px-6 py-3 rounded-lg font-semibold text-sm hover:bg-primary/20 transition">On en parle ?</a>
@@ -261,35 +280,35 @@
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-14">
         <p class="text-primary-light font-semibold text-sm mb-2">Ce que votre agent IA fait à votre place</p>
-        <h2 class="text-3xl md:text-4xl font-bold text-white">Des solutions concrètes, opérationnelles en 48h</h2>
+        <h2 class="text-3xl md:text-4xl font-bold text-[#F5EDE0]">Des solutions concrètes, opérationnelles en 48h</h2>
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Featured service -->
         <div class="lg:col-span-2 bg-primary/5 border border-primary/20 rounded-2xl p-10 card-hover relative">
           <span class="inline-block bg-primary/20 text-primary-light text-xs font-semibold px-3 py-1 rounded-full mb-5">Le plus demandé</span>
-          <h3 class="text-2xl font-bold mb-3 text-white">Agent IA personnalisé</h3>
+          <h3 class="text-2xl font-bold mb-3 text-[#F5EDE0]">Agent IA personnalisé</h3>
           <p class="text-[#B0A898] max-w-lg mb-6">Répond à vos clients 24h/24 dans votre ton, qualifie vos prospects et alimente votre CRM automatiquement.</p>
           <a href="#contact" class="text-primary-light font-semibold text-sm hover:text-primary transition">Voir comment &rarr;</a>
         </div>
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-8 card-hover">
-          <h3 class="text-lg font-bold mb-2 text-white">Automatisation de processus</h3>
+        <div class="bg-[#F5EDE0]/5 border border-[#F5EDE0]/10 rounded-2xl p-8 card-hover">
+          <h3 class="text-lg font-bold mb-2 text-[#F5EDE0]">Automatisation de processus</h3>
           <p class="text-[#B0A898] text-sm">Devis, factures, relances, rapports generés automatiquement.</p>
         </div>
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-8 card-hover">
-          <h3 class="text-lg font-bold mb-2 text-white">Chatbot vente & SAV</h3>
+        <div class="bg-[#F5EDE0]/5 border border-[#F5EDE0]/10 rounded-2xl p-8 card-hover">
+          <h3 class="text-lg font-bold mb-2 text-[#F5EDE0]">Chatbot vente & SAV</h3>
           <p class="text-[#B0A898] text-sm">Sur votre site ou WhatsApp, vend et fidélise même pendant vos congés.</p>
         </div>
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-8 card-hover">
-          <h3 class="text-lg font-bold mb-2 text-white">Génération de documents</h3>
+        <div class="bg-[#F5EDE0]/5 border border-[#F5EDE0]/10 rounded-2xl p-8 card-hover">
+          <h3 class="text-lg font-bold mb-2 text-[#F5EDE0]">Génération de documents</h3>
           <p class="text-[#B0A898] text-sm">Contrats, propositions, newsletters en quelques secondes.</p>
         </div>
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-8 card-hover">
-          <h3 class="text-lg font-bold mb-2 text-white">Marketing automatisé</h3>
+        <div class="bg-[#F5EDE0]/5 border border-[#F5EDE0]/10 rounded-2xl p-8 card-hover">
+          <h3 class="text-lg font-bold mb-2 text-[#F5EDE0]">Marketing automatisé</h3>
           <p class="text-[#B0A898] text-sm">Emails, posts réseaux, CRM — tout s'enchaîne sans effort quotidien.</p>
         </div>
         <div class="lg:col-span-2 border border-dashed border-primary/30 rounded-2xl p-8 card-hover flex flex-col md:flex-row gap-6 md:items-center">
           <div>
-            <h3 class="text-lg font-bold mb-2 text-white">Audit & stratégie IA</h3>
+            <h3 class="text-lg font-bold mb-2 text-[#F5EDE0]">Audit & stratégie IA</h3>
             <p class="text-[#B0A898] text-sm">On analyse votre activité et identifie vos gains rapides en 30 min.</p>
           </div>
           <a href="#contact" class="shrink-0 bg-primary hover:bg-primary-dark text-foreground px-6 py-3 rounded-lg font-semibold text-sm transition">Audit gratuit</a>
@@ -303,34 +322,34 @@
     <div class="max-w-4xl mx-auto">
       <div class="text-center mb-14">
         <p class="text-primary-light font-semibold text-sm mb-2">Notre méthode</p>
-        <h2 class="text-3xl md:text-4xl font-bold text-white">Simple, rapide, sans jargon</h2>
+        <h2 class="text-3xl md:text-4xl font-bold text-[#F5EDE0]">Simple, rapide, sans jargon</h2>
       </div>
       <div class="space-y-8">
         <div class="flex gap-6 items-start">
-          <div class="flex-shrink-0 w-14 h-14 bg-primary text-white rounded-2xl flex items-center justify-center text-xl font-bold">01</div>
+          <div class="flex-shrink-0 w-14 h-14 bg-primary text-[#F5EDE0] rounded-2xl flex items-center justify-center text-xl font-bold">01</div>
           <div>
-            <h3 class="text-xl font-bold mb-1 text-white">Audit offert</h3>
+            <h3 class="text-xl font-bold mb-1 text-[#F5EDE0]">Audit offert</h3>
             <p class="text-[#B0A898]">30 minutes pour identifier vos gains rapides.</p>
           </div>
         </div>
         <div class="flex gap-6 items-start">
-          <div class="flex-shrink-0 w-14 h-14 bg-primary text-white rounded-2xl flex items-center justify-center text-xl font-bold">02</div>
+          <div class="flex-shrink-0 w-14 h-14 bg-primary text-[#F5EDE0] rounded-2xl flex items-center justify-center text-xl font-bold">02</div>
           <div>
-            <h3 class="text-xl font-bold mb-1 text-white">Proposition sur mesure</h3>
+            <h3 class="text-xl font-bold mb-1 text-[#F5EDE0]">Proposition sur mesure</h3>
             <p class="text-[#B0A898]">Solution adaptée à votre activité et budget.</p>
           </div>
         </div>
         <div class="flex gap-6 items-start">
-          <div class="flex-shrink-0 w-14 h-14 bg-primary text-white rounded-2xl flex items-center justify-center text-xl font-bold">03</div>
+          <div class="flex-shrink-0 w-14 h-14 bg-primary text-[#F5EDE0] rounded-2xl flex items-center justify-center text-xl font-bold">03</div>
           <div>
-            <h3 class="text-xl font-bold mb-1 text-white">Déploiement en 48h</h3>
+            <h3 class="text-xl font-bold mb-1 text-[#F5EDE0]">Déploiement en 48h</h3>
             <p class="text-[#B0A898]">Votre agent IA est opérationnel en 2 jours.</p>
           </div>
         </div>
         <div class="flex gap-6 items-start">
-          <div class="flex-shrink-0 w-14 h-14 bg-primary text-white rounded-2xl flex items-center justify-center text-xl font-bold">04</div>
+          <div class="flex-shrink-0 w-14 h-14 bg-primary text-[#F5EDE0] rounded-2xl flex items-center justify-center text-xl font-bold">04</div>
           <div>
-            <h3 class="text-xl font-bold mb-1 text-white">Accompagnement continu</h3>
+            <h3 class="text-xl font-bold mb-1 text-[#F5EDE0]">Accompagnement continu</h3>
             <p class="text-[#B0A898]">Suivi, optimisation et support inclus.</p>
           </div>
         </div>
@@ -343,12 +362,12 @@
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-14">
         <p class="text-primary-light font-semibold text-sm mb-2">Choisissez votre niveau d'automatisation</p>
-        <h2 class="text-3xl md:text-4xl font-bold text-white">Toutes les offres incluent l'audit gratuit de 30 minutes</h2>
+        <h2 class="text-3xl md:text-4xl font-bold text-[#F5EDE0]">Toutes les offres incluent l'audit gratuit de 30 minutes</h2>
       </div>
       <div class="grid md:grid-cols-3 gap-8">
         <!-- Essentiel -->
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-8 card-hover">
-          <h3 class="text-xl font-bold mb-1 text-white">Essentiel</h3>
+        <div class="bg-[#F5EDE0]/5 border border-[#F5EDE0]/10 rounded-2xl p-8 card-hover">
+          <h3 class="text-xl font-bold mb-1 text-[#F5EDE0]">Essentiel</h3>
           <div class="flex items-baseline gap-1 mb-6">
             <span class="text-4xl font-extrabold text-primary">79</span>
             <span class="text-[#B0A898]">€/mois</span>
@@ -363,9 +382,9 @@
           <a href="#contact" class="block text-center border border-primary text-primary-light hover:bg-primary hover:text-foreground px-6 py-3 rounded-lg font-semibold transition w-full">Réserver mon audit</a>
         </div>
         <!-- Croissance -->
-        <div class="bg-white border-2 border-primary/60 rounded-2xl p-8 bg-white/5 card-hover relative shadow-xl">
-          <span class="badge-popular bg-primary text-white text-xs font-bold px-4 py-1 rounded-full">Le plus choisi</span>
-          <h3 class="text-xl font-bold mb-1 text-white">Croissance</h3>
+        <div class="border-2 border-primary/60 rounded-2xl p-8 bg-[#F5EDE0]/5 card-hover relative shadow-xl">
+          <span class="badge-popular bg-primary text-[#F5EDE0] text-xs font-bold px-4 py-1 rounded-full">Le plus choisi</span>
+          <h3 class="text-xl font-bold mb-1 text-[#F5EDE0]">Croissance</h3>
           <div class="flex items-baseline gap-1 mb-6">
             <span class="text-4xl font-extrabold text-primary">197</span>
             <span class="text-[#B0A898]">€/mois</span>
@@ -379,11 +398,11 @@
             <li class="flex items-center gap-2 text-[#B0A898]"><svg class="w-5 h-5 text-primary-light flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>ROI moyen 3 à 5× en 6 mois</li>
           </ul>
           <p class="text-xs text-[#B0A898] mb-4">Mise en place à partir de 990 €</p>
-          <a href="#contact" class="block text-center bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-lg font-semibold transition w-full">Réserver mon audit</a>
+          <a href="#contact" class="block text-center bg-primary hover:bg-primary-dark text-[#F5EDE0] px-6 py-3 rounded-lg font-semibold transition w-full">Réserver mon audit</a>
         </div>
         <!-- Sur-mesure -->
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-8 card-hover">
-          <h3 class="text-xl font-bold mb-1 text-white">Sur-mesure</h3>
+        <div class="bg-[#F5EDE0]/5 border border-[#F5EDE0]/10 rounded-2xl p-8 card-hover">
+          <h3 class="text-xl font-bold mb-1 text-[#F5EDE0]">Sur-mesure</h3>
           <div class="flex items-baseline gap-1 mb-6">
             <span class="text-4xl font-extrabold text-primary">249</span>
             <span class="text-[#B0A898]">€/mois</span>
@@ -421,34 +440,34 @@
   <!-- COMPARAISON -->
   <section class="py-20 px-4 section-dark">
     <div class="max-w-3xl mx-auto">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Salarié vs Agent IA</h2>
+      <h2 class="text-3xl md:text-4xl font-bold text-[#F5EDE0] text-center mb-12">Salarié vs Agent IA</h2>
       <div class="overflow-x-auto">
         <table class="w-full text-left border-collapse">
           <thead>
-            <tr class="border-b border-white/10">
+            <tr class="border-b border-[#F5EDE0]/10">
               <th class="py-4 pr-4 text-[#B0A898] font-medium"></th>
               <th class="py-4 px-4 text-[#B0A898] font-medium">Salarié / prestataire</th>
               <th class="py-4 px-4 text-primary font-bold">Agent IA ABEMA</th>
             </tr>
           </thead>
           <tbody>
-            <tr class="border-b border-white/10">
-              <td class="py-4 pr-4 font-medium text-white">Coût mensuel</td>
+            <tr class="border-b border-[#F5EDE0]/10">
+              <td class="py-4 pr-4 font-medium text-[#F5EDE0]">Coût mensuel</td>
               <td class="py-4 px-4 text-[#B0A898]">1 800 € minimum</td>
               <td class="py-4 px-4 font-semibold text-primary">À partir de 79 €/mois</td>
             </tr>
-            <tr class="border-b border-white/10">
-              <td class="py-4 pr-4 font-medium text-white">Disponibilité</td>
+            <tr class="border-b border-[#F5EDE0]/10">
+              <td class="py-4 pr-4 font-medium text-[#F5EDE0]">Disponibilité</td>
               <td class="py-4 px-4 text-[#B0A898]">35h/semaine</td>
               <td class="py-4 px-4 font-semibold text-primary">24h/24, 7j/7</td>
             </tr>
-            <tr class="border-b border-white/10">
-              <td class="py-4 pr-4 font-medium text-white">Délai de mise en place</td>
+            <tr class="border-b border-[#F5EDE0]/10">
+              <td class="py-4 pr-4 font-medium text-[#F5EDE0]">Délai de mise en place</td>
               <td class="py-4 px-4 text-[#B0A898]">1 à 3 mois</td>
               <td class="py-4 px-4 font-semibold text-primary">48 heures</td>
             </tr>
             <tr>
-              <td class="py-4 pr-4 font-medium text-white">Congés & arrêts</td>
+              <td class="py-4 pr-4 font-medium text-[#F5EDE0]">Congés & arrêts</td>
               <td class="py-4 px-4 text-[#B0A898]">5 semaines + imprévus</td>
               <td class="py-4 px-4 font-semibold text-primary">Jamais</td>
             </tr>
@@ -461,9 +480,9 @@
   <!-- TEMOIGNAGES -->
   <section class="py-20 px-4 section-darker">
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Ce que nos clients disent</h2>
+      <h2 class="text-3xl md:text-4xl font-bold text-[#F5EDE0] text-center mb-12">Ce que nos clients disent</h2>
       <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-8">
+        <div class="bg-[#F5EDE0]/5 border border-[#F5EDE0]/10 rounded-2xl p-8">
           <div class="flex gap-1 mb-4">
             <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
             <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
@@ -473,11 +492,11 @@
           </div>
           <p class="text-[#B0A898] mb-6 italic">"En 3 semaines, je ne passe plus mes soirées à répondre aux mêmes emails."</p>
           <div>
-            <p class="font-bold">Thomas R.</p>
+            <p class="font-bold text-[#F5EDE0]">Thomas R.</p>
             <p class="text-sm text-[#B0A898]">Artisan plombier, Lyon</p>
           </div>
         </div>
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-8">
+        <div class="bg-[#F5EDE0]/5 border border-[#F5EDE0]/10 rounded-2xl p-8">
           <div class="flex gap-1 mb-4">
             <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
             <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
@@ -487,11 +506,11 @@
           </div>
           <p class="text-[#B0A898] mb-6 italic">"J'ai économisé l'équivalent d'un mi-temps en 2 mois."</p>
           <div>
-            <p class="font-bold">Sandra M.</p>
+            <p class="font-bold text-[#F5EDE0]">Sandra M.</p>
             <p class="text-sm text-[#B0A898]">Coach, Bordeaux</p>
           </div>
         </div>
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-8">
+        <div class="bg-[#F5EDE0]/5 border border-[#F5EDE0]/10 rounded-2xl p-8">
           <div class="flex gap-1 mb-4">
             <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
             <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
@@ -501,7 +520,7 @@
           </div>
           <p class="text-[#B0A898] mb-6 italic">"Mes prospects reçoivent une réponse en moins d'une minute, même le dimanche."</p>
           <div>
-            <p class="font-bold">Karim B.</p>
+            <p class="font-bold text-[#F5EDE0]">Karim B.</p>
             <p class="text-sm text-[#B0A898]">Agent immobilier, Paris</p>
           </div>
         </div>
@@ -512,58 +531,58 @@
   <!-- FAQ -->
   <section id="faq" class="py-20 px-4 section-dark">
     <div class="max-w-3xl mx-auto">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Questions fréquentes</h2>
+      <h2 class="text-3xl md:text-4xl font-bold text-[#F5EDE0] text-center mb-12">Questions fréquentes</h2>
       <div class="space-y-4" id="faq-list">
-        <div class="border border-white/10 rounded-xl">
+        <div class="border border-[#F5EDE0]/10 rounded-xl">
           <button onclick="toggleFaq(this)" aria-expanded="false" class="w-full flex justify-between items-center p-5 text-left font-semibold hover:text-primary-light transition">
             <span>Fai-je besoin de compétences techniques ?</span>
             <svg class="w-5 h-5 transform transition-transform faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div class="faq-answer hidden px-5 pb-5 text-[#B0A898]">Non, on gère tout de A à Z. Vous utilisez l'outil, nous le configurons et le maintenons.</div>
         </div>
-        <div class="border border-white/10 rounded-xl">
+        <div class="border border-[#F5EDE0]/10 rounded-xl">
           <button onclick="toggleFaq(this)" aria-expanded="false" class="w-full flex justify-between items-center p-5 text-left font-semibold hover:text-primary-light transition">
             <span>Quel délai pour voir des résultats ?</span>
             <svg class="w-5 h-5 transform transition-transform faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div class="faq-answer hidden px-5 pb-5 text-[#B0A898]">Dès le premier mois. Votre agent IA est opérationnel en 48h.</div>
         </div>
-        <div class="border border-white/10 rounded-xl">
+        <div class="border border-[#F5EDE0]/10 rounded-xl">
           <button onclick="toggleFaq(this)" aria-expanded="false" class="w-full flex justify-between items-center p-5 text-left font-semibold hover:text-primary-light transition">
             <span>Puis-je arrêter à tout moment ?</span>
             <svg class="w-5 h-5 transform transition-transform faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div class="faq-answer hidden px-5 pb-5 text-[#B0A898]">Oui, toutes nos offres sont sans engagement.</div>
         </div>
-        <div class="border border-white/10 rounded-xl">
+        <div class="border border-[#F5EDE0]/10 rounded-xl">
           <button onclick="toggleFaq(this)" aria-expanded="false" class="w-full flex justify-between items-center p-5 text-left font-semibold hover:text-primary-light transition">
             <span>Mes données sont-elles sécurisées ?</span>
             <svg class="w-5 h-5 transform transition-transform faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div class="faq-answer hidden px-5 pb-5 text-[#B0A898]">Oui, hébergement en Europe, conformité RGPD.</div>
         </div>
-        <div class="border border-white/10 rounded-xl">
+        <div class="border border-[#F5EDE0]/10 rounded-xl">
           <button onclick="toggleFaq(this)" aria-expanded="false" class="w-full flex justify-between items-center p-5 text-left font-semibold hover:text-primary-light transition">
             <span>Comment choisir mon offre ?</span>
             <svg class="w-5 h-5 transform transition-transform faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div class="faq-answer hidden px-5 pb-5 text-[#B0A898]">L'audit gratuit de 30 minutes permet de définir ensemble la meilleure option.</div>
         </div>
-        <div class="border border-white/10 rounded-xl">
+        <div class="border border-[#F5EDE0]/10 rounded-xl">
           <button onclick="toggleFaq(this)" aria-expanded="false" class="w-full flex justify-between items-center p-5 text-left font-semibold hover:text-primary-light transition">
             <span>L'IA remplace-t-elle mes employés ?</span>
             <svg class="w-5 h-5 transform transition-transform faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div class="faq-answer hidden px-5 pb-5 text-[#B0A898]">Non, elle les libère des tâches répétitives pour qu'ils se concentrent sur la valeur.</div>
         </div>
-        <div class="border border-white/10 rounded-xl">
+        <div class="border border-[#F5EDE0]/10 rounded-xl">
           <button onclick="toggleFaq(this)" aria-expanded="false" class="w-full flex justify-between items-center p-5 text-left font-semibold hover:text-primary-light transition">
             <span>Est-ce compatible avec mes outils ?</span>
             <svg class="w-5 h-5 transform transition-transform faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div class="faq-answer hidden px-5 pb-5 text-[#B0A898]">Oui, nous intégrons CRM, agenda, WhatsApp, email et bien d'autres.</div>
         </div>
-        <div class="border border-white/10 rounded-xl">
+        <div class="border border-[#F5EDE0]/10 rounded-xl">
           <button onclick="toggleFaq(this)" aria-expanded="false" class="w-full flex justify-between items-center p-5 text-left font-semibold hover:text-primary-light transition">
             <span>Quelle différence avec ChatGPT ?</span>
             <svg class="w-5 h-5 transform transition-transform faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
@@ -578,7 +597,7 @@
   <section id="contact" class="py-20 px-4 section-darker">
     <div class="max-w-2xl mx-auto">
       <div class="text-center mb-10">
-        <h2 class="text-3xl md:text-4xl font-bold mb-3">Réservez votre audit gratuit</h2>
+        <h2 class="text-3xl md:text-4xl font-bold text-[#F5EDE0] mb-3">Réservez votre audit gratuit</h2>
         <p class="text-[#B0A898]">30 minutes pour identifier vos gains rapides. Sans engagement, sans jargon.</p>
       </div>
 
@@ -589,34 +608,34 @@
         <p class="text-[#B0A898]">Nous vous recontactons sous 24h pour planifier votre audit.</p>
       </div>
 
-      <form id="contact-form" class="bg-white/5 border border-white/10 rounded-2xl p-8 space-y-5" onsubmit="submitForm(event)">
+      <form id="contact-form" class="bg-[#F5EDE0]/5 border border-[#F5EDE0]/10 rounded-2xl p-8 space-y-5" onsubmit="submitForm(event)">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label for="firstName" class="block text-sm font-medium text-[#C8BDA8] mb-1">Prénom *</label>
-            <input type="text" id="firstName" name="firstName" placeholder="Jean" required class="w-full px-4 py-3 border border-white/20 rounded-lg bg-white/5 text-white placeholder-[#9A917E] focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition" />
+            <input type="text" id="firstName" name="firstName" placeholder="Jean" required class="w-full px-4 py-3 border border-[#F5EDE0]/20 rounded-lg bg-[#F5EDE0]/5 text-[#F5EDE0] placeholder-[#9A917E] focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition" />
           </div>
           <div>
             <label for="lastName" class="block text-sm font-medium text-[#C8BDA8] mb-1">Nom *</label>
-            <input type="text" id="lastName" name="lastName" placeholder="Dupont" required class="w-full px-4 py-3 border border-white/20 rounded-lg bg-white/5 text-white placeholder-[#9A917E] focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition" />
+            <input type="text" id="lastName" name="lastName" placeholder="Dupont" required class="w-full px-4 py-3 border border-[#F5EDE0]/20 rounded-lg bg-[#F5EDE0]/5 text-[#F5EDE0] placeholder-[#9A917E] focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition" />
           </div>
         </div>
         <div>
           <label for="company" class="block text-sm font-medium text-[#C8BDA8] mb-1">Entreprise</label>
-          <input type="text" id="company" name="company" placeholder="Nom de votre entreprise" class="w-full px-4 py-3 border border-white/20 rounded-lg bg-white/5 text-white placeholder-[#9A917E] focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition" />
+          <input type="text" id="company" name="company" placeholder="Nom de votre entreprise" class="w-full px-4 py-3 border border-[#F5EDE0]/20 rounded-lg bg-[#F5EDE0]/5 text-[#F5EDE0] placeholder-[#9A917E] focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition" />
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label for="email" class="block text-sm font-medium text-[#C8BDA8] mb-1">Email *</label>
-            <input type="email" id="email" name="email" placeholder="jean@exemple.fr" required class="w-full px-4 py-3 border border-white/20 rounded-lg bg-white/5 text-white placeholder-[#9A917E] focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition" />
+            <input type="email" id="email" name="email" placeholder="jean@exemple.fr" required class="w-full px-4 py-3 border border-[#F5EDE0]/20 rounded-lg bg-[#F5EDE0]/5 text-[#F5EDE0] placeholder-[#9A917E] focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition" />
           </div>
           <div>
             <label for="phone" class="block text-sm font-medium text-[#C8BDA8] mb-1">Téléphone</label>
-            <input type="tel" id="phone" name="phone" placeholder="06 12 34 56 78" class="w-full px-4 py-3 border border-white/20 rounded-lg bg-white/5 text-white placeholder-[#9A917E] focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition" />
+            <input type="tel" id="phone" name="phone" placeholder="06 12 34 56 78" class="w-full px-4 py-3 border border-[#F5EDE0]/20 rounded-lg bg-[#F5EDE0]/5 text-[#F5EDE0] placeholder-[#9A917E] focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition" />
           </div>
         </div>
         <div>
           <label for="activity" class="block text-sm font-medium text-[#C8BDA8] mb-1">Activité</label>
-          <select id="activity" name="activity" class="w-full px-4 py-3 border border-white/20 rounded-lg bg-white/5 text-white focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition">
+          <select id="activity" name="activity" class="w-full px-4 py-3 border border-[#F5EDE0]/20 rounded-lg bg-[#F5EDE0]/5 text-[#F5EDE0] focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition">
             <option value="">Sélectionnez votre activité</option>
             <option value="Commerçant">Commerçant</option>
             <option value="Coach & Consultant">Coach & Consultant</option>
@@ -628,8 +647,8 @@
         <div>
           <label for="message" class="block text-sm font-medium text-[#C8BDA8] mb-1">Message (optionnel)</label>
         </div>
-        <textarea id="message" name="message" placeholder="Décrivez brièvement votre besoin..." rows="4" class="w-full px-4 py-3 border border-white/20 rounded-lg bg-white/5 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition resize-none"></textarea>
-        <button type="submit" id="submit-btn" class="w-full bg-primary hover:bg-primary-dark text-white py-3.5 rounded-lg font-semibold transition shadow-lg shadow-primary/25">
+        <textarea id="message" name="message" placeholder="Décrivez brièvement votre besoin..." rows="4" class="w-full px-4 py-3 border border-[#F5EDE0]/20 rounded-lg bg-[#F5EDE0]/5 text-[#F5EDE0] placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition resize-none"></textarea>
+        <button type="submit" id="submit-btn" class="w-full bg-primary hover:bg-primary-dark text-[#F5EDE0] py-3.5 rounded-lg font-semibold transition shadow-lg shadow-primary/25">
           Réserver mon audit gratuit
         </button>
       </form>
@@ -653,14 +672,14 @@
   </section>
 
   <!-- WHATSAPP FLOATING BUTTON -->
-  <a href="https://wa.me/33650983972" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-110" aria-label="Contacter via WhatsApp">
+  <a href="https://wa.me/33650983972" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-[#F5EDE0] w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-110" aria-label="Contacter via WhatsApp">
     <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.627.616l4.584-1.196A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.239 0-4.308-.724-5.994-1.953l-.42-.307-2.725.711.726-2.651-.336-.436A9.956 9.956 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
   </a>
 
   </main>
 
   <!-- FOOTER -->
-  <footer class="bg-[#0E0E1A] text-white py-14 px-4 border-t border-white/10">
+  <footer class="bg-[#0E0E1A] text-[#F5EDE0] py-14 px-4 border-t border-[#F5EDE0]/10">
     <div class="max-w-6xl mx-auto">
       <div class="grid md:grid-cols-3 gap-10 mb-10">
         <div>
@@ -670,32 +689,45 @@
         <div>
           <h4 class="font-bold mb-4">Navigation</h4>
           <div class="space-y-2 text-sm text-[#B0A898]">
-            <a href="#services" class="block hover:text-white transition">Services</a>
-            <a href="#methode" class="block hover:text-white transition">Méthode</a>
-            <a href="#offres" class="block hover:text-white transition">Offres</a>
-            <a href="#faq" class="block hover:text-white transition">FAQ</a>
-            <a href="#contact" class="block hover:text-white transition">Contact</a>
+            <a href="#services" class="block hover:text-[#F5EDE0] transition">Services</a>
+            <a href="#methode" class="block hover:text-[#F5EDE0] transition">Méthode</a>
+            <a href="#offres" class="block hover:text-[#F5EDE0] transition">Offres</a>
+            <a href="#faq" class="block hover:text-[#F5EDE0] transition">FAQ</a>
+            <a href="#contact" class="block hover:text-[#F5EDE0] transition">Contact</a>
           </div>
         </div>
         <div>
           <h4 class="font-bold mb-4">Contact</h4>
           <div class="space-y-2 text-sm text-[#B0A898]">
-            <a href="mailto:contact@abemaagency.com" class="block hover:text-white transition">contact@abemaagency.com</a>
-            <a href="tel:+33650983972" class="block hover:text-white transition">+33 6 50 98 39 72</a>
+            <a href="mailto:contact@abemaagency.com" class="block hover:text-[#F5EDE0] transition">contact@abemaagency.com</a>
+            <a href="tel:+33650983972" class="block hover:text-[#F5EDE0] transition">+33 6 50 98 39 72</a>
           </div>
         </div>
       </div>
-      <div class="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center text-sm text-[#B0A898]">
+      <div class="border-t border-[#F5EDE0]/10 pt-6 flex flex-col md:flex-row justify-between items-center text-sm text-[#B0A898]">
         <p>&copy; 2026 ABEMA AGENCY. Tous droits réservés.</p>
         <div class="flex gap-4 mt-3 md:mt-0">
-          <a href="#" class="hover:text-white transition">Mentions légales</a>
-          <a href="#" class="hover:text-white transition">Politique de confidentialité</a>
+          <a href="#" class="hover:text-[#F5EDE0] transition">Mentions légales</a>
+          <a href="#" class="hover:text-[#F5EDE0] transition">Politique de confidentialité</a>
         </div>
       </div>
     </div>
   </footer>
 
   <script>
+    // Mobile nav
+    function toggleMobileNav() {
+      const panel = document.getElementById('mobile-nav');
+      const btn = document.getElementById('nav-toggle');
+      const isOpen = !panel.classList.contains('hidden');
+      panel.classList.toggle('hidden');
+      btn.setAttribute('aria-expanded', !isOpen);
+    }
+    function closeMobileNav() {
+      document.getElementById('mobile-nav').classList.add('hidden');
+      document.getElementById('nav-toggle').setAttribute('aria-expanded', 'false');
+    }
+
     // Role selector
     function selectRole(btn) {
       document.querySelectorAll('.role-btn').forEach(b => {
