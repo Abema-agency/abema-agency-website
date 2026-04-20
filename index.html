@@ -77,7 +77,7 @@
     p { max-width: 70ch; }
     h2 { font-size: clamp(1.75rem, 1rem + 2.5vw, 2.5rem); font-family: 'Bricolage Grotesque', sans-serif; }
     h3 { font-family: 'Bricolage Grotesque', sans-serif; }
-    .card-hover { transition: all 0.3s ease; }
+    .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
     .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(200,164,78,0.15); }
     .badge-popular { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); }
     body { background-color: #1A1A2E; color: #E0D9CC; }
@@ -124,6 +124,20 @@
     /* Font overrides */
     .font-display { font-family: 'Bricolage Grotesque', sans-serif; }
     .font-body { font-family: 'Figtree', sans-serif; }
+
+    /* Respect reduced-motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      * { scroll-behavior: auto !important; }
+      #hero-canvas { display: none; }
+      .hero-ring { display: none; }
+      .scroll-dot { animation: none !important; }
+    }
   </style>
 </head>
 <body class="bg-foreground text-[#C8BDA8] antialiased">
@@ -139,8 +153,8 @@
   <!-- NAV -->
   <nav class="sticky top-0 z-50 bg-foreground/95 backdrop-blur-md border-b border-[#F5EDE0]/10">
     <div class="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
-      <a href="#" class="flex items-center gap-2">
-        <img src="logo.png" alt="ABEMA AGENCY" class="h-8" />
+      <a href="/" class="flex items-center gap-2">
+        <img src="logo.png" alt="ABEMA AGENCY" class="h-8" width="128" height="32" />
       </a>
       <!-- Desktop nav -->
       <div class="hidden md:flex items-center gap-8 text-sm font-medium text-[#C8BDA8]">
@@ -175,10 +189,10 @@
 
   <!-- HERO -->
   <section class="hero-wrap" id="hero">
-    <canvas id="hero-canvas"></canvas>
-    <div class="hero-ring hero-ring-1"></div>
-    <div class="hero-ring hero-ring-2"></div>
-    <div class="hero-ring hero-ring-3"></div>
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+    <div class="hero-ring hero-ring-1" aria-hidden="true"></div>
+    <div class="hero-ring hero-ring-2" aria-hidden="true"></div>
+    <div class="hero-ring hero-ring-3" aria-hidden="true"></div>
 
     <div class="hero-content max-w-5xl mx-auto px-6 py-32 text-center">
       <!-- Badge -->
@@ -200,7 +214,7 @@
       <!-- Subtitle -->
       <p class="reveal reveal-d3 font-body text-lg md:text-xl text-[#B0A898] max-w-2xl mx-auto mb-10 leading-relaxed">
         Agents IA sur mesure — réponses clients, devis, relances, prospection.<br class="hidden md:block" />
-        <span class="text-[#D8CEBD]">Opérationnel en 48h. Sans compétence technique.</span>
+        <span class="text-[#D8CEBD]">Résultats dès le premier mois. Sans compétence technique.</span>
       </p>
 
       <!-- CTAs -->
@@ -225,7 +239,7 @@
           <button onclick="selectRole(this)" data-text="Réceptionniste IA qui décroche tous vos appels et qualifie vos prospects." class="role-btn font-body px-5 py-2.5 rounded-full border border-[#F5EDE0]/10 text-sm text-[#B0A898] hover:border-primary/60 hover:text-primary-light hover:bg-primary/5 transition-all duration-300">Agent immobilier</button>
           <button onclick="selectRole(this)" data-text="Dites-nous votre activité, on identifie vos gains en 30 minutes." class="role-btn font-body px-5 py-2.5 rounded-full border border-[#F5EDE0]/10 text-sm text-[#B0A898] hover:border-primary/60 hover:text-primary-light hover:bg-primary/5 transition-all duration-300">Autre entreprise</button>
         </div>
-        <p id="role-text" class="mt-4 font-body text-primary-light/80 text-sm h-6 transition-all duration-500"></p>
+        <p id="role-text" aria-live="polite" aria-atomic="true" class="mt-4 font-body text-primary-light/80 text-sm h-6 transition-all duration-500"></p>
       </div>
 
       <!-- Stats -->
@@ -252,7 +266,7 @@
       <div class="reveal reveal-d6 flex flex-wrap justify-center gap-8 mt-12 font-body text-xs tracking-widest uppercase text-[#9A917E]">
         <span class="flex items-center gap-2">
           <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
-          48h de mise en place
+          Sans engagement
         </span>
         <span class="flex items-center gap-2">
           <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
@@ -367,28 +381,28 @@
       </div>
       <div class="space-y-8">
         <div class="flex gap-6 items-start">
-          <div class="flex-shrink-0 w-14 h-14 bg-primary text-[#F5EDE0] rounded-2xl flex items-center justify-center text-xl font-bold">01</div>
+          <div class="flex-shrink-0 w-14 h-14 bg-primary text-foreground rounded-2xl flex items-center justify-center text-xl font-bold">01</div>
           <div>
             <h3 class="text-xl font-bold mb-1 text-[#F5EDE0]">Audit offert</h3>
             <p class="text-[#B0A898]">30 minutes pour identifier vos gains rapides.</p>
           </div>
         </div>
         <div class="flex gap-6 items-start">
-          <div class="flex-shrink-0 w-14 h-14 bg-primary text-[#F5EDE0] rounded-2xl flex items-center justify-center text-xl font-bold">02</div>
+          <div class="flex-shrink-0 w-14 h-14 bg-primary text-foreground rounded-2xl flex items-center justify-center text-xl font-bold">02</div>
           <div>
             <h3 class="text-xl font-bold mb-1 text-[#F5EDE0]">Proposition sur mesure</h3>
             <p class="text-[#B0A898]">Solution adaptée à votre activité et budget.</p>
           </div>
         </div>
         <div class="flex gap-6 items-start">
-          <div class="flex-shrink-0 w-14 h-14 bg-primary text-[#F5EDE0] rounded-2xl flex items-center justify-center text-xl font-bold">03</div>
+          <div class="flex-shrink-0 w-14 h-14 bg-primary text-foreground rounded-2xl flex items-center justify-center text-xl font-bold">03</div>
           <div>
             <h3 class="text-xl font-bold mb-1 text-[#F5EDE0]">Déploiement en 48h</h3>
             <p class="text-[#B0A898]">Votre agent IA est opérationnel en 2 jours.</p>
           </div>
         </div>
         <div class="flex gap-6 items-start">
-          <div class="flex-shrink-0 w-14 h-14 bg-primary text-[#F5EDE0] rounded-2xl flex items-center justify-center text-xl font-bold">04</div>
+          <div class="flex-shrink-0 w-14 h-14 bg-primary text-foreground rounded-2xl flex items-center justify-center text-xl font-bold">04</div>
           <div>
             <h3 class="text-xl font-bold mb-1 text-[#F5EDE0]">Accompagnement continu</h3>
             <p class="text-[#B0A898]">Suivi, optimisation et support inclus.</p>
@@ -424,7 +438,7 @@
         </div>
         <!-- Croissance -->
         <div class="border-2 border-primary/60 rounded-2xl p-8 bg-[#F5EDE0]/5 card-hover relative shadow-xl">
-          <span class="badge-popular bg-primary text-[#F5EDE0] text-xs font-bold px-4 py-1 rounded-full">Le plus choisi</span>
+          <span class="badge-popular bg-primary text-foreground text-xs font-bold px-4 py-1 rounded-full">Le plus choisi</span>
           <h3 class="text-xl font-bold mb-1 text-[#F5EDE0]">Croissance</h3>
           <div class="flex items-baseline gap-1 mb-6">
             <span class="text-4xl font-extrabold text-primary">197</span>
@@ -439,7 +453,7 @@
             <li class="flex items-center gap-2 text-[#B0A898]"><svg class="w-5 h-5 text-primary-light flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>ROI moyen 3 à 5× en 6 mois</li>
           </ul>
           <p class="text-xs text-[#B0A898] mb-4">Mise en place à partir de 990 €</p>
-          <a href="#contact" class="block text-center bg-primary hover:bg-primary-dark text-[#F5EDE0] px-6 py-3 rounded-lg font-semibold transition w-full">Réserver mon audit</a>
+          <a href="#contact" class="block text-center bg-primary hover:bg-primary-dark text-foreground px-6 py-3 rounded-lg font-semibold transition w-full">Réserver mon audit</a>
         </div>
         <!-- Sur-mesure -->
         <div class="bg-[#F5EDE0]/5 border border-[#F5EDE0]/10 rounded-2xl p-8 card-hover">
@@ -486,29 +500,29 @@
         <table class="w-full text-left border-collapse">
           <thead>
             <tr class="border-b border-[#F5EDE0]/10">
-              <th class="py-4 pr-4 text-[#B0A898] font-medium"></th>
-              <th class="py-4 px-4 text-[#B0A898] font-medium">Salarié / prestataire</th>
-              <th class="py-4 px-4 text-primary font-bold">Agent IA ABEMA</th>
+              <th scope="col" class="py-4 pr-4 text-[#B0A898] font-medium"></th>
+              <th scope="col" class="py-4 px-4 text-[#B0A898] font-medium">Salarié / prestataire</th>
+              <th scope="col" class="py-4 px-4 text-primary font-bold">Agent IA ABEMA</th>
             </tr>
           </thead>
           <tbody>
             <tr class="border-b border-[#F5EDE0]/10">
-              <td class="py-4 pr-4 font-medium text-[#F5EDE0]">Coût mensuel</td>
+              <th scope="row" class="py-4 pr-4 font-medium text-[#F5EDE0]">Coût mensuel</th>
               <td class="py-4 px-4 text-[#B0A898]">1 800 € minimum</td>
               <td class="py-4 px-4 font-semibold text-primary">À partir de 79 €/mois</td>
             </tr>
             <tr class="border-b border-[#F5EDE0]/10">
-              <td class="py-4 pr-4 font-medium text-[#F5EDE0]">Disponibilité</td>
+              <th scope="row" class="py-4 pr-4 font-medium text-[#F5EDE0]">Disponibilité</th>
               <td class="py-4 px-4 text-[#B0A898]">35h/semaine</td>
               <td class="py-4 px-4 font-semibold text-primary">24h/24, 7j/7</td>
             </tr>
             <tr class="border-b border-[#F5EDE0]/10">
-              <td class="py-4 pr-4 font-medium text-[#F5EDE0]">Délai de mise en place</td>
+              <th scope="row" class="py-4 pr-4 font-medium text-[#F5EDE0]">Délai de mise en place</th>
               <td class="py-4 px-4 text-[#B0A898]">1 à 3 mois</td>
               <td class="py-4 px-4 font-semibold text-primary">48 heures</td>
             </tr>
             <tr>
-              <td class="py-4 pr-4 font-medium text-[#F5EDE0]">Congés & arrêts</td>
+              <th scope="row" class="py-4 pr-4 font-medium text-[#F5EDE0]">Congés & arrêts</th>
               <td class="py-4 px-4 text-[#B0A898]">5 semaines + imprévus</td>
               <td class="py-4 px-4 font-semibold text-primary">Jamais</td>
             </tr>
@@ -643,7 +657,7 @@
         <div class="md:col-span-2 flex flex-col items-center md:items-start gap-6">
           <!-- Photo placeholder -->
           <div class="w-48 h-48 md:w-56 md:h-56 rounded-2xl bg-[#F5EDE0]/5 border border-[#F5EDE0]/10 overflow-hidden flex items-center justify-center">
-            <img src="founder.jpg" alt="Abdallah Ait Essaghir, fondateur d'ABEMA AGENCY" class="w-full h-full object-cover" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'font-display text-6xl font-extrabold text-primary/30\'>AA</span>'" />
+            <img src="founder.jpg" alt="Abdallah Ait Essaghir, fondateur d'ABEMA AGENCY" class="w-full h-full object-cover" loading="lazy" width="224" height="224" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'font-display text-6xl font-extrabold text-primary/30\'>AA</span>'" />
           </div>
           <!-- Key facts -->
           <div class="flex flex-col gap-3 w-full">
@@ -705,7 +719,7 @@
       <div class="space-y-4" id="faq-list">
         <div class="border border-[#F5EDE0]/10 rounded-xl">
           <button onclick="toggleFaq(this)" aria-expanded="false" class="w-full flex justify-between items-center p-5 text-left font-semibold hover:text-primary-light transition">
-            <span>Fai-je besoin de compétences techniques ?</span>
+            <span>Ai-je besoin de compétences techniques ?</span>
             <svg class="w-5 h-5 transform transition-transform faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div class="faq-answer hidden px-5 pb-5 text-[#B0A898]">Non, on gère tout de A à Z. Vous utilisez l'outil, nous le configurons et le maintenons.</div>
@@ -818,7 +832,7 @@
           <label for="message" class="block text-sm font-medium text-[#C8BDA8] mb-1">Message (optionnel)</label>
         </div>
         <textarea id="message" name="message" placeholder="Décrivez brièvement votre besoin..." rows="4" class="w-full px-4 py-3 border border-[#F5EDE0]/20 rounded-lg bg-[#F5EDE0]/5 text-[#F5EDE0] placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition resize-none"></textarea>
-        <button type="submit" id="submit-btn" class="w-full bg-primary hover:bg-primary-dark text-[#F5EDE0] py-3.5 rounded-lg font-semibold transition shadow-lg shadow-primary/25">
+        <button type="submit" id="submit-btn" class="w-full bg-primary hover:bg-primary-dark text-foreground py-3.5 rounded-lg font-semibold transition shadow-lg shadow-primary/25">
           Réserver mon audit gratuit
         </button>
       </form>
@@ -959,6 +973,9 @@
 
     // ── Gold particle constellation canvas ──
     (function() {
+      // Respect prefers-reduced-motion
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
       const canvas = document.getElementById('hero-canvas');
       if (!canvas) return;
       const ctx = canvas.getContext('2d');
@@ -1037,11 +1054,20 @@
         }
       }
 
+      // Pause when hero is not visible (save CPU)
+      let rafId = null;
       function loop() {
         update();
         draw();
-        requestAnimationFrame(loop);
+        rafId = requestAnimationFrame(loop);
       }
+      function startLoop() { if (!rafId) loop(); }
+      function stopLoop() { if (rafId) { cancelAnimationFrame(rafId); rafId = null; } }
+
+      const heroObs = new IntersectionObserver(entries => {
+        entries[0].isIntersecting ? startLoop() : stopLoop();
+      }, { threshold: 0 });
+      heroObs.observe(canvas.parentElement);
 
       canvas.parentElement.addEventListener('mousemove', e => {
         const rect = canvas.getBoundingClientRect();
@@ -1056,8 +1082,10 @@
       window.addEventListener('resize', () => { resize(); createParticles(); });
       resize();
       createParticles();
-      loop();
+      // loop() is now started by IntersectionObserver
     })();
   </script>
+  <script src="https://elevenlabs.io/convai-widget/index.js" async></script>
+  <elevenlabs-convai agent-id="agent_2101kpknnbb9e7vv171xzcytrp9h"></elevenlabs-convai>
 </body>
 </html>
