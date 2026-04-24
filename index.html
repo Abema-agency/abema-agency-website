@@ -50,6 +50,8 @@
   }
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Figtree:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -63,6 +65,8 @@
             muted: '#F5F3EE',
             border: '#E0D9CC',
             background: '#ffffff',
+            amber: '#F59E0B',
+            'amber-dark': '#D97706',
             // Neutral text palette
             cream: '#F5EDE0',   // bright text, near-white
             sand: '#C8BDA8',    // default body text
@@ -110,6 +114,20 @@
     .reveal-d5 { animation-delay:0.9s; }
     .reveal-d6 { animation-delay:1.1s; }
     @keyframes revealUp { to { opacity:1; transform:translateY(0); } }
+
+    /* 3D card hover for services */
+    .card-3d { transition: transform 0.4s ease, box-shadow 0.4s ease; }
+    .card-3d:hover { transform: perspective(900px) rotateX(2deg) rotateY(-3deg) translateZ(10px) scale(1.01); box-shadow: 0 28px 56px rgba(245,158,11,0.12); }
+
+    /* Mobile sticky CTA — hidden on desktop */
+    #sticky-cta { display: none; }
+    @media (max-width: 767px) { #sticky-cta { display: flex; } }
+
+    /* Role rotator */
+    #role-rotator { display: inline-block; min-width: 6ch; }
+
+    /* Hero counter */
+    #hero-counter { color: #F59E0B; }
 
     /* Gold accent heading */
     .gold-accent { color: #C8A44E; }
@@ -176,7 +194,7 @@
         <span class="block w-6 h-0.5 bg-sand transition-all duration-300 nav-line-2"></span>
         <span class="block w-4 h-0.5 bg-sand transition-all duration-300 nav-line-3"></span>
       </button>
-      <a href="#contact" class="hidden md:inline-flex bg-primary hover:bg-primary-dark text-foreground px-5 py-2 rounded-lg text-sm font-semibold transition">Audit gratuit</a>
+      <a href="#contact" class="hidden md:inline-flex text-foreground px-5 py-2 rounded-lg text-sm font-semibold transition hover:opacity-90" style="background:#F59E0B">Audit gratuit</a>
     </div>
     <!-- Mobile nav panel -->
     <div id="mobile-nav" class="md:hidden hidden border-t border-cream/10 bg-foreground/98 backdrop-blur-md">
@@ -212,9 +230,14 @@
       <!-- Heading -->
       <h1 class="reveal reveal-d2 font-display font-extrabold text-5xl md:text-7xl lg:text-8xl leading-[1.05] tracking-tight mb-8">
         <span class="block text-cream">Vos tâches répétitives</span>
-        <span class="block gold-accent mt-2">vous coûtent 12h/semaine.</span>
+        <span class="block mt-2" style="color:#F59E0B">vous coûtent <span id="hero-counter">0</span>h/semaine.</span>
         <span class="block text-cream mt-2">Reprenez-les.</span>
       </h1>
+
+      <!-- Rotating role label -->
+      <div class="reveal reveal-d2 text-center -mt-2 mb-8">
+        <span class="font-body text-sm text-stone">Solution pour les </span><span id="role-rotator" class="font-body text-sm font-semibold" style="color:#F59E0B">Artisans</span>
+      </div>
 
       <!-- Subtitle -->
       <p class="reveal reveal-d3 font-body text-lg md:text-xl text-stone max-w-2xl mx-auto mb-10 leading-relaxed">
@@ -224,7 +247,7 @@
 
       <!-- CTAs -->
       <div class="reveal reveal-d4 flex flex-col sm:flex-row gap-4 justify-center mb-16">
-        <a href="#contact" class="btn-shine bg-gradient-to-r from-primary to-primary-light text-foreground px-10 py-4 rounded-xl text-base font-display font-bold tracking-wide transition-all duration-300 hover:shadow-[0_0_40px_rgba(200,164,78,0.4)] hover:scale-105">
+        <a href="#contact" class="btn-shine text-foreground px-10 py-4 rounded-xl text-base font-display font-bold tracking-wide transition-all duration-300 hover:shadow-[0_0_40px_rgba(245,158,11,0.45)] hover:scale-105" style="background:linear-gradient(135deg,#F59E0B,#FBBF24)">
           Réserver mon audit offert
         </a>
         <a href="#offres" class="group border border-cream/15 bg-cream/5 text-cream px-10 py-4 rounded-xl text-base font-display font-semibold transition-all duration-300 hover:border-primary/60 hover:bg-primary/5">
@@ -250,19 +273,19 @@
       <!-- Stats -->
       <div class="reveal reveal-d6 grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 max-w-3xl mx-auto">
         <div class="text-center group">
-          <div class="font-display text-4xl font-extrabold text-primary-light stat-glow transition-all group-hover:scale-110 duration-300" data-count="12">0h</div>
+          <div class="font-display text-4xl font-extrabold stat-glow transition-all group-hover:scale-110 duration-300" style="color:#F59E0B" data-count="12" data-suffix="h">0h</div>
           <div class="font-body text-xs tracking-widest uppercase text-clay mt-2">économisées / sem.</div>
         </div>
         <div class="text-center group">
-          <div class="font-display text-4xl font-extrabold text-primary-light stat-glow transition-all group-hover:scale-110 duration-300">3&times;</div>
+          <div class="font-display text-4xl font-extrabold stat-glow transition-all group-hover:scale-110 duration-300" style="color:#F59E0B" data-count="3" data-suffix="×">0×</div>
           <div class="font-body text-xs tracking-widest uppercase text-clay mt-2">réactivité client</div>
         </div>
         <div class="text-center group">
-          <div class="font-display text-4xl font-extrabold text-primary-light stat-glow transition-all group-hover:scale-110 duration-300">48h</div>
+          <div class="font-display text-4xl font-extrabold stat-glow transition-all group-hover:scale-110 duration-300" style="color:#F59E0B" data-count="48" data-suffix="h">0h</div>
           <div class="font-body text-xs tracking-widest uppercase text-clay mt-2">mise en place</div>
         </div>
         <div class="text-center group">
-          <div class="font-display text-4xl font-extrabold text-primary-light stat-glow transition-all group-hover:scale-110 duration-300">97%</div>
+          <div class="font-display text-4xl font-extrabold stat-glow transition-all group-hover:scale-110 duration-300" style="color:#F59E0B" data-count="97" data-suffix="%">0%</div>
           <div class="font-body text-xs tracking-widest uppercase text-clay mt-2">satisfaction</div>
         </div>
       </div>
@@ -344,25 +367,25 @@
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Featured service -->
-        <div class="lg:col-span-2 bg-primary/5 border border-primary/20 rounded-2xl p-10 card-hover relative">
+        <div class="lg:col-span-2 bg-primary/5 border border-primary/20 rounded-2xl p-10 card-hover card-3d relative">
           <span class="inline-block bg-primary/20 text-primary-light text-xs font-semibold px-3 py-1 rounded-full mb-5">Le plus demandé</span>
           <h3 class="text-2xl font-bold mb-3 text-cream">Agent IA personnalisé</h3>
           <p class="text-stone max-w-lg mb-6">Répond à vos clients 24h/24 dans votre ton, qualifie vos prospects et alimente votre CRM automatiquement.</p>
           <a href="#contact" class="text-primary-light font-semibold text-sm hover:text-primary transition">Voir comment &rarr;</a>
         </div>
-        <div class="bg-cream/5 border border-cream/10 rounded-2xl p-8 card-hover">
+        <div class="bg-cream/5 border border-cream/10 rounded-2xl p-8 card-hover card-3d">
           <h3 class="text-lg font-bold mb-2 text-cream">Automatisation de processus</h3>
           <p class="text-stone text-sm">Devis, factures, relances, rapports generés automatiquement.</p>
         </div>
-        <div class="bg-cream/5 border border-cream/10 rounded-2xl p-8 card-hover">
+        <div class="bg-cream/5 border border-cream/10 rounded-2xl p-8 card-hover card-3d">
           <h3 class="text-lg font-bold mb-2 text-cream">Chatbot vente & SAV</h3>
           <p class="text-stone text-sm">Sur votre site ou WhatsApp, vend et fidélise même pendant vos congés.</p>
         </div>
-        <div class="bg-cream/5 border border-cream/10 rounded-2xl p-8 card-hover">
+        <div class="bg-cream/5 border border-cream/10 rounded-2xl p-8 card-hover card-3d">
           <h3 class="text-lg font-bold mb-2 text-cream">Génération de documents</h3>
           <p class="text-stone text-sm">Contrats, propositions, newsletters en quelques secondes.</p>
         </div>
-        <div class="bg-cream/5 border border-cream/10 rounded-2xl p-8 card-hover">
+        <div class="bg-cream/5 border border-cream/10 rounded-2xl p-8 card-hover card-3d">
           <h3 class="text-lg font-bold mb-2 text-cream">Marketing automatisé</h3>
           <p class="text-stone text-sm">Emails, posts réseaux, CRM — tout s'enchaîne sans effort quotidien.</p>
         </div>
@@ -860,6 +883,12 @@
     </div>
   </section>
 
+  <!-- MOBILE STICKY CTA -->
+  <div id="sticky-cta" class="fixed bottom-0 left-0 right-0 z-40 items-center justify-between px-5 py-3.5 border-t border-amber/20" style="background:#F59E0B;padding-bottom:max(12px,env(safe-area-inset-bottom))">
+    <span class="font-display font-bold text-sm text-foreground">Audit gratuit — Places limitées</span>
+    <a href="#contact" class="font-display font-bold text-xs px-4 py-2 rounded-lg transition" style="background:#1A1A2E;color:#F59E0B">Réserver →</a>
+  </div>
+
   <!-- WHATSAPP FLOATING BUTTON -->
   <a href="https://wa.me/33650983972" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-cream w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-110" aria-label="Contacter via WhatsApp">
     <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.627.616l4.584-1.196A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.239 0-4.308-.724-5.994-1.953l-.42-.307-2.725.711.726-2.651-.336-.436A9.956 9.956 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
@@ -963,7 +992,7 @@
       };
 
       try {
-        await fetch('https://n8n-formation.isao.io/webhook/lead-qualification', {
+        await fetch(window.ABEMA_CONFIG.n8n.leadWebhook, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data),
@@ -1090,7 +1119,74 @@
       // loop() is now started by IntersectionObserver
     })();
   </script>
+  <!-- GSAP animations -->
+  <script>
+  (function() {
+    if (typeof gsap === 'undefined') return;
+    gsap.registerPlugin(ScrollTrigger);
+
+    // 1. Hero counter 0 → 12
+    const heroCounter = document.getElementById('hero-counter');
+    if (heroCounter) {
+      const obj = { val: 0 };
+      gsap.to(obj, {
+        val: 12,
+        duration: 2,
+        ease: 'power2.out',
+        delay: 0.4,
+        onUpdate() { heroCounter.textContent = Math.round(obj.val); }
+      });
+    }
+
+    // 2. Rotating role text every 3s
+    const roles = ['Artisans', 'Commerçants', 'Coachs', 'Agents immobiliers'];
+    let roleIdx = 0;
+    const rotator = document.getElementById('role-rotator');
+    if (rotator) {
+      setInterval(() => {
+        gsap.to(rotator, { opacity: 0, y: -8, duration: 0.25, onComplete() {
+          roleIdx = (roleIdx + 1) % roles.length;
+          rotator.textContent = roles[roleIdx];
+          gsap.fromTo(rotator, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.3 });
+        }});
+      }, 3000);
+    }
+
+    // 3. Stat counters on scroll
+    document.querySelectorAll('[data-count]').forEach(el => {
+      const target = parseInt(el.dataset.count, 10);
+      const suffix = el.dataset.suffix || '';
+      const obj = { val: 0 };
+      gsap.to(obj, {
+        val: target,
+        duration: 1.6,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true },
+        onUpdate() { el.textContent = Math.round(obj.val) + suffix; }
+      });
+    });
+
+    // 4. Section scroll reveals (skip hero, it has its own CSS animations)
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    gsap.utils.toArray('section:not(#hero), footer').forEach(el => {
+      gsap.from(el, {
+        opacity: 0,
+        y: 45,
+        duration: 0.75,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true }
+      });
+    });
+  })();
+  </script>
+  <script src="config.js"></script>
   <script src="https://elevenlabs.io/convai-widget/index.js" async></script>
-  <elevenlabs-convai agent-id="agent_2101kpknnbb9e7vv171xzcytrp9h" aria-label="Assistant vocal ABEMA — parlez avec notre IA"></elevenlabs-convai>
+  <elevenlabs-convai aria-label="Assistant vocal ABEMA — parlez avec notre IA"></elevenlabs-convai>
+  <script>
+    document.querySelector('elevenlabs-convai').setAttribute(
+      'agent-id',
+      window.ABEMA_CONFIG.elevenlabs.agentId
+    );
+  </script>
 </body>
 </html>
