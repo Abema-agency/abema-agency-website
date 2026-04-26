@@ -8,14 +8,14 @@
   <meta name="keywords" content="agent IA pour TPE, automatisation IA entreprise, chatbot TPE France, agent IA artisan, automatisation PME, chatbot WhatsApp entreprise" />
   <meta name="author" content="ABEMA AGENCY" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://abema-agency-website.vercel.app/" />
+  <link rel="canonical" href="https://www.abemaagency.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Agent IA pour TPE | Automatisation sur mesure - ABEMA AGENCY" />
   <meta property="og:description" content="Agents IA et chatbots sur mesure pour les TPE. R&eacute;ponses clients 24h/24, devis automatiques, relances. Op&eacute;rationnel en 48h. Audit gratuit." />
-  <meta property="og:url" content="https://abema-agency-website.vercel.app/" />
+  <meta property="og:url" content="https://www.abemaagency.com/" />
   <meta property="og:site_name" content="ABEMA AGENCY" />
   <meta property="og:locale" content="fr_FR" />
-  <meta property="og:image" content="https://abema-agency-website.vercel.app/logo.png" />
+  <meta property="og:image" content="https://www.abemaagency.com/logo.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Agent IA pour TPE | ABEMA AGENCY" />
   <meta name="twitter:description" content="Agents IA et chatbots sur mesure pour les TPE en France. Op&eacute;rationnel en 48h, d&egrave;s 79&euro;/mois." />
@@ -23,30 +23,115 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "ABEMA AGENCY",
-    "description": "Agents IA et automatisations sur mesure pour les TPE en France. Chatbot, qualification de prospects, automatisation de processus.",
-    "url": "https://abema-agency-website.vercel.app/",
-    "logo": "https://abema-agency-website.vercel.app/logo.png",
-    "telephone": "+33650983972",
-    "email": "contact@abemaagency.com",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "25 Rue de Rouvroy",
-      "addressLocality": "Mericourt",
-      "postalCode": "62680",
-      "addressCountry": "FR"
-    },
-    "founder": { "@type": "Person", "name": "Abdallah Ait Essaghir" },
-    "areaServed": "FR",
-    "priceRange": "79-249 EUR/mois",
-    "serviceType": ["Agent IA", "Chatbot", "Automatisation IA", "Automatisation entreprise"]
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://www.abemaagency.com/#organization",
+        "name": "ABEMA AGENCY",
+        "description": "Agents IA et automatisations sur mesure pour les TPE en France. Réponses clients 24h/24, devis automatiques, relances impayées. Opérationnel en 48h.",
+        "url": "https://www.abemaagency.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.abemaagency.com/logo.png"
+        },
+        "telephone": "+33650983972",
+        "email": "contact@abemaagency.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "25 Rue de Rouvroy",
+          "addressLocality": "Mericourt",
+          "postalCode": "62680",
+          "addressCountry": "FR"
+        },
+        "founder": {
+          "@type": "Person",
+          "name": "Abdallah Ait Essaghir"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "FR"
+        },
+        "priceRange": "79–249 €/mois",
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Offres ABEMA AGENCY",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "@id": "https://www.abemaagency.com/#offre-starter",
+              "name": "Offre Starter",
+              "description": "Agent IA de réponse client sur 1 canal, qualification automatique des prospects, tableau de bord de suivi.",
+              "price": "79",
+              "priceCurrency": "EUR",
+              "priceSpecification": {
+                "@type": "RecurringCharge",
+                "price": "79",
+                "priceCurrency": "EUR",
+                "billingDuration": "P1M"
+              },
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Agent IA Starter",
+                "serviceType": "Automatisation IA pour TPE",
+                "provider": { "@id": "https://www.abemaagency.com/#organization" }
+              }
+            },
+            {
+              "@type": "Offer",
+              "@id": "https://www.abemaagency.com/#offre-croissance",
+              "name": "Offre Croissance",
+              "description": "Agent IA multicanal (WhatsApp, e-mail, SMS), devis automatiques, relances impayées, prise de RDV automatisée. Le plus populaire.",
+              "price": "149",
+              "priceCurrency": "EUR",
+              "priceSpecification": {
+                "@type": "RecurringCharge",
+                "price": "149",
+                "priceCurrency": "EUR",
+                "billingDuration": "P1M"
+              },
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Agent IA Croissance",
+                "serviceType": "Automatisation IA pour TPE",
+                "provider": { "@id": "https://www.abemaagency.com/#organization" }
+              }
+            },
+            {
+              "@type": "Offer",
+              "@id": "https://www.abemaagency.com/#offre-scale",
+              "name": "Offre Scale",
+              "description": "Tous les services Croissance + workflows N8N sur mesure, intégrations CRM avancées, reporting hebdomadaire automatisé, support prioritaire.",
+              "price": "249",
+              "priceCurrency": "EUR",
+              "priceSpecification": {
+                "@type": "RecurringCharge",
+                "price": "249",
+                "priceCurrency": "EUR",
+                "billingDuration": "P1M"
+              },
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Agent IA Scale",
+                "serviceType": "Automatisation IA pour TPE",
+                "provider": { "@id": "https://www.abemaagency.com/#organization" }
+              }
+            }
+          ]
+        }
+      }
+    ]
   }
   </script>
 
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;600;700;800;900&family=Mulish:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -138,6 +223,8 @@
     .scroll-dot { animation: scrollDrift 2s cubic-bezier(0.45, 0, 0.15, 1) infinite; }
     @keyframes scrollDrift { 0%, 100% { transform: translateY(0); opacity: 0.3; } 50% { transform: translateY(6px); opacity: 1; } }
     .stat-glow { text-shadow: 0 2px 18px rgba(245,158,11,0.30); }
+    .stat-reveal { opacity:0; transform:translateY(22px); transition:opacity .55s ease, transform .55s cubic-bezier(.22,1,.36,1); }
+    .stat-reveal.visible { opacity:1; transform:translateY(0); }
     .btn-shine { position:relative; overflow:hidden; }
     .btn-shine::after { content:''; position:absolute; top:0; left:-100%; width:60%; height:100%; background:linear-gradient(90deg,transparent,rgba(255,255,255,0.20),transparent); transition:0.6s; }
     .btn-shine:hover::after { left:120%; }
@@ -146,6 +233,11 @@
 
     /* Pricing recommended glow */
     .pricing-star { box-shadow: 0 0 0 1px rgba(245,158,11,0.5), 0 8px 32px rgba(245,158,11,0.15); }
+
+    /* Dropdown secteurs */
+    .dropdown-menu { display: none; }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
 
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
@@ -175,6 +267,20 @@
         <a href="#services" class="hover:text-primary transition-colors">Services</a>
         <a href="#methode"  class="hover:text-primary transition-colors">Méthode</a>
         <a href="#offres"   class="hover:text-primary transition-colors">Offres</a>
+        <a href="/blog/"    class="hover:text-primary transition-colors">Blog</a>
+        <!-- Dropdown Par secteur -->
+        <div class="nav-dropdown relative">
+          <button class="flex items-center gap-1 hover:text-primary transition-colors focus:outline-none" aria-haspopup="true">
+            Par secteur
+            <svg class="w-3 h-3 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="dropdown-menu absolute top-full left-0 mt-2 w-52 rounded-xl py-2 z-50" style="background:rgba(10,10,15,0.98);border:1px solid rgba(240,235,224,0.10);box-shadow:0 8px 32px rgba(0,0,0,0.5)">
+            <a href="/secteurs/artisan.html"          class="block px-4 py-2.5 text-sm text-sand hover:text-primary hover:bg-primary/5 transition font-body">Artisans</a>
+            <a href="/secteurs/agent-immobilier.html" class="block px-4 py-2.5 text-sm text-sand hover:text-primary hover:bg-primary/5 transition font-body">Agents immobiliers</a>
+            <a href="/secteurs/coach-consultant.html" class="block px-4 py-2.5 text-sm text-sand hover:text-primary hover:bg-primary/5 transition font-body">Coachs &amp; Consultants</a>
+            <a href="/secteurs/commercant.html"       class="block px-4 py-2.5 text-sm text-sand hover:text-primary hover:bg-primary/5 transition font-body">Commerçants</a>
+          </div>
+        </div>
         <a href="#a-propos" class="hover:text-primary transition-colors">À propos</a>
         <a href="#faq"      class="hover:text-primary transition-colors">FAQ</a>
         <a href="#contact"  class="hover:text-primary transition-colors">Contact</a>
@@ -191,7 +297,13 @@
         <a href="#services" onclick="closeMobileNav()" class="text-sand hover:text-primary transition text-base font-semibold py-1">Services</a>
         <a href="#methode"  onclick="closeMobileNav()" class="text-sand hover:text-primary transition text-base font-semibold py-1">Méthode</a>
         <a href="#offres"   onclick="closeMobileNav()" class="text-sand hover:text-primary transition text-base font-semibold py-1">Offres</a>
-        <a href="#a-propos" onclick="closeMobileNav()" class="text-sand hover:text-primary transition text-base font-semibold py-1">À propos</a>
+        <a href="/blog/"    onclick="closeMobileNav()" class="text-sand hover:text-primary transition text-base font-semibold py-1">Blog</a>
+        <p class="text-xs tracking-widest uppercase text-clay font-body mt-1">Par secteur</p>
+        <a href="/secteurs/artisan.html"          onclick="closeMobileNav()" class="text-sand hover:text-primary transition py-1 pl-3 font-body text-sm">→ Artisans</a>
+        <a href="/secteurs/agent-immobilier.html" onclick="closeMobileNav()" class="text-sand hover:text-primary transition py-1 pl-3 font-body text-sm">→ Agents immobiliers</a>
+        <a href="/secteurs/coach-consultant.html" onclick="closeMobileNav()" class="text-sand hover:text-primary transition py-1 pl-3 font-body text-sm">→ Coachs &amp; Consultants</a>
+        <a href="/secteurs/commercant.html"       onclick="closeMobileNav()" class="text-sand hover:text-primary transition py-1 pl-3 font-body text-sm">→ Commerçants</a>
+        <a href="#a-propos" onclick="closeMobileNav()" class="text-sand hover:text-primary transition text-base font-semibold py-1 mt-1">À propos</a>
         <a href="#faq"      onclick="closeMobileNav()" class="text-sand hover:text-primary transition text-base font-semibold py-1">FAQ</a>
         <a href="#contact"  onclick="closeMobileNav()" class="text-sand hover:text-primary transition text-base font-semibold py-1">Contact</a>
         <a href="#contact"  onclick="closeMobileNav()" class="bg-primary hover:bg-primary-dark text-foreground px-5 py-3 rounded-lg text-sm font-bold font-display transition text-center mt-2">Audit gratuit</a>
@@ -221,7 +333,7 @@
       <h1 class="reveal reveal-d2 font-display font-black leading-[1] tracking-tight mb-4">
         <span class="block text-cream" style="font-size:clamp(2.25rem,2rem+2.5vw,4.5rem)">Vos tâches répétitives vous coûtent</span>
         <span class="block stat-glow" style="color:#F59E0B;font-size:clamp(5rem,4rem+7vw,9.5rem);line-height:0.88">
-          <span id="hero-counter">0</span>h
+          <span id="hero-counter">12</span>h
         </span>
         <span class="block text-cream" style="font-size:clamp(2.25rem,2rem+2.5vw,4.5rem)">par semaine. Reprenez-les.</span>
       </h1>
@@ -266,20 +378,28 @@
       <div class="reveal reveal-d6 mt-20 max-w-3xl mx-auto">
         <div class="stats-glass grid grid-cols-2 md:grid-cols-4 gap-8">
           <div class="text-center group">
-            <div class="font-display text-4xl font-black stat-glow transition-all group-hover:scale-110 duration-300" style="color:#F59E0B" data-count="12" data-suffix="h">0h</div>
-            <div class="font-body text-xs tracking-widest uppercase text-clay mt-2">économisées / sem.</div>
+            <div class="stat-reveal">
+              <div class="font-display text-4xl font-black stat-glow transition-all group-hover:scale-110 duration-300" style="color:#F59E0B">12h</div>
+              <div class="font-body text-xs tracking-widest uppercase text-clay mt-2">économisées / sem.</div>
+            </div>
           </div>
           <div class="text-center group">
-            <div class="font-display text-4xl font-black stat-glow transition-all group-hover:scale-110 duration-300" style="color:#F59E0B" data-count="3" data-suffix="×">0×</div>
-            <div class="font-body text-xs tracking-widest uppercase text-clay mt-2">réactivité client</div>
+            <div class="stat-reveal">
+              <div class="font-display text-4xl font-black stat-glow transition-all group-hover:scale-110 duration-300" style="color:#F59E0B">3×</div>
+              <div class="font-body text-xs tracking-widest uppercase text-clay mt-2">réactivité client</div>
+            </div>
           </div>
           <div class="text-center group">
-            <div class="font-display text-4xl font-black stat-glow transition-all group-hover:scale-110 duration-300" style="color:#F59E0B" data-count="48" data-suffix="h">0h</div>
-            <div class="font-body text-xs tracking-widest uppercase text-clay mt-2">mise en place</div>
+            <div class="stat-reveal">
+              <div class="font-display text-4xl font-black stat-glow transition-all group-hover:scale-110 duration-300" style="color:#F59E0B">48h</div>
+              <div class="font-body text-xs tracking-widest uppercase text-clay mt-2">mise en place</div>
+            </div>
           </div>
           <div class="text-center group">
-            <div class="font-display text-4xl font-black stat-glow transition-all group-hover:scale-110 duration-300" style="color:#F59E0B" data-count="97" data-suffix="%">0%</div>
-            <div class="font-body text-xs tracking-widest uppercase text-clay mt-2">satisfaction</div>
+            <div class="stat-reveal">
+              <div class="font-display text-4xl font-black stat-glow transition-all group-hover:scale-110 duration-300" style="color:#F59E0B">98%</div>
+              <div class="font-body text-xs tracking-widest uppercase text-clay mt-2">satisfaction</div>
+            </div>
           </div>
         </div>
       </div>
@@ -434,6 +554,82 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- DÉMO -->
+  <section id="demo" class="py-28 px-4" style="background:#f8f9fa">
+    <div class="max-w-4xl mx-auto text-center">
+
+      <!-- En-tête -->
+      <p class="font-body text-xs tracking-[0.25em] uppercase font-bold mb-4" style="color:#3b5bdb">En action</p>
+      <h2 class="font-display font-black text-3xl md:text-4xl mb-4" style="color:#1a1a2e;font-size:clamp(1.75rem,1.5rem+2vw,2.75rem)">Voyez l'agent IA en action</h2>
+      <p class="font-body text-base mb-12 max-w-xl mx-auto" style="color:#4a5568">Un agent configuré pour un artisan plombier — réponses clients, devis, relances. Opérationnel en 48h.</p>
+
+      <!-- Placeholder vidéo -->
+      <div id="demo-video"
+           role="img"
+           aria-label="Aperçu vidéo — démo disponible prochainement"
+           style="position:relative;background:#1a1a2e;border-radius:16px;overflow:hidden;
+                  aspect-ratio:16/9;max-width:800px;margin:0 auto;
+                  box-shadow:0 12px 48px rgba(26,26,46,.18);cursor:default">
+
+        <!-- Grille décorative -->
+        <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:.07" aria-hidden="true" preserveAspectRatio="none">
+          <defs>
+            <pattern id="demo-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#f8f9fa" stroke-width="1"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#demo-grid)"/>
+        </svg>
+
+        <!-- Contenu centré -->
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:24px">
+          <!-- Icône play -->
+          <div style="width:72px;height:72px;border-radius:50%;background:rgba(59,91,219,.15);
+                      border:2px solid rgba(59,91,219,.35);display:flex;align-items:center;justify-content:center">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M8 5.14v14l11-7-11-7z" fill="#3b5bdb"/>
+            </svg>
+          </div>
+          <!-- Texte -->
+          <p class="font-body font-semibold text-sm" style="color:rgba(248,249,250,.75);letter-spacing:.04em">
+            Démo disponible prochainement
+          </p>
+        </div>
+      </div>
+
+      <!-- Badges -->
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:28px">
+        <span class="font-body text-sm font-semibold"
+              style="background:#fff;border:1px solid #e2e8f0;border-radius:999px;
+                     padding:8px 18px;color:#1a1a2e;box-shadow:0 1px 4px rgba(0,0,0,.06)">
+          ⚡ Répond en &lt;1 min
+        </span>
+        <span class="font-body text-sm font-semibold"
+              style="background:#fff;border:1px solid #e2e8f0;border-radius:999px;
+                     padding:8px 18px;color:#1a1a2e;box-shadow:0 1px 4px rgba(0,0,0,.06)">
+          🕐 Disponible 24h/24
+        </span>
+        <span class="font-body text-sm font-semibold"
+              style="background:#fff;border:1px solid #e2e8f0;border-radius:999px;
+                     padding:8px 18px;color:#1a1a2e;box-shadow:0 1px 4px rgba(0,0,0,.06)">
+          🎯 Configuré à votre ton
+        </span>
+      </div>
+
+      <!-- CTA -->
+      <a href="#contact"
+         class="font-body font-bold text-sm inline-block mt-10"
+         style="background:#3b5bdb;color:#fff;padding:14px 32px;border-radius:12px;
+                text-decoration:none;transition:background .2s ease,transform .15s ease;
+                box-shadow:0 4px 16px rgba(59,91,219,.3)"
+         onmouseover="this.style.background='#3451c7';this.style.transform='scale(1.03)'"
+         onmouseout="this.style.background='#3b5bdb';this.style.transform='scale(1)'">
+        Réserver mon audit pour voir une démo live &rarr;
+      </a>
+
     </div>
   </section>
 
@@ -971,15 +1167,27 @@
         activity: form.activity.value,
         message: form.message.value,
       };
-      try {
-        await fetch(window.ABEMA_CONFIG.n8n.leadWebhook, {
+      // TODO: remplacer l'URL par l'endpoint N8N email-sequence en production
+      const EMAIL_WEBHOOK_URL = 'https://placeholder-webhook-email.abemaagency.com/webhook/email';
+      const emailPayload = {
+        email:      data.email,
+        prenom:     data.firstName,
+        nom:        data.lastName,
+        entreprise: data.company,
+        activite:   data.activity,
+      };
+      await Promise.allSettled([
+        fetch(window.ABEMA_CONFIG.n8n.leadWebhook, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data),
-        });
-      } catch (err) {
-        // Silent fail — still show success
-      }
+        }),
+        fetch(EMAIL_WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(emailPayload),
+        }),
+      ]);
       form.classList.add('hidden');
       document.getElementById('form-success').classList.remove('hidden');
     }
@@ -1084,19 +1292,6 @@
     if (typeof gsap === 'undefined') return;
     gsap.registerPlugin(ScrollTrigger);
 
-    // Hero counter 0 → 12
-    const heroCounter = document.getElementById('hero-counter');
-    if (heroCounter) {
-      const obj = { val: 0 };
-      gsap.to(obj, {
-        val: 12,
-        duration: 2.2,
-        ease: 'power3.out',
-        delay: 0.4,
-        onUpdate() { heroCounter.textContent = Math.round(obj.val); }
-      });
-    }
-
     // Rotating role text every 3s
     const roles = ['Artisans', 'Commerçants', 'Coachs', 'Agents immobiliers'];
     let roleIdx = 0;
@@ -1111,20 +1306,6 @@
       }, 3000);
     }
 
-    // Stat counters on scroll
-    document.querySelectorAll('[data-count]').forEach(el => {
-      const target = parseInt(el.dataset.count, 10);
-      const suffix = el.dataset.suffix || '';
-      const obj = { val: 0 };
-      gsap.to(obj, {
-        val: target,
-        duration: 1.6,
-        ease: 'power2.out',
-        scrollTrigger: { trigger: el, start: 'top 88%', once: true },
-        onUpdate() { el.textContent = Math.round(obj.val) + suffix; }
-      });
-    });
-
     // Section scroll reveals
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     gsap.utils.toArray('section:not(#hero), footer').forEach(el => {
@@ -1138,6 +1319,40 @@
     });
   })();
   </script>
+
+  <!-- Stats reveal — vanilla IntersectionObserver, zéro dépendance -->
+  <script>
+  (function () {
+    var SK  = 'abema_stats_seen';
+    var els = document.querySelectorAll('.stat-reveal');
+    if (!els.length) return;
+
+    // Pas d'animation si reduced-motion ou déjà vu cette session
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+        sessionStorage.getItem(SK)) {
+      els.forEach(function (el) { el.classList.add('visible'); });
+      return;
+    }
+
+    var seen = 0;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var i = Array.prototype.indexOf.call(els, entry.target);
+        // Stagger : 120 ms entre chaque stat
+        setTimeout(function () {
+          entry.target.classList.add('visible');
+          seen++;
+          if (seen === els.length) sessionStorage.setItem(SK, '1');
+        }, i * 120);
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.3 });
+
+    els.forEach(function (el) { observer.observe(el); });
+  })();
+  </script>
+
   <!-- ELEVENLABS WIDGET -->
   <style>
     elevenlabs-convai {
@@ -1149,6 +1364,8 @@
   </style>
   <script src="config.js"></script>
   <script src="https://elevenlabs.io/convai-widget/index.js"></script>
-  <elevenlabs-convai agent-id="agent_2101kpknnbb9e7vv171xzcytrp9h" aria-label="Assistant vocal ABEMA — parlez avec notre IA"></elevenlabs-convai>
+  <elevenlabs-convai aria-label="Assistant vocal ABEMA — parlez avec notre IA" id="el-widget"></elevenlabs-convai>
+  <script>document.getElementById('el-widget').setAttribute('agent-id', window.ABEMA_CONFIG.elevenlabs.agentId);</script>
+  <script src="chatbot-widget.js" defer></script>
 </body>
 </html>

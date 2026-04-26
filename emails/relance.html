@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!--[if !mso]><!-->
+  <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+  <!--<![endif]-->
+  <!--
+    EMAIL J7 — RELANCE (envoi +7j si pas de réponse/clic sur J0 ou J3)
+    Objet    : Toujours là si vous avez des questions, {{prenom}}
+    Preview  : Pas de pression. Juste 3 questions que les dirigeants nous posent souvent avant de se lancer.
+    Timing   : +168h après J0, conditionné si pas de réponse/clic
+    Variables: {{prenom}}, {{entreprise}}, {{activite}}, {{UNSUBSCRIBE_URL}}
+    Règle    : 1 SEUL CTA — pas de lien concurrent
+  -->
+  <title>Toujours là si vous avez des questions, {{prenom}}</title>
+
+  <style>
+    table { border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+    img   { border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
+    body  { margin: 0 !important; padding: 0 !important; background-color: #F4F4F4; }
+    a     { color: #3b5bdb; }
+    @media only screen and (max-width: 620px) {
+      .wrapper  { width: 100% !important; max-width: 100% !important; }
+      .mobile-p { padding: 24px 16px !important; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background-color:#F4F4F4">
+
+<!-- Préheader invisible (88 car.) -->
+<span style="display:none;max-height:0;overflow:hidden;mso-hide:all">Pas de pression. Juste 3 questions que les dirigeants nous posent souvent avant de se lancer.&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;</span>
+
+<!-- Wrapper principal -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#F4F4F4">
+  <tr>
+    <td align="center" style="padding:24px 0 32px">
+
+      <!-- Email container 600px -->
+      <table class="wrapper" role="presentation" width="600" cellpadding="0" cellspacing="0"
+             style="background-color:#ffffff;border-radius:10px;overflow:hidden;max-width:600px;box-shadow:0 2px 12px rgba(0,0,0,0.06)">
+
+        <!-- ═══ HEADER ═══ -->
+        <tr>
+          <td align="center" style="background-color:#3b5bdb;padding:28px 40px">
+            <img src="https://www.abemaagency.com/logo-email.png"
+                 alt="ABEMA AGENCY"
+                 width="140" height="40"
+                 style="display:block;border:0" />
+          </td>
+        </tr>
+
+        <!-- ═══ HERO ═══ -->
+        <tr>
+          <td class="mobile-p" style="padding:36px 40px 20px;background-color:#ffffff">
+            <h1 style="margin:0 0 12px;font-family:Arial,Helvetica,sans-serif;font-size:26px;
+                       font-weight:700;color:#111827;line-height:1.3">
+              Toujours là si vous avez des questions
+            </h1>
+            <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:16px;
+                      color:#6B7280;line-height:1.6">
+              Pas de pression, {{prenom | default: ""}}. Juste quelques réponses honnêtes.
+            </p>
+          </td>
+        </tr>
+
+        <!-- ═══ CORPS ═══ -->
+        <tr>
+          <td class="mobile-p" style="padding:8px 40px 12px">
+
+            <p style="margin:0 0 20px;font-family:Arial,Helvetica,sans-serif;font-size:15px;color:#374151;line-height:1.7">
+              Bonjour {{prenom | default: "vous"}},
+            </p>
+            <p style="margin:0 0 24px;font-family:Arial,Helvetica,sans-serif;font-size:15px;color:#374151;line-height:1.7">
+              Il y a 7 jours, vous avez demandé un audit pour
+              <strong>{{entreprise | default: "votre entreprise"}}</strong>.
+              Avant de clore votre dossier, je voulais répondre aux 3 questions
+              qu'on nous pose le plus souvent.
+            </p>
+
+            <!-- Objection 1 -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+                   style="margin-bottom:16px;border:1px solid #F3F4F6;border-radius:8px">
+              <tr>
+                <td style="padding:18px 20px">
+                  <p style="margin:0 0 8px;font-family:Arial,Helvetica,sans-serif;font-size:14px;
+                            font-weight:700;color:#111827">
+                    "Je n'ai pas le temps de mettre ça en place."
+                  </p>
+                  <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#6B7280;line-height:1.6">
+                    C'est pour ça qu'on s'en charge. Vous nous donnez 30 minutes pour l'audit,
+                    et on déploie tout en 7 jours — sans rien vous demander d'autre.
+                  </p>
+                </td>
+              </tr>
+            </table>
+
+            <!-- Objection 2 -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+                   style="margin-bottom:16px;border:1px solid #F3F4F6;border-radius:8px">
+              <tr>
+                <td style="padding:18px 20px">
+                  <p style="margin:0 0 8px;font-family:Arial,Helvetica,sans-serif;font-size:14px;
+                            font-weight:700;color:#111827">
+                    "C'est sûrement trop compliqué pour mon activité."
+                  </p>
+                  <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#6B7280;line-height:1.6">
+                    On travaille avec des <strong>{{activite | default: "indépendants"}}</strong>
+                    qui ne connaissent rien à la tech. Le seul outil qu'ils utilisent,
+                    c'est leur téléphone — et ça suffit.
+                  </p>
+                </td>
+              </tr>
+            </table>
+
+            <!-- Objection 3 -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+                   style="margin-bottom:24px;border:1px solid #F3F4F6;border-radius:8px">
+              <tr>
+                <td style="padding:18px 20px">
+                  <p style="margin:0 0 8px;font-family:Arial,Helvetica,sans-serif;font-size:14px;
+                            font-weight:700;color:#111827">
+                    "Je ne veux pas que mes clients parlent à un robot."
+                  </p>
+                  <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#6B7280;line-height:1.6">
+                    L'agent répond avec votre ton, vos formulations, votre façon de parler.
+                    Les clients ne font pas la différence — et dès qu'une situation le demande,
+                    c'est vous qui reprenez la main.
+                  </p>
+                </td>
+              </tr>
+            </table>
+
+            <!-- Témoignage -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+                   style="background-color:#F8FAFF;border-left:4px solid #3b5bdb;
+                          border-radius:0 8px 8px 0;margin:0 0 24px">
+              <tr>
+                <td style="padding:18px 20px">
+                  <p style="margin:0 0 10px;font-family:Arial,Helvetica,sans-serif;font-size:15px;
+                            color:#374151;line-height:1.7;font-style:italic">
+                    "J'avais les mêmes doutes. Aujourd'hui mon agent répond à ma place pendant que je suis
+                    sur chantier. Mes clients ne savent pas que ce n'est pas moi."
+                  </p>
+                  <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:13px;
+                            color:#6B7280;font-weight:700">
+                    — Thomas R., artisan plombier, Lyon
+                  </p>
+                </td>
+              </tr>
+            </table>
+
+            <p style="margin:0 0 8px;font-family:Arial,Helvetica,sans-serif;font-size:15px;color:#374151;line-height:1.7">
+              Si vous avez une autre question, répondez directement à cet email — je lis tout personnellement.
+            </p>
+            <p style="margin:0 0 8px;font-family:Arial,Helvetica,sans-serif;font-size:15px;color:#374151;line-height:1.7">
+              Sinon, il reste quelques créneaux cette semaine pour un audit de 30 minutes.
+            </p>
+
+          </td>
+        </tr>
+
+        <!-- ═══ CTA UNIQUE ═══ -->
+        <tr>
+          <td align="center" style="padding:4px 40px 36px">
+            <!--[if mso]>
+            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml"
+              href="https://www.abemaagency.com/#contact"
+              style="height:50px;v-text-anchor:middle;width:240px"
+              arcsize="12%" fillcolor="#3b5bdb" strokecolor="#3b5bdb">
+              <w:anchorlock/>
+              <center style="color:#ffffff;font-family:Arial,sans-serif;font-size:16px;font-weight:700">
+                Choisir mon créneau →
+              </center>
+            </v:roundrect>
+            <![endif]-->
+            <!--[if !mso]><!-->
+            <a href="https://www.abemaagency.com/#contact"
+               style="display:inline-block;background-color:#3b5bdb;color:#ffffff;
+                      font-family:Arial,Helvetica,sans-serif;font-size:16px;font-weight:700;
+                      text-decoration:none;padding:14px 36px;border-radius:6px;mso-hide:all">
+              Choisir mon créneau →
+            </a>
+            <!--<![endif]-->
+            <p style="margin:10px 0 0;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#9CA3AF">
+              30 minutes — sans engagement
+            </p>
+          </td>
+        </tr>
+
+        <!-- ═══ SIGNATURE ═══ -->
+        <tr>
+          <td class="mobile-p" style="padding:0 40px 20px;border-top:1px solid #F3F4F6">
+            <p style="margin:20px 0 4px;font-family:Arial,Helvetica,sans-serif;font-size:15px;color:#374151;line-height:1.5">
+              Abdallah<br />
+              <span style="color:#6B7280;font-size:13px">Fondateur, ABEMA AGENCY</span>
+            </p>
+          </td>
+        </tr>
+
+        <!-- ═══ FOOTER ═══ -->
+        <tr>
+          <td style="background-color:#F9FAFB;padding:20px 40px;border-top:1px solid #E5E7EB">
+            <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:12px;
+                      color:#9CA3AF;line-height:1.7;text-align:center">
+              ABEMA AGENCY — 25 Rue de Rouvroy, 62680 Méricourt, France<br />
+              Vous recevez cet email car vous avez demandé un audit gratuit sur abemaagency.com.<br />
+              <a href="{{UNSUBSCRIBE_URL}}" style="color:#9CA3AF;text-decoration:underline">Se désabonner</a>
+              &nbsp;·&nbsp;
+              Si ce n'est plus d'actualité, pas de souci —
+              <a href="{{UNSUBSCRIBE_URL}}" style="color:#9CA3AF;text-decoration:underline">cliquez ici</a>.
+            </p>
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

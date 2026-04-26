@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!--[if !mso]><!-->
+  <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+  <!--<![endif]-->
+  <!--
+    EMAIL J0 — CONFIRMATION IMMÉDIATE
+    Objet    : Votre audit ABEMA est confirmé, {{prenom}} 🎯
+    Preview  : On prépare votre analyse sur mesure. Dans 24h, vous saurez quelles tâches automatiser en premier.
+    Timing   : Envoi immédiat après soumission webhook
+    Variables: {{prenom}}, {{entreprise}}, {{activite}}, {{UNSUBSCRIBE_URL}}
+  -->
+  <title>Votre audit ABEMA est confirmé, {{prenom}} 🎯</title>
+
+  <style>
+    table { border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+    img   { border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
+    body  { margin: 0 !important; padding: 0 !important; background-color: #F4F4F4; }
+    a     { color: #3b5bdb; }
+    @media only screen and (max-width: 620px) {
+      .wrapper    { width: 100% !important; max-width: 100% !important; }
+      .mobile-p   { padding: 24px 16px !important; }
+      .mobile-btn { width: 100% !important; text-align: center !important; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background-color:#F4F4F4">
+
+<!-- Préheader invisible (89 car.) -->
+<span style="display:none;max-height:0;overflow:hidden;mso-hide:all">On prépare votre analyse sur mesure. Dans 24h, vous saurez quelles tâches automatiser en premier.&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;</span>
+
+<!-- Wrapper principal -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#F4F4F4">
+  <tr>
+    <td align="center" style="padding:24px 0 32px">
+
+      <!-- Email container 600px -->
+      <table class="wrapper" role="presentation" width="600" cellpadding="0" cellspacing="0"
+             style="background-color:#ffffff;border-radius:10px;overflow:hidden;max-width:600px;box-shadow:0 2px 12px rgba(0,0,0,0.06)">
+
+        <!-- ═══ HEADER ═══ -->
+        <tr>
+          <td align="center" style="background-color:#3b5bdb;padding:28px 40px">
+            <img src="https://www.abemaagency.com/logo-email.png"
+                 alt="ABEMA AGENCY"
+                 width="140" height="40"
+                 style="display:block;border:0" />
+          </td>
+        </tr>
+
+        <!-- Barre de confirmation verte -->
+        <tr>
+          <td align="center" style="background-color:#ECFDF5;padding:12px 40px;border-bottom:1px solid #D1FAE5">
+            <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:13px;
+                      font-weight:700;color:#065F46;letter-spacing:0.03em">
+              ✓ &nbsp;Demande reçue et enregistrée
+            </p>
+          </td>
+        </tr>
+
+        <!-- ═══ HERO ═══ -->
+        <tr>
+          <td class="mobile-p" style="padding:36px 40px 20px;background-color:#ffffff">
+            <h1 style="margin:0 0 12px;font-family:Arial,Helvetica,sans-serif;font-size:26px;
+                       font-weight:700;color:#111827;line-height:1.3">
+              Votre audit est confirmé, {{prenom | default: "bienvenue"}} 🎯
+            </h1>
+            <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:16px;
+                      color:#6B7280;line-height:1.6">
+              Tout est en ordre pour <strong style="color:#374151">{{entreprise | default: "votre entreprise"}}</strong>.
+            </p>
+          </td>
+        </tr>
+
+        <!-- ═══ CORPS ═══ -->
+        <tr>
+          <td class="mobile-p" style="padding:8px 40px 28px">
+
+            <p style="margin:0 0 16px;font-family:Arial,Helvetica,sans-serif;font-size:15px;color:#374151;line-height:1.7">
+              Bonjour {{prenom | default: "vous"}},
+            </p>
+            <p style="margin:0 0 20px;font-family:Arial,Helvetica,sans-serif;font-size:15px;color:#374151;line-height:1.7">
+              Votre demande d'audit pour <strong>{{entreprise | default: "votre entreprise"}}</strong> est bien enregistrée.
+              Je la lis personnellement et je vous reviens sous 24h.
+            </p>
+
+            <!-- Bloc "ce qui va se passer" -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+                   style="background-color:#F8FAFF;border:1px solid #E0E7FF;border-radius:8px;margin:0 0 24px">
+              <tr>
+                <td style="padding:20px 24px">
+                  <p style="margin:0 0 14px;font-family:Arial,Helvetica,sans-serif;font-size:14px;
+                            font-weight:700;color:#3b5bdb;text-transform:uppercase;letter-spacing:0.06em">
+                    Ce qui se passe maintenant
+                  </p>
+
+                  <!-- Étape 1 -->
+                  <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;margin-bottom:12px">
+                    <tr>
+                      <td width="32" valign="top" style="padding-top:1px">
+                        <div style="width:24px;height:24px;background-color:#3b5bdb;border-radius:50%;
+                                    text-align:center;font-family:Arial,sans-serif;font-size:13px;
+                                    font-weight:700;color:#ffffff;line-height:24px">1</div>
+                      </td>
+                      <td style="padding-left:10px;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#374151;line-height:1.6">
+                        <strong>J'analyse votre activité</strong> — je regarde quelles tâches
+                        les <strong>{{activite | default: "TPE"}}</strong> délèguent en premier à un agent IA.
+                      </td>
+                    </tr>
+                  </table>
+
+                  <!-- Étape 2 -->
+                  <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;margin-bottom:12px">
+                    <tr>
+                      <td width="32" valign="top" style="padding-top:1px">
+                        <div style="width:24px;height:24px;background-color:#3b5bdb;border-radius:50%;
+                                    text-align:center;font-family:Arial,sans-serif;font-size:13px;
+                                    font-weight:700;color:#ffffff;line-height:24px">2</div>
+                      </td>
+                      <td style="padding-left:10px;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#374151;line-height:1.6">
+                        <strong>Je prépare 3 pistes concrètes</strong> — adaptées à
+                        <strong>{{entreprise | default: "votre entreprise"}}</strong>,
+                        pas un audit générique.
+                      </td>
+                    </tr>
+                  </table>
+
+                  <!-- Étape 3 -->
+                  <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%">
+                    <tr>
+                      <td width="32" valign="top" style="padding-top:1px">
+                        <div style="width:24px;height:24px;background-color:#3b5bdb;border-radius:50%;
+                                    text-align:center;font-family:Arial,sans-serif;font-size:13px;
+                                    font-weight:700;color:#ffffff;line-height:24px">3</div>
+                      </td>
+                      <td style="padding-left:10px;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#374151;line-height:1.6">
+                        <strong>Je vous contacte sous 24h</strong> — par email ou téléphone
+                        selon votre préférence. Comptez 30 minutes max pour l'échange.
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+
+            <p style="margin:0 0 8px;font-family:Arial,Helvetica,sans-serif;font-size:15px;color:#374151;line-height:1.7">
+              En attendant, si vous voulez vous préparer, regardez comment fonctionne concrètement
+              un agent IA ABEMA — c'est 3 minutes.
+            </p>
+
+          </td>
+        </tr>
+
+        <!-- ═══ CTA ═══ -->
+        <tr>
+          <td align="center" style="padding:0 40px 36px">
+            <!--[if mso]>
+            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml"
+              href="https://www.abemaagency.com/#methode"
+              style="height:50px;v-text-anchor:middle;width:260px"
+              arcsize="12%" fillcolor="#3b5bdb" strokecolor="#3b5bdb">
+              <w:anchorlock/>
+              <center style="color:#ffffff;font-family:Arial,sans-serif;font-size:16px;font-weight:700">
+                Voir comment ça marche →
+              </center>
+            </v:roundrect>
+            <![endif]-->
+            <!--[if !mso]><!-->
+            <a href="https://www.abemaagency.com/#methode"
+               style="display:inline-block;background-color:#3b5bdb;color:#ffffff;
+                      font-family:Arial,Helvetica,sans-serif;font-size:16px;font-weight:700;
+                      text-decoration:none;padding:14px 36px;border-radius:6px;mso-hide:all">
+              Voir comment ça marche →
+            </a>
+            <!--<![endif]-->
+          </td>
+        </tr>
+
+        <!-- ═══ SIGNATURE ═══ -->
+        <tr>
+          <td class="mobile-p" style="padding:0 40px 28px;border-top:1px solid #F3F4F6">
+            <p style="margin:20px 0 4px;font-family:Arial,Helvetica,sans-serif;font-size:15px;color:#374151;line-height:1.5">
+              Abdallah<br />
+              <span style="color:#6B7280;font-size:13px">Fondateur, ABEMA AGENCY</span>
+            </p>
+            <p style="margin:8px 0 0;font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#9CA3AF">
+              P.S. — Vous recevrez un email de ma part dans 3 jours avec une analyse chiffrée de ce que votre activité peut automatiser.
+            </p>
+          </td>
+        </tr>
+
+        <!-- ═══ FOOTER ═══ -->
+        <tr>
+          <td style="background-color:#F9FAFB;padding:20px 40px;border-top:1px solid #E5E7EB">
+            <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:12px;
+                      color:#9CA3AF;line-height:1.7;text-align:center">
+              ABEMA AGENCY — 25 Rue de Rouvroy, 62680 Méricourt, France<br />
+              Vous recevez cet email car vous avez demandé un audit gratuit sur abemaagency.com.<br />
+              <a href="{{UNSUBSCRIBE_URL}}" style="color:#9CA3AF;text-decoration:underline">Se désabonner</a>
+            </p>
+          </td>
+        </tr>
+
+      </table>
+      <!-- /Email container -->
+
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
