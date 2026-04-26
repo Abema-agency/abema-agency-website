@@ -3,7 +3,7 @@
   'use strict';
 
   // ── Config ───────────────────────────────────────────────────────────────
-  var WEBHOOK_URL = 'https://placeholder-n8n.abemaagency.com/webhook/chat';
+  var WEBHOOK_URL = 'https://n8n.abemaagency.com/webhook/lead-qualification';
   var SESSION_KEY = 'abema_chat_session_id';
   var WELCOME_MSG = "Bonjour ! Je suis l’assistant ABEMA. Comment puis-je vous aider ?";
 
@@ -164,6 +164,20 @@
   var micBtn   = document.getElementById('abema-chat-mic');
 
   var welcomeShown = false;
+
+  // ── Lead data (accumulé au fil de la conversation) ───────────────────────
+  var leadData = {
+    prenom    : '',
+    nom       : '',
+    email     : '',
+    telephone : '',
+    entreprise: '',
+    activite  : '',
+    budget    : '',
+    besoin    : '',
+    urgence   : '',
+    source    : window.location.href
+  };
 
   // ── Speech API detection ─────────────────────────────────────────────────
   var hasSR = ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window);
@@ -339,22 +353,48 @@
     addMessage(text, 'user');
     showTyping();
 
+    var controller = new AbortController();
+    var timeoutId  = setTimeout(function () { controller.abort(); }, 10000);
+
     fetch(WEBHOOK_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
+      signal: controller.signal,
       body: JSON.stringify({
         sessionId : getSessionId(),
         message   : text,
-        timestamp : new Date().toISOString()
+        timestamp : new Date().toISOString(),
+        prenom    : leadData.prenom,
+        nom       : leadData.nom,
+        email     : leadData.email,
+        telephone : leadData.telephone,
+        entreprise: leadData.entreprise,
+        activite  : leadData.activite,
+        budget    : leadData.budget,
+        besoin    : leadData.besoin,
+        urgence   : leadData.urgence,
+        source    : leadData.source
       })
     })
     .then(function (res) {
       if (!res.ok) throw new Error('HTTP ' + res.status);
-      return res.json();
+      return res.text().then(function (raw) {
+        var data = {};
+        if (raw && raw.trim()) {
+          try { data = JSON.parse(raw); } catch (e) {}
+        }
+        return data;
+      });
     })
     .then(function (data) {
       hideTyping();
-      var reply = data.output || data.message || data.text || 'Réponse reçue.';
+      if (data.lead && typeof data.lead === 'object') {
+        Object.keys(leadData).forEach(function (k) {
+          if (data.lead[k] !== undefined) leadData[k] = data.lead[k];
+        });
+      }
+      var reply = data.output || data.message || data.text
+        || 'Merci ! Votre demande a bien été reçue. Nous revenons vers vous sous 24h.';
       addMessage(reply, 'bot');
     })
     .catch(function (err) {
@@ -363,6 +403,7 @@
       console.error('[ABEMA chat]', err);
     })
     .finally(function () {
+      clearTimeout(timeoutId);
       input.disabled = false;
       sendBtn.disabled = false;
       input.focus();
