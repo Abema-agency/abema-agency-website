@@ -5,7 +5,7 @@
   // ── Config ───────────────────────────────────────────────────────────────
   var WEBHOOK_URL = 'https://placeholder-n8n.abemaagency.com/webhook/chat';
   var SESSION_KEY = 'abema_chat_session_id';
-  var WELCOME_MSG = 'Bonjour ! Je suis l’assistant ABEMA. Comment puis-je vous aider ?';
+  var WELCOME_MSG = "Bonjour ! Je suis l’assistant ABEMA. Comment puis-je vous aider ?";
 
   // ── Session ID ───────────────────────────────────────────────────────────
   function getSessionId() {
@@ -25,9 +25,9 @@
   // ── Inject CSS ───────────────────────────────────────────────────────────
   var style = document.createElement('style');
   style.textContent = [
-    '#abema-chat-wrapper{position:fixed;bottom:24px;right:24px;z-index:9999;font-family:system-ui,-apple-system,sans-serif}',
+    '#abema-chat-wrapper{position:fixed;bottom:20px;right:20px;z-index:9999;font-family:system-ui,-apple-system,sans-serif}',
 
-    /* Bouton 56px */
+    /* Bouton toggle 56px */
     '#abema-chat-toggle{width:56px;height:56px;border-radius:50%;background:#3b5bdb;border:none;cursor:pointer;',
     'display:flex;align-items:center;justify-content:center;',
     'box-shadow:0 4px 16px rgba(59,91,219,.4);transition:transform .2s ease,box-shadow .2s ease;padding:0}',
@@ -56,6 +56,17 @@
     '.abema-msg--bot{align-self:flex-start;background:#f1f3f5;color:#212529;border-bottom-left-radius:4px}',
     '.abema-msg--error{align-self:flex-start;background:#fff5f5;color:#c92a2a;border:1px solid #ffc9c9;border-bottom-left-radius:4px}',
 
+    /* Wrapper bulle bot (bulle + speaker) */
+    '.abema-msg-wrap{display:flex;flex-direction:column;align-self:flex-start;max-width:80%}',
+    '.abema-msg-wrap .abema-msg--bot{align-self:stretch}',
+
+    /* Bouton speaker sous chaque réponse bot */
+    '.abema-speak-btn{align-self:flex-start;margin-top:3px;background:transparent;border:none;',
+    'cursor:pointer;padding:2px 5px;border-radius:4px;color:#adb5bd;transition:color .15s;line-height:1}',
+    '.abema-speak-btn:hover{color:#3b5bdb}',
+    '.abema-speak-btn.is-speaking{color:#3b5bdb}',
+    '.abema-speak-btn:focus-visible{outline:2px solid #3b5bdb;border-radius:4px}',
+
     /* Indicateur frappe */
     '.abema-typing{display:flex;gap:4px;align-items:center;padding:10px 14px;align-self:flex-start}',
     '.abema-typing span{width:8px;height:8px;background:#adb5bd;border-radius:50%;animation:abema-bounce 1s infinite}',
@@ -64,10 +75,25 @@
     '@keyframes abema-bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}',
 
     /* Formulaire */
-    '#abema-chat-form{display:flex;gap:8px;padding:12px 16px;border-top:1px solid #e9ecef;background:#fff;flex-shrink:0}',
+    '#abema-chat-form{display:flex;gap:8px;padding:12px 16px;border-top:1px solid #e9ecef;background:#fff;flex-shrink:0;align-items:center}',
     '#abema-chat-input{flex:1;border:1px solid #ced4da;border-radius:8px;padding:9px 12px;',
     'font-size:14px;outline:none;transition:border-color .15s;font-family:inherit}',
     '#abema-chat-input:focus{border-color:#3b5bdb;box-shadow:0 0 0 3px rgba(59,91,219,.15)}',
+
+    /* Bouton micro */
+    '#abema-chat-mic{width:36px;height:36px;background:transparent;border:1px solid #ced4da;',
+    'border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;',
+    'flex-shrink:0;transition:border-color .15s,background .15s;padding:0;color:#6c757d;position:relative}',
+    '#abema-chat-mic:hover{background:#f8f9fa;border-color:#3b5bdb;color:#3b5bdb}',
+    '#abema-chat-mic:focus-visible{outline:2px solid #3b5bdb;outline-offset:2px}',
+    '#abema-chat-mic.is-recording{background:#fff1f1;border-color:#e03131;color:#e03131}',
+
+    /* Cercle pulsant rouge quand micro actif */
+    '@keyframes abema-pulse{0%{transform:scale(1);opacity:.5}70%{transform:scale(1.6);opacity:0}100%{opacity:0}}',
+    '#abema-chat-mic.is-recording::after{content:"";position:absolute;inset:0;border-radius:8px;',
+    'border:2px solid #e03131;animation:abema-pulse 1.2s ease-out infinite;pointer-events:none}',
+
+    /* Bouton envoyer */
     '#abema-chat-send{width:40px;height:40px;background:#3b5bdb;border:none;border-radius:8px;cursor:pointer;',
     'display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;padding:0}',
     '#abema-chat-send:hover{background:#3451c7}',
@@ -105,6 +131,14 @@
     '  <div id="abema-chat-messages" aria-live="polite" aria-atomic="false"></div>',
 
     '  <form id="abema-chat-form" autocomplete="off">',
+    '    <button id="abema-chat-mic" type="button" aria-label="Dicter un message" title="Microphone">',
+    '      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">',
+    '        <rect x="9" y="2" width="6" height="11" rx="3"/>',
+    '        <path d="M5 11a7 7 0 0014 0" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>',
+    '        <line x1="12" y1="20" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+    '        <line x1="9" y1="23" x2="15" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+    '      </svg>',
+    '    </button>',
     '    <input id="abema-chat-input" type="text"',
     '      placeholder="Votre message…"',
     '      aria-label="Saisir votre message"',
@@ -127,15 +161,47 @@
   var input    = document.getElementById('abema-chat-input');
   var messages = document.getElementById('abema-chat-messages');
   var sendBtn  = document.getElementById('abema-chat-send');
+  var micBtn   = document.getElementById('abema-chat-mic');
 
   var welcomeShown = false;
 
+  // ── Speech API detection ─────────────────────────────────────────────────
+  var hasSR = ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window);
+  var hasSS = ('speechSynthesis' in window);
+
   // ── Helpers ──────────────────────────────────────────────────────────────
+  var SPEAKER_SVG = [
+    '<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">',
+    '<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>',
+    '</svg>'
+  ].join('');
+
   function addMessage(text, type) {
     var el = document.createElement('div');
     el.className = 'abema-msg abema-msg--' + type;
     el.textContent = text;
-    messages.appendChild(el);
+
+    if (type === 'bot') {
+      var wrap = document.createElement('div');
+      wrap.className = 'abema-msg-wrap';
+      wrap.appendChild(el);
+
+      if (hasSS) {
+        var speakBtn = document.createElement('button');
+        speakBtn.type = 'button';
+        speakBtn.className = 'abema-speak-btn';
+        speakBtn.setAttribute('aria-label', 'Lire la réponse à voix haute');
+        speakBtn.title = 'Lire à voix haute';
+        speakBtn.innerHTML = SPEAKER_SVG;
+        speakBtn.addEventListener('click', function () { speakText(text, speakBtn); });
+        wrap.appendChild(speakBtn);
+      }
+
+      messages.appendChild(wrap);
+    } else {
+      messages.appendChild(el);
+    }
+
     messages.scrollTop = messages.scrollHeight;
   }
 
@@ -154,6 +220,70 @@
     if (el) el.remove();
   }
 
+  // ── Synthèse vocale ───────────────────────────────────────────────────────
+  function speakText(text, btn) {
+    if (!hasSS) return;
+    if (window.speechSynthesis.speaking) {
+      window.speechSynthesis.cancel();
+      btn.classList.remove('is-speaking');
+      return;
+    }
+    var utt = new SpeechSynthesisUtterance(text);
+    utt.lang = 'fr-FR';
+    utt.rate = 1;
+    utt.onstart = function () { btn.classList.add('is-speaking'); };
+    utt.onend = utt.onerror = function () { btn.classList.remove('is-speaking'); };
+    window.speechSynthesis.speak(utt);
+  }
+
+  // ── Reconnaissance vocale ─────────────────────────────────────────────────
+  var recognition = null;
+  var isRecording = false;
+
+  function initMic() {
+    if (!hasSR) {
+      micBtn.style.display = 'none';
+      return;
+    }
+
+    var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    recognition = new SR();
+    recognition.lang = 'fr-FR';
+    recognition.continuous = false;
+    recognition.interimResults = false;
+
+    recognition.onresult = function (e) {
+      var transcript = e.results[0][0].transcript;
+      input.value = transcript;
+      stopRecording();
+      // Auto-envoi après dictée
+      form.dispatchEvent(new Event('submit', { cancelable: true }));
+    };
+
+    recognition.onerror = function () { stopRecording(); };
+    recognition.onend   = function () { if (isRecording) stopRecording(); };
+
+    micBtn.addEventListener('click', function () {
+      isRecording ? stopRecording() : startRecording();
+    });
+  }
+
+  function startRecording() {
+    isRecording = true;
+    micBtn.classList.add('is-recording');
+    micBtn.setAttribute('aria-label', 'Arrêter la dictée');
+    try { recognition.start(); } catch (e) { stopRecording(); }
+  }
+
+  function stopRecording() {
+    isRecording = false;
+    micBtn.classList.remove('is-recording');
+    micBtn.setAttribute('aria-label', 'Dicter un message');
+    try { recognition.stop(); } catch (e) {}
+  }
+
+  initMic();
+
   // ── Ouvrir / fermer ──────────────────────────────────────────────────────
   function openChat() {
     chatWin.hidden = false;
@@ -170,6 +300,8 @@
     chatWin.hidden = true;
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-label', 'Ouvrir le chat');
+    if (isRecording) stopRecording();
+    if (hasSS) window.speechSynthesis.cancel();
     toggle.focus();
   }
 
