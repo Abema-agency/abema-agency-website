@@ -6,6 +6,6 @@ window.ABEMA_CONFIG = {
     agentId: 'agent_2101kpknnbb9e7vv171xzcytrp9h',
   },
   n8n: {
-    leadWebhook: 'https://n8n-formation.isao.io/webhook/lead-qualification',
+    leadWebhook: 'https://n8n.abemaagency.com/webhook/lead-qualification',
   },
 };
