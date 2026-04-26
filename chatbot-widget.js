@@ -5,19 +5,7 @@
   // ── Config ───────────────────────────────────────────────────────────────
   var WEBHOOK_URL = 'https://n8n.abemaagency.com/webhook/lead-qualification';
   var SESSION_KEY = 'abema_chat_session_id';
-  // ── Questions de qualification ────────────────────────────────────────────
-  var QUESTIONS = [
-    { field: 'prenom',     ask: "Bonjour ! Je suis l'assistant ABEMA. Quel est votre prénom ?" },
-    { field: 'nom',        ask: 'Votre nom de famille ?' },
-    { field: 'email',      ask: 'Votre adresse email ?' },
-    { field: 'telephone',  ask: 'Votre numéro de téléphone ?' },
-    { field: 'entreprise', ask: 'Le nom de votre entreprise ?' },
-    { field: 'activite',   ask: 'Quelle est votre activité principale ?' },
-    { field: 'budget',     ask: 'Quel budget mensuel envisagez-vous pour ce projet ?' },
-    { field: 'besoin',     ask: 'Décrivez votre besoin principal en quelques mots.' },
-    { field: 'urgence',    ask: 'Dans quel délai souhaitez-vous démarrer ?' },
-  ];
-  var currentStep = 0;
+  var WELCOME_MSG = "Bonjour 👋 Je suis l'assistant IA d'ABEMA Agency. Je suis là pour vous aider à découvrir comment l'IA peut vous faire gagner du temps au quotidien. Vous avez une question ou vous souhaitez en savoir plus sur nos services ?";
 
   // ── Session ID ───────────────────────────────────────────────────────────
   function getSessionId() {
@@ -316,7 +304,7 @@
     toggle.setAttribute('aria-expanded', 'true');
     toggle.setAttribute('aria-label', 'Fermer le chat');
     if (!welcomeShown) {
-      addMessage(QUESTIONS[0].ask, 'bot');
+      addMessage(WELCOME_MSG, 'bot');
       welcomeShown = true;
     }
     input.focus();
@@ -351,7 +339,7 @@
     }
   });
 
-  // ── Assistant conversationnel — collecte lead ─────────────────────────────
+  // ── Conversation libre — N8N gère le flow et collecte les infos ──────────
   form.addEventListener('submit', function (e) {
     e.preventDefault();
 
@@ -359,32 +347,22 @@
     if (!text) return;
 
     input.value = '';
-    addMessage(text, 'user');
-
-    leadData[QUESTIONS[currentStep].field] = text;
-    currentStep++;
-
-    if (currentStep < QUESTIONS.length) {
-      setTimeout(function () {
-        addMessage(QUESTIONS[currentStep].ask, 'bot');
-      }, 400);
-      return;
-    }
-
-    // Toutes les infos collectées — envoi webhook
     input.disabled = true;
     sendBtn.disabled = true;
+    addMessage(text, 'user');
     showTyping();
 
     var controller = new AbortController();
     var timeoutId  = setTimeout(function () { controller.abort(); }, 10000);
 
     fetch(WEBHOOK_URL, {
-      method: 'POST',
+      method : 'POST',
+      mode   : 'cors',
       headers: { 'Content-Type': 'application/json' },
-      signal: controller.signal,
-      body: JSON.stringify({
+      signal : controller.signal,
+      body   : JSON.stringify({
         sessionId : getSessionId(),
+        message   : text,
         timestamp : new Date().toISOString(),
         prenom    : leadData.prenom,
         nom       : leadData.nom,
@@ -410,19 +388,25 @@
     })
     .then(function (d) {
       hideTyping();
+      if (d.lead && typeof d.lead === 'object') {
+        Object.keys(leadData).forEach(function (k) {
+          if (d.lead[k] !== undefined) leadData[k] = d.lead[k];
+        });
+      }
       var reply = d.output || d.message || d.text
-        || 'Merci ! Votre demande a bien reçue. Nous revenons vers vous sous 24h.';
+        || 'Merci ! Votre demande a bien été reçue. Nous revenons vers vous sous 24h.';
       addMessage(reply, 'bot');
-      input.placeholder = 'Conversation terminée';
     })
     .catch(function (err) {
       hideTyping();
       addMessage('Merci ! Votre demande a bien été reçue. Nous revenons vers vous sous 24h.', 'bot');
       console.error('[ABEMA chat]', err);
-      input.placeholder = 'Conversation terminée';
     })
     .finally(function () {
       clearTimeout(timeoutId);
+      input.disabled = false;
+      sendBtn.disabled = false;
+      input.focus();
     });
   });
 
