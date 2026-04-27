@@ -3,7 +3,7 @@
   'use strict';
 
   // ── Config ───────────────────────────────────────────────────────────────
-  var WEBHOOK_URL = 'https://n8n.abemaagency.com/webhook/lead-qualification';
+  var WEBHOOK_URL = 'https://n8n.abemaagency.com/webhook/chatbot-abema';
   var SESSION_KEY = 'abema_chat_session_id';
   var WELCOME_MSG = "Bonjour 👋 Je suis l'assistant IA d'ABEMA Agency. Je suis là pour vous aider à découvrir comment l'IA peut vous faire gagner du temps au quotidien. Vous avez une question ou vous souhaitez en savoir plus sur nos services ?";
 
@@ -393,13 +393,12 @@
           if (d.lead[k] !== undefined) leadData[k] = d.lead[k];
         });
       }
-      var reply = d.output || d.message || d.text
-        || 'Merci ! Votre demande a bien été reçue. Nous revenons vers vous sous 24h.';
-      addMessage(reply, 'bot');
+      var reply = d.output || d.message || d.text;
+      if (reply) addMessage(reply, 'bot');
     })
     .catch(function (err) {
       hideTyping();
-      addMessage('Merci ! Votre demande a bien été reçue. Nous revenons vers vous sous 24h.', 'bot');
+      addMessage('Une erreur est survenue. Veuillez réessayer dans un instant.', 'error');
       console.error('[ABEMA chat]', err);
     })
     .finally(function () {
