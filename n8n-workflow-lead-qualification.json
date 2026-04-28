@@ -1,0 +1,397 @@
+{
+  "name": "Qualification de Lead ABEMA v2 - BANT + Relances",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "lead-qualification",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook - Formulaire Contact",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [200, 300],
+      "webhookId": "lead-qualification"
+    },
+    {
+      "parameters": {
+        "httpMethod": "OPTIONS",
+        "path": "lead-qualification",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-options",
+      "name": "Webhook - OPTIONS Preflight",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [200, 140],
+      "webhookId": "lead-qualification-options"
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "",
+        "options": {
+          "responseCode": 204,
+          "responseHeaders": {
+            "entries": [
+              { "name": "Access-Control-Allow-Origin",  "value": "*" },
+              { "name": "Access-Control-Allow-Methods", "value": "POST, OPTIONS" },
+              { "name": "Access-Control-Allow-Headers", "value": "Content-Type" },
+              { "name": "Access-Control-Max-Age",       "value": "86400" }
+            ]
+          }
+        }
+      },
+      "id": "respond-options",
+      "name": "Respond OPTIONS 204",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [420, 140]
+    },
+    {
+      "parameters": {
+        "jsCode": "const body = $input.first().json.body;\n\nconst prenom = body.prenom || body.first_name || body.firstName || '';\nconst nom = body.nom || body.last_name || body.lastName || '';\nconst email = body.email || '';\nconst telephone = body.telephone || body.phone || '';\nconst entreprise = body.entreprise || body.company || '';\nconst activite = body.activite || body.poste || body.job_title || '';\nconst budget = body.budget || '';\nconst besoin = body.besoin || body.need || body.message || '';\nconst urgence = body.urgence || body.timeline || '';\nconst source = body.source || 'site-web';\nconst date_reception = new Date().toISOString();\n\nreturn [{\n  json: {\n    prenom,\n    nom,\n    email,\n    telephone,\n    entreprise,\n    activite,\n    budget,\n    besoin,\n    urgence,\n    source,\n    date_reception\n  }\n}];"
+      },
+      "id": "extract-data",
+      "name": "Extraction Données JSON",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [420, 300]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "VOTRE_GOOGLE_SHEET_ID",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Leads",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Prénom": "={{ $json.prenom }}",
+            "Nom": "={{ $json.nom }}",
+            "Email": "={{ $json.email }}",
+            "Téléphone": "={{ $json.telephone }}",
+            "Entreprise": "={{ $json.entreprise }}",
+            "Activité": "={{ $json.activite }}",
+            "Budget": "={{ $json.budget }}",
+            "Besoin": "={{ $json.besoin }}",
+            "Urgence": "={{ $json.urgence }}",
+            "Source": "={{ $json.source }}",
+            "Date Réception": "={{ $json.date_reception }}",
+            "Statut": "Nouveau",
+            "Score BANT": "",
+            "Classification": ""
+          },
+          "matchingColumns": []
+        },
+        "options": {}
+      },
+      "id": "google-sheets",
+      "name": "Google Sheets - Enregistrement Lead",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [640, 300],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "VOTRE_CREDENTIAL_GOOGLE_SHEETS_ID",
+          "name": "Google Sheets OAuth2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"status\": \"success\",\n  \"message\": \"Merci ! Votre demande a bien été reçue. Nous revenons vers vous sous 24h.\",\n  \"lead_email\": \"{{ $('Extraction Données JSON').item.json.email }}\",\n  \"timestamp\": \"{{ $('Extraction Données JSON').item.json.date_reception }}\"\n}",
+        "options": {
+          "responseCode": 200,
+          "responseHeaders": {
+            "entries": [
+              { "name": "Content-Type",                 "value": "application/json" },
+              { "name": "Access-Control-Allow-Origin",  "value": "*" },
+              { "name": "Access-Control-Allow-Methods", "value": "POST, OPTIONS" },
+              { "name": "Access-Control-Allow-Headers", "value": "Content-Type" }
+            ]
+          }
+        }
+      },
+      "id": "webhook-response",
+      "name": "Confirmation Réception (Webhook Response)",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [860, 160]
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Extraction Données JSON').item.json.email }}",
+        "subject": "Votre audit gratuit ABEMA AGENCY — nous revenons vers vous sous 24h",
+        "emailType": "html",
+        "message": "=<div style=\"font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #0A0A0F; color: #ffffff; border-radius: 12px; overflow: hidden;\">\n  <div style=\"background: linear-gradient(135deg, #0A0A0F, #1a1a2e); padding: 32px; text-align: center; border-bottom: 2px solid #F59E0B;\">\n    <h1 style=\"color: #F59E0B; font-size: 24px; margin: 0 0 8px;\">ABEMA AGENCY</h1>\n    <p style=\"color: #9ca3af; margin: 0; font-size: 14px;\">Agents IA sur mesure pour TPE</p>\n  </div>\n  <div style=\"padding: 32px;\">\n    <h2 style=\"color: #ffffff; font-size: 20px; margin: 0 0 16px;\">Bonjour {{ $('Extraction Données JSON').item.json.prenom }},</h2>\n    <p style=\"color: #d1d5db; line-height: 1.7;\">Merci pour votre demande d'audit gratuit. Nous avons bien reçu votre message et nous revenons vers vous <strong style=\"color: #F59E0B;\">sous 24h</strong> pour planifier votre session de 30 minutes.</p>\n    <div style=\"background: #111118; border: 1px solid #F59E0B; border-radius: 8px; padding: 20px; margin: 24px 0;\">\n      <p style=\"color: #F59E0B; font-weight: bold; margin: 0 0 12px;\">Ce qui vous attend lors de l'audit :</p>\n      <ul style=\"color: #d1d5db; margin: 0; padding-left: 20px; line-height: 2;\">\n        <li>Analyse de vos tâches chronophages</li>\n        <li>Identification de vos gains rapides</li>\n        <li>Recommandation personnalisée</li>\n        <li>Sans engagement, sans jargon</li>\n      </ul>\n    </div>\n    <p style=\"color: #d1d5db; line-height: 1.7;\">En attendant, n'hésitez pas à me contacter directement sur WhatsApp si vous avez des questions.</p>\n    <div style=\"text-align: center; margin: 32px 0;\">\n      <a href=\"https://wa.me/33650983972\" style=\"background: #F59E0B; color: #000; padding: 14px 28px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 15px;\">💬 Écrire sur WhatsApp</a>\n    </div>\n  </div>\n  <div style=\"background: #050508; padding: 20px; text-align: center; border-top: 1px solid #1f2937;\">\n    <p style=\"color: #6b7280; font-size: 12px; margin: 0;\">Abdallah Ait Essaghir — ABEMA AGENCY<br>contact@abemaagency.com | +33 6 50 98 39 72</p>\n  </div>\n</div>",
+        "options": {}
+      },
+      "id": "email-prospect-confirmation",
+      "name": "Email Prospect - Confirmation immédiate",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [860, 300],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "VOTRE_CREDENTIAL_GMAIL_ID",
+          "name": "Gmail OAuth2 Abdallah"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://api.anthropic.com/v1/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "x-api-key", "value": "VOTRE_CLE_API_ANTHROPIC" },
+            { "name": "anthropic-version", "value": "2023-06-01" },
+            { "name": "content-type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"claude-sonnet-4-20250514\",\n  \"max_tokens\": 4096,\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Tu es un expert en qualification de leads pour une agence IA qui cible les TPE françaises (artisans, commerçants, coachs, agents immobiliers, professions libérales).\\n\\nAnalyse ce lead et fournis une qualification BANT détaillée.\\n\\nDONNÉES DU LEAD :\\n- Prénom : {{ $('Extraction Données JSON').item.json.prenom }}\\n- Nom : {{ $('Extraction Données JSON').item.json.nom }}\\n- Email : {{ $('Extraction Données JSON').item.json.email }}\\n- Téléphone : {{ $('Extraction Données JSON').item.json.telephone }}\\n- Entreprise : {{ $('Extraction Données JSON').item.json.entreprise }}\\n- Activité : {{ $('Extraction Données JSON').item.json.activite }}\\n- Budget mentionné : {{ $('Extraction Données JSON').item.json.budget }}\\n- Besoin exprimé : {{ $('Extraction Données JSON').item.json.besoin }}\\n- Urgence / Timeline : {{ $('Extraction Données JSON').item.json.urgence }}\\n- Source : {{ $('Extraction Données JSON').item.json.source }}\\n\\nFOURNIS EXACTEMENT LA STRUCTURE SUIVANTE :\\n\\n## 1. ANALYSE GLOBALE DU LEAD\\nRédige un paragraphe d'analyse (contexte, profil, potentiel, adéquation avec l'offre ABEMA).\\n\\n## 2. SCORING BANT DÉTAILLÉ\\n### Budget (X/25) — Justification\\n### Authority (X/25) — Justification\\n### Need (X/25) — Justification\\n### Timeline (X/25) — Justification\\n### SCORE TOTAL : XX/100\\n\\n## 3. CLASSIFICATION\\nLEAD CHAUD (≥60/100) ou LEAD TIÈDE (<60/100)\\n\\n## 4. RECOMMANDATIONS D'ACTION\\n- Angle d'approche personnalisé\\n- Points de vigilance\\n- Offre ABEMA recommandée (Essentiel 79€ / Croissance 197€ / Sur-mesure 249€)\\n\\n## 5. EMAIL DE RÉPONSE PERSONNALISÉ\\nRédige un email de réponse chaleureux, sans jargon, adapté au métier du prospect.\\n\\nIMPORTANT : Inclure cette ligne exacte pour le parsing :\\nSCORE_BANT:XX\"\n    }\n  ]\n}",
+        "options": { "timeout": 60000 }
+      },
+      "id": "claude-bant-analysis",
+      "name": "Claude - Analyse BANT",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [860, 480]
+    },
+    {
+      "parameters": {
+        "jsCode": "const response = $input.first().json;\n\nlet analysisText = '';\nif (response.content && response.content.length > 0) {\n  analysisText = response.content[0].text;\n}\n\nconst scoreMatch = analysisText.match(/SCORE_BANT:(\\d+)/);\nconst scoreBant = scoreMatch ? parseInt(scoreMatch[1]) : 0;\n\nconst isHot = scoreBant >= 60;\nconst classification = isHot ? 'LEAD CHAUD' : 'LEAD TIÈDE';\n\nconst leadData = $('Extraction Données JSON').first().json;\n\n// Extraction email de réponse personnalisé\nconst emailMatch = analysisText.match(/## 5\\. EMAIL DE RÉPONSE PERSONNALISÉ([\\s\\S]*?)(?=$|## \\d)/);\nconst emailPersonnalise = emailMatch ? emailMatch[1].trim() : '';\n\nreturn [{\n  json: {\n    score_bant: scoreBant,\n    classification: classification,\n    is_hot_lead: isHot,\n    analyse_complete: analysisText,\n    email_personnalise: emailPersonnalise,\n    lead_prenom: leadData.prenom,\n    lead_nom: leadData.nom,\n    lead_email: leadData.email,\n    lead_telephone: leadData.telephone,\n    lead_entreprise: leadData.entreprise,\n    lead_activite: leadData.activite,\n    lead_besoin: leadData.besoin,\n    date_reception: leadData.date_reception\n  }\n}];"
+      },
+      "id": "parse-score",
+      "name": "Extraction Score BANT",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1080, 480]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": true, "leftValue": "", "typeValidation": "strict" },
+          "conditions": [
+            {
+              "id": "condition-score-bant",
+              "leftValue": "={{ $json.score_bant }}",
+              "rightValue": 60,
+              "operator": { "type": "number", "operation": "gte" }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "check-score",
+      "name": "Check Score ≥ 60",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [1300, 480]
+    },
+    {
+      "parameters": {
+        "sendTo": "contact@abemaagency.com",
+        "subject": "=🔥 LEAD CHAUD ({{ $json.score_bant }}/100) - {{ $json.lead_prenom }} {{ $json.lead_nom }} | {{ $json.lead_entreprise }}",
+        "emailType": "html",
+        "message": "=<div style=\"font-family: Arial, sans-serif; max-width: 700px; margin: 0 auto; background-color: #f8f9fa; padding: 20px;\">\n  <div style=\"background: linear-gradient(135deg, #d32f2f, #f44336); color: white; padding: 25px; border-radius: 10px 10px 0 0; text-align: center;\">\n    <h1 style=\"margin: 0; font-size: 24px;\">🔥 LEAD CHAUD DÉTECTÉ</h1>\n    <p style=\"margin: 10px 0 0; font-size: 36px; font-weight: bold;\">Score BANT : {{ $json.score_bant }}/100</p>\n  </div>\n  <div style=\"background: white; padding: 25px; border-radius: 0 0 10px 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);\">\n    <h2 style=\"color: #F59E0B; border-bottom: 2px solid #F59E0B; padding-bottom: 10px;\">📋 Informations du Lead</h2>\n    <table style=\"width: 100%; border-collapse: collapse; margin-bottom: 20px;\">\n      <tr style=\"background:#f5f5f5\"><td style=\"padding:10px;font-weight:bold;width:35%\">Nom complet</td><td style=\"padding:10px\">{{ $json.lead_prenom }} {{ $json.lead_nom }}</td></tr>\n      <tr><td style=\"padding:10px;font-weight:bold\">Email</td><td style=\"padding:10px\"><a href=\"mailto:{{ $json.lead_email }}\">{{ $json.lead_email }}</a></td></tr>\n      <tr style=\"background:#f5f5f5\"><td style=\"padding:10px;font-weight:bold\">Téléphone</td><td style=\"padding:10px\"><a href=\"tel:{{ $json.lead_telephone }}\">{{ $json.lead_telephone }}</a></td></tr>\n      <tr><td style=\"padding:10px;font-weight:bold\">Entreprise</td><td style=\"padding:10px\">{{ $json.lead_entreprise }}</td></tr>\n      <tr style=\"background:#f5f5f5\"><td style=\"padding:10px;font-weight:bold\">Activité</td><td style=\"padding:10px\">{{ $json.lead_activite }}</td></tr>\n      <tr><td style=\"padding:10px;font-weight:bold\">Classification</td><td style=\"padding:10px\"><span style=\"background:#d32f2f;color:white;padding:4px 12px;border-radius:20px;font-weight:bold\">{{ $json.classification }}</span></td></tr>\n      <tr style=\"background:#f5f5f5\"><td style=\"padding:10px;font-weight:bold\">Date réception</td><td style=\"padding:10px\">{{ $json.date_reception }}</td></tr>\n    </table>\n    <h2 style=\"color: #F59E0B; border-bottom: 2px solid #F59E0B; padding-bottom: 10px;\">🤖 Analyse BANT par Claude</h2>\n    <div style=\"background:#fafafa;border-left:4px solid #F59E0B;padding:20px;margin:15px 0;white-space:pre-wrap;line-height:1.7\">{{ $json.analyse_complete }}</div>\n    <div style=\"text-align:center;margin-top:25px;padding:15px;background:#fff8e1;border-radius:8px;border:1px solid #F59E0B\">\n      <p style=\"margin:0;font-size:16px;color:#e65100\"><strong>⚡ Action requise : contacter dans les 2h</strong></p>\n      <div style=\"margin-top:12px;display:flex;gap:12px;justify-content:center\">\n        <a href=\"tel:{{ $json.lead_telephone }}\" style=\"background:#F59E0B;color:#000;padding:10px 20px;border-radius:50px;text-decoration:none;font-weight:bold\">📞 Appeler</a>\n        <a href=\"https://wa.me/{{ $json.lead_telephone }}\" style=\"background:#25D366;color:#fff;padding:10px 20px;border-radius:50px;text-decoration:none;font-weight:bold\">💬 WhatsApp</a>\n      </div>\n    </div>\n  </div>\n</div>",
+        "options": {}
+      },
+      "id": "send-email-hot",
+      "name": "Email - Lead Chaud à Abdallah",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [1520, 380],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "VOTRE_CREDENTIAL_GMAIL_ID",
+          "name": "Gmail OAuth2 Abdallah"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://api.callmebot.com/whatsapp.php?phone=33650983972&text=🔥+LEAD+CHAUD+{{ $json.score_bant }}%2F100+%0A{{ $json.lead_prenom }}+{{ $json.lead_nom }}+%0A{{ $json.lead_activite }}+%0ATél:+{{ $json.lead_telephone }}+%0AEmail:+{{ $json.lead_email }}&apikey=VOTRE_CALLMEBOT_APIKEY",
+        "options": {}
+      },
+      "id": "whatsapp-notif-hot",
+      "name": "WhatsApp - Alerte Lead Chaud",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1520, 500],
+      "notes": "Utilise CallMeBot (gratuit) pour envoyer un WhatsApp à Abdallah. Inscription sur callmebot.com pour obtenir l'apikey."
+    },
+    {
+      "parameters": {
+        "jsCode": "const leadData = $('Extraction Score BANT').first().json;\n\nreturn [{\n  json: {\n    status: 'lead_tiede_en_attente',\n    message: `Lead tiède enregistré : ${leadData.lead_prenom} ${leadData.lead_nom} (Score: ${leadData.score_bant}/100). Séquence de relance J+2 déclenchée.`,\n    score_bant: leadData.score_bant,\n    classification: leadData.classification,\n    lead_prenom: leadData.lead_prenom,\n    lead_nom: leadData.lead_nom,\n    lead_email: leadData.lead_email,\n    lead_telephone: leadData.lead_telephone,\n    lead_entreprise: leadData.lead_entreprise,\n    lead_activite: leadData.lead_activite,\n    lead_besoin: leadData.lead_besoin,\n    date_reception: leadData.date_reception,\n    date_relance_j2: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toISOString(),\n    date_relance_j5: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toISOString()\n  }\n}];"
+      },
+      "id": "prepare-relance",
+      "name": "Préparer Relance Lead Tiède",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1520, 620]
+    },
+    {
+      "parameters": {
+        "amount": 2,
+        "unit": "days"
+      },
+      "id": "wait-j2",
+      "name": "Attendre J+2",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [1740, 620]
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Préparer Relance Lead Tiède').item.json.lead_email }}",
+        "subject": "={{ $('Préparer Relance Lead Tiède').item.json.lead_prenom }}, votre audit gratuit vous attend encore",
+        "emailType": "html",
+        "message": "=<div style=\"font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #0A0A0F; color: #ffffff; border-radius: 12px; overflow: hidden;\">\n  <div style=\"background: linear-gradient(135deg, #0A0A0F, #1a1a2e); padding: 32px; text-align: center; border-bottom: 2px solid #F59E0B;\">\n    <h1 style=\"color: #F59E0B; font-size: 22px; margin: 0;\">ABEMA AGENCY</h1>\n  </div>\n  <div style=\"padding: 32px;\">\n    <h2 style=\"color: #ffffff; font-size: 18px;\">Bonjour {{ $('Préparer Relance Lead Tiède').item.json.lead_prenom }},</h2>\n    <p style=\"color: #d1d5db; line-height: 1.7;\">Il y a 2 jours, vous avez demandé un audit gratuit pour <strong style=\"color:#F59E0B\">{{ $('Préparer Relance Lead Tiède').item.json.lead_entreprise }}</strong>.</p>\n    <p style=\"color: #d1d5db; line-height: 1.7;\">Je voulais m'assurer que votre demande n'est pas passée à la trappe. Mon agenda est disponible cette semaine — 30 minutes suffisent pour identifier vos gains rapides.</p>\n    <div style=\"background: #111118; border-left: 3px solid #F59E0B; padding: 16px; margin: 24px 0; border-radius: 0 8px 8px 0;\">\n      <p style=\"color: #F59E0B; margin: 0; font-weight: bold;\">Un exemple concret :</p>\n      <p style=\"color: #d1d5db; margin: 8px 0 0; font-size: 14px;\">Un de mes clients artisan récupère 14h par semaine grâce à son agent IA WhatsApp. Il ne répond plus aux mêmes questions le soir.</p>\n    </div>\n    <div style=\"text-align: center; margin: 32px 0;\">\n      <a href=\"https://wa.me/33650983972?text=Bonjour+Abdallah,+je+souhaite+planifier+mon+audit+gratuit\" style=\"background: #F59E0B; color: #000; padding: 14px 28px; border-radius: 50px; text-decoration: none; font-weight: bold;\">Planifier l'audit gratuit →</a>\n    </div>\n    <p style=\"color: #6b7280; font-size: 13px;\">Si ce n'est plus le bon moment, pas de souci — répondez simplement à cet email.</p>\n  </div>\n  <div style=\"background: #050508; padding: 16px; text-align: center; border-top: 1px solid #1f2937;\">\n    <p style=\"color: #6b7280; font-size: 12px; margin: 0;\">Abdallah — ABEMA AGENCY | contact@abemaagency.com</p>\n  </div>\n</div>",
+        "options": {}
+      },
+      "id": "relance-j2",
+      "name": "Relance J+2 - Email Lead Tiède",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [1960, 620],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "VOTRE_CREDENTIAL_GMAIL_ID",
+          "name": "Gmail OAuth2 Abdallah"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 3,
+        "unit": "days"
+      },
+      "id": "wait-j5",
+      "name": "Attendre J+5 (3 jours de plus)",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [2180, 620]
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Préparer Relance Lead Tiède').item.json.lead_email }}",
+        "subject": "Dernière chance — audit gratuit ABEMA (je ferme les inscriptions vendredi)",
+        "emailType": "html",
+        "message": "=<div style=\"font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #0A0A0F; color: #ffffff; border-radius: 12px; overflow: hidden;\">\n  <div style=\"background: linear-gradient(135deg, #0A0A0F, #1a1a2e); padding: 32px; text-align: center; border-bottom: 2px solid #F59E0B;\">\n    <h1 style=\"color: #F59E0B; font-size: 22px; margin: 0;\">ABEMA AGENCY</h1>\n  </div>\n  <div style=\"padding: 32px;\">\n    <h2 style=\"color: #ffffff; font-size: 18px;\">{{ $('Préparer Relance Lead Tiède').item.json.lead_prenom }}, un dernier message</h2>\n    <p style=\"color: #d1d5db; line-height: 1.7;\">Je ne veux pas vous harceler, mais je tiens à ce que vous ne passiez pas à côté d'un audit qui pourrait transformer votre quotidien.</p>\n    <p style=\"color: #d1d5db; line-height: 1.7;\">Je ferme les inscriptions <strong style=\"color:#F59E0B\">vendredi</strong> pour ce mois-ci — après ça, il faudra attendre le mois prochain.</p>\n    <div style=\"background: #111118; border: 1px solid #374151; border-radius: 8px; padding: 20px; margin: 24px 0;\">\n      <p style=\"color: #9ca3af; font-size: 14px; margin: 0;\">Si vous avez une question ou une hésitation, répondez simplement à cet email. Je lis tous mes messages personnellement.</p>\n    </div>\n    <div style=\"text-align: center; margin: 32px 0;\">\n      <a href=\"https://wa.me/33650983972\" style=\"background: #F59E0B; color: #000; padding: 14px 28px; border-radius: 50px; text-decoration: none; font-weight: bold;\">Je veux mon audit gratuit →</a>\n    </div>\n    <p style=\"color: #6b7280; font-size: 12px; text-align: center;\">Si vous ne souhaitez plus recevoir de messages, répondez STOP.</p>\n  </div>\n  <div style=\"background: #050508; padding: 16px; text-align: center; border-top: 1px solid #1f2937;\">\n    <p style=\"color: #6b7280; font-size: 12px; margin: 0;\">Abdallah — ABEMA AGENCY | contact@abemaagency.com</p>\n  </div>\n</div>",
+        "options": {}
+      },
+      "id": "relance-j5",
+      "name": "Relance J+5 - Email Final",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [2400, 620],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "VOTRE_CREDENTIAL_GMAIL_ID",
+          "name": "Gmail OAuth2 Abdallah"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "contact@abemaagency.com",
+        "subject": "=🌡 LEAD TIÈDE ({{ $json.score_bant }}/100) - {{ $json.lead_prenom }} {{ $json.lead_nom }} — séquence relance déclenchée",
+        "emailType": "html",
+        "message": "=<div style=\"font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #f8f9fa; padding: 20px;\">\n  <div style=\"background: linear-gradient(135deg, #f57c00, #ff9800); color: white; padding: 20px; border-radius: 10px 10px 0 0; text-align: center;\">\n    <h1 style=\"margin: 0; font-size: 20px;\">🌡 Lead Tiède — Séquence relance activée</h1>\n    <p style=\"margin: 8px 0 0; font-size: 28px; font-weight: bold;\">Score : {{ $json.score_bant }}/100</p>\n  </div>\n  <div style=\"background: white; padding: 20px; border-radius: 0 0 10px 10px;\">\n    <p><strong>{{ $json.lead_prenom }} {{ $json.lead_nom }}</strong> — {{ $json.lead_activite }}</p>\n    <p>📧 {{ $json.lead_email }} | 📞 {{ $json.lead_telephone }}</p>\n    <p>Entreprise : {{ $json.lead_entreprise }}</p>\n    <div style=\"background:#fff8e1;padding:16px;border-radius:8px;border:1px solid #f57c00;margin-top:16px\">\n      <p style=\"margin:0;color:#e65100\"><strong>📅 Séquence automatique déclenchée :</strong></p>\n      <ul style=\"margin:8px 0 0;color:#555\">\n        <li>Email de relance J+2 programmé</li>\n        <li>Email de relance J+5 programmé</li>\n      </ul>\n    </div>\n    <div style=\"text-align:center;margin-top:20px\">\n      <a href=\"https://wa.me/{{ $json.lead_telephone }}\" style=\"background:#25D366;color:#fff;padding:10px 20px;border-radius:50px;text-decoration:none;font-weight:bold;margin-right:8px\">💬 Contacter maintenant</a>\n    </div>\n  </div>\n</div>",
+        "options": {}
+      },
+      "id": "email-tiede-abdallah",
+      "name": "Email - Lead Tiède à Abdallah",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [1740, 760],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "VOTRE_CREDENTIAL_GMAIL_ID",
+          "name": "Gmail OAuth2 Abdallah"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Webhook - Formulaire Contact": {
+      "main": [[{ "node": "Extraction Données JSON", "type": "main", "index": 0 }]]
+    },
+    "Webhook - OPTIONS Preflight": {
+      "main": [[{ "node": "Respond OPTIONS 204", "type": "main", "index": 0 }]]
+    },
+    "Extraction Données JSON": {
+      "main": [[{ "node": "Google Sheets - Enregistrement Lead", "type": "main", "index": 0 }]]
+    },
+    "Google Sheets - Enregistrement Lead": {
+      "main": [[
+        { "node": "Confirmation Réception (Webhook Response)", "type": "main", "index": 0 },
+        { "node": "Email Prospect - Confirmation immédiate", "type": "main", "index": 0 },
+        { "node": "Claude - Analyse BANT", "type": "main", "index": 0 }
+      ]]
+    },
+    "Claude - Analyse BANT": {
+      "main": [[{ "node": "Extraction Score BANT", "type": "main", "index": 0 }]]
+    },
+    "Extraction Score BANT": {
+      "main": [[{ "node": "Check Score ≥ 60", "type": "main", "index": 0 }]]
+    },
+    "Check Score ≥ 60": {
+      "main": [
+        [
+          { "node": "Email - Lead Chaud à Abdallah", "type": "main", "index": 0 },
+          { "node": "WhatsApp - Alerte Lead Chaud", "type": "main", "index": 0 }
+        ],
+        [
+          { "node": "Préparer Relance Lead Tiède", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Préparer Relance Lead Tiède": {
+      "main": [[
+        { "node": "Attendre J+2", "type": "main", "index": 0 },
+        { "node": "Email - Lead Tiède à Abdallah", "type": "main", "index": 0 }
+      ]]
+    },
+    "Attendre J+2": {
+      "main": [[{ "node": "Relance J+2 - Email Lead Tiède", "type": "main", "index": 0 }]]
+    },
+    "Relance J+2 - Email Lead Tiède": {
+      "main": [[{ "node": "Attendre J+5 (3 jours de plus)", "type": "main", "index": 0 }]]
+    },
+    "Attendre J+5 (3 jours de plus)": {
+      "main": [[{ "node": "Relance J+5 - Email Final", "type": "main", "index": 0 }]]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": ""
+  },
+  "versionId": "2",
+  "tags": [
+    { "name": "Lead Qualification", "id": "tag-lead-qual" },
+    { "name": "BANT", "id": "tag-bant" },
+    { "name": "Relances", "id": "tag-relances" },
+    { "name": "ABEMA v2", "id": "tag-abema-v2" }
+  ],
+  "pinData": {},
+  "meta": { "instanceId": "" }
+}

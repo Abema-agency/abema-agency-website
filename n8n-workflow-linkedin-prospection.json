@@ -1,0 +1,179 @@
+{
+  "name": "ABEMA — LinkedIn Prospection",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "linkedin-prospection",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "wh-li-post",
+      "name": "Webhook LinkedIn (POST)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [240, 380],
+      "webhookId": "linkedin-prospection-post"
+    },
+    {
+      "parameters": {
+        "httpMethod": "OPTIONS",
+        "path": "linkedin-prospection",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "wh-li-options",
+      "name": "Webhook LinkedIn (OPTIONS)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [240, 200],
+      "webhookId": "linkedin-prospection-options"
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "",
+        "options": {
+          "responseCode": 204,
+          "responseHeaders": {
+            "entries": [
+              { "name": "Access-Control-Allow-Origin",  "value": "*" },
+              { "name": "Access-Control-Allow-Methods", "value": "POST, OPTIONS" },
+              { "name": "Access-Control-Allow-Headers", "value": "Content-Type" },
+              { "name": "Access-Control-Max-Age",       "value": "86400" }
+            ]
+          }
+        }
+      },
+      "id": "respond-options",
+      "name": "Respond OPTIONS 204",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [480, 200]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": { "caseSensitive": false, "typeValidation": "loose" },
+                "conditions": [
+                  {
+                    "leftValue": "={{$json.body.channel}}",
+                    "rightValue": "linkedin",
+                    "operator": { "type": "string", "operation": "equals" }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "outputKey": "linkedin"
+            }
+          ]
+        },
+        "options": { "fallbackOutput": "extra", "renameFallbackOutput": "non-linkedin" }
+      },
+      "id": "switch-linkedin",
+      "name": "Filtre channel = linkedin",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [480, 380]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Pré-traitement LinkedIn : tag + priorité + bonus de score\nconst d = $input.first().json.body;\nreturn [{ json: {\n  ...d,\n  tag        : 'linkedin',\n  priorite   : 'haute',\n  score_bonus: 20\n} }];"
+      },
+      "id": "tag-linkedin",
+      "name": "Tag LinkedIn + priorité haute",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [720, 320]
+    },
+    {
+      "parameters": {
+        "workflowId": "={{$env.WORKFLOW_ID_BANT}}",
+        "source": "parameter",
+        "options": { "waitForSubWorkflow": true }
+      },
+      "id": "exec-bant",
+      "name": "Execute Workflow BANT",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [960, 320],
+      "notes": "Lier au workflow 'ABEMA — Qualification Lead BANT v2'. Remplacer $env.WORKFLOW_ID_BANT par l'ID du workflow BANT (visible dans l'URL n8n quand tu l'ouvres)."
+    },
+    {
+      "parameters": {
+        "jsCode": "// Actions LinkedIn-spécifiques (CRM, Slack, séquence email LinkedIn)\nconst d = $input.first().json;\n// TODO : ajouter ici les nœuds suivants : HubSpot/Pipedrive Create Lead, Slack notify #sales, Email séquence LinkedIn\nreturn [{ json: {\n  ...d,\n  notif: `🔵 Nouveau lead LinkDIN qualifié : ${d.prenom} ${d.nom} (${d.entreprise}) — score ${d.bant_score}`\n} }];"
+      },
+      "id": "actions-linkedin",
+      "name": "Actions LinkedIn (CRM + Slack)",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1200, 320]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { ok: true, channel: 'linkedin', leadId: $json.email, bant_score: $json.bant_score, qualified: $json.qualified, tag: $json.tag } }}",
+        "options": {
+          "responseHeaders": {
+            "entries": [
+              { "name": "Access-Control-Allow-Origin",  "value": "*" },
+              { "name": "Access-Control-Allow-Methods", "value": "POST, OPTIONS" },
+              { "name": "Access-Control-Allow-Headers", "value": "Content-Type" }
+            ]
+          }
+        }
+      },
+      "id": "respond-linkedin",
+      "name": "Reponse Webhook LinkedIn",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [1440, 320]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { ok: false, error: 'channel must be linkedin', received: $json.body && $json.body.channel } }}",
+        "options": {
+          "responseCode": 400,
+          "responseHeaders": {
+            "entries": [
+              { "name": "Access-Control-Allow-Origin", "value": "*" }
+            ]
+          }
+        }
+      },
+      "id": "respond-reject",
+      "name": "Rejet non-LinkedIn",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [720, 480]
+    }
+  ],
+  "connections": {
+    "Webhook LinkedIn (OPTIONS)": {
+      "main": [[{ "node": "Respond OPTIONS 204", "type": "main", "index": 0 }]]
+    },
+    "Webhook LinkedIn (POST)": {
+      "main": [[{ "node": "Filtre channel = linkedin", "type": "main", "index": 0 }]]
+    },
+    "Filtre channel = linkedin": {
+      "main": [
+        [{ "node": "Tag LinkedIn + priorité haute", "type": "main", "index": 0 }],
+        [{ "node": "Rejet non-LinkedIn",            "type": "main", "index": 0 }]
+      ]
+    },
+    "Tag LinkedIn + priorité haute": {
+      "main": [[{ "node": "Execute Workflow BANT", "type": "main", "index": 0 }]]
+    },
+    "Execute Workflow BANT": {
+      "main": [[{ "node": "Actions LinkedIn (CRM + Slack)", "type": "main", "index": 0 }]]
+    },
+    "Actions LinkedIn (CRM + Slack)": {
+      "main": [[{ "node": "Reponse Webhook LinkedIn", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": { "executionOrder": "v1" }
+}

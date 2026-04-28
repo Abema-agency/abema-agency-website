@@ -1,0 +1,121 @@
+{
+  "name": "ABEMA — Chatbot",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "chatbot-abema",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "wh-chatbot-post",
+      "name": "Webhook Chatbot (POST)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [240, 300],
+      "webhookId": "chatbot-abema-post"
+    },
+    {
+      "parameters": {
+        "httpMethod": "OPTIONS",
+        "path": "chatbot-abema",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "wh-chatbot-options",
+      "name": "Webhook Chatbot (OPTIONS)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [240, 120],
+      "webhookId": "chatbot-abema-options"
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "",
+        "options": {
+          "responseCode": 204,
+          "responseHeaders": {
+            "entries": [
+              { "name": "Access-Control-Allow-Origin",  "value": "*" },
+              { "name": "Access-Control-Allow-Methods", "value": "POST, OPTIONS" },
+              { "name": "Access-Control-Allow-Headers", "value": "Content-Type" },
+              { "name": "Access-Control-Max-Age",       "value": "86400" }
+            ]
+          }
+        }
+      },
+      "id": "respond-options",
+      "name": "Respond OPTIONS 204",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [480, 120]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            { "id": "1", "name": "sessionId",    "value": "={{$json.body.sessionId}}",    "type": "string" },
+            { "id": "2", "name": "message",      "value": "={{$json.body.message}}",      "type": "string" },
+            { "id": "3", "name": "channel",      "value": "={{$json.body.channel || 'website'}}", "type": "string" },
+            { "id": "4", "name": "utm_source",   "value": "={{$json.body.utm_source}}",   "type": "string" },
+            { "id": "5", "name": "utm_medium",   "value": "={{$json.body.utm_medium}}",   "type": "string" },
+            { "id": "6", "name": "utm_campaign", "value": "={{$json.body.utm_campaign}}", "type": "string" },
+            { "id": "7", "name": "lead",         "value": "={{ { prenom: $json.body.prenom, nom: $json.body.nom, email: $json.body.email, telephone: $json.body.telephone, entreprise: $json.body.entreprise, activite: $json.body.activite, budget: $json.body.budget, besoin: $json.body.besoin, urgence: $json.body.urgence } }}", "type": "object" }
+          ]
+        },
+        "options": {}
+      },
+      "id": "set-extraction",
+      "name": "Extraction Message",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [480, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// TODO : remplace par ton appel LLM (OpenAI / Claude) ou ton flow de qualif\n// Pour l'instant : echo + leadComplet=false\nconst data = $input.first().json;\nreturn [{\n  json: {\n    reply: `Reçu : « ${data.message} ». Pour vous orienter au mieux, pouvez-vous me dire votre activité ?`,\n    sessionId: data.sessionId,\n    leadComplet: false,\n    lead: data.lead\n  }\n}];"
+      },
+      "id": "ai-reply",
+      "name": "Génération réponse (à remplacer)",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [720, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { response: $json.reply, sessionId: $json.sessionId, leadComplet: $json.leadComplet === true, lead: $json.lead } }}",
+        "options": {
+          "responseHeaders": {
+            "entries": [
+              { "name": "Access-Control-Allow-Origin",  "value": "*" },
+              { "name": "Access-Control-Allow-Methods", "value": "POST, OPTIONS" },
+              { "name": "Access-Control-Allow-Headers", "value": "Content-Type" }
+            ]
+          }
+        }
+      },
+      "id": "respond-webhook",
+      "name": "Reponse Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [960, 300]
+    }
+  ],
+  "connections": {
+    "Webhook Chatbot (OPTIONS)": {
+      "main": [[{ "node": "Respond OPTIONS 204", "type": "main", "index": 0 }]]
+    },
+    "Webhook Chatbot (POST)": {
+      "main": [[{ "node": "Extraction Message", "type": "main", "index": 0 }]]
+    },
+    "Extraction Message": {
+      "main": [[{ "node": "Génération réponse (à remplacer)", "type": "main", "index": 0 }]]
+    },
+    "Génération réponse (à remplacer)": {
+      "main": [[{ "node": "Reponse Webhook", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": { "executionOrder": "v1" }
+}

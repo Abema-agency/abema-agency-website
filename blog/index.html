@@ -11,7 +11,7 @@
   <meta property="og:title" content="Blog ABEMA — Automatisation IA pour TPE" />
   <meta property="og:description" content="Guides pratiques sur l'automatisation IA pour TPE françaises. Artisans, commerçants, agents immobiliers : découvrez comment gagner 10h par semaine." />
   <meta property="og:url" content="https://www.abemaagency.com/blog/" />
-  <meta property="og:image" content="https://www.abemaagency.com/logo.png" />
+  <meta property="og:image" content="https://www.abemaagency.com/og-blog.jpg" />
   <meta property="og:locale" content="fr_FR" />
   <meta property="og:site_name" content="ABEMA — Agents IA pour TPE" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -152,10 +152,10 @@
   <section class="section-dark py-8 px-4">
     <div class="max-w-5xl mx-auto">
       <div class="flex flex-wrap gap-3 justify-center" role="group" aria-label="Filtrer par catégorie">
-        <button onclick="filterCat('all')" data-cat="all" class="cat-btn active font-body text-sm px-5 py-2.5 rounded-full font-semibold" style="border:1px solid rgba(240,235,224,0.12);color:#C4BAA6">Tous les articles</button>
-        <button onclick="filterCat('artisan')" data-cat="artisan" class="cat-btn font-body text-sm px-5 py-2.5 rounded-full font-semibold text-stone" style="border:1px solid rgba(240,235,224,0.12)">Artisans &amp; TPE</button>
-        <button onclick="filterCat('agents-ia')" data-cat="agents-ia" class="cat-btn font-body text-sm px-5 py-2.5 rounded-full font-semibold text-stone" style="border:1px solid rgba(240,235,224,0.12)">Agents IA</button>
-        <button onclick="filterCat('outils')" data-cat="outils" class="cat-btn font-body text-sm px-5 py-2.5 rounded-full font-semibold text-stone" style="border:1px solid rgba(240,235,224,0.12)">Outils &amp; Tech</button>
+        <button onclick="filterCat('all')" data-filter="all" class="cat-btn active font-body text-sm px-5 py-2.5 rounded-full font-semibold" style="border:1px solid rgba(240,235,224,0.12);color:#C4BAA6">Tous les articles</button>
+        <button onclick="filterCat('artisans-tpe')" data-filter="artisans-tpe" class="cat-btn font-body text-sm px-5 py-2.5 rounded-full font-semibold text-stone" style="border:1px solid rgba(240,235,224,0.12)">Artisans &amp; TPE</button>
+        <button onclick="filterCat('agents-ia')" data-filter="agents-ia" class="cat-btn font-body text-sm px-5 py-2.5 rounded-full font-semibold text-stone" style="border:1px solid rgba(240,235,224,0.12)">Agents IA</button>
+        <button onclick="filterCat('outils-tech')" data-filter="outils-tech" class="cat-btn font-body text-sm px-5 py-2.5 rounded-full font-semibold text-stone" style="border:1px solid rgba(240,235,224,0.12)">Outils &amp; Tech</button>
       </div>
     </div>
   </section>
@@ -166,7 +166,7 @@
       <div id="articles-grid" class="grid md:grid-cols-3 gap-8">
 
         <!-- Article 1 -->
-        <article class="article-card visible flex-col rounded-2xl overflow-hidden card-hover" data-cat="artisan" style="background:rgba(240,235,224,0.03);border:1px solid rgba(240,235,224,0.08)">
+        <article class="article-card visible flex-col rounded-2xl overflow-hidden card-hover" data-category="artisans-tpe" style="background:rgba(240,235,224,0.03);border:1px solid rgba(240,235,224,0.08)">
           <div class="h-44 flex items-center justify-center text-6xl" style="background:linear-gradient(135deg,rgba(245,158,11,0.15) 0%,rgba(245,158,11,0.04) 100%)">&#128221;</div>
           <div class="p-6 flex flex-col flex-1">
             <div class="flex items-center gap-2 mb-4">
@@ -188,7 +188,7 @@
         </article>
 
         <!-- Article 2 -->
-        <article class="article-card visible flex-col rounded-2xl overflow-hidden card-hover" data-cat="agents-ia" style="background:rgba(240,235,224,0.03);border:1px solid rgba(240,235,224,0.08)">
+        <article class="article-card visible flex-col rounded-2xl overflow-hidden card-hover" data-category="agents-ia" style="background:rgba(240,235,224,0.03);border:1px solid rgba(240,235,224,0.08)">
           <div class="h-44 flex items-center justify-center text-6xl" style="background:linear-gradient(135deg,rgba(59,130,246,0.15) 0%,rgba(59,130,246,0.04) 100%)">&#129302;</div>
           <div class="p-6 flex flex-col flex-1">
             <div class="flex items-center gap-2 mb-4">
@@ -210,7 +210,7 @@
         </article>
 
         <!-- Article 3 -->
-        <article class="article-card visible flex-col rounded-2xl overflow-hidden card-hover" data-cat="outils" style="background:rgba(240,235,224,0.03);border:1px solid rgba(240,235,224,0.08)">
+        <article class="article-card visible flex-col rounded-2xl overflow-hidden card-hover" data-category="outils-tech" style="background:rgba(240,235,224,0.03);border:1px solid rgba(240,235,224,0.08)">
           <div class="h-44 flex items-center justify-center text-6xl" style="background:linear-gradient(135deg,rgba(245,158,11,0.10) 0%,rgba(59,130,246,0.08) 100%)">&#9881;&#65039;</div>
           <div class="p-6 flex flex-col flex-1">
             <div class="flex items-center gap-2 mb-4">

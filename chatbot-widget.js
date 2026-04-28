@@ -6,6 +6,35 @@
   var WEBHOOK_URL = 'https://n8n.abemaagency.com/webhook/chatbot-abema';
   var SESSION_KEY = 'abema_chat_session_id';
   var WELCOME_MSG = "Bonjour 👋 Je suis l'assistant IA d'ABEMA Agency. Je suis là pour vous aider à découvrir comment l'IA peut vous faire gagner du temps au quotidien. Vous avez une question ou vous souhaitez en savoir plus sur nos services ?";
+  var REQUEST_TIMEOUT_MS = 30000;  // 30s
+  var MAX_RETRIES        = 2;       // 1 essai + 2 retries = 3 tentatives
+  var RETRY_BACKOFF_MS   = 1200;    // 1.2s, 2.4s
+
+  // ── UTM / channel (lus 1 fois au load) ───────────────────────────────────
+  function readTracking() {
+    try {
+      var p = new URLSearchParams(window.location.search);
+      var stored = {};
+      try { stored = JSON.parse(sessionStorage.getItem('abema_tracking') || '{}'); } catch (e) {}
+      var t = {
+        utm_source  : p.get('utm_source')   || stored.utm_source   || '',
+        utm_medium  : p.get('utm_medium')   || stored.utm_medium   || '',
+        utm_campaign: p.get('utm_campaign') || stored.utm_campaign || '',
+        utm_content : p.get('utm_content')  || stored.utm_content  || '',
+        utm_term    : p.get('utm_term')     || stored.utm_term     || '',
+        referrer    : document.referrer     || stored.referrer     || '',
+        landing_url : stored.landing_url    || window.location.href
+      };
+      t.channel = (t.utm_source || '').toLowerCase() === 'linkedin'
+        ? 'linkedin'
+        : (t.utm_source ? 'paid' : (t.referrer ? 'referral' : 'direct'));
+      sessionStorage.setItem('abema_tracking', JSON.stringify(t));
+      return t;
+    } catch (e) {
+      return { channel: 'direct' };
+    }
+  }
+  var tracking = readTracking();
 
   // ── Session ID ───────────────────────────────────────────────────────────
   function getSessionId() {
@@ -339,6 +368,48 @@
     }
   });
 
+  // ── Fetch avec timeout + retry x2 ────────────────────────────────────────
+  function sendWithRetry(payload, attempt) {
+    attempt = attempt || 0;
+    var controller = new AbortController();
+    var timeoutId  = setTimeout(function () { controller.abort(); }, REQUEST_TIMEOUT_MS);
+
+    return fetch(WEBHOOK_URL, {
+      method     : 'POST',
+      mode       : 'cors',
+      credentials: 'omit',
+      headers    : { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      signal     : controller.signal,
+      body       : JSON.stringify(payload)
+    })
+    .then(function (res) {
+      clearTimeout(timeoutId);
+      if (!res.ok) {
+        var err = new Error('HTTP ' + res.status);
+        err.status = res.status;
+        throw err;
+      }
+      return res.text().then(function (raw) {
+        if (!raw || !raw.trim()) return {};
+        try { return JSON.parse(raw); } catch (e) { return { response: raw }; }
+      });
+    })
+    .catch(function (err) {
+      clearTimeout(timeoutId);
+      var retryable = (err.name === 'AbortError') ||
+                      (typeof err.status !== 'number') ||
+                      (err.status >= 500 && err.status < 600);
+      if (retryable && attempt < MAX_RETRIES) {
+        return new Promise(function (resolve) {
+          setTimeout(resolve, RETRY_BACKOFF_MS * (attempt + 1));
+        }).then(function () {
+          return sendWithRetry(payload, attempt + 1);
+        });
+      }
+      throw err;
+    });
+  }
+
   // ── Conversation libre — N8N gère le flow et collecte les infos ──────────
   form.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -352,61 +423,61 @@
     addMessage(text, 'user');
     showTyping();
 
-    var controller = new AbortController();
-    var timeoutId  = setTimeout(function () { controller.abort(); }, 10000);
+    var payload = {
+      sessionId   : getSessionId(),
+      message     : text,
+      timestamp   : new Date().toISOString(),
+      prenom      : leadData.prenom,
+      nom         : leadData.nom,
+      email       : leadData.email,
+      telephone   : leadData.telephone,
+      entreprise  : leadData.entreprise,
+      activite    : leadData.activite,
+      budget      : leadData.budget,
+      besoin      : leadData.besoin,
+      urgence     : leadData.urgence,
+      source      : leadData.source,
+      channel     : tracking.channel,
+      utm_source  : tracking.utm_source,
+      utm_medium  : tracking.utm_medium,
+      utm_campaign: tracking.utm_campaign,
+      utm_content : tracking.utm_content,
+      utm_term    : tracking.utm_term,
+      referrer    : tracking.referrer,
+      landing_url : tracking.landing_url,
+      page_url    : window.location.href
+    };
 
-    fetch(WEBHOOK_URL, {
-      method : 'POST',
-      mode   : 'cors',
-      headers: { 'Content-Type': 'application/json' },
-      signal : controller.signal,
-      body   : JSON.stringify({
-        sessionId : getSessionId(),
-        message   : text,
-        timestamp : new Date().toISOString(),
-        prenom    : leadData.prenom,
-        nom       : leadData.nom,
-        email     : leadData.email,
-        telephone : leadData.telephone,
-        entreprise: leadData.entreprise,
-        activite  : leadData.activite,
-        budget    : leadData.budget,
-        besoin    : leadData.besoin,
-        urgence   : leadData.urgence,
-        source    : leadData.source
-      })
-    })
-    .then(function (res) {
-      if (!res.ok) throw new Error('HTTP ' + res.status);
-      return res.text().then(function (raw) {
-        var d = {};
-        if (raw && raw.trim()) {
-          try { d = JSON.parse(raw); } catch (e) {}
+    sendWithRetry(payload)
+      .then(function (d) {
+        hideTyping();
+        if (d.lead && typeof d.lead === 'object') {
+          Object.keys(leadData).forEach(function (k) {
+            if (d.lead[k] !== undefined && d.lead[k] !== null) leadData[k] = d.lead[k];
+          });
         }
-        return d;
+        // Contrat n8n attendu : { response, sessionId, leadComplet }
+        var reply = d.response || d.output || d.message || d.text;
+        if (reply) addMessage(reply, 'bot');
+        if (d.leadComplet === true) {
+          input.placeholder = 'Merci ! Un conseiller vous recontacte sous 24h.';
+          input.disabled = true;
+          sendBtn.disabled = true;
+          return;
+        }
+      })
+      .catch(function (err) {
+        hideTyping();
+        addMessage('Une erreur est survenue. Veuillez réessayer dans un instant.', 'error');
+        console.error('[ABEMA chat]', err);
+      })
+      .finally(function () {
+        if (input.disabled && input.placeholder.indexOf('conseiller') === -1) {
+          input.disabled = false;
+          sendBtn.disabled = false;
+          input.focus();
+        }
       });
-    })
-    .then(function (d) {
-      hideTyping();
-      if (d.lead && typeof d.lead === 'object') {
-        Object.keys(leadData).forEach(function (k) {
-          if (d.lead[k] !== undefined) leadData[k] = d.lead[k];
-        });
-      }
-      var reply = d.output || d.message || d.text;
-      if (reply) addMessage(reply, 'bot');
-    })
-    .catch(function (err) {
-      hideTyping();
-      addMessage('Une erreur est survenue. Veuillez réessayer dans un instant.', 'error');
-      console.error('[ABEMA chat]', err);
-    })
-    .finally(function () {
-      clearTimeout(timeoutId);
-      input.disabled = false;
-      sendBtn.disabled = false;
-      input.focus();
-    });
   });
 
 })();
