@@ -129,6 +129,9 @@
   }
   </script>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;600;700;800;900&family=Mulish:wght@300;400;500;600;700;800;900&display=swap" />
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;600;700;800;900&family=Mulish:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -254,7 +257,13 @@
 
   <!-- BANNER -->
   <div style="background:#F59E0B" class="text-foreground text-center py-2.5 px-4 text-sm font-semibold font-body">
-    <span>&#128640; Offre de lancement — mise en place offerte pour les 5 prochains clients</span>
+    <span class="inline-flex items-center gap-2.5">
+      <span class="relative flex h-2 w-2">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-foreground opacity-60"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-foreground"></span>
+      </span>
+      Offre de lancement — mise en place offerte pour les 5 prochains clients
+    </span>
   </div>
 
   <!-- NAV -->
@@ -397,8 +406,8 @@
           </div>
           <div class="text-center group">
             <div class="stat-reveal">
-              <div class="font-display text-4xl font-black stat-glow transition-all group-hover:scale-110 duration-300" style="color:#F59E0B">98%</div>
-              <div class="font-body text-xs tracking-widest uppercase text-clay mt-2">satisfaction</div>
+              <div class="font-display text-4xl font-black stat-glow transition-all group-hover:scale-110 duration-300" style="color:#F59E0B">24/7</div>
+              <div class="font-body text-xs tracking-widest uppercase text-clay mt-2">disponibilité</div>
             </div>
           </div>
         </div>
@@ -577,10 +586,10 @@
           <div style="margin-bottom:20px">
             <p class="font-body" style="color:rgba(248,249,250,.55);font-size:.78rem;margin:0 0 10px;font-weight:600">Votre secteur</p>
             <div style="display:flex;flex-wrap:wrap;gap:8px">
-              <button class="demo-sector-btn font-body" onclick="demoSelectSector('artisan')">🔧 Artisan</button>
-              <button class="demo-sector-btn font-body" onclick="demoSelectSector('coach')">🎯 Coach</button>
-              <button class="demo-sector-btn font-body" onclick="demoSelectSector('immobilier')">🏠 Immobilier</button>
-              <button class="demo-sector-btn font-body" onclick="demoSelectSector('commercant')">🛒 Commerçant</button>
+              <button class="demo-sector-btn font-body" onclick="demoSelectSector('artisan')">Artisan</button>
+              <button class="demo-sector-btn font-body" onclick="demoSelectSector('coach')">Coach</button>
+              <button class="demo-sector-btn font-body" onclick="demoSelectSector('immobilier')">Immobilier</button>
+              <button class="demo-sector-btn font-body" onclick="demoSelectSector('commercant')">Commerçant</button>
             </div>
           </div>
 
@@ -682,20 +691,23 @@
 
       <!-- Badges -->
       <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:28px">
-        <span class="font-body text-sm font-semibold"
+        <span class="font-body text-sm font-semibold inline-flex items-center gap-2"
               style="background:#fff;border:1px solid #e2e8f0;border-radius:999px;
                      padding:8px 18px;color:#1a1a2e;box-shadow:0 1px 4px rgba(0,0,0,.06)">
-          ⚡ Répond en &lt;1 min
+          <svg class="w-4 h-4" fill="none" stroke="#3b5bdb" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          Répond en &lt;1 min
         </span>
-        <span class="font-body text-sm font-semibold"
+        <span class="font-body text-sm font-semibold inline-flex items-center gap-2"
               style="background:#fff;border:1px solid #e2e8f0;border-radius:999px;
                      padding:8px 18px;color:#1a1a2e;box-shadow:0 1px 4px rgba(0,0,0,.06)">
-          🕐 Disponible 24h/24
+          <svg class="w-4 h-4" fill="none" stroke="#3b5bdb" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke-linecap="round" stroke-linejoin="round"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 7v5l3 2"/></svg>
+          Disponible 24h/24
         </span>
-        <span class="font-body text-sm font-semibold"
+        <span class="font-body text-sm font-semibold inline-flex items-center gap-2"
               style="background:#fff;border:1px solid #e2e8f0;border-radius:999px;
                      padding:8px 18px;color:#1a1a2e;box-shadow:0 1px 4px rgba(0,0,0,.06)">
-          🎯 Configuré à votre ton
+          <svg class="w-4 h-4" fill="none" stroke="#3b5bdb" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="#3b5bdb"/></svg>
+          Configuré à votre ton
         </span>
       </div>
 
