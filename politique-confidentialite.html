@@ -3,142 +3,180 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Politique de confidentialit&eacute; - ABEMA AGENCY</title>
-  <meta name="description" content="Politique de confidentialit&eacute; et protection des donn&eacute;es personnelles d'ABEMA AGENCY, conforme au RGPD." />
+  <title>Politique de confidentialité — ABEMA AGENCY</title>
+  <meta name="description" content="Politique de confidentialité d'ABEMA AGENCY : données collectées, finalités, sous-traitants, durée de conservation et droits RGPD." />
   <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="https://www.abemaagency.com/politique-confidentialite.html" />
   <link rel="icon" href="favicon.ico" />
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Figtree:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Mulish:wght@400;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#C8A44E',
-            'primary-dark': '#B08D3A',
-            'primary-light': '#E8C96A',
-            foreground: '#1A1A2E',
-          },
-          fontFamily: {
-            sans: ['Figtree', 'sans-serif'],
-          }
-        }
-      }
-    }
+    tailwind.config = { theme: { extend: {
+      colors: { primary:'#F59E0B','primary-light':'#FCD34D', foreground:'#0A0A0F',
+        cream:'#F0EBE0', sand:'#C4BAA6', stone:'#8A8070', clay:'#625A52' },
+      fontFamily: { display:['"Big Shoulders Display"','sans-serif'], sans:['Mulish','sans-serif'] }
+    }}}
   </script>
   <style>
-    body { font-family: 'Figtree', sans-serif; background-color: #1A1A2E; color: #C8BDA8; }
-    h1, h2, h3 { font-family: 'Bricolage Grotesque', sans-serif; }
-    p { max-width: 70ch; }
+    body { font-family:'Mulish',sans-serif; background:#0A0A0F; color:#C4BAA6; }
+    h1, h2, h3 { font-family:'Big Shoulders Display',sans-serif; }
+    p, li { max-width: 75ch; }
+    .legal-section { border-top: 1px solid rgba(240,235,224,0.06); }
+    table { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.9rem; }
+    th, td { text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid rgba(240,235,224,0.06); }
+    th { color: #F0EBE0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; font-size: 0.78rem; background: rgba(245,158,11,0.04); }
   </style>
 </head>
 <body class="antialiased">
 
-  <!-- NAV -->
-  <nav class="sticky top-0 z-50 bg-foreground/95 backdrop-blur-md border-b border-[#F5EDE0]/10">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-primary focus:text-foreground focus:px-4 focus:py-2 focus:rounded-lg focus:font-semibold">Aller au contenu</a>
+
+  <nav class="sticky top-0 z-50 backdrop-blur-md" style="background:rgba(10,10,15,0.92);border-bottom:1px solid rgba(240,235,224,0.08)">
     <div class="max-w-4xl mx-auto px-4 flex items-center justify-between h-16">
-      <a href="/" class="flex items-center gap-2">
-        <img src="logo.png" alt="ABEMA AGENCY - Retour a l'accueil" class="h-8" />
-      </a>
-      <a href="/" class="text-[#C8BDA8] hover:text-primary-light transition text-sm">&larr; Retour au site</a>
+      <a href="/" class="flex items-center gap-2"><img src="logo.svg" alt="ABEMA AGENCY" class="h-8 w-auto" width="160" height="32" /></a>
+      <a href="/" class="text-sand hover:text-primary-light transition text-sm font-body">&larr; Retour au site</a>
     </div>
   </nav>
 
-  <main class="max-w-4xl mx-auto px-4 py-20">
-    <h1 class="text-3xl md:text-4xl font-bold text-[#F5EDE0] mb-10">Politique de confidentialit&eacute;</h1>
+  <main id="main" class="max-w-4xl mx-auto px-4 py-20">
+    <p class="font-body font-bold text-sm mb-3" style="color:#FCD34D">Vos données, vos droits</p>
+    <h1 class="text-4xl md:text-5xl font-black text-cream mb-3">Politique de confidentialité</h1>
+    <p class="text-stone text-sm font-body mb-12">Conforme au RGPD (Règlement UE 2016/679) et à la Loi Informatique &amp; Libertés. Dernière mise à jour : 5 mai 2026.</p>
 
-    <div class="space-y-10 text-[#B0A898] leading-relaxed">
+    <div class="space-y-12 leading-relaxed font-body">
 
       <section>
-        <h2 class="text-xl font-bold text-[#F5EDE0] mb-4">1. Responsable du traitement</h2>
-        <p>Le responsable du traitement des donn&eacute;es personnelles collect&eacute;es sur ce site est :</p>
-        <ul class="mt-3 space-y-1">
-          <li><strong class="text-[#C8BDA8]">ABEMA AGENCY</strong></li>
-          <li>Repr&eacute;sent&eacute; par Abdallah Ait Essaghir</li>
-          <li>25 Rue de Rouvroy, 62680 M&eacute;ricourt, France</li>
+        <h2 class="text-2xl font-black text-cream mb-4">1. Responsable du traitement</h2>
+        <p>Le responsable du traitement des données personnelles collectées sur ce site est :</p>
+        <ul class="mt-4 space-y-1.5">
+          <li><strong class="text-cream">ABEMA AGENCY</strong> — SIREN 925 242 976</li>
+          <li>Représentée par Abdallah Ait Essaghir</li>
+          <li>25 Rue de Rouvroy, 62680 Méricourt, France</li>
           <li>Email : <a href="mailto:contact@abemaagency.com" class="text-primary-light hover:text-primary transition">contact@abemaagency.com</a></li>
-          <li>T&eacute;l&eacute;phone : <a href="tel:+33650983972" class="text-primary-light hover:text-primary transition">+33 6 50 98 39 72</a></li>
+          <li>Téléphone : <a href="tel:+33650983972" class="text-primary-light hover:text-primary transition">+33 6 50 98 39 72</a></li>
+        </ul>
+        <p class="mt-4 text-sm">Compte tenu de notre taille, ABEMA AGENCY n'a pas désigné de Délégué à la Protection des Données (DPO). Toute demande relative à vos données personnelles peut être adressée directement à l'email ci-dessus.</p>
+      </section>
+
+      <section class="legal-section pt-12">
+        <h2 class="text-2xl font-black text-cream mb-4">2. Données collectées et bases légales</h2>
+        <table>
+          <thead><tr><th>Donnée</th><th>Source</th><th>Base légale</th></tr></thead>
+          <tbody>
+            <tr><td>Prénom, nom</td><td>Formulaire de contact</td><td>Consentement (art. 6.1.a)</td></tr>
+            <tr><td>Email</td><td>Formulaire de contact</td><td>Consentement</td></tr>
+            <tr><td>Téléphone (optionnel)</td><td>Formulaire de contact</td><td>Consentement</td></tr>
+            <tr><td>Entreprise, secteur, budget, délai</td><td>Formulaire de contact</td><td>Mesures précontractuelles (art. 6.1.b)</td></tr>
+            <tr><td>Message libre</td><td>Formulaire de contact</td><td>Consentement</td></tr>
+            <tr><td>Données techniques (IP tronquée, user-agent)</td><td>Logs hébergeur</td><td>Intérêt légitime — sécurité</td></tr>
+            <tr><td>Source de trafic (UTM, referrer)</td><td>URL de visite</td><td>Intérêt légitime — mesure d'audience anonymisée</td></tr>
+            <tr><td>Conversation orale (démo agent vocal)</td><td>Démo en ligne (le cas échéant)</td><td>Consentement explicite préalable</td></tr>
+          </tbody>
+        </table>
+        <p class="mt-4 text-sm">Aucune donnée sensible (santé, opinions politiques, religion, etc.) n'est collectée.</p>
+      </section>
+
+      <section class="legal-section pt-12">
+        <h2 class="text-2xl font-black text-cream mb-4">3. Finalités du traitement</h2>
+        <ul class="mt-2 space-y-1.5 list-disc list-inside">
+          <li>Répondre à votre demande de contact ou d'audit gratuit</li>
+          <li>Qualifier votre besoin (secteur, budget, délai) afin d'établir une proposition adaptée</li>
+          <li>Assurer le suivi commercial et la relation client</li>
+          <li>Vous adresser, le cas échéant, des informations sur nos services (uniquement avec votre accord)</li>
+          <li>Garantir la sécurité, la disponibilité et l'amélioration du site</li>
+        </ul>
+        <p class="mt-4">Vos données ne sont <strong class="text-cream">jamais vendues, louées ni cédées</strong> à des tiers commerciaux.</p>
+      </section>
+
+      <section class="legal-section pt-12">
+        <h2 class="text-2xl font-black text-cream mb-4">4. Sous-traitants et destinataires</h2>
+        <p>Pour faire fonctionner le site et traiter vos demandes, nous recourons aux sous-traitants suivants, tous tenus contractuellement de respecter le RGPD :</p>
+        <table>
+          <thead><tr><th>Sous-traitant</th><th>Rôle</th><th>Localisation</th></tr></thead>
+          <tbody>
+            <tr><td>Vercel Inc.</td><td>Hébergement du site</td><td>UE / USA — clauses contractuelles types</td></tr>
+            <tr><td>n8n</td><td>Automatisation des workflows (qualification de leads, notifications)</td><td>Union européenne</td></tr>
+            <tr><td>Google Workspace</td><td>Réception et stockage des emails</td><td>UE / USA — DPF</td></tr>
+            <tr><td>ElevenLabs (le cas échéant)</td><td>Démonstration d'agent vocal IA sur le site</td><td>UE / USA — clauses contractuelles types</td></tr>
+            <tr><td>OpenAI / Anthropic (le cas échéant)</td><td>Modèles de langage utilisés par les démonstrations</td><td>USA — clauses contractuelles types</td></tr>
+          </tbody>
+        </table>
+        <p class="mt-4 text-sm">Pour les transferts hors UE, nous nous appuyons sur les clauses contractuelles types validées par la Commission européenne et, lorsque applicable, sur le Data Privacy Framework (DPF).</p>
+      </section>
+
+      <section class="legal-section pt-12">
+        <h2 class="text-2xl font-black text-cream mb-4">5. Durées de conservation</h2>
+        <ul class="mt-2 space-y-1.5 list-disc list-inside">
+          <li><strong class="text-cream">Prospects sans suite :</strong> 3 ans à compter du dernier contact</li>
+          <li><strong class="text-cream">Clients :</strong> durée de la relation contractuelle + 5 ans (prescription commerciale)</li>
+          <li><strong class="text-cream">Documents comptables :</strong> 10 ans (obligation légale)</li>
+          <li><strong class="text-cream">Logs techniques :</strong> 12 mois maximum</li>
+          <li><strong class="text-cream">Conversations de démo agent vocal :</strong> 30 jours, sauf consentement explicite à une conservation prolongée</li>
         </ul>
       </section>
 
-      <section>
-        <h2 class="text-xl font-bold text-[#F5EDE0] mb-4">2. Donn&eacute;es collect&eacute;es</h2>
-        <p>Nous collectons les donn&eacute;es personnelles suivantes uniquement via le formulaire de contact :</p>
-        <ul class="mt-3 space-y-1 list-disc list-inside">
-          <li>Pr&eacute;nom et nom</li>
-          <li>Adresse email</li>
-          <li>Num&eacute;ro de t&eacute;l&eacute;phone (optionnel)</li>
-          <li>Nom de l'entreprise (optionnel)</li>
-          <li>Secteur d'activit&eacute;</li>
-          <li>Message libre (optionnel)</li>
+      <section class="legal-section pt-12">
+        <h2 class="text-2xl font-black text-cream mb-4">6. Vos droits</h2>
+        <p>Conformément au RGPD, vous disposez à tout moment des droits suivants sur vos données :</p>
+        <ul class="mt-3 space-y-1.5 list-disc list-inside">
+          <li><strong class="text-cream">Accès :</strong> obtenir une copie de vos données</li>
+          <li><strong class="text-cream">Rectification :</strong> corriger des données inexactes ou incomplètes</li>
+          <li><strong class="text-cream">Effacement :</strong> demander la suppression de vos données</li>
+          <li><strong class="text-cream">Limitation :</strong> restreindre le traitement</li>
+          <li><strong class="text-cream">Portabilité :</strong> recevoir vos données dans un format structuré</li>
+          <li><strong class="text-cream">Opposition :</strong> vous opposer à un traitement fondé sur l'intérêt légitime</li>
+          <li><strong class="text-cream">Retrait du consentement</strong> à tout moment, sans effet rétroactif</li>
+          <li><strong class="text-cream">Directives post-mortem</strong> sur le sort de vos données</li>
         </ul>
-        <p class="mt-3">Ces donn&eacute;es sont collect&eacute;es sur la base de votre <strong class="text-[#C8BDA8]">consentement</strong> (article 6.1.a du RGPD), manifest&eacute; par l'envoi volontaire du formulaire.</p>
+        <p class="mt-4">Pour exercer ces droits, écrivez-nous à <a href="mailto:contact@abemaagency.com" class="text-primary-light hover:text-primary transition">contact@abemaagency.com</a> en précisant l'objet "RGPD". Nous répondons sous <strong class="text-cream">30 jours</strong> au maximum.</p>
+        <p class="mt-3">Si la réponse ne vous satisfait pas, vous pouvez introduire une réclamation auprès de la <strong class="text-cream">CNIL</strong> : <a href="https://www.cnil.fr/fr/plaintes" class="text-primary-light hover:text-primary transition" target="_blank" rel="noopener noreferrer">cnil.fr/fr/plaintes</a>.</p>
       </section>
 
-      <section>
-        <h2 class="text-xl font-bold text-[#F5EDE0] mb-4">3. Finalit&eacute;s du traitement</h2>
-        <p>Les donn&eacute;es collect&eacute;es sont utilis&eacute;es exclusivement pour :</p>
-        <ul class="mt-3 space-y-1 list-disc list-inside">
-          <li>Vous recontacter dans le cadre de votre demande d'audit gratuit</li>
-          <li>Qualifier votre besoin en automatisation IA</li>
-          <li>Vous proposer une offre adapt&eacute;e &agrave; votre activit&eacute;</li>
+      <section class="legal-section pt-12">
+        <h2 class="text-2xl font-black text-cream mb-4">7. Cookies et traceurs</h2>
+        <p>Le site n'utilise <strong class="text-cream">aucun cookie publicitaire ni cookie de tracking tiers</strong> (pas de Google Analytics, pas de Meta Pixel, pas de retargeting). Seuls peuvent être déposés :</p>
+        <ul class="mt-3 space-y-1.5 list-disc list-inside">
+          <li>Des cookies strictement nécessaires au fonctionnement technique du site (sessions, sécurité) — exemptés de consentement par la CNIL.</li>
+          <li>Le stockage local pour mémoriser votre source d'arrivée (UTM) le temps d'une visite — donnée anonymisée, supprimée à la fermeture du navigateur.</li>
         </ul>
-        <p class="mt-3">Vos donn&eacute;es ne sont <strong class="text-[#C8BDA8]">jamais vendues, c&eacute;d&eacute;es ou lou&eacute;es</strong> &agrave; des tiers.</p>
       </section>
 
-      <section>
-        <h2 class="text-xl font-bold text-[#F5EDE0] mb-4">4. Dur&eacute;e de conservation</h2>
-        <p>Vos donn&eacute;es personnelles sont conserv&eacute;es pendant une dur&eacute;e maximale de <strong class="text-[#C8BDA8]">36 mois</strong> &agrave; compter de votre dernier contact avec nous, ou jusqu'&agrave; l'exercice de votre droit de suppression.</p>
-      </section>
-
-      <section>
-        <h2 class="text-xl font-bold text-[#F5EDE0] mb-4">5. Sous-traitants et transferts</h2>
-        <p>Les donn&eacute;es du formulaire sont transmises &agrave; notre outil d'automatisation (N8N, h&eacute;berg&eacute; en Europe) pour le traitement de votre demande. Le site est h&eacute;berg&eacute; par <strong class="text-[#C8BDA8]">Vercel Inc.</strong> (serveurs en Europe et aux &Eacute;tats-Unis, conforme aux clauses contractuelles types de la Commission europ&eacute;enne).</p>
-      </section>
-
-      <section>
-        <h2 class="text-xl font-bold text-[#F5EDE0] mb-4">6. Vos droits (RGPD)</h2>
-        <p>Conform&eacute;ment au R&egrave;glement G&eacute;n&eacute;ral sur la Protection des Donn&eacute;es (RGPD) et &agrave; la loi Informatique et Libert&eacute;s, vous disposez des droits suivants :</p>
-        <ul class="mt-3 space-y-1 list-disc list-inside">
-          <li><strong class="text-[#C8BDA8]">Droit d'acc&egrave;s :</strong> obtenir une copie de vos donn&eacute;es personnelles</li>
-          <li><strong class="text-[#C8BDA8]">Droit de rectification :</strong> corriger des donn&eacute;es inexactes</li>
-          <li><strong class="text-[#C8BDA8]">Droit &agrave; l'effacement :</strong> demander la suppression de vos donn&eacute;es</li>
-          <li><strong class="text-[#C8BDA8]">Droit &agrave; la limitation :</strong> restreindre le traitement de vos donn&eacute;es</li>
-          <li><strong class="text-[#C8BDA8]">Droit &agrave; la portabilit&eacute; :</strong> recevoir vos donn&eacute;es dans un format structur&eacute;</li>
-          <li><strong class="text-[#C8BDA8]">Droit d'opposition :</strong> vous opposer au traitement de vos donn&eacute;es</li>
+      <section class="legal-section pt-12">
+        <h2 class="text-2xl font-black text-cream mb-4">8. Sécurité</h2>
+        <p>Nous mettons en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données :</p>
+        <ul class="mt-3 space-y-1.5 list-disc list-inside">
+          <li>Connexion HTTPS chiffrée sur l'ensemble du site</li>
+          <li>Accès restreint aux données par authentification forte</li>
+          <li>Sauvegardes régulières et journalisation des accès</li>
+          <li>Sous-traitants sélectionnés sur leur niveau de conformité RGPD</li>
         </ul>
-        <p class="mt-4">Pour exercer ces droits, contactez-nous &agrave; : <a href="mailto:contact@abemaagency.com" class="text-primary-light hover:text-primary transition">contact@abemaagency.com</a></p>
-        <p class="mt-3">Nous nous engageons &agrave; r&eacute;pondre &agrave; votre demande dans un d&eacute;lai de <strong class="text-[#C8BDA8]">30 jours</strong>.</p>
-        <p class="mt-3">En cas de litige, vous pouvez &eacute;galement d&eacute;poser une r&eacute;clamation aupr&egrave;s de la <strong class="text-[#C8BDA8]">CNIL</strong> (Commission Nationale de l'Informatique et des Libert&eacute;s) : <a href="https://www.cnil.fr" class="text-primary-light hover:text-primary transition" target="_blank" rel="noopener noreferrer">www.cnil.fr</a></p>
+        <p class="mt-4 text-sm">En cas de violation de données susceptible d'engendrer un risque pour vos droits et libertés, ABEMA s'engage à notifier la CNIL dans les 72h conformément à l'article 33 du RGPD.</p>
       </section>
 
-      <section>
-        <h2 class="text-xl font-bold text-[#F5EDE0] mb-4">7. Cookies</h2>
-        <p>Ce site n'utilise <strong class="text-[#C8BDA8]">aucun cookie de tra&ccedil;age ni cookie publicitaire</strong>. Seuls les cookies strictement n&eacute;cessaires au fonctionnement technique du site (h&eacute;bergeur) peuvent &ecirc;tre d&eacute;pos&eacute;s.</p>
+      <section class="legal-section pt-12">
+        <h2 class="text-2xl font-black text-cream mb-4">9. Décision automatisée et profilage</h2>
+        <p>Le formulaire de contact opère un classement automatisé des demandes (qualification du lead par budget et secteur) afin d'orienter le suivi commercial. Cette opération <strong class="text-cream">ne produit pas d'effet juridique</strong> et ne vous prive d'aucun droit. Vous pouvez à tout moment demander une revue humaine de votre dossier.</p>
       </section>
 
-      <section>
-        <h2 class="text-xl font-bold text-[#F5EDE0] mb-4">8. S&eacute;curit&eacute;</h2>
-        <p>Nous mettons en oeuvre les mesures techniques et organisationnelles appropri&eacute;es pour prot&eacute;ger vos donn&eacute;es contre tout acc&egrave;s non autoris&eacute;, modification, divulgation ou destruction. Le site est servi en HTTPS (connexion chiffr&eacute;e).</p>
-      </section>
-
-      <section>
-        <h2 class="text-xl font-bold text-[#F5EDE0] mb-4">9. Mise &agrave; jour</h2>
-        <p>La pr&eacute;sente politique de confidentialit&eacute; peut &ecirc;tre mise &agrave; jour &agrave; tout moment. La date de derni&egrave;re mise &agrave; jour est indiqu&eacute;e ci-dessous.</p>
-        <p class="mt-3"><strong class="text-[#C8BDA8]">Derni&egrave;re mise &agrave; jour :</strong> 14 avril 2026</p>
+      <section class="legal-section pt-12">
+        <h2 class="text-2xl font-black text-cream mb-4">10. Mise à jour de la présente politique</h2>
+        <p>Cette politique peut être mise à jour pour refléter les évolutions du site, des sous-traitants ou de la réglementation. La date de dernière mise à jour est indiquée en tête de page. Les modifications substantielles vous seront notifiées par email lorsque cela est pertinent.</p>
       </section>
 
     </div>
   </main>
 
-  <footer class="bg-[#0E0E1A] text-[#9A917E] py-8 px-4 border-t border-[#F5EDE0]/10 text-center text-sm">
-    <p>&copy; 2026 ABEMA AGENCY. Tous droits r&eacute;serv&eacute;s.</p>
-    <div class="flex justify-center gap-4 mt-3">
-      <a href="mentions-legales.html" class="hover:text-[#F5EDE0] transition">Mentions l&eacute;gales</a>
-      <a href="politique-confidentialite.html" class="hover:text-[#F5EDE0] transition">Politique de confidentialit&eacute;</a>
+  <footer style="background:#050508;border-top:1px solid rgba(240,235,224,0.08)" class="text-cream py-10 px-4 mt-20">
+    <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-stone font-body gap-4">
+      <p>&copy; 2026 ABEMA AGENCY. Tous droits réservés.</p>
+      <div class="flex gap-5">
+        <a href="mentions-legales.html" class="hover:text-cream transition">Mentions légales</a>
+        <a href="politique-confidentialite.html" class="hover:text-cream transition">Politique de confidentialité</a>
+        <a href="cgu.html" class="hover:text-cream transition">CGU</a>
+      </div>
     </div>
   </footer>
-
-  <script src="chatbot-widget.js" defer></script>
 </body>
 </html>

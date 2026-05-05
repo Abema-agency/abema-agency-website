@@ -257,12 +257,16 @@
 
   <!-- BANNER -->
   <div style="background:#F59E0B" class="text-foreground text-center py-2.5 px-4 text-sm font-semibold font-body">
-    <span class="inline-flex items-center gap-2.5">
-      <span class="relative flex h-2 w-2">
-        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-foreground opacity-60"></span>
-        <span class="relative inline-flex rounded-full h-2 w-2 bg-foreground"></span>
+    <span class="inline-flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
+      <span class="inline-flex items-center gap-2.5">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-foreground opacity-60"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-foreground"></span>
+        </span>
+        Subvention Région Hauts-de-France jusqu'à 12 000 €
       </span>
-      Offre de lancement — mise en place offerte pour les 5 prochains clients
+      <span aria-hidden="true" class="opacity-50">·</span>
+      <span>Pilote 14 jours offert · Sans CB</span>
     </span>
   </div>
 
@@ -270,7 +274,7 @@
   <nav id="main-nav" class="sticky top-0 z-50 border-b border-transparent">
     <div class="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
       <a href="/" class="flex items-center gap-2">
-        <img src="logo.png" alt="ABEMA AGENCY" class="h-8" width="128" height="32" />
+        <img src="logo.svg" alt="ABEMA AGENCY" class="h-8 w-auto" width="160" height="32" />
       </a>
       <div class="hidden md:flex items-center gap-8 text-sm font-semibold font-body text-sand">
         <a href="#services" class="hover:text-primary transition-colors">Services</a>
@@ -353,9 +357,13 @@
       </div>
 
       <!-- Subtitle -->
-      <p class="reveal reveal-d3 font-body text-lg md:text-xl text-stone max-w-2xl mx-auto mb-10 leading-relaxed">
+      <p class="reveal reveal-d3 font-body text-lg md:text-xl text-stone max-w-2xl mx-auto mb-6 leading-relaxed">
         Agents IA sur mesure — réponses clients, devis, relances, prospection.<br class="hidden md:block" />
         <span style="color:#D8D0C4">Résultats dès le premier mois. Sans compétence technique.</span>
+      </p>
+      <p class="reveal reveal-d3 font-body text-sm text-clay mb-10 inline-flex items-center gap-2">
+        <svg class="w-4 h-4" fill="none" stroke="#F59E0B" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
+        Bassin 62 · Lens · Béthune · Arras · Lille — déplacements inclus
       </p>
 
       <!-- CTAs -->
@@ -363,9 +371,12 @@
         <a href="#contact" class="btn-shine text-foreground px-10 py-4 rounded-xl text-base font-display font-bold tracking-wide transition-all duration-300 hover:shadow-[0_0_40px_rgba(245,158,11,0.4)] hover:scale-105" style="background:#F59E0B">
           Réserver mon audit offert
         </a>
-        <a href="#offres" class="group font-body border text-cream px-10 py-4 rounded-xl text-base font-semibold transition-all duration-300 hover:border-primary/60 hover:bg-primary/5" style="border-color:rgba(240,235,224,0.15);background:rgba(240,235,224,0.04)">
-          Voir les offres
-          <span class="inline-block ml-1 transition-transform group-hover:translate-x-1">&rarr;</span>
+        <a href="#demo" class="group inline-flex items-center justify-center gap-2 font-body border text-cream px-10 py-4 rounded-xl text-base font-semibold transition-all duration-300 hover:border-primary/60 hover:bg-primary/5" style="border-color:rgba(245,158,11,0.45);background:rgba(245,158,11,0.06)">
+          <span class="relative flex h-2 w-2 shrink-0">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style="background:#F59E0B"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2" style="background:#FCD34D"></span>
+          </span>
+          Tester l'agent en 30 secondes
         </a>
       </div>
 
@@ -414,10 +425,11 @@
       </div>
 
       <!-- Trust line -->
-      <div class="reveal reveal-d6 flex flex-wrap justify-center gap-8 mt-10 font-body text-xs tracking-widest uppercase text-clay">
+      <div class="reveal reveal-d6 flex flex-wrap justify-center gap-x-8 gap-y-3 mt-10 font-body text-xs tracking-widest uppercase text-clay">
+        <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full" style="background:#F59E0B"></span>Pilote 14 jours offert</span>
+        <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full" style="background:#F59E0B"></span>Présence locale · Hauts-de-France</span>
+        <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full" style="background:#F59E0B"></span>Données Europe · RGPD</span>
         <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full" style="background:#F59E0B"></span>Sans engagement</span>
-        <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full" style="background:#F59E0B"></span>Données Europe</span>
-        <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full" style="background:#F59E0B"></span>Audit offert</span>
       </div>
     </div>
 
@@ -825,6 +837,97 @@
     </div>
   </section>
 
+  <!-- COMPARATIF CONCURRENCE -->
+  <section id="vs-concurrence" class="py-24 px-4 section-darker">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12">
+        <p class="font-body font-bold text-sm mb-2" style="color:#FCD34D">Pourquoi ABEMA plutôt qu'une plateforme distancielle</p>
+        <h2 class="text-3xl md:text-4xl font-black text-cream">Le prix, ce n'est pas la facture. C'est ce que ça vous coûte de mal le configurer.</h2>
+        <p class="text-stone font-body max-w-2xl mx-auto mt-5 text-base">Les solutions à 29 € ou 49 €/mois existent. Elles sont distancielles, sans accompagnement, et facturent au-delà du forfait. ABEMA déploie pour vous, sur place si besoin, et reste joignable.</p>
+      </div>
+      <div class="overflow-x-auto rounded-2xl" style="background:rgba(240,235,224,0.03);border:1px solid rgba(240,235,224,0.08)">
+        <table class="w-full text-left border-collapse min-w-[640px]">
+          <thead>
+            <tr style="border-bottom:1px solid rgba(240,235,224,0.10)">
+              <th scope="col" class="py-5 px-5 text-stone font-body text-xs tracking-widest uppercase"></th>
+              <th scope="col" class="py-5 px-4 font-display font-black tracking-wide" style="color:#F59E0B">ABEMA</th>
+              <th scope="col" class="py-5 px-4 font-body font-semibold text-clay text-sm">Plateformes distancielles</th>
+              <th scope="col" class="py-5 px-4 font-body font-semibold text-clay text-sm">Agence IA Paris/Lyon</th>
+              <th scope="col" class="py-5 px-4 font-body font-semibold text-clay text-sm">Secrétariat humain</th>
+            </tr>
+          </thead>
+          <tbody class="font-body text-sm">
+            <tr style="border-bottom:1px solid rgba(240,235,224,0.06)">
+              <th scope="row" class="py-4 px-5 font-semibold text-cream">Tarif d'entrée</th>
+              <td class="py-4 px-4 font-bold" style="color:#F59E0B">79 €/mois<br><span class="text-xs font-normal text-stone">tout compris</span></td>
+              <td class="py-4 px-4 text-stone">29 à 99 €/mois<br><span class="text-xs">+ minute hors forfait</span></td>
+              <td class="py-4 px-4 text-stone">250 à 600 €/mois<br><span class="text-xs">+ setup 500 à 1 500 €</span></td>
+              <td class="py-4 px-4 text-stone">149 à 349 €/mois<br><span class="text-xs">limité 8h-20h</span></td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(240,235,224,0.06)">
+              <th scope="row" class="py-4 px-5 font-semibold text-cream">Mise en place</th>
+              <td class="py-4 px-4 font-bold" style="color:#F59E0B">48 h, faite pour vous</td>
+              <td class="py-4 px-4 text-stone">DIY, vous configurez</td>
+              <td class="py-4 px-4 text-stone">2 à 6 semaines</td>
+              <td class="py-4 px-4 text-stone">1 à 2 semaines</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(240,235,224,0.06)">
+              <th scope="row" class="py-4 px-5 font-semibold text-cream">Accompagnement humain</th>
+              <td class="py-4 px-4 font-bold" style="color:#F59E0B">Inclus · interlocuteur dédié</td>
+              <td class="py-4 px-4 text-stone">Aucun · support tickets</td>
+              <td class="py-4 px-4 text-stone">Inclus mais distanciel</td>
+              <td class="py-4 px-4 text-stone">Standard téléphonique</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(240,235,224,0.06)">
+              <th scope="row" class="py-4 px-5 font-semibold text-cream">Présence locale Hauts-de-France</th>
+              <td class="py-4 px-4 font-bold" style="color:#F59E0B">Oui · RDV physique possible</td>
+              <td class="py-4 px-4 text-stone">Non</td>
+              <td class="py-4 px-4 text-stone">Non</td>
+              <td class="py-4 px-4 text-stone">Variable</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(240,235,224,0.06)">
+              <th scope="row" class="py-4 px-5 font-semibold text-cream">Pilote gratuit</th>
+              <td class="py-4 px-4 font-bold" style="color:#F59E0B">14 jours · sans CB</td>
+              <td class="py-4 px-4 text-stone">7 j ou crédits limités</td>
+              <td class="py-4 px-4 text-stone">Non</td>
+              <td class="py-4 px-4 text-stone">Non</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(240,235,224,0.06)">
+              <th scope="row" class="py-4 px-5 font-semibold text-cream">Disponibilité de l'agent</th>
+              <td class="py-4 px-4 font-bold" style="color:#F59E0B">24 h / 24 · 7 j / 7</td>
+              <td class="py-4 px-4 text-stone">24 h / 24</td>
+              <td class="py-4 px-4 text-stone">24 h / 24</td>
+              <td class="py-4 px-4 text-stone">8 h - 20 h</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(240,235,224,0.06)">
+              <th scope="row" class="py-4 px-5 font-semibold text-cream">Engagement</th>
+              <td class="py-4 px-4 font-bold" style="color:#F59E0B">Sans engagement</td>
+              <td class="py-4 px-4 text-stone">Mensuel</td>
+              <td class="py-4 px-4 text-stone">6 à 12 mois</td>
+              <td class="py-4 px-4 text-stone">Mensuel</td>
+            </tr>
+            <tr>
+              <th scope="row" class="py-4 px-5 font-semibold text-cream">Subvention Région HdF</th>
+              <td class="py-4 px-4 font-bold" style="color:#F59E0B">Jusqu'à 12 000 € · INAC HdF</td>
+              <td class="py-4 px-4 text-stone">Non éligible (hors région)</td>
+              <td class="py-4 px-4 text-stone">Non éligible</td>
+              <td class="py-4 px-4 text-stone">Non</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-clay font-body text-xs text-center mt-5 max-w-3xl mx-auto">Comparatif établi à partir de la veille concurrentielle ABEMA (mai 2026) sur les solutions publiques : AirAgent, Tala, AlloAgent, Vocca, Volubile, Moneyvox, agences IA nationales. Tarifs hors taxes, susceptibles d'évoluer.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mt-10">
+        <a href="#contact" class="btn-shine text-foreground px-8 py-3.5 rounded-xl text-sm font-display font-bold tracking-wide transition-all duration-300 hover:shadow-[0_0_40px_rgba(245,158,11,0.35)]" style="background:#F59E0B">
+          Démarrer mon pilote 14 jours
+        </a>
+        <a href="#demo" class="font-body border text-cream px-8 py-3.5 rounded-xl text-sm font-semibold transition-all duration-300 hover:border-primary/60 hover:bg-primary/5" style="border-color:rgba(240,235,224,0.18);background:rgba(240,235,224,0.04)">
+          Tester l'agent &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- ETUDES DE CAS -->
   <section id="cas-clients" class="py-24 px-4 section-darker">
     <div class="max-w-5xl mx-auto">
@@ -1178,7 +1281,7 @@
       <div style="border-top:1px solid rgba(240,235,224,0.07)" class="pt-0">
         <div class="grid md:grid-cols-3 gap-10 mb-10 pt-14">
           <div>
-            <img src="logo.png" alt="ABEMA AGENCY" class="h-8 mb-4" loading="lazy" width="128" height="32" />
+            <img src="logo.svg" alt="ABEMA AGENCY" class="h-8 w-auto mb-4" loading="lazy" width="160" height="32" />
             <p class="text-stone text-sm font-body">L'IA utile et rentable pour votre entreprise</p>
           </div>
           <div>
@@ -1202,9 +1305,10 @@
         </div>
         <div class="flex flex-col md:flex-row justify-between items-center text-sm text-stone font-body pt-6" style="border-top:1px solid rgba(240,235,224,0.08)">
           <p>&copy; 2026 ABEMA AGENCY. Tous droits réservés.</p>
-          <div class="flex gap-4 mt-3 md:mt-0">
+          <div class="flex flex-wrap gap-4 mt-3 md:mt-0">
             <a href="mentions-legales.html" class="hover:text-cream transition">Mentions légales</a>
             <a href="politique-confidentialite.html" class="hover:text-cream transition">Politique de confidentialité</a>
+            <a href="cgu.html" class="hover:text-cream transition">CGU/CGV</a>
           </div>
         </div>
       </div>
