@@ -215,8 +215,12 @@
       padding: 1.75rem 2rem;
     }
 
-    /* Avatar amber ring for testimonials */
-    .avatar-amber { box-shadow: 0 0 0 2px rgba(245,158,11,0.45), 0 0 0 4px rgba(245,158,11,0.12); }
+    /* Avatar amber ring — about photo with slow glow pulse */
+    .avatar-amber { box-shadow: 0 0 0 2px rgba(245,158,11,0.45), 0 0 0 4px rgba(245,158,11,0.12); animation: avatarGlow 3s ease-in-out infinite; }
+    @keyframes avatarGlow {
+      0%, 100% { box-shadow: 0 0 0 2px rgba(245,158,11,0.35), 0 0 0 4px rgba(245,158,11,0.08); }
+      50%       { box-shadow: 0 0 0 2px rgba(245,158,11,0.70), 0 0 0 6px rgba(245,158,11,0.20), 0 0 24px rgba(245,158,11,0.15); }
+    }
 
     /* Mobile sticky CTA */
     #sticky-cta { display: none; }
@@ -248,6 +252,7 @@
       #hero-canvas { display: none; }
       .hero-ring { display: none; }
       .scroll-dot { animation: none !important; }
+      .avatar-amber { animation: none !important; }
     }
   </style>
 </head>
@@ -1096,20 +1101,27 @@
       <div class="grid md:grid-cols-5 gap-12 md:gap-16 items-start">
         <div class="md:col-span-2 flex flex-col items-center md:items-start gap-6">
           <div class="w-48 h-48 md:w-56 md:h-56 rounded-2xl overflow-hidden flex items-center justify-center avatar-amber" style="background:rgba(240,235,224,0.04);border:1px solid rgba(240,235,224,0.09)">
-            <img src="Moi_2025.jpeg" alt="Abdallah Ait Essaghir, fondateur d'ABEMA AGENCY" class="w-full h-full object-cover" loading="lazy" width="224" height="224" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'font-display text-6xl font-black\' style=\'color:rgba(245,158,11,0.3)\'>AA</span>'" />
+            <img src="Moi_2025.jpeg" alt="Abdallah Ait Essaghir, fondateur d'ABEMA AGENCY" class="w-full h-full object-cover" style="object-position: center top" loading="lazy" width="224" height="224" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'font-display text-6xl font-black\' style=\'color:rgba(245,158,11,0.3)\'>AA</span>'" />
           </div>
-          <div class="flex flex-col gap-3 w-full">
+          <div class="flex flex-col gap-3 w-full" id="about-stats">
             <div class="flex items-center gap-3">
-              <span class="font-display text-2xl font-black" style="color:#F59E0B">15+</span>
+              <span class="font-display text-2xl font-black stat-glow" style="color:#F59E0B"><span class="about-counter" data-target="15" data-suffix="+">15+</span></span>
               <span class="text-stone text-sm font-body">ans de gestion de projet</span>
             </div>
             <div class="flex items-center gap-3">
-              <span class="font-display text-2xl font-black" style="color:#F59E0B">1 500</span>
+              <span class="font-display text-2xl font-black stat-glow" style="color:#F59E0B"><span class="about-counter" data-target="1500" data-format="space">1 500</span></span>
               <span class="text-stone text-sm font-body">personnes coordonnées</span>
             </div>
             <div class="flex items-center gap-3">
-              <span class="font-display text-2xl font-black" style="color:#F59E0B">3</span>
+              <span class="font-display text-2xl font-black stat-glow" style="color:#F59E0B"><span class="about-counter" data-target="3">3</span></span>
               <span class="text-stone text-sm font-body">langues : FR / AR / EN</span>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 rounded-xl px-4 py-3 w-full" style="background:rgba(245,158,11,0.07);border:1px solid rgba(245,158,11,0.20)">
+            <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color:#F59E0B" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+            <div>
+              <p class="font-body font-semibold text-xs leading-tight" style="color:#FCD34D">IA Conversationnelle dans le Cycle de Vente</p>
+              <p class="font-body text-xs mt-0.5" style="color:#9CA3AF">Online Sales Success · Mai 2026</p>
             </div>
           </div>
         </div>
@@ -1130,13 +1142,6 @@
             <span class="font-body text-xs font-medium px-3 py-1.5 rounded-full" style="background:rgba(245,158,11,0.10);color:#FCD34D">Barceló</span>
             <span class="font-body text-xs font-medium px-3 py-1.5 rounded-full" style="background:rgba(245,158,11,0.10);color:#FCD34D">Technopôle 610ha</span>
             <span class="font-body text-xs font-medium px-3 py-1.5 rounded-full" style="background:rgba(245,158,11,0.10);color:#FCD34D">Logements France</span>
-          </div>
-          <div class="mt-6 flex items-start gap-3 rounded-xl px-4 py-3" style="background:rgba(245,158,11,0.07);border:1px solid rgba(245,158,11,0.20)">
-            <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color:#F59E0B" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
-            <div>
-              <p class="font-body font-semibold text-sm" style="color:#FCD34D">IA Conversationnelle dans le Cycle de Vente</p>
-              <p class="font-body text-xs mt-0.5" style="color:#9CA3AF">Online Sales Success · Mai 2026</p>
-            </div>
           </div>
           <a href="#contact" class="inline-flex items-center gap-2 mt-8 font-body font-semibold text-sm transition" style="color:#FCD34D">
             Discutons de votre projet <span>&rarr;</span>
@@ -1721,6 +1726,53 @@
     }, { threshold: 0.3 });
 
     els.forEach(function (el) { observer.observe(el); });
+  })();
+  </script>
+
+  <!-- About section — stat counter animation (IntersectionObserver, no deps) -->
+  <script>
+  (function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var counters = document.querySelectorAll('.about-counter');
+    if (!counters.length) return;
+    var fired = false;
+
+    function fmt(n, format, suffix) {
+      if (format === 'space') {
+        return n >= 1000
+          ? Math.floor(n / 1000) + ' ' + String(n % 1000).padStart(3, '0')
+          : String(n);
+      }
+      return String(n) + (suffix || '');
+    }
+
+    function animateOne(el, delay) {
+      var target = parseInt(el.getAttribute('data-target'), 10);
+      var suffix = el.getAttribute('data-suffix') || '';
+      var format = el.getAttribute('data-format') || '';
+      setTimeout(function () {
+        var startTime = null;
+        var duration  = 1100;
+        function step(ts) {
+          if (!startTime) startTime = ts;
+          var p = Math.min((ts - startTime) / duration, 1);
+          var eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = fmt(Math.round(eased * target), format, suffix);
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      }, delay);
+    }
+
+    var obs = new IntersectionObserver(function (entries) {
+      if (fired || !entries[0].isIntersecting) return;
+      fired = true;
+      counters.forEach(function (el, i) { animateOne(el, i * 150); });
+      obs.disconnect();
+    }, { threshold: 0.4 });
+
+    var block = document.getElementById('about-stats');
+    if (block) obs.observe(block);
   })();
   </script>
 
