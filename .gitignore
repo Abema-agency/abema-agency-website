@@ -1,2 +1,7 @@
 .vercel
 .env*.local
+node_modules/
+package.json
+package-lock.json
+Moi 2025.jpeg
+session_log.txt
