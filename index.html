@@ -223,11 +223,17 @@
       padding: 1.75rem 2rem;
     }
 
-    /* Avatar amber ring — about photo with slow glow pulse */
+    /* Avatar amber ring for testimonials */
     .avatar-amber { box-shadow: 0 0 0 2px rgba(245,158,11,0.45), 0 0 0 4px rgba(245,158,11,0.12); animation: avatarGlow 3s ease-in-out infinite; }
     @keyframes avatarGlow {
       0%, 100% { box-shadow: 0 0 0 2px rgba(245,158,11,0.35), 0 0 0 4px rgba(245,158,11,0.08); }
       50%       { box-shadow: 0 0 0 2px rgba(245,158,11,0.70), 0 0 0 6px rgba(245,158,11,0.20), 0 0 24px rgba(245,158,11,0.15); }
+    }
+    /* About photo — gold pulse using brand tokens */
+    .about-photo-container { animation: goldPulse 3s ease-in-out infinite; }
+    @keyframes goldPulse {
+      0%, 100% { box-shadow: 0 0 0 2px var(--color-brand-gold), 0 0 0 4px var(--color-brand-gold-light); }
+      50%       { box-shadow: 0 0 0 2px var(--color-brand-gold), 0 0 0 6px var(--color-brand-gold-light), 0 0 20px var(--color-brand-gold-light); }
     }
 
     /* Mobile sticky CTA */
@@ -245,6 +251,18 @@
     .btn-shine:hover::after { left:120%; }
     .font-display { font-family: 'Big Shoulders Display', sans-serif; }
     .font-body    { font-family: 'Mulish', sans-serif; }
+
+    /* Focus-visible styles for CTAs — WCAG 2.4.11 */
+    .btn-shine:focus-visible,
+    [href="#contact"]:focus-visible,
+    button[type="submit"]:focus-visible {
+      outline: 2px solid var(--color-brand-gold);
+      outline-offset: 3px;
+      border-radius: var(--border-radius-md);
+    }
+    .btn-shine:focus:not(:focus-visible),
+    [href="#contact"]:focus:not(:focus-visible),
+    button[type="submit"]:focus:not(:focus-visible) { outline: none; }
 
     /* Pricing recommended glow */
     .pricing-star { box-shadow: 0 0 0 1px rgba(245,158,11,0.5), 0 8px 32px rgba(245,158,11,0.15); }
@@ -264,7 +282,7 @@
       #hero-canvas { display: none; }
       .hero-ring { display: none; }
       .scroll-dot { animation: none !important; }
-      .avatar-amber { animation: none !important; }
+      .avatar-amber, .about-photo-container { animation: none !important; }
     }
   </style>
 </head>
@@ -1115,7 +1133,7 @@
     <div class="max-w-5xl mx-auto">
       <div class="grid md:grid-cols-5 gap-12 md:gap-16 items-start">
         <div class="md:col-span-2 flex flex-col items-center md:items-start gap-6">
-          <div class="w-48 h-48 md:w-56 md:h-56 rounded-2xl overflow-hidden flex items-center justify-center avatar-amber" style="background:rgba(240,235,224,0.04);border:1px solid rgba(240,235,224,0.09)">
+          <div class="w-48 h-48 md:w-56 md:h-56 rounded-2xl overflow-hidden flex items-center justify-center about-photo-container" style="background:rgba(240,235,224,0.04);border:1px solid rgba(240,235,224,0.09)">
             <picture>
               <source srcset="Moi_2025.webp" type="image/webp" />
               <img src="Moi_2025.jpeg" alt="Photo de profil d'Abdallah Ait Essaghir, fondateur d'ABEMA AGENCY" class="w-full h-full object-cover" style="object-position: center 15%" loading="lazy" width="224" height="224" onerror="this.closest('.avatar-amber').innerHTML='<span class=\'font-display text-6xl font-black\' style=\'color:rgba(245,158,11,0.3)\'>AA</span>'" />
