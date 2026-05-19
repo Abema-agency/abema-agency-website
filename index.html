@@ -693,15 +693,27 @@
             <span class="font-body text-xs text-white/60">·</span>
             <span class="font-body text-xs text-white/60">~ 1 min de démo</span>
           </div>
-          <div id="elevenlabs-host" class="flex justify-center items-center min-h-[120px]">
-            <elevenlabs-convai agent-id="agent_2101kpknnbb9e7vv171xzcytrp9h"></elevenlabs-convai>
-          </div>
+          <div id="elevenlabs-host" class="flex justify-center items-center min-h-[120px]"></div>
           <p class="font-body text-xs mt-5" style="color:rgba(255,255,255,0.5)">
             Le micro reste local à votre navigateur. La conversation est conservée 30 jours maximum (voir <a href="politique-confidentialite.html" class="underline hover:text-white">politique de confidentialité</a>).
           </p>
         </div>
       </div>
-      <script src="https://unpkg.com/@elevenlabs/convai-widget-embed@latest" defer type="text/javascript"></script>
+      <script>
+        (function () {
+          var s = document.createElement('script');
+          s.src = 'https://unpkg.com/@elevenlabs/convai-widget-embed@latest';
+          s.type = 'text/javascript';
+          s.onload = function () {
+            var w = document.createElement('elevenlabs-convai');
+            w.setAttribute('agent-id', window.ABEMA_CONFIG && window.ABEMA_CONFIG.elevenlabs
+              ? window.ABEMA_CONFIG.elevenlabs.agentId
+              : 'agent_2101kpknnbb9e7vv171xzcytrp9h');
+            document.getElementById('elevenlabs-host').appendChild(w);
+          };
+          document.head.appendChild(s);
+        })();
+      </script>
 
       <!-- Badges sous le widget -->
       <div class="flex flex-wrap justify-center gap-3 mt-8" aria-hidden="true">
@@ -1187,7 +1199,7 @@
     <div class="max-w-5xl mx-auto">
       <div class="grid md:grid-cols-5 gap-12 md:gap-16 items-start">
         <div class="md:col-span-2 flex flex-col items-center md:items-start gap-6">
-          <div class="w-48 h-48 md:w-56 md:h-56 rounded-2xl overflow-hidden flex items-center justify-center about-photo-container" style="background:rgba(240,235,224,0.04);border:1px solid rgba(240,235,224,0.09)">
+          <div class="w-64 h-72 md:w-72 md:h-80 rounded-2xl overflow-hidden flex items-center justify-center about-photo-container" style="background:rgba(240,235,224,0.04);border:1px solid rgba(240,235,224,0.09)">
             <picture>
               <source srcset="Abdallah_2025.webp" type="image/webp" />
               <img src="Abdallah_2025.jpeg" alt="Photo de profil d'Abdallah Ait Essaghir, fondateur d'ABEMA AGENCY" class="w-full h-full object-cover" style="object-position: center center" loading="lazy" width="224" height="224" />
