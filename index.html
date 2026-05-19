@@ -726,7 +726,20 @@
           var host = document.getElementById('elevenlabs-host');
           if (!btn || !host) return;
           btn.style.display = 'none';
-          /* Attendre que le script soit chargé avant de créer le widget */
+
+          function clickStartCall(w) {
+            /* Clique "Start a call" dans le shadow DOM dès que le bouton apparaît */
+            var attempts = 0;
+            var iv = setInterval(function () {
+              if (++attempts > 40) { clearInterval(iv); return; }
+              var shadow = w.shadowRoot;
+              if (!shadow) return;
+              var callBtn = Array.from(shadow.querySelectorAll('button'))
+                .find(function(b) { return /start a call/i.test(b.textContent); });
+              if (callBtn) { clearInterval(iv); callBtn.click(); }
+            }, 100);
+          }
+
           function injectWidget() {
             var agentId = (window.ABEMA_CONFIG && window.ABEMA_CONFIG.elevenlabs)
               ? window.ABEMA_CONFIG.elevenlabs.agentId
@@ -735,7 +748,9 @@
             w.setAttribute('agent-id', agentId);
             w.style.cssText = 'display:block;width:100%;min-height:120px';
             host.appendChild(w);
+            clickStartCall(w);
           }
+
           if (window.customElements && window.customElements.get('elevenlabs-convai')) {
             injectWidget();
           } else {
