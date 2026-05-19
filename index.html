@@ -225,6 +225,8 @@
     #role-rotator { display: inline-block; min-width: 6ch; }
     .scroll-dot { animation: scrollDrift 2s cubic-bezier(0.45, 0, 0.15, 1) infinite; }
     @keyframes scrollDrift { 0%, 100% { transform: translateY(0); opacity: 0.3; } 50% { transform: translateY(6px); opacity: 1; } }
+    @keyframes pulse-ring { 0%, 100% { box-shadow: 0 0 0 0 rgba(245,158,11,0.4); } 50% { box-shadow: 0 0 0 12px rgba(245,158,11,0); } }
+    @media (prefers-reduced-motion: reduce) { #el-start-btn span { animation: none !important; } }
     .stat-glow { text-shadow: 0 2px 18px rgba(245,158,11,0.30); }
     .stat-reveal { opacity:0; transform:translateY(22px); transition:opacity .55s ease, transform .55s cubic-bezier(.22,1,.36,1); }
     .stat-reveal.visible { opacity:1; transform:translateY(0); }
@@ -693,26 +695,53 @@
             <span class="font-body text-xs text-white/60">·</span>
             <span class="font-body text-xs text-white/60">~ 1 min de démo</span>
           </div>
-          <div id="elevenlabs-host" class="flex justify-center items-center min-h-[120px]"></div>
+          <!-- Bouton démo — remplacé par le widget au clic -->
+          <div id="elevenlabs-host" class="flex justify-center items-center" style="min-height:160px">
+            <button id="el-start-btn" onclick="elStartDemo()" type="button" aria-label="Démarrer la démonstration vocale" style="display:flex;flex-direction:column;align-items:center;gap:14px;background:none;border:none;cursor:pointer;padding:0">
+              <span style="display:flex;align-items:center;justify-content:center;width:72px;height:72px;border-radius:50%;background:rgba(245,158,11,0.12);border:2px solid rgba(245,158,11,0.45);animation:pulse-ring 2s ease-in-out infinite">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                  <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                  <line x1="12" y1="19" x2="12" y2="23"/>
+                  <line x1="8" y1="23" x2="16" y2="23"/>
+                </svg>
+              </span>
+              <span class="font-body font-semibold" style="color:#F59E0B;font-size:15px;letter-spacing:0.02em">Démarrer la démo vocale</span>
+            </button>
+          </div>
           <p class="font-body text-xs mt-5" style="color:rgba(255,255,255,0.5)">
             Le micro reste local à votre navigateur. La conversation est conservée 30 jours maximum (voir <a href="politique-confidentialite.html" class="underline hover:text-white">politique de confidentialité</a>).
           </p>
         </div>
       </div>
       <script>
-        (function () {
-          var s = document.createElement('script');
-          s.src = 'https://unpkg.com/@elevenlabs/convai-widget-embed@latest';
-          s.type = 'text/javascript';
-          s.onload = function () {
-            var w = document.createElement('elevenlabs-convai');
-            w.setAttribute('agent-id', window.ABEMA_CONFIG && window.ABEMA_CONFIG.elevenlabs
+        /* Pré-chargement silencieux du script ElevenLabs */
+        var _elScript = document.createElement('script');
+        _elScript.src = 'https://unpkg.com/@elevenlabs/convai-widget-embed@latest';
+        _elScript.type = 'text/javascript';
+        document.head.appendChild(_elScript);
+
+        function elStartDemo() {
+          var btn = document.getElementById('el-start-btn');
+          var host = document.getElementById('elevenlabs-host');
+          if (!btn || !host) return;
+          btn.style.display = 'none';
+          /* Attendre que le script soit chargé avant de créer le widget */
+          function injectWidget() {
+            var agentId = (window.ABEMA_CONFIG && window.ABEMA_CONFIG.elevenlabs)
               ? window.ABEMA_CONFIG.elevenlabs.agentId
-              : 'agent_2101kpknnbb9e7vv171xzcytrp9h');
-            document.getElementById('elevenlabs-host').appendChild(w);
-          };
-          document.head.appendChild(s);
-        })();
+              : 'agent_2101kpknnbb9e7vv171xzcytrp9h';
+            var w = document.createElement('elevenlabs-convai');
+            w.setAttribute('agent-id', agentId);
+            w.style.cssText = 'display:block;width:100%;min-height:120px';
+            host.appendChild(w);
+          }
+          if (window.customElements && window.customElements.get('elevenlabs-convai')) {
+            injectWidget();
+          } else {
+            _elScript.onload = injectWidget;
+          }
+        }
       </script>
 
       <!-- Badges sous le widget -->
