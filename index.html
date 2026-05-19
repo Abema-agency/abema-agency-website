@@ -249,6 +249,10 @@
     /* Pricing recommended glow */
     .pricing-star { box-shadow: 0 0 0 1px rgba(245,158,11,0.5), 0 8px 32px rgba(245,158,11,0.15); }
 
+    /* Responsive table scroll hint — hidden on desktop */
+    .scroll-hint { display: block; font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px; text-align: center; }
+    @media (min-width: 768px) { .scroll-hint { display: none; } }
+
     /* Dropdown secteurs */
     .dropdown-menu { display: none; }
     .nav-dropdown:hover .dropdown-menu,
@@ -868,6 +872,7 @@
   <section class="py-20 px-4 section-dark">
     <div class="max-w-3xl mx-auto">
       <h2 class="text-3xl md:text-4xl font-black text-cream text-center mb-12">Salarié vs Agent IA</h2>
+      <p class="scroll-hint">← Faites défiler pour voir tout le tableau →</p>
       <div class="overflow-x-auto">
         <table class="w-full text-left border-collapse">
           <thead>
@@ -912,6 +917,7 @@
         <h2 class="text-3xl md:text-4xl font-black text-cream">Le prix, ce n'est pas la facture. C'est ce que ça vous coûte de mal le configurer.</h2>
         <p class="text-stone font-body max-w-2xl mx-auto mt-5 text-base">Les solutions à 29 € ou 49 €/mois existent. Elles sont distancielles, sans accompagnement, et facturent au-delà du forfait. ABEMA déploie pour vous, sur place si besoin, et reste joignable.</p>
       </div>
+      <p class="scroll-hint">← Faites défiler pour voir tout le tableau →</p>
       <div class="overflow-x-auto rounded-2xl" style="background:rgba(240,235,224,0.03);border:1px solid rgba(240,235,224,0.08)">
         <table class="w-full text-left border-collapse min-w-[640px]">
           <thead>
@@ -1117,15 +1123,15 @@
           </div>
           <div class="flex flex-col gap-3 w-full" id="about-stats">
             <div class="flex items-center gap-3">
-              <span class="font-display text-2xl font-black stat-glow" style="color:#F59E0B"><span class="about-counter" data-target="15" data-suffix="+">15+</span></span>
+              <span class="font-display text-2xl font-black stat-glow" style="color:#F59E0B"><span class="about-counter" data-target="15" data-count="15" data-suffix="+">15+</span></span>
               <span class="text-stone text-sm font-body">ans de gestion de projet</span>
             </div>
             <div class="flex items-center gap-3">
-              <span class="font-display text-2xl font-black stat-glow" style="color:#F59E0B"><span class="about-counter" data-target="1500" data-format="space">1 500</span></span>
+              <span class="font-display text-2xl font-black stat-glow" style="color:#F59E0B"><span class="about-counter" data-target="1500" data-count="1500" data-format="space" data-suffix="">1 500</span></span>
               <span class="text-stone text-sm font-body">personnes coordonnées</span>
             </div>
             <div class="flex items-center gap-3">
-              <span class="font-display text-2xl font-black stat-glow" style="color:#F59E0B"><span class="about-counter" data-target="3">3</span></span>
+              <span class="font-display text-2xl font-black stat-glow" style="color:#F59E0B"><span class="about-counter" data-target="3" data-count="3" data-suffix="">3</span></span>
               <span class="text-stone text-sm font-body">langues : FR / AR / EN</span>
             </div>
           </div>
