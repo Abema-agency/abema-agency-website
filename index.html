@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Agent IA pour TPE | Automatisation IA entreprise - ABEMA AGENCY</title>
+  <title>Agent IA pour TPE | Automatisation sur mesure - ABEMA AGENCY</title>
   <meta name="description" content="ABEMA AGENCY cr&eacute;e des agents IA et chatbots sur mesure pour les TPE en France. Automatisez vos r&eacute;ponses clients, devis et relances. Op&eacute;rationnel en 48h, d&egrave;s 79&euro;/mois. Audit gratuit." />
   <meta name="keywords" content="agent IA pour TPE, automatisation IA entreprise, chatbot TPE France, agent IA artisan, automatisation PME, chatbot WhatsApp entreprise" />
   <meta name="author" content="ABEMA AGENCY" />
@@ -421,6 +421,24 @@
       .scroll-dot { animation: none !important; }
       .avatar-amber, .about-photo-container { animation: none !important; }
     }
+
+    /* ── Tableau comparatif mobile ── */
+    @media (max-width: 767px) {
+      .table-comparatif-wrapper { overflow-x: hidden; }
+      .table-comparatif { display: none; }
+      .table-comparatif-mobile { display: flex; flex-direction: column; gap: 12px; }
+      .comp-card { background: rgba(255,255,255,0.04); border: 0.5px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 16px; overflow: hidden; }
+      .comp-card.featured { border: 1.5px solid #C8A44E; }
+      .comp-card-title { font-size: 0.95rem; font-weight: 600; color: #FFFFFF; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 0.5px solid rgba(255,255,255,0.1); }
+      .comp-card.featured .comp-card-title { color: #C8A44E; }
+      .comp-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; padding: 7px 0; border-bottom: 0.5px solid rgba(255,255,255,0.06); font-size: 0.82rem; }
+      .comp-row:last-child { border-bottom: none; }
+      .comp-label { color: rgba(255,255,255,0.5); flex: 0 0 45%; }
+      .comp-value { color: #FFFFFF; text-align: right; flex: 0 0 52%; }
+    }
+    @media (min-width: 768px) {
+      .table-comparatif-mobile { display: none; }
+    }
   </style>
   <script type="application/ld+json">
 {
@@ -615,8 +633,8 @@
       </div>
       <div class="grid md:grid-cols-2 gap-6">
         <div class="md:col-span-2 rounded-2xl p-10 card-hover" style="background:rgba(245,158,11,0.05);border:1px solid rgba(245,158,11,0.18)">
-          <span class="font-display text-6xl font-black leading-none" style="color:rgba(245,158,11,0.2)">12h</span>
-          <h3 class="text-2xl font-black mt-3 mb-2 text-cream">Noyé dans les tâches répétitives</h3>
+          <h3 class="text-2xl font-black mb-2 text-cream">Noyé dans les tâches répétitives</h3>
+          <p class="font-body font-semibold text-sm mb-3" style="color:rgba(245,158,11,0.75)">En moyenne, les TPE perdent 12h par semaine en tâches répétitives — dont 40% pourraient être automatisées.</p>
           <p class="text-stone max-w-xl font-body">Répondre aux mêmes messages, relancer les mêmes clients, recréer les mêmes documents. Des heures perdues chaque semaine qui ne font pas avancer votre chiffre.</p>
         </div>
         <div class="flex gap-5 items-start rounded-2xl p-8 card-hover" style="background:rgba(240,235,224,0.03);border:1px solid rgba(240,235,224,0.08)">
@@ -1117,8 +1135,8 @@
         <p class="text-stone font-body max-w-2xl mx-auto mt-5 text-base">Les solutions à 29 € ou 49 €/mois existent. Elles sont distancielles, sans accompagnement, et facturent au-delà du forfait. ABEMA déploie pour vous, sur place si besoin, et reste joignable.</p>
       </div>
       <p class="scroll-hint">← Faites défiler pour voir tout le tableau →</p>
-      <div class="overflow-x-auto rounded-2xl" style="background:rgba(240,235,224,0.03);border:1px solid rgba(240,235,224,0.08)">
-        <table class="w-full text-left border-collapse min-w-[640px]">
+      <div class="table-comparatif-wrapper overflow-x-auto rounded-2xl" style="background:rgba(240,235,224,0.03);border:1px solid rgba(240,235,224,0.08)">
+        <table class="table-comparatif w-full text-left border-collapse min-w-[640px]">
           <thead>
             <tr style="border-bottom:1px solid rgba(240,235,224,0.10)">
               <th scope="col" class="py-5 px-5 text-stone font-body text-xs tracking-widest uppercase"></th>
@@ -1188,6 +1206,60 @@
           </tbody>
         </table>
       </div>
+
+      <!-- VERSION MOBILE : cards empilées (table masquée ≤767px) -->
+      <div class="table-comparatif-mobile">
+
+        <div class="comp-card featured">
+          <div class="comp-card-title">✦ ABEMA AGENCY</div>
+          <div class="comp-row"><span class="comp-label">Tarif d'entrée</span><span class="comp-value">79 €/mois tout compris</span></div>
+          <div class="comp-row"><span class="comp-label">Mise en place</span><span class="comp-value">48h, faite pour vous</span></div>
+          <div class="comp-row"><span class="comp-label">Accompagnement</span><span class="comp-value">Inclus · interlocuteur dédié</span></div>
+          <div class="comp-row"><span class="comp-label">Présence locale HdF</span><span class="comp-value">Oui · RDV physique</span></div>
+          <div class="comp-row"><span class="comp-label">Pilote gratuit</span><span class="comp-value">14 jours · sans CB</span></div>
+          <div class="comp-row"><span class="comp-label">Disponibilité</span><span class="comp-value">24h/24 · 7j/7</span></div>
+          <div class="comp-row"><span class="comp-label">Engagement</span><span class="comp-value">Sans engagement</span></div>
+          <div class="comp-row"><span class="comp-label">Subvention HdF</span><span class="comp-value">Jusqu'à 12 000 €</span></div>
+        </div>
+
+        <div class="comp-card">
+          <div class="comp-card-title">Plateformes distancielles</div>
+          <div class="comp-row"><span class="comp-label">Tarif d'entrée</span><span class="comp-value">29–99 €/mois + hors forfait</span></div>
+          <div class="comp-row"><span class="comp-label">Mise en place</span><span class="comp-value">DIY, vous configurez</span></div>
+          <div class="comp-row"><span class="comp-label">Accompagnement</span><span class="comp-value">Aucun · support tickets</span></div>
+          <div class="comp-row"><span class="comp-label">Présence locale HdF</span><span class="comp-value">Non</span></div>
+          <div class="comp-row"><span class="comp-label">Pilote gratuit</span><span class="comp-value">7j ou crédits limités</span></div>
+          <div class="comp-row"><span class="comp-label">Disponibilité</span><span class="comp-value">24h/24</span></div>
+          <div class="comp-row"><span class="comp-label">Engagement</span><span class="comp-value">Mensuel</span></div>
+          <div class="comp-row"><span class="comp-label">Subvention HdF</span><span class="comp-value">Non éligible</span></div>
+        </div>
+
+        <div class="comp-card">
+          <div class="comp-card-title">Agence IA Paris / Lyon</div>
+          <div class="comp-row"><span class="comp-label">Tarif d'entrée</span><span class="comp-value">250–600 €/mois + setup</span></div>
+          <div class="comp-row"><span class="comp-label">Mise en place</span><span class="comp-value">2 à 6 semaines</span></div>
+          <div class="comp-row"><span class="comp-label">Accompagnement</span><span class="comp-value">Inclus mais distanciel</span></div>
+          <div class="comp-row"><span class="comp-label">Présence locale HdF</span><span class="comp-value">Non</span></div>
+          <div class="comp-row"><span class="comp-label">Pilote gratuit</span><span class="comp-value">Non</span></div>
+          <div class="comp-row"><span class="comp-label">Disponibilité</span><span class="comp-value">24h/24</span></div>
+          <div class="comp-row"><span class="comp-label">Engagement</span><span class="comp-value">6 à 12 mois</span></div>
+          <div class="comp-row"><span class="comp-label">Subvention HdF</span><span class="comp-value">Non éligible</span></div>
+        </div>
+
+        <div class="comp-card">
+          <div class="comp-card-title">Secrétariat humain</div>
+          <div class="comp-row"><span class="comp-label">Tarif d'entrée</span><span class="comp-value">149–349 €/mois limité 8h-20h</span></div>
+          <div class="comp-row"><span class="comp-label">Mise en place</span><span class="comp-value">1 à 2 semaines</span></div>
+          <div class="comp-row"><span class="comp-label">Accompagnement</span><span class="comp-value">Standard téléphonique</span></div>
+          <div class="comp-row"><span class="comp-label">Présence locale HdF</span><span class="comp-value">Variable</span></div>
+          <div class="comp-row"><span class="comp-label">Pilote gratuit</span><span class="comp-value">Non</span></div>
+          <div class="comp-row"><span class="comp-label">Disponibilité</span><span class="comp-value">8h – 20h</span></div>
+          <div class="comp-row"><span class="comp-label">Engagement</span><span class="comp-value">Mensuel</span></div>
+          <div class="comp-row"><span class="comp-label">Subvention HdF</span><span class="comp-value">Non</span></div>
+        </div>
+
+      </div>
+
       <p class="text-clay font-body text-xs text-center mt-5 max-w-3xl mx-auto">Comparatif établi à partir de la veille concurrentielle ABEMA (mai 2026) sur les solutions publiques : AirAgent, Tala, AlloAgent, Vocca, Volubile, Moneyvox, agences IA nationales. Tarifs hors taxes, susceptibles d'évoluer.</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center mt-10">
         <a href="#contact" class="btn-shine text-foreground px-8 py-3.5 rounded-xl text-sm font-display font-bold tracking-wide transition-all duration-300 hover:shadow-[0_0_40px_rgba(245,158,11,0.35)]" style="background:#F59E0B">
@@ -1215,7 +1287,7 @@
             <div class="w-12 h-12 rounded-full flex items-center justify-center font-display font-black text-lg shrink-0 avatar-amber" style="background:rgba(245,158,11,0.15);color:#F59E0B">TR</div>
             <div>
               <h3 class="text-lg font-black text-cream">Thomas R. — Artisan plombier</h3>
-              <p class="text-sm text-clay font-body">Lyon / Offre Essentiel / 79 &euro;/mois</p>
+              <p class="text-sm text-clay font-body">Nord de la France / Offre Essentiel / 79 &euro;/mois</p>
             </div>
           </div>
           <div class="grid md:grid-cols-3 gap-6 md:gap-8">
@@ -1247,7 +1319,7 @@
             <div class="w-12 h-12 rounded-full flex items-center justify-center font-display font-black text-lg shrink-0 avatar-amber" style="background:rgba(245,158,11,0.15);color:#F59E0B">SM</div>
             <div>
               <h3 class="text-lg font-black text-cream">Sandra M. — Coach en développement personnel</h3>
-              <p class="text-sm text-clay font-body">Bordeaux / Offre Croissance / 149 &euro;/mois</p>
+              <p class="text-sm text-clay font-body">Sud-Ouest / Offre Croissance / 149 &euro;/mois</p>
             </div>
           </div>
           <div class="grid md:grid-cols-3 gap-6 md:gap-8">
@@ -1279,7 +1351,7 @@
             <div class="w-12 h-12 rounded-full flex items-center justify-center font-display font-black text-lg shrink-0 avatar-amber" style="background:rgba(245,158,11,0.15);color:#F59E0B">KB</div>
             <div>
               <h3 class="text-lg font-black text-cream">Karim B. — Agent immobilier indépendant</h3>
-              <p class="text-sm text-clay font-body">Paris / Offre Croissance / 149 &euro;/mois</p>
+              <p class="text-sm text-clay font-body">Île-de-France / Offre Croissance / 149 &euro;/mois</p>
             </div>
           </div>
           <div class="grid md:grid-cols-3 gap-6 md:gap-8">
@@ -1317,7 +1389,7 @@
           <div class="w-64 h-72 md:w-72 md:h-80 rounded-2xl overflow-hidden flex items-center justify-center about-photo-container" style="background:rgba(240,235,224,0.04);border:1px solid rgba(240,235,224,0.09)">
             <picture>
               <source srcset="Abdallah_2025.webp" type="image/webp" />
-              <img src="Abdallah_2025.jpeg" alt="Photo de profil d'Abdallah Ait Essaghir, fondateur d'ABEMA AGENCY" class="w-full h-full object-cover" style="object-position: center center" loading="lazy" width="224" height="224" />
+              <img src="Abdallah_2025.jpeg" alt="Photo de profil d'Abdallah Ait Essaghir, fondateur d'ABEMA AGENCY" class="w-full h-full object-cover" style="object-position: center center" loading="lazy" decoding="async" width="224" height="224" />
             </picture>
           </div>
           <div class="flex flex-col gap-3 w-full" id="about-stats">
@@ -1451,7 +1523,7 @@
       <form id="contact-form" class="rounded-2xl p-8 space-y-5" style="background:rgba(240,235,224,0.03);border:1px solid rgba(240,235,224,0.09)" onsubmit="submitForm(event)" novalidate>
         <!-- Honeypot anti-spam : champ invisible aux humains, visible aux bots. Si rempli, on rejette côté n8n. -->
         <div aria-hidden="true" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden">
-          <label for="abema_website">Site web (laisser vide)</label>
+          <label for="abema_website" aria-hidden="true">Site web (laisser vide)</label>
           <input type="text" id="abema_website" name="abema_website" tabindex="-1" autocomplete="off" />
         </div>
         <input type="hidden" id="form_render_ts" name="form_render_ts" value="" />
@@ -1584,6 +1656,7 @@
               <a href="#services" class="block hover:text-cream transition">Services</a>
               <a href="#methode"  class="block hover:text-cream transition">Méthode</a>
               <a href="#offres"   class="block hover:text-cream transition">Offres</a>
+              <a href="/blog/"    class="block hover:text-cream transition">Blog</a>
               <a href="#a-propos" class="block hover:text-cream transition">À propos</a>
               <a href="#faq"      class="block hover:text-cream transition">FAQ</a>
               <a href="#contact"  class="block hover:text-cream transition">Contact</a>
