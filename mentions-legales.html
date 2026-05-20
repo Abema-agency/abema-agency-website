@@ -21,6 +21,9 @@
   </script>
   <style>
     body { font-family:'Mulish',sans-serif; background:#0A0A0F; color:#C4BAA6; }
+    .logo-text { text-decoration: none; display: inline-flex; align-items: center; }
+    .logo-bold { font-size: 1.1rem; font-weight: 700; color: #FFFFFF; letter-spacing: 0.12em; text-transform: uppercase; }
+    .logo-light { font-size: 1.1rem; font-weight: 300; color: #C8A44E; letter-spacing: 0.12em; text-transform: uppercase; }
     h1, h2, h3 { font-family:'Big Shoulders Display',sans-serif; }
     p, li { max-width: 75ch; }
     .legal-section { border-top: 1px solid rgba(240,235,224,0.06); }
@@ -32,7 +35,7 @@
 
   <nav class="sticky top-0 z-50 backdrop-blur-md" style="background:rgba(10,10,15,0.92);border-bottom:1px solid rgba(240,235,224,0.08)">
     <div class="max-w-4xl mx-auto px-4 flex items-center justify-between h-16">
-      <a href="/" class="flex items-center gap-2"><img src="logo.svg" alt="ABEMA AGENCY" class="h-8 w-auto" width="160" height="32" /></a>
+      <a href="/" class="logo-text" aria-label="ABEMA AGENCY - Accueil"><span class="logo-bold">ABEMA</span><span class="logo-light"> AGENCY</span></a>
       <a href="/" class="text-sand hover:text-primary-light transition text-sm font-body">&larr; Retour au site</a>
     </div>
   </nav>

@@ -280,6 +280,21 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
     }
+    .expansion-note {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .expansion-note strong { color: #C8A44E; font-weight: 500; }
+    .footer-expansion {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.3);
+      margin-top: 4px;
+      letter-spacing: 0.03em;
+    }
 
     /* ── Hero nouvelle version ── */
     .hero {
@@ -1336,6 +1351,10 @@
             <p>Ce que j'ai appris en 15 ans de terrain ? <strong class="text-cream">La méthode fait tout.</strong> Un processus bien pensé, bien exécuté, transforme le chaos en résultat — quelle que soit l'échelle du projet.</p>
             <p>Aujourd'hui, j'applique cette même rigueur au service des TPE françaises. Je déploie des <strong class="text-cream">agents IA vocaux</strong> et des automatisations sur mesure pour vous faire gagner du temps, capturer chaque opportunité et travailler mieux — sans embaucher, sans complexité. <strong class="text-cream">Opérationnel en 48h.</strong> Concret. Mesurable.</p>
             <p>Mon parcours international — France, Maroc, Arabie Saoudite — et ma maîtrise de trois langues me permettent d'accompagner des entrepreneurs de tous horizons, avec une approche directe et sans jargon.</p>
+            <p class="expansion-note">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Expansion prévue : <strong>France entière (2027)</strong> — <strong>Maroc (2027-2028)</strong> · Trilingue FR / AR / EN
+            </p>
           </div>
           <div class="mt-10 flex flex-wrap gap-2">
             <span class="font-body text-xs font-medium px-3 py-1.5 rounded-full" style="background:rgba(245,158,11,0.10);color:#FCD34D">Ritz Carlton</span>
@@ -1553,8 +1572,11 @@
       <div style="border-top:1px solid rgba(240,235,224,0.07)" class="pt-0">
         <div class="grid md:grid-cols-3 gap-10 mb-10 pt-14">
           <div>
-            <img src="logo.svg" alt="ABEMA AGENCY" class="h-8 w-auto mb-4" loading="lazy" width="160" height="32" />
-            <p class="text-stone text-sm font-body">L'IA utile et rentable pour votre entreprise</p>
+            <a href="/" class="logo-text" aria-label="ABEMA AGENCY - Accueil">
+              <span class="logo-bold">ABEMA</span><span class="logo-light"> AGENCY</span>
+            </a>
+            <p class="text-stone text-sm font-body" style="margin-top:0.75rem">L'IA utile et rentable pour votre entreprise</p>
+            <p class="footer-expansion">Bassin 62 · Hauts-de-France · France (2027) · Maroc (2027-2028)</p>
           </div>
           <div>
             <h4 class="font-display font-black mb-4 text-cream">Navigation</h4>

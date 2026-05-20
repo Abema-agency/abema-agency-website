@@ -51,6 +51,9 @@
   </script>
   <style>
     * { scroll-behavior: smooth; }
+    .logo-text { text-decoration: none; display: inline-flex; align-items: center; }
+    .logo-bold { font-size: 1.1rem; font-weight: 700; color: #FFFFFF; letter-spacing: 0.12em; text-transform: uppercase; }
+    .logo-light { font-size: 1.1rem; font-weight: 300; color: #C8A44E; letter-spacing: 0.12em; text-transform: uppercase; }
     body { font-family: 'Mulish', sans-serif; background: #0A0A0F; color: #C4BAA6; }
     p { max-width: 70ch; }
     h1, h2, h3, h4 { font-family: 'Big Shoulders Display', sans-serif; }
@@ -88,9 +91,7 @@
 
 <nav id="main-nav" class="sticky top-0 z-50 border-b border-transparent">
   <div class="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
-    <a href="/" class="flex items-center gap-2">
-      <img src="../logo.png" alt="ABEMA AGENCY" class="h-8" width="128" height="32" />
-    </a>
+    <a href="/" class="logo-text" aria-label="ABEMA AGENCY - Accueil"><span class="logo-bold">ABEMA</span><span class="logo-light"> AGENCY</span></a>
     <div class="hidden md:flex items-center gap-8 text-sm font-semibold font-body text-sand">
       <a href="/#services" class="hover:text-primary transition-colors">Services</a>
       <a href="/#methode"  class="hover:text-primary transition-colors">Méthode</a>
@@ -264,7 +265,7 @@
   <div class="max-w-6xl mx-auto">
     <div class="grid md:grid-cols-3 gap-10 mb-10 pt-4">
       <div>
-        <img src="../logo.png" alt="ABEMA AGENCY" class="h-8 mb-4" loading="lazy" width="128" height="32" />
+        <a href="/" class="logo-text" aria-label="ABEMA AGENCY - Accueil"><span class="logo-bold">ABEMA</span><span class="logo-light"> AGENCY</span></a>
         <p class="text-stone text-sm font-body">L'IA utile et rentable pour votre entreprise</p>
       </div>
       <div>
