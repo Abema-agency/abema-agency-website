@@ -260,6 +260,144 @@
     .nav-dropdown:hover .dropdown-menu,
     .nav-dropdown:focus-within .dropdown-menu { display: block; }
 
+    /* ── Logo typographique ── */
+    .logo-text {
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+    }
+    .logo-bold {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .logo-light {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: #C8A44E;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* ── Hero nouvelle version ── */
+    .hero {
+      text-align: center;
+      padding-top: clamp(80px, 12vh, 140px);
+      padding-bottom: clamp(60px, 8vh, 100px);
+    }
+    .hero-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: #C8A44E;
+      border: 1px solid rgba(200,164,78,0.4);
+      border-radius: 999px;
+      padding: 6px 16px;
+      margin-bottom: 2rem;
+      background: rgba(200,164,78,0.07);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .hero-badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #C8A44E;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+    .hero-h1 {
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: #FFFFFF;
+      max-width: 820px;
+      margin: 0 auto 1.5rem;
+    }
+    .hero-accent {
+      color: #C8A44E;
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-weight: 400;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.7;
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+    }
+    .cta-primary {
+      background: #C8A44E;
+      color: #1A1A2E;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 14px 28px;
+      border-radius: 6px;
+      border: none;
+      text-decoration: none;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .cta-primary:hover { opacity: 0.88; }
+    .cta-secondary {
+      background: transparent;
+      color: #FFFFFF;
+      font-size: 0.95rem;
+      padding: 13px 28px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.35);
+      text-decoration: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: border-color 0.2s;
+    }
+    .cta-secondary:hover { border-color: rgba(255,255,255,0.7); }
+    .cta-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #4ade80;
+      animation: pulse 2s infinite;
+    }
+    .hero-trust {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 20px;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.02em;
+    }
+    @media (max-width: 768px) {
+      .hero-h1 { font-size: 2rem; line-height: 1.2; }
+      .hero-ctas { flex-direction: column; align-items: center; width: 100%; }
+      .cta-primary, .cta-secondary { width: 100%; max-width: 320px; justify-content: center; }
+      .logo-bold, .logo-light { font-size: 1rem; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
       * { scroll-behavior: auto !important; }
@@ -364,8 +502,8 @@
   <!-- NAV -->
   <nav id="main-nav" class="sticky top-0 z-50 border-b border-transparent">
     <div class="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
-      <a href="/" class="flex items-center gap-2">
-        <img src="logo.svg" alt="ABEMA AGENCY" class="h-8 w-auto" width="160" height="32" loading="eager" />
+      <a href="/" class="logo-text" aria-label="ABEMA AGENCY - Accueil">
+        <span class="logo-bold">ABEMA</span><span class="logo-light"> AGENCY</span>
       </a>
       <div class="hidden md:flex items-center gap-8 text-sm font-semibold font-body text-sand">
         <a href="#services" class="hover:text-primary transition-colors">Services</a>
@@ -416,121 +554,39 @@
   </nav>
 
   <!-- HERO -->
-  <section class="hero-wrap" id="hero">
-    <canvas id="hero-canvas" aria-hidden="true"></canvas>
-    <div class="hero-ring hero-ring-1" aria-hidden="true"></div>
-    <div class="hero-ring hero-ring-2" aria-hidden="true"></div>
-    <div class="hero-ring hero-ring-3" aria-hidden="true"></div>
+  <section class="hero" id="hero">
+    <div class="hero-inner">
 
-    <div class="hero-content max-w-5xl mx-auto px-6 py-32 text-center">
+      <span class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        AUDIT GRATUIT — 3 PLACES CE MOIS
+      </span>
 
-      <!-- Badge pulsant -->
-      <div class="reveal reveal-d1 inline-flex items-center gap-3 rounded-full px-5 py-2 mb-10" style="background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.35)">
-        <span class="relative flex h-2.5 w-2.5 shrink-0">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style="background:#F59E0B"></span>
-          <span class="relative inline-flex rounded-full h-2.5 w-2.5" style="background:#FCD34D"></span>
-        </span>
-        <span class="font-body text-sm tracking-widest uppercase font-bold" style="color:#FCD34D">Audit gratuit &mdash; 3 places ce mois</span>
-      </div>
-
-      <!-- Headline -->
-      <h1 class="reveal reveal-d2 font-display font-black leading-[1] tracking-tight mb-4">
-        <span class="block text-cream" style="font-size:clamp(2.25rem,2rem+2.5vw,4.5rem)">Vos tâches répétitives vous coûtent</span>
-        <span class="block stat-glow" style="color:#F59E0B;font-size:clamp(5rem,4rem+7vw,9.5rem);line-height:0.88">
-          <span id="hero-counter">12</span>h
-        </span>
-        <span class="block text-cream" style="font-size:clamp(2.25rem,2rem+2.5vw,4.5rem)">par semaine. Reprenez-les.</span>
+      <h1 class="hero-h1">
+        Chaque appel non décroché,<br>
+        c'est un client chez <span class="hero-accent">le concurrent.</span>
       </h1>
 
-      <!-- Rotating role -->
-      <div class="reveal reveal-d2 text-center mt-4 mb-8">
-        <span class="font-body text-sm text-stone">Solution pour les </span><span id="role-rotator" class="font-body text-sm font-bold" style="color:#F59E0B">Artisans</span>
-      </div>
-
-      <!-- Subtitle -->
-      <p class="reveal reveal-d3 font-body text-lg md:text-xl text-stone max-w-2xl mx-auto mb-6 leading-relaxed">
-        Agents IA sur mesure — réponses clients, devis, relances, prospection.<br class="hidden md:block" />
-        <span style="color:#D8D0C4">Résultats dès le premier mois. Sans compétence technique.</span>
-      </p>
-      <p class="reveal reveal-d3 font-body text-sm text-clay mb-10 inline-flex items-center gap-2">
-        <svg class="w-4 h-4" fill="none" stroke="#F59E0B" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
-        Bassin 62 · Lens · Béthune · Arras · Lille — déplacements inclus
+      <p class="hero-sub">
+        Votre agent IA décroche à votre place, qualifie chaque prospect
+        et l'envoie dans votre CRM. Clé en main en 48h —
+        bassin Lens&nbsp;·&nbsp;Béthune&nbsp;·&nbsp;Arras.
       </p>
 
-      <!-- CTAs -->
-      <div class="reveal reveal-d4 flex flex-col sm:flex-row gap-4 justify-center mb-16">
-        <a href="#contact" class="btn-shine text-foreground px-10 py-4 rounded-xl text-base font-display font-bold tracking-wide transition-all duration-300 hover:shadow-[0_0_40px_rgba(245,158,11,0.4)] hover:scale-105" style="background:#F59E0B">
-          Réserver mon audit offert
-        </a>
-        <a href="#demo" class="group inline-flex items-center justify-center gap-2 font-body border text-cream px-10 py-4 rounded-xl text-base font-semibold transition-all duration-300 hover:border-primary/60 hover:bg-primary/5" style="border-color:rgba(245,158,11,0.45);background:rgba(245,158,11,0.06)">
-          <span class="relative flex h-2 w-2 shrink-0">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style="background:#F59E0B"></span>
-            <span class="relative inline-flex rounded-full h-2 w-2" style="background:#FCD34D"></span>
-          </span>
-          Tester l'agent en 30 secondes
+      <div class="hero-ctas">
+        <a href="#contact" class="cta-primary">Réserver mon audit gratuit</a>
+        <a href="#demo" class="cta-secondary">
+          <span class="cta-dot"></span>Tester l'agent en 30 secondes
         </a>
       </div>
 
-      <!-- Role selector -->
-      <div class="reveal reveal-d5">
-        <p class="font-body text-xs tracking-[0.25em] uppercase text-clay mb-5">Je suis…</p>
-        <div class="flex flex-wrap justify-center gap-2.5" id="roles">
-          <button onclick="selectRole(this)" data-text="Devis en 30 secondes, relances automatiques, agenda rempli sans décrocher." class="role-btn font-body px-5 py-2.5 rounded-full text-sm text-stone transition-all duration-300 hover:text-primary-light hover:bg-primary/5" style="border:1px solid rgba(240,235,224,0.1)">Artisan</button>
-          <button onclick="selectRole(this)" data-text="Chatbot WhatsApp 24h/24, commandes qualifiées, zéro appel manqué." class="role-btn font-body px-5 py-2.5 rounded-full text-sm text-stone transition-all duration-300 hover:text-primary-light hover:bg-primary/5" style="border:1px solid rgba(240,235,224,0.1)">Commerçant</button>
-          <button onclick="selectRole(this)" data-text="Séquences emails, onboarding client, suivi personnalisé sans effort." class="role-btn font-body px-5 py-2.5 rounded-full text-sm text-stone transition-all duration-300 hover:text-primary-light hover:bg-primary/5" style="border:1px solid rgba(240,235,224,0.1)">Coach & Consultant</button>
-          <button onclick="selectRole(this)" data-text="RDV automatique, rappels, documents générés à la volée." class="role-btn font-body px-5 py-2.5 rounded-full text-sm text-stone transition-all duration-300 hover:text-primary-light hover:bg-primary/5" style="border:1px solid rgba(240,235,224,0.1)">Profession libérale</button>
-          <button onclick="selectRole(this)" data-text="Réceptionniste IA qui décroche tous vos appels et qualifie vos prospects." class="role-btn font-body px-5 py-2.5 rounded-full text-sm text-stone transition-all duration-300 hover:text-primary-light hover:bg-primary/5" style="border:1px solid rgba(240,235,224,0.1)">Agent immobilier</button>
-          <button onclick="selectRole(this)" data-text="Dites-nous votre activité, on identifie vos gains en 30 minutes." class="role-btn font-body px-5 py-2.5 rounded-full text-sm text-stone transition-all duration-300 hover:text-primary-light hover:bg-primary/5" style="border:1px solid rgba(240,235,224,0.1)">Autre entreprise</button>
-        </div>
-        <p id="role-text" aria-live="polite" aria-atomic="true" class="mt-4 font-body text-sm h-6 transition-all duration-500" style="color:rgba(252,211,77,0.8)"></p>
+      <div class="hero-trust">
+        <span>Pilote 14 jours offert</span>
+        <span>Présence locale Hauts-de-France</span>
+        <span>Données Europe · RGPD</span>
+        <span>Sans engagement</span>
       </div>
 
-      <!-- Stats — glassmorphism -->
-      <div class="reveal reveal-d6 mt-20 max-w-3xl mx-auto">
-        <div class="stats-glass grid grid-cols-2 md:grid-cols-4 gap-8">
-          <div class="text-center group">
-            <div class="stat-reveal">
-              <div class="font-display text-4xl font-black stat-glow transition-all group-hover:scale-110 duration-300" style="color:#F59E0B">12h</div>
-              <div class="font-body text-xs tracking-widest uppercase text-clay mt-2">économisées / sem.</div>
-            </div>
-          </div>
-          <div class="text-center group">
-            <div class="stat-reveal">
-              <div class="font-display text-4xl font-black stat-glow transition-all group-hover:scale-110 duration-300" style="color:#F59E0B">3×</div>
-              <div class="font-body text-xs tracking-widest uppercase text-clay mt-2">réactivité client</div>
-            </div>
-          </div>
-          <div class="text-center group">
-            <div class="stat-reveal">
-              <div class="font-display text-4xl font-black stat-glow transition-all group-hover:scale-110 duration-300" style="color:#F59E0B">48h</div>
-              <div class="font-body text-xs tracking-widest uppercase text-clay mt-2">mise en place</div>
-            </div>
-          </div>
-          <div class="text-center group">
-            <div class="stat-reveal">
-              <div class="font-display text-4xl font-black stat-glow transition-all group-hover:scale-110 duration-300" style="color:#F59E0B">24/7</div>
-              <div class="font-body text-xs tracking-widest uppercase text-clay mt-2">disponibilité</div>
-            </div>
-          </div>
-        </div>
-        <p class="font-body text-center mt-3" style="font-size:11px;color:var(--color-text-secondary)">Moyennes constatées sur les 6 premiers clients ABEMA · Bassin Hauts-de-France · 2026</p>
-      </div>
-
-      <!-- Trust line -->
-      <div class="reveal reveal-d6 flex flex-wrap justify-center gap-x-8 gap-y-3 mt-10 font-body text-xs tracking-widest uppercase text-clay">
-        <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full" style="background:#F59E0B"></span>Pilote 14 jours offert</span>
-        <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full" style="background:#F59E0B"></span>Présence locale · Hauts-de-France</span>
-        <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full" style="background:#F59E0B"></span>Données Europe · RGPD</span>
-        <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full" style="background:#F59E0B"></span>Sans engagement</span>
-      </div>
-    </div>
-
-    <!-- Scroll indicator -->
-    <div aria-hidden="true" class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 opacity-40">
-      <span class="font-body text-xs tracking-[0.3em] uppercase text-clay">Scroll</span>
-      <div class="w-5 h-8 rounded-full flex justify-center pt-1.5" style="border:1px solid rgba(240,235,224,0.2)">
-        <div class="w-1 h-2 rounded-full scroll-dot" style="background:#FCD34D"></div>
-      </div>
     </div>
   </section>
 
