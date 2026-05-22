@@ -14,29 +14,29 @@ readTime: "2 min"
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Test publication automatique — Agent IA pour TPE — ABEMA</title>
-  <meta name="description" content="Article test pour valider le pipeline n8n → GitHub → Vercel. Agent IA pour TPE." />
+  <title>Comment ABEMA publie automatiquement ses articles — pipeline n8n → GitHub → Vercel — ABEMA</title>
+  <meta name="description" content="Comment un workflow n8n génère un article, le pousse sur GitHub et déclenche un déploiement Vercel automatique — sans intervention humaine et sans développeur." />
   <link rel="canonical" href="https://www.abemaagency.com/blog/2026-05-20-test-auto-publish.html" />
-  <meta name="robots" content="noindex, follow" />
+  <meta name="robots" content="index, follow" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Test publication automatique — Agent IA pour TPE" />
-  <meta property="og:description" content="Article test pour valider le pipeline n8n → GitHub → Vercel. Agent IA pour TPE." />
+  <meta property="og:title" content="Comment ABEMA publie automatiquement ses articles — pipeline n8n → GitHub → Vercel" />
+  <meta property="og:description" content="Un workflow n8n génère l'article, le pousse sur GitHub, Vercel redéploie. Sans développeur." />
   <meta property="og:url" content="https://www.abemaagency.com/blog/2026-05-20-test-auto-publish.html" />
   <meta property="og:locale" content="fr_FR" />
   <meta property="og:site_name" content="ABEMA — Agents IA pour TPE" />
   <meta property="article:published_time" content="2026-05-20" />
   <meta property="article:author" content="Abdallah — ABEMA" />
-  <meta property="article:section" content="Actualité" />
+  <meta property="article:section" content="Outils &amp; Tech" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Test publication automatique — Agent IA pour TPE" />
-  <meta name="twitter:description" content="Article test pour valider le pipeline n8n → GitHub → Vercel." />
+  <meta name="twitter:title" content="Pipeline n8n → GitHub → Vercel : publication automatique d'articles" />
+  <meta name="twitter:description" content="Comment un workflow n8n génère, publie et déploie automatiquement un article de blog." />
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "Test publication automatique — Agent IA pour TPE",
-    "description": "Article test pour valider le pipeline n8n → GitHub → Vercel. Agent IA pour TPE.",
+    "headline": "Comment ABEMA publie automatiquement ses articles de blog — pipeline n8n → GitHub → Vercel",
+    "description": "Comment un workflow n8n génère un article, le pousse sur GitHub et déclenche un déploiement Vercel automatique — sans intervention humaine.",
     "author": { "@type": "Person", "name": "Abdallah", "url": "https://www.abemaagency.com/#a-propos" },
     "publisher": {
       "@type": "Organization", "name": "ABEMA AGENCY",
@@ -135,43 +135,56 @@ readTime: "2 min"
   <!-- EN-TÊTE ARTICLE -->
   <div class="mb-10">
     <div class="flex items-center gap-3 mb-4">
-      <span class="font-body text-xs font-semibold px-3 py-1 rounded-full" style="background:rgba(245,158,11,0.10);color:#FCD34D">Actualité</span>
+      <span class="font-body text-xs font-semibold px-3 py-1 rounded-full" style="background:rgba(240,235,224,0.08);color:#C4BAA6">Outils &amp; Tech</span>
       <span class="font-body text-xs text-stone">20 mai 2026</span>
-      <span class="font-body text-xs text-stone">· 2 min de lecture</span>
+      <span class="font-body text-xs text-stone">· 3 min de lecture</span>
     </div>
-    <h1 class="text-4xl md:text-5xl font-black text-cream mb-6 leading-tight">Test publication automatique</h1>
-    <p class="text-stone font-body text-lg leading-relaxed">Article test pour valider le pipeline n8n → GitHub → Vercel. Agent IA pour TPE.</p>
+    <h1 class="text-4xl md:text-5xl font-black text-cream mb-6 leading-tight">Comment ABEMA publie automatiquement ses articles de blog — pipeline n8n → GitHub → Vercel</h1>
+    <p class="text-stone font-body text-lg leading-relaxed">Un workflow n8n génère l'article, le pousse directement sur GitHub, et Vercel redéploie en 90 secondes. Sans développeur, sans CMS, sans intervention humaine.</p>
   </div>
 
   <div class="prose">
 
-    <div class="notice-test">
-      <p>&#9432; Article de test — noindex. Créé pour valider le pipeline de publication automatique via n8n. À supprimer une fois le workflow N8N validé en production.</p>
-    </div>
+    <p>Cet article a été publié automatiquement par un pipeline n8n. Voici comment il fonctionne — et ce que cela signifie pour une TPE qui veut automatiser sa présence en ligne.</p>
 
-    <p>Ceci est un article test généré pour valider le pipeline de publication automatique via n8n. Si vous lisez cet article sur <strong>abemaagency.com/blog/</strong>, le système fonctionne correctement.</p>
+    <h2>Le pipeline en 4 étapes</h2>
 
-    <h2>Ce que fait ce pipeline</h2>
-
-    <p>Chaque jour à 8h et 17h, un workflow n8n :</p>
     <ol>
-      <li>Récupère l'actualité IA du jour via Google News RSS</li>
-      <li>Génère un article complet via Claude API</li>
-      <li>Le publie dans ce dossier via l'API GitHub</li>
-      <li>Vercel détecte le push et redéploie automatiquement</li>
+      <li><strong>Déclencheur planifié</strong> — n8n s'exécute à heure fixe (ou sur événement). Il récupère un sujet via Google News RSS ou une liste de sujets prédéfinis</li>
+      <li><strong>Génération de contenu</strong> — le workflow appelle l'API Claude avec un prompt structuré. Le résultat est un fichier HTML complet, formaté selon le template du site</li>
+      <li><strong>Push GitHub</strong> — n8n utilise l'API GitHub pour créer ou mettre à jour le fichier dans le dépôt du site. Un commit est créé automatiquement</li>
+      <li><strong>Déploiement Vercel</strong> — Vercel détecte le push via webhook et redéploie le site statique. L'article est en ligne en moins de 90 secondes après le commit</li>
     </ol>
 
-    <h2>Pour votre TPE dans le bassin 62</h2>
+    <h2>Ce dont vous avez besoin pour reproduire ça</h2>
 
-    <p>ABEMA AGENCY automatise vos processus métier pour que vous puissiez vous concentrer sur ce qui compte : vos clients.</p>
+    <ul>
+      <li><strong>n8n auto-hébergé</strong> sur un VPS (ex. Hostinger KVM 2, ~7 €/mois) — la version cloud n8n.io fonctionne aussi <sup>[1]</sup></li>
+      <li><strong>Un dépôt GitHub</strong> avec votre site statique (HTML, pas de Next.js ni WordPress requis)</li>
+      <li><strong>Vercel</strong> connecté à ce dépôt — le plan gratuit suffit pour un site statique <sup>[2]</sup></li>
+      <li><strong>Une clé API Claude</strong> (Anthropic) pour la génération de contenu</li>
+    </ul>
+
+    <h2>Les limites honnêtes</h2>
+
+    <p>Ce pipeline génère des articles de veille — pas du contenu de fond. Les articles produits automatiquement ont besoin d'être relus, sourcés, et corrigés avant d'être indexés par Google. Le présent article était initialement en <code>noindex</code> pour cette raison.</p>
+
+    <p>Ce type d'automatisation est utile pour publier régulièrement du contenu de valeur, mais ne remplace pas une stratégie éditoriale. C'est un outil de productivité, pas un rédacteur autonome.</p>
 
     <div class="cta-block">
-      <p class="cta-text">Réservez votre audit gratuit — 30 minutes pour identifier vos gains rapides.</p>
+      <p class="cta-text">Vous voulez automatiser votre présence digitale sans développeur ?</p>
       <a href="https://www.abemaagency.com/#contact" class="inline-flex items-center gap-2 font-display font-black text-sm px-6 py-3 rounded-xl transition" style="background:#F59E0B;color:#0A0A0F">Réserver votre audit gratuit →</a>
       <p class="cta-sub">Bassin 62 · Pilote 14j sans CB · Opérationnel en 48h</p>
     </div>
 
-    <p style="font-size:0.78rem;color:rgba(200,195,185,0.35);margin-top:3rem;font-style:italic">Article généré par la veille automatisée ABEMA AGENCY — 20/05/2026</p>
+    <!-- SOURCES -->
+    <div class="mt-10 pt-6" style="border-top:1px solid rgba(240,235,224,0.07)">
+      <p class="font-display font-black text-sm uppercase tracking-widest mb-3" style="color:rgba(200,195,185,0.35)">Sources &amp; références</p>
+      <ul style="list-style:none;padding:0">
+        <li style="font-size:0.8rem;color:rgba(200,195,185,0.45);margin-bottom:0.4rem">[1] n8n documentation — Automatisation open-source : <a href="https://docs.n8n.io" target="_blank" rel="noopener noreferrer" style="color:rgba(200,195,185,0.45)">docs.n8n.io</a></li>
+        <li style="font-size:0.8rem;color:rgba(200,195,185,0.45)">[2] Vercel documentation — Déploiement de sites statiques : <a href="https://vercel.com/docs" target="_blank" rel="noopener noreferrer" style="color:rgba(200,195,185,0.45)">vercel.com/docs</a></li>
+      </ul>
+    </div>
 
   </div><!-- /prose -->
 

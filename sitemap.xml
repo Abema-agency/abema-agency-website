@@ -45,16 +45,34 @@
 
   <!-- Articles de blog -->
   <url>
-    <loc>https://www.abemaagency.com/blog/agent-ia-receptionniste-tpe.html</loc>
+    <loc>https://www.abemaagency.com/blog/2026-05-20-test-auto-publish.html</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.abemaagency.com/blog/2026-05-21-agent-ia-receptionniste-tpe-automatisation-service-client.html</loc>
     <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.abemaagency.com/blog/agents-ia-tpe-guide-2026.html</loc>
+    <loc>https://www.abemaagency.com/blog/2026-05-21-agents-ia-tpe-automatisation-receptionniste-virtuelle-guide-2026.html</loc>
     <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.abemaagency.com/blog/2026-05-22-agents-ia-tpe-automatisation-receptionniste-workflow.html</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.abemaagency.com/blog/2026-05-22-email-automatise-apres-appel-n8n-tpe.html</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.abemaagency.com/blog/automatiser-reponses-clients-artisan.html</loc>
