@@ -1020,65 +1020,121 @@
         <h2 class="text-3xl md:text-4xl font-black text-cream">Toutes les offres incluent l'audit gratuit de 30 minutes</h2>
         <p class="text-stone font-body text-sm mt-3">7 jours gratuits — sans carte bancaire</p>
       </div>
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
+
         <!-- STARTER -->
-        <div class="rounded-2xl p-7 card-hover flex flex-col" style="background:rgba(240,235,224,0.03);border:1px solid rgba(240,235,224,0.09)">
-          <h3 class="text-lg font-black mb-1 text-cream">STARTER</h3>
-          <div class="flex items-baseline gap-1 mb-2">
-            <span class="text-4xl font-black font-display" style="color:#F59E0B">79</span>
-            <span class="text-stone font-body">€/mois</span>
+        <div class="rounded-2xl p-6 card-hover flex flex-col h-full" style="background:rgba(240,235,224,0.03);border:1px solid rgba(240,235,224,0.09)">
+          <div class="mb-4">
+            <h3 class="text-base font-black tracking-widest text-stone font-display mb-3" style="font-size:0.7rem;letter-spacing:0.15em">STARTER</h3>
+            <div class="flex items-baseline gap-1 mb-1">
+              <span class="text-4xl font-black font-display" style="color:#F59E0B">79</span>
+              <span class="text-stone font-body text-sm">€/mois</span>
+            </div>
+            <p class="text-stone font-body text-xs">Jusqu'à 100 appels/mois</p>
           </div>
-          <p class="text-stone font-body text-sm mb-6">Jusqu'à 100 appels</p>
-          <div class="mt-auto">
-            <p class="text-xs text-stone mb-2 font-body">Setup offert pour les 5 premiers clients</p>
-            <a href="#contact" class="block text-center font-body font-semibold px-5 py-3 rounded-lg transition w-full" style="border:1px solid rgba(245,158,11,0.5);color:#FCD34D">Démarrer le pilote gratuit</a>
+          <div class="my-4" style="height:1px;background:rgba(240,235,224,0.08)"></div>
+          <ul class="space-y-2 mb-4 flex-1">
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#F59E0B" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Réceptionniste IA 24h/24 7j/7</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#F59E0B" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Qualification automatique des appels</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#F59E0B" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Résumé email après chaque appel</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#F59E0B" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Support email 48h</li>
+          </ul>
+          <div class="my-4" style="height:1px;background:rgba(240,235,224,0.08)"></div>
+          <div>
+            <p class="text-xs font-body mb-3" style="color:#C8A44E">Setup : 297 € → <strong>OFFERT*</strong></p>
+            <a href="#contact" class="block text-center font-body font-semibold px-5 py-3 rounded-lg transition w-full text-sm" style="border:1px solid rgba(200,164,78,0.4);color:#FCD34D">Démarrer le pilote gratuit</a>
           </div>
         </div>
+
         <!-- PRO — Recommandé -->
-        <div class="pricing-star rounded-2xl p-7 card-hover relative flex flex-col" style="background:rgba(240,235,224,0.04);border:2px solid #C8A44E;transform:translateY(-4px)">
-          <span class="badge-popular font-body text-foreground text-xs font-black px-4 py-1 rounded-full mb-3 inline-block" style="background:#C8A44E">⭐ Recommandé</span>
-          <h3 class="text-lg font-black mb-1 text-cream">PRO</h3>
-          <div class="flex items-baseline gap-1 mb-2">
-            <span class="text-4xl font-black font-display" style="color:#C8A44E">149</span>
-            <span class="text-stone font-body">€/mois</span>
+        <div class="pricing-star rounded-2xl p-6 card-hover relative flex flex-col h-full" style="background:rgba(200,164,78,0.06);border:2px solid #C8A44E;transform:translateY(-8px)">
+          <div class="text-center mb-4">
+            <span class="badge-popular font-display font-black text-xs px-4 py-1 rounded-full" style="background:#C8A44E;color:#0A0A0A;letter-spacing:0.08em">RECOMMANDÉ</span>
           </div>
-          <p class="text-stone font-body text-sm mb-6">Jusqu'à 300 appels</p>
-          <div class="mt-auto">
-            <p class="text-xs text-stone mb-2 font-body">Setup offert pour les 5 premiers clients</p>
-            <a href="#contact" class="block text-center font-body font-bold px-5 py-3 rounded-lg transition w-full" style="background:#C8A44E;color:#0A0A0A">Démarrer le pilote gratuit</a>
+          <div class="mb-4">
+            <h3 class="text-base font-black tracking-widest text-stone font-display mb-3" style="font-size:0.7rem;letter-spacing:0.15em">PRO</h3>
+            <div class="flex items-baseline gap-1 mb-1">
+              <span class="text-4xl font-black font-display" style="color:#C8A44E">149</span>
+              <span class="text-stone font-body text-sm">€/mois</span>
+            </div>
+            <p class="text-stone font-body text-xs">Jusqu'à 300 appels/mois</p>
+          </div>
+          <div class="my-4" style="height:1px;background:rgba(200,164,78,0.2)"></div>
+          <ul class="space-y-2 mb-4 flex-1">
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#C8A44E" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Réceptionniste IA 24h/24 7j/7</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#C8A44E" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Qualification avancée + scoring lead</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#C8A44E" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>1 workflow n8n inclus (confirmation RDV, relance, CRM)</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#C8A44E" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Intégration CRM (HubSpot, Hektor, Apimo)</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#C8A44E" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Formation équipe 2h incluse</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#C8A44E" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Support prioritaire 24h</li>
+          </ul>
+          <div class="my-4" style="height:1px;background:rgba(200,164,78,0.2)"></div>
+          <div>
+            <p class="text-xs font-body mb-3" style="color:#C8A44E">Setup : 497 € → <strong>OFFERT*</strong></p>
+            <a href="#contact" class="block text-center font-body font-bold px-5 py-3 rounded-lg transition w-full text-sm" style="background:#C8A44E;color:#0A0A0A">Démarrer avec le PRO</a>
           </div>
         </div>
+
         <!-- BUSINESS -->
-        <div class="rounded-2xl p-7 card-hover flex flex-col" style="background:rgba(240,235,224,0.03);border:1px solid rgba(240,235,224,0.09)">
-          <h3 class="text-lg font-black mb-1 text-cream">BUSINESS</h3>
-          <div class="flex items-baseline gap-1 mb-2">
-            <span class="text-4xl font-black font-display" style="color:#F59E0B">229</span>
-            <span class="text-stone font-body">€/mois</span>
+        <div class="rounded-2xl p-6 card-hover flex flex-col h-full" style="background:rgba(240,235,224,0.03);border:1px solid rgba(240,235,224,0.09)">
+          <div class="mb-4">
+            <h3 class="text-base font-black tracking-widest text-stone font-display mb-3" style="font-size:0.7rem;letter-spacing:0.15em">BUSINESS</h3>
+            <div class="flex items-baseline gap-1 mb-1">
+              <span class="text-4xl font-black font-display" style="color:#F59E0B">229</span>
+              <span class="text-stone font-body text-sm">€/mois</span>
+            </div>
+            <p class="text-stone font-body text-xs">Jusqu'à 800 appels/mois</p>
           </div>
-          <p class="text-stone font-body text-sm mb-6">Jusqu'à 800 appels</p>
-          <div class="mt-auto">
-            <p class="text-xs text-stone mb-2 font-body">Setup offert pour les 5 premiers clients</p>
-            <a href="#contact" class="block text-center font-body font-semibold px-5 py-3 rounded-lg transition w-full" style="border:1px solid rgba(245,158,11,0.5);color:#FCD34D">Démarrer le pilote gratuit</a>
+          <div class="my-4" style="height:1px;background:rgba(240,235,224,0.08)"></div>
+          <ul class="space-y-2 mb-4 flex-1">
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#F59E0B" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Réceptionniste IA 24h/24 7j/7</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#F59E0B" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Qualification avancée + scoring lead</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#F59E0B" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>3 workflows n8n inclus</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#F59E0B" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Intégration CRM + reporting mensuel</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#F59E0B" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Chatbot site web (option)</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#F59E0B" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Formation équipe 2h incluse</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#F59E0B" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Support prioritaire 24h</li>
+          </ul>
+          <div class="my-4" style="height:1px;background:rgba(240,235,224,0.08)"></div>
+          <div>
+            <p class="text-xs font-body mb-3" style="color:#C8A44E">Setup : 497 € → <strong>OFFERT*</strong></p>
+            <a href="#contact" class="block text-center font-body font-semibold px-5 py-3 rounded-lg transition w-full text-sm" style="border:1px solid rgba(200,164,78,0.4);color:#FCD34D">Démarrer le pilote gratuit</a>
           </div>
         </div>
+
         <!-- PREMIUM -->
-        <div class="rounded-2xl p-7 card-hover flex flex-col" style="background:rgba(240,235,224,0.03);border:1px solid rgba(240,235,224,0.09)">
-          <h3 class="text-lg font-black mb-1 text-cream">PREMIUM</h3>
-          <div class="flex items-baseline gap-1 mb-2">
-            <span class="text-4xl font-black font-display" style="color:#F59E0B">349</span>
-            <span class="text-stone font-body">€/mois</span>
+        <div class="rounded-2xl p-6 card-hover flex flex-col h-full" style="background:rgba(240,235,224,0.03);border:1px solid rgba(240,235,224,0.09)">
+          <div class="mb-4">
+            <h3 class="text-base font-black tracking-widest text-stone font-display mb-3" style="font-size:0.7rem;letter-spacing:0.15em">PREMIUM</h3>
+            <div class="flex items-baseline gap-1 mb-1">
+              <span class="text-4xl font-black font-display" style="color:#F59E0B">349</span>
+              <span class="text-stone font-body text-sm">€/mois</span>
+            </div>
+            <p class="text-stone font-body text-xs">Illimité</p>
           </div>
-          <p class="text-stone font-body text-sm mb-6">Illimité</p>
-          <div class="mt-auto">
-            <p class="text-xs text-stone mb-2 font-body">Setup offert pour les 5 premiers clients</p>
-            <a href="#contact" class="block text-center font-body font-semibold px-5 py-3 rounded-lg transition w-full" style="border:1px solid rgba(245,158,11,0.5);color:#FCD34D">Démarrer le pilote gratuit</a>
+          <div class="my-4" style="height:1px;background:rgba(240,235,224,0.08)"></div>
+          <ul class="space-y-2 mb-4 flex-1">
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#F59E0B" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Réceptionniste IA illimitée 24h/24 7j/7</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#F59E0B" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Qualification avancée + scoring lead</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#F59E0B" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Workflows n8n illimités</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#F59E0B" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Intégration CRM + reporting + API</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#F59E0B" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Chatbot site web inclus</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#F59E0B" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Formation équipe 2h incluse</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#F59E0B" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Support dédié + suivi mensuel</li>
+          </ul>
+          <div class="my-4" style="height:1px;background:rgba(240,235,224,0.08)"></div>
+          <div>
+            <p class="text-xs font-body mb-3" style="color:#C8A44E">Setup : 497 € → <strong>OFFERT*</strong></p>
+            <a href="#contact" class="block text-center font-body font-semibold px-5 py-3 rounded-lg transition w-full text-sm" style="border:1px solid rgba(200,164,78,0.4);color:#FCD34D">Démarrer le pilote gratuit</a>
           </div>
         </div>
+
       </div>
-      <div class="flex flex-wrap justify-center gap-6 mt-10 text-sm text-stone font-body">
+      <p class="text-center text-xs text-stone font-body mt-6">* Setup offert pour les 5 premiers clients pilotes.</p>
+      <div class="flex flex-wrap justify-center gap-6 mt-6 text-sm text-stone font-body">
         <span class="flex items-center gap-2"><svg class="w-4 h-4" fill="none" stroke="#F59E0B" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Sans engagement</span>
-        <span class="flex items-center gap-2"><svg class="w-4 h-4" fill="none" stroke="#F59E0B" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Satisfait ou révisé 30 jours</span>
-        <span class="flex items-center gap-2"><svg class="w-4 h-4" fill="none" stroke="#F59E0B" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Données Europe</span>
+        <span class="flex items-center gap-2"><svg class="w-4 h-4" fill="none" stroke="#F59E0B" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Pilote 7 jours sans carte bancaire</span>
+        <span class="flex items-center gap-2"><svg class="w-4 h-4" fill="none" stroke="#F59E0B" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Données hébergées en Europe (RGPD)</span>
       </div>
     </div>
   </section>
