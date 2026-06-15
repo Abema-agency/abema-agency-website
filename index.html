@@ -165,6 +165,8 @@
       --color-brand-gold:      #C8A44E;
       --color-brand-gold-hover:#B8943E;
       --color-brand-gold-light:rgba(200,164,78,0.15);
+      --color-brand-amber:     #F59E0B;
+      --color-brand-amber-warm:#FCD34D;
       --border-radius-md:      0.5rem;
       --color-text-secondary:  #8A8070;
     }
@@ -535,7 +537,7 @@
   <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-primary focus:text-foreground focus:px-4 focus:py-2 focus:rounded-lg focus:font-semibold">Aller au contenu principal</a>
 
   <!-- BANNER -->
-  <div style="background:#F59E0B" class="text-foreground text-center py-2.5 px-4 text-sm font-semibold font-body">
+  <div style="background:var(--color-brand-amber)" class="text-foreground text-center py-2.5 px-4 text-sm font-semibold font-body">
     <span class="inline-flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
       <span class="inline-flex items-center gap-2.5">
         <span class="relative flex h-2 w-2">
@@ -645,7 +647,7 @@
   <section class="py-24 px-4 section-dark">
     <div class="max-w-6xl mx-auto">
       <div class="max-w-2xl mb-14">
-        <p class="font-body font-bold text-sm mb-2" style="color:#FCD34D">Vous vous reconnaissez ?</p>
+        <p class="font-body font-bold text-sm mb-2" style="color:var(--color-brand-amber-warm)">Vous vous reconnaissez ?</p>
         <h2 class="text-3xl md:text-4xl font-black text-cream">Les freins quotidiens des entreprises ambitieuses</h2>
       </div>
       <div class="grid md:grid-cols-2 gap-6">
@@ -676,7 +678,7 @@
             <h3 class="text-xl font-black mb-2 text-cream">L'IA vous intéresse mais par où commencer ?</h3>
             <p class="text-stone font-body">Trop d'outils, trop de promesses. On fait le tri et on déploie ce qui marche.</p>
           </div>
-          <a href="#contact" class="shrink-0 font-body font-semibold text-sm px-6 py-3 rounded-lg transition" style="background:rgba(245,158,11,0.10);border:1px solid rgba(245,158,11,0.28);color:#FCD34D">On en parle ?</a>
+          <a href="#contact" class="shrink-0 font-body font-semibold text-sm px-6 py-3 rounded-lg transition" style="background:rgba(245,158,11,0.10);border:1px solid rgba(245,158,11,0.28);color:var(--color-brand-amber-warm)">On en parle ?</a>
         </div>
       </div>
     </div>
@@ -686,41 +688,41 @@
   <section id="services" class="py-16 px-4 section-darker">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-14">
-        <p class="font-body font-bold text-sm mb-2" style="color:#FCD34D">Ce que votre agent IA fait à votre place</p>
+        <p class="font-body font-bold text-sm mb-2" style="color:var(--color-brand-amber-warm)">Ce que votre agent IA fait à votre place</p>
         <h2 class="text-3xl md:text-4xl font-black text-cream">Des solutions concrètes, opérationnelles en 48h</h2>
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Featured -->
         <div class="lg:col-span-2 rounded-2xl p-10 card-hover card-3d relative" style="background:rgba(200,164,78,0.07);border:2px solid rgba(200,164,78,0.6);box-shadow:0 0 24px rgba(200,164,78,0.12)">
-          <span class="inline-block text-foreground text-xs font-bold px-3 py-1 rounded-full mb-5 font-body" style="background:#C8A44E">Le plus demandé</span>
+          <span class="inline-block text-foreground text-xs font-bold px-3 py-1 rounded-full mb-5 font-body" style="background:var(--color-brand-gold)">Le plus demandé</span>
           <h3 class="text-2xl font-black mb-3 text-cream">Agent IA personnalisé</h3>
           <p class="text-stone max-w-lg mb-6 font-body">Répond à vos clients 24h/24 dans votre ton, qualifie vos prospects et alimente votre CRM automatiquement.</p>
-          <a href="#contact" class="font-body font-semibold text-sm transition" style="color:#FCD34D">Voir comment &rarr;</a>
+          <a href="#contact" class="font-body font-semibold text-sm transition" style="color:var(--color-brand-amber-warm)">Voir comment &rarr;</a>
         </div>
         <div class="rounded-2xl p-8 card-hover card-3d" style="background:#111118;border:1px solid rgba(240,235,224,0.07)">
           <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:rgba(245,158,11,0.12)">
-            <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="#F59E0B" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="var(--color-brand-amber)" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
           </div>
           <h3 class="text-lg font-black mb-2 text-cream">Automatisation de processus</h3>
           <p class="text-stone text-sm font-body">Devis, factures, relances, rapports générés automatiquement.</p>
         </div>
         <div class="rounded-2xl p-8 card-hover card-3d" style="background:#111118;border:1px solid rgba(240,235,224,0.07)">
           <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:rgba(245,158,11,0.12)">
-            <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="#F59E0B" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+            <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="var(--color-brand-amber)" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
           </div>
           <h3 class="text-lg font-black mb-2 text-cream">Chatbot vente & SAV</h3>
           <p class="text-stone text-sm font-body">Sur votre site ou WhatsApp, vend et fidélise même pendant vos congés.</p>
         </div>
         <div class="rounded-2xl p-8 card-hover card-3d" style="background:#111118;border:1px solid rgba(240,235,224,0.07)">
           <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:rgba(245,158,11,0.12)">
-            <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="#F59E0B" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="var(--color-brand-amber)" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
           </div>
           <h3 class="text-lg font-black mb-2 text-cream">Génération de documents</h3>
           <p class="text-stone text-sm font-body">Contrats, propositions, newsletters en quelques secondes.</p>
         </div>
         <div class="rounded-2xl p-8 card-hover card-3d" style="background:#111118;border:1px solid rgba(240,235,224,0.07)">
           <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:rgba(245,158,11,0.12)">
-            <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="#F59E0B" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+            <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="var(--color-brand-amber)" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
           </div>
           <h3 class="text-lg font-black mb-2 text-cream">Marketing automatisé</h3>
           <p class="text-stone text-sm font-body">Emails, posts réseaux, CRM — tout s'enchaîne sans effort quotidien.</p>
@@ -730,7 +732,7 @@
             <h3 class="text-lg font-black mb-2 text-cream">Audit & stratégie IA</h3>
             <p class="text-stone text-sm font-body">On analyse votre activité et identifie vos gains rapides en 30 min.</p>
           </div>
-          <a href="#contact" class="shrink-0 font-body text-foreground px-6 py-3 rounded-lg font-bold text-sm transition hover:bg-primary-dark" style="background:#F59E0B">Audit gratuit</a>
+          <a href="#contact" class="shrink-0 font-body text-foreground px-6 py-3 rounded-lg font-bold text-sm transition hover:bg-primary-dark" style="background:var(--color-brand-amber)">Audit gratuit</a>
         </div>
       </div>
     </div>
@@ -740,12 +742,12 @@
   <section id="methode" class="py-28 px-4 section-dark">
     <div class="max-w-4xl mx-auto">
       <div class="text-center mb-14">
-        <p class="font-body font-bold text-sm mb-2" style="color:#FCD34D">Notre méthode</p>
+        <p class="font-body font-bold text-sm mb-2" style="color:var(--color-brand-amber-warm)">Notre méthode</p>
         <h2 class="text-3xl md:text-4xl font-black text-cream">Simple, rapide, sans jargon</h2>
       </div>
       <div class="space-y-8">
         <div class="flex gap-6 items-start">
-          <div class="flex-shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center text-xl font-black font-display text-foreground" style="background:#F59E0B">01</div>
+          <div class="flex-shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center text-xl font-black font-display text-foreground" style="background:var(--color-brand-amber)">01</div>
           <div>
             <h3 class="text-xl font-black mb-1 text-cream">Audit offert</h3>
             <p class="text-stone font-body">30 minutes pour identifier vos gains rapides.</p>
@@ -759,7 +761,7 @@
           </div>
         </div>
         <div class="flex gap-6 items-start">
-          <div class="flex-shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center text-xl font-black font-display text-foreground" style="background:#F59E0B">03</div>
+          <div class="flex-shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center text-xl font-black font-display text-foreground" style="background:var(--color-brand-amber)">03</div>
           <div>
             <h3 class="text-xl font-black mb-1 text-cream">Déploiement en 48h</h3>
             <p class="text-stone font-body">Votre agent IA est opérationnel en 2 jours.</p>
@@ -789,9 +791,9 @@
       <div class="mx-auto" style="max-width:760px">
         <div class="rounded-2xl p-8 md:p-10" style="background:#1a1a2e;box-shadow:0 18px 60px rgba(26,26,46,.18)">
           <div class="flex flex-wrap items-center justify-center gap-3 mb-5">
-            <span class="inline-flex items-center gap-2 font-body text-xs tracking-widest uppercase font-bold" style="color:#FCD34D">
+            <span class="inline-flex items-center gap-2 font-body text-xs tracking-widest uppercase font-bold" style="color:var(--color-brand-amber-warm)">
               <span class="relative flex h-2 w-2">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style="background:#F59E0B"></span>
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style="background:var(--color-brand-amber)"></span>
                 <span class="relative inline-flex rounded-full h-2 w-2" style="background:#FCD34D"></span>
               </span>
               Agent en ligne
@@ -812,14 +814,14 @@
           <div id="elevenlabs-host" class="flex justify-center items-center" style="min-height:160px">
             <button id="el-start-btn" onclick="elStartDemo()" type="button" aria-label="Démarrer la démonstration vocale" style="display:flex;flex-direction:column;align-items:center;gap:14px;background:none;border:none;cursor:pointer;padding:0">
               <span style="display:flex;align-items:center;justify-content:center;width:72px;height:72px;border-radius:50%;background:rgba(245,158,11,0.12);border:2px solid rgba(245,158,11,0.45);animation:pulse-ring 2s ease-in-out infinite">
-                <svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-brand-amber)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
                   <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
                   <line x1="12" y1="19" x2="12" y2="23"/>
                   <line x1="8" y1="23" x2="16" y2="23"/>
                 </svg>
               </span>
-              <span class="font-body font-semibold" style="color:#F59E0B;font-size:15px;letter-spacing:0.02em">Démarrer la démo vocale</span>
+              <span class="font-body font-semibold" style="color:var(--color-brand-amber);font-size:15px;letter-spacing:0.02em">Démarrer la démo vocale</span>
             </button>
           </div>
         </div>
@@ -1040,7 +1042,7 @@
   <section id="offres" class="py-24 px-4 section-darker">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-14">
-        <p class="font-body font-bold text-sm mb-2" style="color:#FCD34D">Choisissez votre niveau d'automatisation</p>
+        <p class="font-body font-bold text-sm mb-2" style="color:var(--color-brand-amber-warm)">Choisissez votre niveau d'automatisation</p>
         <h2 class="text-3xl md:text-4xl font-black text-cream">Toutes les offres incluent l'audit gratuit de 30 minutes</h2>
         <p class="text-stone font-body text-sm mt-3">7 jours gratuits — sans carte bancaire</p>
       </div>
@@ -1052,53 +1054,53 @@
             <h3 class="text-base font-black tracking-widest text-stone font-display mb-1" style="font-size:0.7rem;letter-spacing:0.15em">STARTER</h3>
             <p class="text-stone font-body mb-3" style="font-size:0.7rem;opacity:0.7">Le socle — 1 agent, 0 appel perdu</p>
             <div class="flex items-baseline gap-1 mb-1">
-              <span class="text-4xl font-black font-display" style="color:#F59E0B">99</span>
+              <span class="text-4xl font-black font-display" style="color:var(--color-brand-amber)">99</span>
               <span class="text-stone font-body text-sm">€/mois</span>
             </div>
             <p class="text-stone font-body text-xs">Jusqu'à 100 appels/mois</p>
           </div>
           <div class="my-4" style="height:1px;background:rgba(240,235,224,0.08)"></div>
           <ul class="space-y-2 mb-4 flex-1">
-            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#F59E0B" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Votre réceptionniste IA décroche chaque appel 24h/24</li>
-            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#F59E0B" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Elle identifie le projet, le nom et les coordonnées</li>
-            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#F59E0B" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Vous recevez un résumé par email après chaque appel</li>
-            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#F59E0B" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Chaque prospect est enregistré automatiquement</li>
-            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#F59E0B" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Aucun appel perdu, même la nuit et le week-end</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="var(--color-brand-amber)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Votre réceptionniste IA décroche chaque appel 24h/24</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="var(--color-brand-amber)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Elle identifie le projet, le nom et les coordonnées</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="var(--color-brand-amber)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Vous recevez un résumé par email après chaque appel</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="var(--color-brand-amber)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Chaque prospect est enregistré automatiquement</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="var(--color-brand-amber)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Aucun appel perdu, même la nuit et le week-end</li>
           </ul>
           <div class="my-4" style="height:1px;background:rgba(240,235,224,0.08)"></div>
           <div>
-            <p class="text-xs font-body mb-3" style="color:#C8A44E">Setup : 390 € → <strong>OFFERT*</strong></p>
-            <a href="#contact" class="block text-center font-body font-semibold px-5 py-3 rounded-lg transition w-full text-sm" style="border:1px solid rgba(200,164,78,0.4);color:#FCD34D">Démarrer le pilote gratuit</a>
+            <p class="text-xs font-body mb-3" style="color:var(--color-brand-gold)">Setup : 390 € → <strong>OFFERT*</strong></p>
+            <a href="#contact" class="block text-center font-body font-semibold px-5 py-3 rounded-lg transition w-full text-sm" style="border:1px solid rgba(200,164,78,0.4);color:var(--color-brand-amber-warm)">Démarrer le pilote gratuit</a>
           </div>
         </div>
 
         <!-- PRO — Recommandé -->
         <div class="pricing-star rounded-2xl p-6 card-hover relative flex flex-col h-full" style="background:rgba(200,164,78,0.06);border:2px solid #C8A44E;transform:translateY(-8px)">
           <div class="text-center mb-4">
-            <span class="badge-popular font-display font-black text-xs px-4 py-1 rounded-full" style="background:#C8A44E;color:#0A0A0A;letter-spacing:0.08em">RECOMMANDÉ</span>
+            <span class="badge-popular font-display font-black text-xs px-4 py-1 rounded-full" style="background:var(--color-brand-gold);color:#0A0A0A;letter-spacing:0.08em">RECOMMANDÉ</span>
           </div>
           <div class="mb-4">
             <h3 class="text-base font-black tracking-widest text-stone font-display mb-1" style="font-size:0.7rem;letter-spacing:0.15em">PRO</h3>
             <p class="text-stone font-body mb-3" style="font-size:0.7rem;opacity:0.7">STARTER + qualification &amp; CRM</p>
             <div class="flex items-baseline gap-1 mb-1">
-              <span class="text-4xl font-black font-display" style="color:#C8A44E">179</span>
+              <span class="text-4xl font-black font-display" style="color:var(--color-brand-gold)">179</span>
               <span class="text-stone font-body text-sm">€/mois</span>
             </div>
             <p class="text-stone font-body text-xs">Jusqu'à 300 appels/mois</p>
           </div>
           <div class="my-4" style="height:1px;background:rgba(200,164,78,0.2)"></div>
           <ul class="space-y-2 mb-4 flex-1">
-            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#C8A44E" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Tout le STARTER inclus</li>
-            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#C8A44E" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Vos prospects classés par priorité : urgent / à rappeler / froid</li>
-            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#C8A44E" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Vos contacts envoyés dans votre agenda et votre CRM</li>
-            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#C8A44E" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>1 automatisation : confirmation RDV, relance, ou mise à jour fichier client</li>
-            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#C8A44E" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Formation de votre équipe incluse (2h)</li>
-            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#C8A44E" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Support prioritaire 24h</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="var(--color-brand-gold)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Tout le STARTER inclus</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="var(--color-brand-gold)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Vos prospects classés par priorité : urgent / à rappeler / froid</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="var(--color-brand-gold)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Vos contacts envoyés dans votre agenda et votre CRM</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="var(--color-brand-gold)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>1 automatisation : confirmation RDV, relance, ou mise à jour fichier client</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="var(--color-brand-gold)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Formation de votre équipe incluse (2h)</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="var(--color-brand-gold)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Support prioritaire 24h</li>
           </ul>
           <div class="my-4" style="height:1px;background:rgba(200,164,78,0.2)"></div>
           <div>
-            <p class="text-xs font-body mb-3" style="color:#C8A44E">Setup : 590 € → <strong>OFFERT*</strong></p>
-            <a href="#contact" class="block text-center font-body font-bold px-5 py-3 rounded-lg transition w-full text-sm" style="background:#C8A44E;color:#0A0A0A">Démarrer avec le PRO</a>
+            <p class="text-xs font-body mb-3" style="color:var(--color-brand-gold)">Setup : 590 € → <strong>OFFERT*</strong></p>
+            <a href="#contact" class="block text-center font-body font-bold px-5 py-3 rounded-lg transition w-full text-sm" style="background:var(--color-brand-gold);color:#0A0A0A">Démarrer avec le PRO</a>
           </div>
         </div>
 
@@ -1108,23 +1110,23 @@
             <h3 class="text-base font-black tracking-widest text-stone font-display mb-1" style="font-size:0.7rem;letter-spacing:0.15em">BUSINESS</h3>
             <p class="text-stone font-body mb-3" style="font-size:0.7rem;opacity:0.7">PRO + présence multicanale</p>
             <div class="flex items-baseline gap-1 mb-1">
-              <span class="text-4xl font-black font-display" style="color:#F59E0B">269</span>
+              <span class="text-4xl font-black font-display" style="color:var(--color-brand-amber)">269</span>
               <span class="text-stone font-body text-sm">€/mois</span>
             </div>
             <p class="text-stone font-body text-xs">Jusqu'à 800 appels/mois</p>
           </div>
           <div class="my-4" style="height:1px;background:rgba(240,235,224,0.08)"></div>
           <ul class="space-y-2 mb-4 flex-1">
-            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#F59E0B" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Tout le PRO inclus</li>
-            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#F59E0B" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Un assistant répond à vos clients sur votre site ou WhatsApp</li>
-            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#F59E0B" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>3 automatisations actives en parallèle</li>
-            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#F59E0B" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Un rapport mensuel : appels traités, prospects captés, taux de transformation</li>
-            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#F59E0B" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Génération automatique de devis après chaque appel qualifié</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="var(--color-brand-amber)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Tout le PRO inclus</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="var(--color-brand-amber)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Un assistant répond à vos clients sur votre site ou WhatsApp</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="var(--color-brand-amber)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>3 automatisations actives en parallèle</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="var(--color-brand-amber)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Un rapport mensuel : appels traités, prospects captés, taux de transformation</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="var(--color-brand-amber)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Génération automatique de devis après chaque appel qualifié</li>
           </ul>
           <div class="my-4" style="height:1px;background:rgba(240,235,224,0.08)"></div>
           <div>
-            <p class="text-xs font-body mb-3" style="color:#C8A44E">Setup : 790 € → <strong>OFFERT*</strong></p>
-            <a href="#contact" class="block text-center font-body font-semibold px-5 py-3 rounded-lg transition w-full text-sm" style="border:1px solid rgba(200,164,78,0.4);color:#FCD34D">Démarrer le pilote gratuit</a>
+            <p class="text-xs font-body mb-3" style="color:var(--color-brand-gold)">Setup : 790 € → <strong>OFFERT*</strong></p>
+            <a href="#contact" class="block text-center font-body font-semibold px-5 py-3 rounded-lg transition w-full text-sm" style="border:1px solid rgba(200,164,78,0.4);color:var(--color-brand-amber-warm)">Démarrer le pilote gratuit</a>
           </div>
         </div>
 
@@ -1134,33 +1136,33 @@
             <h3 class="text-base font-black tracking-widest text-stone font-display mb-1" style="font-size:0.7rem;letter-spacing:0.15em">PREMIUM</h3>
             <p class="text-stone font-body mb-3" style="font-size:0.7rem;opacity:0.7">BUSINESS + transformation complète</p>
             <div class="flex items-baseline gap-1 mb-1">
-              <span class="text-4xl font-black font-display" style="color:#F59E0B">399</span>
+              <span class="text-4xl font-black font-display" style="color:var(--color-brand-amber)">399</span>
               <span class="text-stone font-body text-sm">€/mois</span>
             </div>
             <p class="text-stone font-body text-xs">Illimité</p>
           </div>
           <div class="my-4" style="height:1px;background:rgba(240,235,224,0.08)"></div>
           <ul class="space-y-2 mb-4 flex-1">
-            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#F59E0B" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Tout le BUSINESS inclus</li>
-            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#F59E0B" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Toutes vos automatisations sans limite</li>
-            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#F59E0B" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Un agent contacte de nouveaux prospects en votre nom</li>
-            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#F59E0B" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Connexion avec tous vos outils existants (ERP, logiciels métier)</li>
-            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#F59E0B" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Publication automatique de contenu (blog, LinkedIn)</li>
-            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#F59E0B" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Suivi mensuel en visio avec Abdallah</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="var(--color-brand-amber)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Tout le BUSINESS inclus</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="var(--color-brand-amber)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Toutes vos automatisations sans limite</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="var(--color-brand-amber)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Un agent contacte de nouveaux prospects en votre nom</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="var(--color-brand-amber)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Connexion avec tous vos outils existants (ERP, logiciels métier)</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="var(--color-brand-amber)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Publication automatique de contenu (blog, LinkedIn)</li>
+            <li class="flex items-start gap-2 text-stone font-body text-sm"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="var(--color-brand-amber)" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Suivi mensuel en visio avec Abdallah</li>
           </ul>
           <div class="my-4" style="height:1px;background:rgba(240,235,224,0.08)"></div>
           <div>
-            <p class="text-xs font-body mb-3" style="color:#C8A44E">Setup : 990 € → <strong>OFFERT*</strong></p>
-            <a href="#contact" class="block text-center font-body font-semibold px-5 py-3 rounded-lg transition w-full text-sm" style="border:1px solid rgba(200,164,78,0.4);color:#FCD34D">Démarrer le pilote gratuit</a>
+            <p class="text-xs font-body mb-3" style="color:var(--color-brand-gold)">Setup : 990 € → <strong>OFFERT*</strong></p>
+            <a href="#contact" class="block text-center font-body font-semibold px-5 py-3 rounded-lg transition w-full text-sm" style="border:1px solid rgba(200,164,78,0.4);color:var(--color-brand-amber-warm)">Démarrer le pilote gratuit</a>
           </div>
         </div>
 
       </div>
       <p class="text-center text-xs text-stone font-body mt-6 max-w-2xl mx-auto">* Setup offert pour les 5 premiers clients pilotes. Couvre&nbsp;: configuration complète, intégration CRM, script vocal personnalisé, tests en conditions réelles, formation équipe. Valeur réelle 390–990&nbsp;€ selon le plan.</p>
       <div class="flex flex-wrap justify-center gap-6 mt-6 text-sm text-stone font-body">
-        <span class="flex items-center gap-2"><svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="#F59E0B" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Sans engagement</span>
-        <span class="flex items-center gap-2"><svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="#F59E0B" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Pilote 7 jours sans carte bancaire</span>
-        <span class="flex items-center gap-2"><svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="#F59E0B" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Données hébergées en Europe (RGPD)</span>
+        <span class="flex items-center gap-2"><svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="var(--color-brand-amber)" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Sans engagement</span>
+        <span class="flex items-center gap-2"><svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="var(--color-brand-amber)" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Pilote 7 jours sans carte bancaire</span>
+        <span class="flex items-center gap-2"><svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="var(--color-brand-amber)" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Données hébergées en Europe (RGPD)</span>
       </div>
     </div>
   </section>
@@ -1176,29 +1178,29 @@
             <tr style="border-bottom:1px solid rgba(240,235,224,0.1)">
               <th scope="col" class="py-4 pr-4 text-stone font-semibold font-body"></th>
               <th scope="col" class="py-4 px-4 text-stone font-semibold font-body">Salarié / prestataire</th>
-              <th scope="col" class="py-4 px-4 font-black font-display" style="color:#F59E0B">Agent IA ABEMA</th>
+              <th scope="col" class="py-4 px-4 font-black font-display" style="color:var(--color-brand-amber)">Agent IA ABEMA</th>
             </tr>
           </thead>
           <tbody>
             <tr style="border-bottom:1px solid rgba(240,235,224,0.08)">
               <th scope="row" class="py-4 pr-4 font-semibold text-cream font-body">Coût mensuel</th>
               <td class="py-4 px-4 text-stone font-body">1 800 € minimum</td>
-              <td class="py-4 px-4 font-bold font-body" style="color:#F59E0B">À partir de 99 €/mois</td>
+              <td class="py-4 px-4 font-bold font-body" style="color:var(--color-brand-amber)">À partir de 99 €/mois</td>
             </tr>
             <tr style="border-bottom:1px solid rgba(240,235,224,0.08)">
               <th scope="row" class="py-4 pr-4 font-semibold text-cream font-body">Disponibilité</th>
               <td class="py-4 px-4 text-stone font-body">35h/semaine</td>
-              <td class="py-4 px-4 font-bold font-body" style="color:#F59E0B">24h/24, 7j/7</td>
+              <td class="py-4 px-4 font-bold font-body" style="color:var(--color-brand-amber)">24h/24, 7j/7</td>
             </tr>
             <tr style="border-bottom:1px solid rgba(240,235,224,0.08)">
               <th scope="row" class="py-4 pr-4 font-semibold text-cream font-body">Délai de mise en place</th>
               <td class="py-4 px-4 text-stone font-body">1 à 3 mois</td>
-              <td class="py-4 px-4 font-bold font-body" style="color:#F59E0B">48 heures</td>
+              <td class="py-4 px-4 font-bold font-body" style="color:var(--color-brand-amber)">48 heures</td>
             </tr>
             <tr>
               <th scope="row" class="py-4 pr-4 font-semibold text-cream font-body">Congés & arrêts</th>
               <td class="py-4 px-4 text-stone font-body">5 semaines + imprévus</td>
-              <td class="py-4 px-4 font-bold font-body" style="color:#F59E0B">Jamais</td>
+              <td class="py-4 px-4 font-bold font-body" style="color:var(--color-brand-amber)">Jamais</td>
             </tr>
           </tbody>
         </table>
@@ -1210,7 +1212,7 @@
   <section id="vs-concurrence" class="py-24 px-4 section-darker">
     <div class="max-w-5xl mx-auto">
       <div class="text-center mb-12">
-        <p class="font-body font-bold text-sm mb-2" style="color:#FCD34D">Pourquoi ABEMA plutôt qu'une plateforme distancielle</p>
+        <p class="font-body font-bold text-sm mb-2" style="color:var(--color-brand-amber-warm)">Pourquoi ABEMA plutôt qu'une plateforme distancielle</p>
         <h2 class="text-3xl md:text-4xl font-black text-cream">Le prix, ce n'est pas la facture. C'est ce que ça vous coûte de mal le configurer.</h2>
         <p class="text-stone font-body max-w-2xl mx-auto mt-5 text-base">Les solutions à 29 € ou 49 €/mois existent. Elles sont distancielles, sans accompagnement, et facturent au-delà du forfait. ABEMA déploie pour vous, sur place si besoin, et reste joignable.</p>
       </div>
@@ -1220,7 +1222,7 @@
           <thead>
             <tr style="border-bottom:1px solid rgba(240,235,224,0.10)">
               <th scope="col" class="py-5 px-5 text-stone font-body text-xs tracking-widest uppercase"></th>
-              <th scope="col" class="py-5 px-4 font-display font-black tracking-wide" style="color:#F59E0B">ABEMA</th>
+              <th scope="col" class="py-5 px-4 font-display font-black tracking-wide" style="color:var(--color-brand-amber)">ABEMA</th>
               <th scope="col" class="py-5 px-4 font-body font-semibold text-clay text-sm">Plateformes distancielles</th>
               <th scope="col" class="py-5 px-4 font-body font-semibold text-clay text-sm">Agence IA Paris/Lyon</th>
               <th scope="col" class="py-5 px-4 font-body font-semibold text-clay text-sm">Secrétariat humain</th>
@@ -1229,7 +1231,7 @@
           <tbody class="font-body text-sm">
             <tr style="border-bottom:1px solid rgba(240,235,224,0.06)">
               <th scope="row" class="py-4 px-5 font-semibold text-cream">Tarif d'entrée</th>
-              <td class="py-4 px-4 font-bold" style="color:#F59E0B">99 €/mois<br><span class="text-xs font-normal text-stone">tout compris</span></td>
+              <td class="py-4 px-4 font-bold" style="color:var(--color-brand-amber)">99 €/mois<br><span class="text-xs font-normal text-stone">tout compris</span></td>
               <td class="py-4 px-4 text-stone">29 à 99 €/mois<br><span class="text-xs">+ minute hors forfait</span></td>
               <td class="py-4 px-4 text-stone">250 à 600 €/mois<br><span class="text-xs">+ setup 500 à 1 500 €</span></td>
               <td class="py-4 px-4 text-stone">149 à 349 €/mois<br><span class="text-xs">limité 8h–20h</span></td>
@@ -1237,7 +1239,7 @@
             <tr style="border-bottom:1px solid rgba(240,235,224,0.06)">
               <th scope="row" class="py-4 px-5 font-semibold text-cream">Setup (mise en service)</th>
               <td class="py-4 px-4">
-                <span class="font-bold" style="color:#C8A44E">390 à 990 €</span><br>
+                <span class="font-bold" style="color:var(--color-brand-gold)">390 à 990 €</span><br>
                 <span class="text-xs font-normal" style="color:#4ade80">offert ★ 5 premiers clients</span><br>
                 <span class="text-xs text-stone font-normal">Inclut&nbsp;: configuration, script vocal,<br>intégration CRM, tests terrain, formation équipe</span>
               </td>
@@ -1250,49 +1252,49 @@
             </tr>
             <tr style="border-bottom:1px solid rgba(240,235,224,0.06)">
               <th scope="row" class="py-4 px-5 font-semibold text-cream">Mise en place</th>
-              <td class="py-4 px-4 font-bold" style="color:#F59E0B">48 h, faite pour vous</td>
+              <td class="py-4 px-4 font-bold" style="color:var(--color-brand-amber)">48 h, faite pour vous</td>
               <td class="py-4 px-4 text-stone">DIY, vous configurez</td>
               <td class="py-4 px-4 text-stone">2 à 6 semaines</td>
               <td class="py-4 px-4 text-stone">1 à 2 semaines</td>
             </tr>
             <tr style="border-bottom:1px solid rgba(240,235,224,0.06)">
               <th scope="row" class="py-4 px-5 font-semibold text-cream">Accompagnement humain</th>
-              <td class="py-4 px-4 font-bold" style="color:#F59E0B">Inclus · interlocuteur dédié</td>
+              <td class="py-4 px-4 font-bold" style="color:var(--color-brand-amber)">Inclus · interlocuteur dédié</td>
               <td class="py-4 px-4 text-stone">Aucun · support tickets</td>
               <td class="py-4 px-4 text-stone">Inclus mais distanciel</td>
               <td class="py-4 px-4 text-stone">Standard téléphonique</td>
             </tr>
             <tr style="border-bottom:1px solid rgba(240,235,224,0.06)">
               <th scope="row" class="py-4 px-5 font-semibold text-cream">Présence locale Hauts-de-France</th>
-              <td class="py-4 px-4 font-bold" style="color:#F59E0B">Oui · RDV physique possible</td>
+              <td class="py-4 px-4 font-bold" style="color:var(--color-brand-amber)">Oui · RDV physique possible</td>
               <td class="py-4 px-4 text-stone">Non</td>
               <td class="py-4 px-4 text-stone">Non</td>
               <td class="py-4 px-4 text-stone">Variable</td>
             </tr>
             <tr style="border-bottom:1px solid rgba(240,235,224,0.06)">
               <th scope="row" class="py-4 px-5 font-semibold text-cream">Pilote gratuit</th>
-              <td class="py-4 px-4 font-bold" style="color:#F59E0B">7 jours · sans CB</td>
+              <td class="py-4 px-4 font-bold" style="color:var(--color-brand-amber)">7 jours · sans CB</td>
               <td class="py-4 px-4 text-stone">7 j ou crédits limités</td>
               <td class="py-4 px-4 text-stone">Non</td>
               <td class="py-4 px-4 text-stone">Non</td>
             </tr>
             <tr style="border-bottom:1px solid rgba(240,235,224,0.06)">
               <th scope="row" class="py-4 px-5 font-semibold text-cream">Disponibilité de l'agent</th>
-              <td class="py-4 px-4 font-bold" style="color:#F59E0B">24 h / 24 · 7 j / 7</td>
+              <td class="py-4 px-4 font-bold" style="color:var(--color-brand-amber)">24 h / 24 · 7 j / 7</td>
               <td class="py-4 px-4 text-stone">24 h / 24</td>
               <td class="py-4 px-4 text-stone">24 h / 24</td>
               <td class="py-4 px-4 text-stone">8 h - 20 h</td>
             </tr>
             <tr style="border-bottom:1px solid rgba(240,235,224,0.06)">
               <th scope="row" class="py-4 px-5 font-semibold text-cream">Engagement</th>
-              <td class="py-4 px-4 font-bold" style="color:#F59E0B">Sans engagement</td>
+              <td class="py-4 px-4 font-bold" style="color:var(--color-brand-amber)">Sans engagement</td>
               <td class="py-4 px-4 text-stone">Mensuel</td>
               <td class="py-4 px-4 text-stone">6 à 12 mois</td>
               <td class="py-4 px-4 text-stone">Mensuel</td>
             </tr>
             <tr>
               <th scope="row" class="py-4 px-5 font-semibold text-cream">Subvention Région HdF</th>
-              <td class="py-4 px-4 font-bold" style="color:#F59E0B">Jusqu'à 12 000 € · INAC HdF</td>
+              <td class="py-4 px-4 font-bold" style="color:var(--color-brand-amber)">Jusqu'à 12 000 € · INAC HdF</td>
               <td class="py-4 px-4 text-stone">Non éligible (hors région)</td>
               <td class="py-4 px-4 text-stone">Non éligible</td>
               <td class="py-4 px-4 text-stone">Non</td>
@@ -1307,7 +1309,7 @@
         <div class="comp-card featured">
           <div class="comp-card-title">✦ ABEMA AGENCY</div>
           <div class="comp-row"><span class="comp-label">Tarif d'entrée</span><span class="comp-value">99 €/mois tout compris</span></div>
-          <div class="comp-row"><span class="comp-label">Setup</span><span class="comp-value" style="color:#C8A44E">390–990 € offert ★<br><span style="font-size:10px;color:#4ade80;font-weight:400">★ 5 premiers clients</span></span></div>
+          <div class="comp-row"><span class="comp-label">Setup</span><span class="comp-value" style="color:var(--color-brand-gold)">390–990 € offert ★<br><span style="font-size:10px;color:#4ade80;font-weight:400">★ 5 premiers clients</span></span></div>
           <div class="comp-row"><span class="comp-label">Mise en place</span><span class="comp-value">48h, faite pour vous</span></div>
           <div class="comp-row"><span class="comp-label">Accompagnement</span><span class="comp-value">Inclus · interlocuteur dédié</span></div>
           <div class="comp-row"><span class="comp-label">Présence locale HdF</span><span class="comp-value">Oui · RDV physique</span></div>
@@ -1360,13 +1362,13 @@
 
       <p class="text-clay font-body text-xs text-center mt-5 max-w-3xl mx-auto">Comparatif établi à partir de la veille concurrentielle ABEMA (mai 2026) sur les solutions publiques : AirAgent, Tala, AlloAgent, Vocca, Volubile, Moneyvox, agences IA nationales. Tarifs hors taxes, susceptibles d'évoluer.</p>
       <div class="mt-6 max-w-3xl mx-auto rounded-xl px-5 py-4 font-body" style="background:rgba(200,164,78,0.05);padding-left:20px;font-size:13px;color:#888;line-height:1.7">
-        <p class="font-semibold mb-2" style="color:#C8A44E">Pourquoi notre setup est plus cher que les plateformes DIY — et c'est votre avantage.</p>
+        <p class="font-semibold mb-2" style="color:var(--color-brand-gold)">Pourquoi notre setup est plus cher que les plateformes DIY — et c'est votre avantage.</p>
         <p>AirAgent, VOKAI, Sylen AI affichent 0&nbsp;€ de setup parce qu'il n'y a personne derrière&nbsp;: vous configurez seul, vous ratez les premières semaines, vous abandonnez.</p>
         <p class="mt-2">Notre setup couvre 3 à 5 heures de travail réel&nbsp;: configuration de l'agent, intégration CRM, script vocal sur mesure, tests en conditions réelles, formation équipe. C'est exactement ce que les agences parisiennes facturent 500 à 1&nbsp;500&nbsp;€.</p>
-        <p class="mt-2 font-semibold" style="color:#C8A44E">Nous l'offrons aux 5 premiers clients.</p>
+        <p class="mt-2 font-semibold" style="color:var(--color-brand-gold)">Nous l'offrons aux 5 premiers clients.</p>
       </div>
       <div class="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-        <a href="#contact" class="btn-shine text-foreground px-8 py-3.5 rounded-xl text-sm font-display font-bold tracking-wide transition-all duration-300 hover:shadow-[0_0_40px_rgba(245,158,11,0.35)]" style="background:#F59E0B">
+        <a href="#contact" class="btn-shine text-foreground px-8 py-3.5 rounded-xl text-sm font-display font-bold tracking-wide transition-all duration-300 hover:shadow-[0_0_40px_rgba(245,158,11,0.35)]" style="background:var(--color-brand-amber)">
           Démarrer mon pilote 7 jours
         </a>
         <a href="#demo" class="font-body border text-cream px-8 py-3.5 rounded-xl text-sm font-semibold transition-all duration-300 hover:border-primary/60 hover:bg-primary/5" style="border-color:rgba(240,235,224,0.18);background:rgba(240,235,224,0.04)">
@@ -1385,7 +1387,7 @@
   <section id="cas-clients" class="py-24 px-4 section-darker">
     <div class="max-w-5xl mx-auto">
       <div class="text-center mb-16">
-        <p class="font-body font-bold text-sm mb-2" style="color:#FCD34D">Résultats types</p>
+        <p class="font-body font-bold text-sm mb-2" style="color:var(--color-brand-amber-warm)">Résultats types</p>
         <h2 class="text-3xl md:text-4xl font-black text-cream">Ce qu'un agent IA change concrètement</h2>
         <p class="font-body text-xs mt-4 max-w-2xl mx-auto" style="color:rgba(240,235,224,0.4)">Projections basées sur des déploiements d'agents IA dans ces secteurs. Les résultats réels dépendent du volume d'appels et du secteur d'activité.</p>
       </div>
@@ -1396,7 +1398,7 @@
         <!-- Cas 1 -->
         <article class="rounded-2xl p-8 md:p-10" style="background:rgba(240,235,224,0.03);border:1px solid rgba(240,235,224,0.08)">
           <div class="flex items-center gap-4 mb-6">
-            <div class="w-12 h-12 rounded-full flex items-center justify-center font-display font-black text-lg shrink-0 avatar-amber" style="background:rgba(245,158,11,0.15);color:#F59E0B">TR</div>
+            <div class="w-12 h-12 rounded-full flex items-center justify-center font-display font-black text-lg shrink-0 avatar-amber" style="background:rgba(245,158,11,0.15);color:var(--color-brand-amber)">TR</div>
             <div>
               <h3 class="text-lg font-black text-cream">Thomas R. — Artisan plombier</h3>
               <p class="text-sm text-clay font-body">Nord de la France / Offre Starter / 99 &euro;/mois</p>
@@ -1404,19 +1406,19 @@
           </div>
           <div class="grid md:grid-cols-3 gap-6 md:gap-8">
             <div>
-              <p class="font-bold text-xs tracking-widest uppercase mb-2 font-body" style="color:#FCD34D">Le problème</p>
+              <p class="font-bold text-xs tracking-widest uppercase mb-2 font-body" style="color:var(--color-brand-amber-warm)">Le problème</p>
               <p class="text-stone text-sm leading-relaxed font-body">Thomas passait 2h chaque soir à répondre aux mêmes questions par email et SMS : disponibilités, tarifs, zone d'intervention. Les prospects qui écrivaient après 19h appelaient un concurrent le lendemain matin.</p>
             </div>
             <div>
-              <p class="font-bold text-xs tracking-widest uppercase mb-2 font-body" style="color:#FCD34D">La solution</p>
+              <p class="font-bold text-xs tracking-widest uppercase mb-2 font-body" style="color:var(--color-brand-amber-warm)">La solution</p>
               <p class="text-stone text-sm leading-relaxed font-body">Agent IA WhatsApp qui répond 24h/24 dans le ton de Thomas. Il qualifie le type d'intervention, donne un estimatif de prix et propose un créneau. Les urgences sont signalées par notification.</p>
             </div>
             <div>
-              <p class="font-bold text-xs tracking-widest uppercase mb-2 font-body" style="color:#FCD34D">Les résultats</p>
+              <p class="font-bold text-xs tracking-widest uppercase mb-2 font-body" style="color:var(--color-brand-amber-warm)">Les résultats</p>
               <ul class="space-y-2">
-                <li class="flex items-baseline gap-2"><span class="font-display font-black text-xl" style="color:#F59E0B">14h</span><span class="text-stone text-sm font-body">récupérées par semaine</span></li>
-                <li class="flex items-baseline gap-2"><span class="font-display font-black text-xl" style="color:#F59E0B">+40%</span><span class="text-stone text-sm font-body">de devis envoyés</span></li>
-                <li class="flex items-baseline gap-2"><span class="font-display font-black text-xl" style="color:#F59E0B">0</span><span class="text-stone text-sm font-body">prospect perdu le soir</span></li>
+                <li class="flex items-baseline gap-2"><span class="font-display font-black text-xl" style="color:var(--color-brand-amber)">14h</span><span class="text-stone text-sm font-body">récupérées par semaine</span></li>
+                <li class="flex items-baseline gap-2"><span class="font-display font-black text-xl" style="color:var(--color-brand-amber)">+40%</span><span class="text-stone text-sm font-body">de devis envoyés</span></li>
+                <li class="flex items-baseline gap-2"><span class="font-display font-black text-xl" style="color:var(--color-brand-amber)">0</span><span class="text-stone text-sm font-body">prospect perdu le soir</span></li>
               </ul>
             </div>
           </div>
@@ -1428,7 +1430,7 @@
         <!-- Cas 2 -->
         <article class="rounded-2xl p-8 md:p-10" style="background:rgba(240,235,224,0.03);border:1px solid rgba(240,235,224,0.08)">
           <div class="flex items-center gap-4 mb-6">
-            <div class="w-12 h-12 rounded-full flex items-center justify-center font-display font-black text-lg shrink-0 avatar-amber" style="background:rgba(245,158,11,0.15);color:#F59E0B">SM</div>
+            <div class="w-12 h-12 rounded-full flex items-center justify-center font-display font-black text-lg shrink-0 avatar-amber" style="background:rgba(245,158,11,0.15);color:var(--color-brand-amber)">SM</div>
             <div>
               <h3 class="text-lg font-black text-cream">Sandra M. — Coach en développement personnel</h3>
               <p class="text-sm text-clay font-body">Sud-Ouest / Offre PRO / 179 &euro;/mois</p>
@@ -1436,19 +1438,19 @@
           </div>
           <div class="grid md:grid-cols-3 gap-6 md:gap-8">
             <div>
-              <p class="font-bold text-xs tracking-widest uppercase mb-2 font-body" style="color:#FCD34D">Le problème</p>
+              <p class="font-bold text-xs tracking-widest uppercase mb-2 font-body" style="color:var(--color-brand-amber-warm)">Le problème</p>
               <p class="text-stone text-sm leading-relaxed font-body">Sandra passait 6h par semaine sur des tâches administratives : emails de bienvenue, relances de paiement, envoi de documents post-séance. Elle refusait de nouveaux clients par manque de temps.</p>
             </div>
             <div>
-              <p class="font-bold text-xs tracking-widest uppercase mb-2 font-body" style="color:#FCD34D">La solution</p>
+              <p class="font-bold text-xs tracking-widest uppercase mb-2 font-body" style="color:var(--color-brand-amber-warm)">La solution</p>
               <p class="text-stone text-sm leading-relaxed font-body">Automatisation complète du parcours client : email de bienvenue personnalisé, rappels de séance, envoi automatique des ressources, relances de paiement. Le tout connecté à son agenda Google et Stripe.</p>
             </div>
             <div>
-              <p class="font-bold text-xs tracking-widest uppercase mb-2 font-body" style="color:#FCD34D">Les résultats</p>
+              <p class="font-bold text-xs tracking-widest uppercase mb-2 font-body" style="color:var(--color-brand-amber-warm)">Les résultats</p>
               <ul class="space-y-2">
-                <li class="flex items-baseline gap-2"><span class="font-display font-black text-xl" style="color:#F59E0B">6h</span><span class="text-stone text-sm font-body">libérées par semaine</span></li>
-                <li class="flex items-baseline gap-2"><span class="font-display font-black text-xl" style="color:#F59E0B">+5</span><span class="text-stone text-sm font-body">clients supplémentaires / mois</span></li>
-                <li class="flex items-baseline gap-2"><span class="font-display font-black text-xl" style="color:#F59E0B">98%</span><span class="text-stone text-sm font-body">de paiements à l'heure</span></li>
+                <li class="flex items-baseline gap-2"><span class="font-display font-black text-xl" style="color:var(--color-brand-amber)">6h</span><span class="text-stone text-sm font-body">libérées par semaine</span></li>
+                <li class="flex items-baseline gap-2"><span class="font-display font-black text-xl" style="color:var(--color-brand-amber)">+5</span><span class="text-stone text-sm font-body">clients supplémentaires / mois</span></li>
+                <li class="flex items-baseline gap-2"><span class="font-display font-black text-xl" style="color:var(--color-brand-amber)">98%</span><span class="text-stone text-sm font-body">de paiements à l'heure</span></li>
               </ul>
             </div>
           </div>
@@ -1460,7 +1462,7 @@
         <!-- Cas 3 -->
         <article class="rounded-2xl p-8 md:p-10" style="background:rgba(240,235,224,0.03);border:1px solid rgba(240,235,224,0.08)">
           <div class="flex items-center gap-4 mb-6">
-            <div class="w-12 h-12 rounded-full flex items-center justify-center font-display font-black text-lg shrink-0 avatar-amber" style="background:rgba(245,158,11,0.15);color:#F59E0B">KB</div>
+            <div class="w-12 h-12 rounded-full flex items-center justify-center font-display font-black text-lg shrink-0 avatar-amber" style="background:rgba(245,158,11,0.15);color:var(--color-brand-amber)">KB</div>
             <div>
               <h3 class="text-lg font-black text-cream">Karim B. — Agent immobilier indépendant</h3>
               <p class="text-sm text-clay font-body">Île-de-France / Offre PRO / 179 &euro;/mois</p>
@@ -1468,19 +1470,19 @@
           </div>
           <div class="grid md:grid-cols-3 gap-6 md:gap-8">
             <div>
-              <p class="font-bold text-xs tracking-widest uppercase mb-2 font-body" style="color:#FCD34D">Le problème</p>
+              <p class="font-bold text-xs tracking-widest uppercase mb-2 font-body" style="color:var(--color-brand-amber-warm)">Le problème</p>
               <p class="text-stone text-sm leading-relaxed font-body">Karim recevait 30 à 50 demandes par semaine via son site et les portails immobiliers. Il ne pouvait répondre qu'aux heures de bureau, perdant les prospects du soir et du week-end au profit de concurrents plus réactifs.</p>
             </div>
             <div>
-              <p class="font-bold text-xs tracking-widest uppercase mb-2 font-body" style="color:#FCD34D">La solution</p>
+              <p class="font-bold text-xs tracking-widest uppercase mb-2 font-body" style="color:var(--color-brand-amber-warm)">La solution</p>
               <p class="text-stone text-sm leading-relaxed font-body">Chatbot IA sur son site + WhatsApp qui qualifie chaque prospect (budget, type de bien, zone), propose des biens correspondants et réserve directement un créneau de visite dans son agenda.</p>
             </div>
             <div>
-              <p class="font-bold text-xs tracking-widest uppercase mb-2 font-body" style="color:#FCD34D">Les résultats</p>
+              <p class="font-bold text-xs tracking-widest uppercase mb-2 font-body" style="color:var(--color-brand-amber-warm)">Les résultats</p>
               <ul class="space-y-2">
-                <li class="flex items-baseline gap-2"><span class="font-display font-black text-xl" style="color:#F59E0B">&lt;1 min</span><span class="text-stone text-sm font-body">temps de réponse moyen</span></li>
-                <li class="flex items-baseline gap-2"><span class="font-display font-black text-xl" style="color:#F59E0B">3&times;</span><span class="text-stone text-sm font-body">plus de visites planifiées</span></li>
-                <li class="flex items-baseline gap-2"><span class="font-display font-black text-xl" style="color:#F59E0B">+2</span><span class="text-stone text-sm font-body">ventes supplémentaires / mois</span></li>
+                <li class="flex items-baseline gap-2"><span class="font-display font-black text-xl" style="color:var(--color-brand-amber)">&lt;1 min</span><span class="text-stone text-sm font-body">temps de réponse moyen</span></li>
+                <li class="flex items-baseline gap-2"><span class="font-display font-black text-xl" style="color:var(--color-brand-amber)">3&times;</span><span class="text-stone text-sm font-body">plus de visites planifiées</span></li>
+                <li class="flex items-baseline gap-2"><span class="font-display font-black text-xl" style="color:var(--color-brand-amber)">+2</span><span class="text-stone text-sm font-body">ventes supplémentaires / mois</span></li>
               </ul>
             </div>
           </div>
@@ -1506,28 +1508,28 @@
           </div>
           <div class="flex flex-col gap-3 w-full" id="about-stats">
             <div class="flex items-center gap-3">
-              <span class="font-display text-2xl font-black stat-glow" style="color:#F59E0B"><span class="about-counter" data-target="15" data-count="15" data-suffix="+">15+</span></span>
+              <span class="font-display text-2xl font-black stat-glow" style="color:var(--color-brand-amber)"><span class="about-counter" data-target="15" data-count="15" data-suffix="+">15+</span></span>
               <span class="text-stone text-sm font-body">ans de gestion de projet</span>
             </div>
             <div class="flex items-center gap-3">
-              <span class="font-display text-2xl font-black stat-glow" style="color:#F59E0B"><span class="about-counter" data-target="1500" data-count="1500" data-format="space" data-suffix="">1 500</span></span>
+              <span class="font-display text-2xl font-black stat-glow" style="color:var(--color-brand-amber)"><span class="about-counter" data-target="1500" data-count="1500" data-format="space" data-suffix="">1 500</span></span>
               <span class="text-stone text-sm font-body">personnes coordonnées</span>
             </div>
             <div class="flex items-center gap-3">
-              <span class="font-display text-2xl font-black stat-glow" style="color:#F59E0B"><span class="about-counter" data-target="3" data-count="3" data-suffix="">3</span></span>
+              <span class="font-display text-2xl font-black stat-glow" style="color:var(--color-brand-amber)"><span class="about-counter" data-target="3" data-count="3" data-suffix="">3</span></span>
               <span class="text-stone text-sm font-body">langues : FR / AR / EN</span>
             </div>
           </div>
           <div class="flex items-start gap-3 rounded-xl px-4 py-3 w-full" style="background:rgba(245,158,11,0.07);border:1px solid rgba(245,158,11,0.20)">
-            <svg aria-hidden="true" class="w-5 h-5 flex-shrink-0 mt-0.5" style="color:#F59E0B" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+            <svg aria-hidden="true" class="w-5 h-5 flex-shrink-0 mt-0.5" style="color:var(--color-brand-amber)" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
             <div>
-              <p class="font-body font-semibold text-xs leading-tight" style="color:#FCD34D">IA Conversationnelle dans le Cycle de Vente</p>
+              <p class="font-body font-semibold text-xs leading-tight" style="color:var(--color-brand-amber-warm)">IA Conversationnelle dans le Cycle de Vente</p>
               <p class="font-body text-xs mt-0.5" style="color:#9CA3AF">Online Sales Success · Mai 2026</p>
             </div>
           </div>
         </div>
         <div class="md:col-span-3">
-          <p class="font-body font-bold text-sm mb-2" style="color:#FCD34D">Qui suis-je</p>
+          <p class="font-body font-bold text-sm mb-2" style="color:var(--color-brand-amber-warm)">Qui suis-je</p>
           <h2 class="text-3xl md:text-4xl font-black text-cream mb-8">De chantiers à 1 500 personnes aux agents IA pour votre entreprise</h2>
           <div class="space-y-5 text-stone leading-relaxed font-body">
             <p>Je suis <strong class="text-cream font-semibold">Abdallah Ait Essaghir</strong>, fondateur d'ABEMA AGENCY.</p>
@@ -1541,13 +1543,13 @@
             </p>
           </div>
           <div class="mt-10 flex flex-wrap gap-2">
-            <span class="font-body text-xs font-medium px-3 py-1.5 rounded-full" style="background:rgba(245,158,11,0.10);color:#FCD34D">Ritz Carlton</span>
-            <span class="font-body text-xs font-medium px-3 py-1.5 rounded-full" style="background:rgba(245,158,11,0.10);color:#FCD34D">Radisson Blu</span>
-            <span class="font-body text-xs font-medium px-3 py-1.5 rounded-full" style="background:rgba(245,158,11,0.10);color:#FCD34D">Barceló</span>
-            <span class="font-body text-xs font-medium px-3 py-1.5 rounded-full" style="background:rgba(245,158,11,0.10);color:#FCD34D">Technopôle 610ha</span>
-            <span class="font-body text-xs font-medium px-3 py-1.5 rounded-full" style="background:rgba(245,158,11,0.10);color:#FCD34D">Logements France</span>
+            <span class="font-body text-xs font-medium px-3 py-1.5 rounded-full" style="background:rgba(245,158,11,0.10);color:var(--color-brand-amber-warm)">Ritz Carlton</span>
+            <span class="font-body text-xs font-medium px-3 py-1.5 rounded-full" style="background:rgba(245,158,11,0.10);color:var(--color-brand-amber-warm)">Radisson Blu</span>
+            <span class="font-body text-xs font-medium px-3 py-1.5 rounded-full" style="background:rgba(245,158,11,0.10);color:var(--color-brand-amber-warm)">Barceló</span>
+            <span class="font-body text-xs font-medium px-3 py-1.5 rounded-full" style="background:rgba(245,158,11,0.10);color:var(--color-brand-amber-warm)">Technopôle 610ha</span>
+            <span class="font-body text-xs font-medium px-3 py-1.5 rounded-full" style="background:rgba(245,158,11,0.10);color:var(--color-brand-amber-warm)">Logements France</span>
           </div>
-          <a href="#contact" class="inline-flex items-center gap-2 mt-8 font-body font-semibold text-sm transition" style="color:#FCD34D">
+          <a href="#contact" class="inline-flex items-center gap-2 mt-8 font-body font-semibold text-sm transition" style="color:var(--color-brand-amber-warm)">
             Discutons de votre projet <span>&rarr;</span>
           </a>
         </div>
@@ -1708,7 +1710,7 @@
         <div class="flex items-start gap-3">
           <input type="checkbox" id="rgpd_consent" name="rgpd_consent" required
                  class="mt-1 flex-shrink-0"
-                 style="width:16px;height:16px;accent-color:#F59E0B;cursor:pointer" />
+                 style="width:16px;height:16px;accent-color:var(--color-brand-amber);cursor:pointer" />
           <label for="rgpd_consent" class="font-body text-xs leading-relaxed cursor-pointer" style="color:rgba(240,235,224,0.55)">
             J'accepte d'être recontacté par ABEMA AGENCY concernant ma demande d'audit.
             Vos données sont traitées conformément à notre
@@ -1727,7 +1729,7 @@
         <input type="hidden" id="referrer"     name="referrer"     value="" />
         <input type="hidden" id="landing_url"  name="landing_url"  value="" />
 
-        <button type="submit" id="submit-btn" class="w-full text-foreground py-3.5 rounded-lg font-black font-display tracking-wide transition hover:bg-primary-dark" style="background:#F59E0B;box-shadow:0 4px 24px rgba(245,158,11,0.25)">
+        <button type="submit" id="submit-btn" class="w-full text-foreground py-3.5 rounded-lg font-black font-display tracking-wide transition hover:bg-primary-dark" style="background:var(--color-brand-amber);box-shadow:0 4px 24px rgba(245,158,11,0.25)">
           Réserver mon audit gratuit
         </button>
       </form>
@@ -1749,9 +1751,9 @@
   </section>
 
   <!-- MOBILE STICKY CTA -->
-  <div id="sticky-cta" class="fixed bottom-0 left-0 right-0 z-40 items-center justify-between px-5 py-3.5" style="background:#F59E0B;border-top:1px solid rgba(245,158,11,0.4);padding-bottom:max(12px,env(safe-area-inset-bottom))">
+  <div id="sticky-cta" class="fixed bottom-0 left-0 right-0 z-40 items-center justify-between px-5 py-3.5" style="background:var(--color-brand-amber);border-top:1px solid rgba(245,158,11,0.4);padding-bottom:max(12px,env(safe-area-inset-bottom))">
     <span class="font-display font-black text-sm text-foreground">Audit gratuit — Places limitées</span>
-    <a href="#contact" class="font-display font-black text-xs px-4 py-2 rounded-lg transition" style="background:#0A0A0F;color:#F59E0B">Réserver →</a>
+    <a href="#contact" class="font-display font-black text-xs px-4 py-2 rounded-lg transition" style="background:#0A0A0F;color:var(--color-brand-amber)">Réserver →</a>
   </div>
 
   <!-- WHATSAPP FLOATING -->
