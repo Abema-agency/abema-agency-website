@@ -240,6 +240,10 @@
     #sticky-cta { display: none; }
     @media (max-width: 767px) { #sticky-cta { display: flex; } }
 
+    /* WhatsApp FAB — s'élève au-dessus du sticky CTA sur mobile */
+    .wa-fab { bottom: 20px; }
+    @media (max-width: 767px) { .wa-fab { bottom: calc(64px + env(safe-area-inset-bottom, 0px)); } }
+
     #role-rotator { display: inline-block; min-width: 6ch; }
     .scroll-dot { animation: scrollDrift 2s cubic-bezier(0.45, 0, 0.15, 1) infinite; }
     @keyframes scrollDrift { 0%, 100% { transform: translateY(0); opacity: 0.3; } 50% { transform: translateY(6px); opacity: 1; } }
@@ -1770,7 +1774,6 @@
 
   <!-- WHATSAPP FLOATING -->
   <!-- Sur mobile : s'élève au-dessus du sticky CTA (~56px + safe-area-inset) via la classe wa-fab -->
-  <style>.wa-fab{bottom:20px}@media(max-width:767px){.wa-fab{bottom:calc(64px + env(safe-area-inset-bottom,0px))}}</style>
   <a href="https://wa.me/33650983972" target="_blank" rel="noopener noreferrer"
     class="wa-fab"
     style="position:fixed; left:20px; background:#25D366; color:white; padding:12px 18px; border-radius:50px; font-size:14px; font-weight:600; z-index:99999; text-decoration:none; display:flex; align-items:center; gap:8px; box-shadow:0 4px 15px rgba(37,211,102,0.4);"
@@ -1781,7 +1784,7 @@
   </main>
 
   <!-- FOOTER -->
-  <footer style="background:#050508" class="text-cream py-14 px-4" style="border-top:1px solid rgba(240,235,224,0.08)">
+  <footer class="text-cream py-14 px-4" style="background:#050508;border-top:1px solid rgba(240,235,224,0.08)">
     <div class="max-w-6xl mx-auto" style="border-top:1px solid rgba(240,235,224,0.08);padding-top:0">
       <div style="border-top:1px solid rgba(240,235,224,0.07)" class="pt-0">
         <div class="grid md:grid-cols-3 gap-10 mb-10 pt-14">
