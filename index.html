@@ -193,7 +193,7 @@
     .hero-wrap::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse 75% 55% at 50% 40%, rgba(245,158,11,0.07) 0%, transparent 65%); pointer-events:none; }
     .hero-wrap::after  { content:''; position:absolute; inset:0; background: radial-gradient(ellipse 35% 25% at 82% 72%, rgba(59,130,246,0.04) 0%, transparent 60%); pointer-events:none; }
     .hero-content { position:relative; z-index:2; }
-    .hero-ring { position:absolute; border-radius:50%; border:1px solid rgba(245,158,11,0.07); animation: ringPulse 8s ease-in-out infinite; }
+    .hero-ring { position:absolute; border-radius:50%; border:1px solid rgba(245,158,11,0.07); animation: ringPulse 8s ease-in-out 3; animation-fill-mode: forwards; }
     .hero-ring-1 { width:520px;  height:520px;  top:50%; left:50%; transform:translate(-50%,-50%); }
     .hero-ring-2 { width:760px;  height:760px;  top:50%; left:50%; transform:translate(-50%,-50%); animation-delay:2s;  opacity:0.5; }
     .hero-ring-3 { width:1020px; height:1020px; top:50%; left:50%; transform:translate(-50%,-50%); animation-delay:4s;  opacity:0.25; }
@@ -223,14 +223,14 @@
       padding: 1.75rem 2rem;
     }
 
-    /* Avatar amber ring for testimonials */
-    .avatar-amber { box-shadow: 0 0 0 2px rgba(245,158,11,0.45), 0 0 0 4px rgba(245,158,11,0.12); animation: avatarGlow 3s ease-in-out infinite; }
+    /* Avatar amber ring for testimonials — 4 cycles au scroll-in, puis repos */
+    .avatar-amber { box-shadow: 0 0 0 2px rgba(245,158,11,0.45), 0 0 0 4px rgba(245,158,11,0.12); animation: avatarGlow 3s ease-in-out 4; animation-fill-mode: forwards; }
     @keyframes avatarGlow {
       0%, 100% { box-shadow: 0 0 0 2px rgba(245,158,11,0.35), 0 0 0 4px rgba(245,158,11,0.08); }
       50%       { box-shadow: 0 0 0 2px rgba(245,158,11,0.70), 0 0 0 6px rgba(245,158,11,0.20), 0 0 24px rgba(245,158,11,0.15); }
     }
-    /* About photo — gold pulse using brand tokens */
-    .about-photo-container { animation: goldPulse 3s ease-in-out infinite; }
+    /* About photo — gold pulse, 3 cycles puis repos */
+    .about-photo-container { animation: goldPulse 3s ease-in-out 3; animation-fill-mode: forwards; }
     @keyframes goldPulse {
       0%, 100% { box-shadow: 0 0 0 2px var(--color-brand-gold), 0 0 0 4px var(--color-brand-gold-light); }
       50%       { box-shadow: 0 0 0 2px var(--color-brand-gold), 0 0 0 6px var(--color-brand-gold-light), 0 0 20px var(--color-brand-gold-light); }
