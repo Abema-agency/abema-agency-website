@@ -1755,8 +1755,11 @@
   </div>
 
   <!-- WHATSAPP FLOATING -->
+  <!-- Sur mobile : s'élève au-dessus du sticky CTA (~56px + safe-area-inset) via la classe wa-fab -->
+  <style>.wa-fab{bottom:20px}@media(max-width:767px){.wa-fab{bottom:calc(64px + env(safe-area-inset-bottom,0px))}}</style>
   <a href="https://wa.me/33650983972" target="_blank" rel="noopener noreferrer"
-    style="position:fixed; bottom:20px; left:20px; background:#25D366; color:white; padding:12px 18px; border-radius:50px; font-size:14px; font-weight:600; z-index:99999; text-decoration:none; display:flex; align-items:center; gap:8px; box-shadow:0 4px 15px rgba(37,211,102,0.4);"
+    class="wa-fab"
+    style="position:fixed; left:20px; background:#25D366; color:white; padding:12px 18px; border-radius:50px; font-size:14px; font-weight:600; z-index:99999; text-decoration:none; display:flex; align-items:center; gap:8px; box-shadow:0 4px 15px rgba(37,211,102,0.4);"
     aria-label="Contacter via WhatsApp">
     &#x1F4AC; Me contacter
   </a>
