@@ -263,7 +263,6 @@
     .wa-fab { bottom: 20px; }
     @media (max-width: 767px) { .wa-fab { bottom: calc(64px + env(safe-area-inset-bottom, 0px)); } }
 
-    #role-rotator { display: inline-block; min-width: 6ch; }
     .scroll-dot { animation: scrollDrift 2s cubic-bezier(0.45, 0, 0.15, 1) infinite; }
     @keyframes scrollDrift { 0%, 100% { transform: translateY(0); opacity: 0.3; } 50% { transform: translateY(6px); opacity: 1; } }
     @keyframes pulse-ring { 0%, 100% { box-shadow: 0 0 0 0 rgba(245,158,11,0.4); } 50% { box-shadow: 0 0 0 12px rgba(245,158,11,0); } }
@@ -2099,20 +2098,6 @@
   document.addEventListener('DOMContentLoaded', function() {
     if (typeof gsap === 'undefined') return;
     gsap.registerPlugin(ScrollTrigger);
-
-    // Rotating role text every 3s
-    const roles = ['Artisans', 'Commerçants', 'Coachs', 'Agents immobiliers'];
-    let roleIdx = 0;
-    const rotator = document.getElementById('role-rotator');
-    if (rotator) {
-      setInterval(() => {
-        gsap.to(rotator, { opacity: 0, y: -8, duration: 0.25, onComplete() {
-          roleIdx = (roleIdx + 1) % roles.length;
-          rotator.textContent = roles[roleIdx];
-          gsap.fromTo(rotator, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.3 });
-        }});
-      }, 3000);
-    }
 
     // Section scroll reveals
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
