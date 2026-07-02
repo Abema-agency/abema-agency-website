@@ -1,0 +1,9 @@
+# Documentation et fichiers internes — versionnés dans git pour référence
+# mais jamais copiés dans le déploiement Vercel (ne doivent pas être servis publiquement).
+n8n-workflow-lead-qualification.json
+n8n-workflow-chatbot.json
+n8n-workflow-linkedin-prospection.json
+n8n-config.md
+n8n-blog-config.md
+test-webhooks.js
+CHECKLIST-DEPLOIEMENT.md
