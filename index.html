@@ -2096,7 +2096,7 @@
 
   <!-- GSAP animations -->
   <script>
-  (function() {
+  document.addEventListener('DOMContentLoaded', function() {
     if (typeof gsap === 'undefined') return;
     gsap.registerPlugin(ScrollTrigger);
 
@@ -2125,7 +2125,7 @@
         scrollTrigger: { trigger: el, start: 'top 88%', once: true }
       });
     });
-  })();
+  });
   </script>
 
   <!-- Stats reveal — vanilla IntersectionObserver, zéro dépendance -->
