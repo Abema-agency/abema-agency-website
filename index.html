@@ -19,7 +19,8 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Agent IA pour TPE | ABEMA AGENCY" />
   <meta name="twitter:description" content="Agents IA et chatbots sur mesure pour les TPE en France. Op&eacute;rationnel en 48h, d&egrave;s 99&euro;/mois." />
-  <link rel="icon" href="favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" href="favicon.ico" sizes="any" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -175,8 +176,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;600;700;800;900&family=Mulish:wght@300;400;500;600;700;800;900&display=swap" />
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;600;700;800;900&family=Mulish:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="tailwind.min.css" />
   <style>
     :root {
@@ -270,6 +269,10 @@
     .stat-glow { text-shadow: 0 2px 18px rgba(245,158,11,0.30); }
     .stat-reveal { opacity:0; transform:translateY(22px); transition:opacity .55s ease, transform .55s cubic-bezier(.22,1,.36,1); }
     .stat-reveal.visible { opacity:1; transform:translateY(0); }
+    /* Section scroll reveal — CSS + IntersectionObserver, remplace GSAP/ScrollTrigger */
+    .section-reveal { opacity:0; transform:translateY(45px); transition:opacity .75s ease, transform .75s cubic-bezier(0.16,1,0.3,1); }
+    .section-reveal.visible { opacity:1; transform:translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .section-reveal { opacity:1; transform:none; transition:none; } }
     .btn-shine { position:relative; overflow:hidden; }
     .btn-shine::after { content:''; position:absolute; top:0; left:-100%; width:60%; height:100%; background:linear-gradient(90deg,transparent,rgba(255,255,255,0.20),transparent); transition:0.6s; }
     .btn-shine:hover::after { left:120%; }
@@ -331,7 +334,7 @@
     .expansion-note strong { color: #C8A44E; font-weight: 500; }
     .footer-expansion {
       font-size: 0.75rem;
-      color: rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.55);
       margin-top: 4px;
       letter-spacing: 0.03em;
     }
@@ -575,7 +578,7 @@
   <!-- NAV -->
   <nav id="main-nav" class="sticky top-0 z-50 border-b border-transparent">
     <div class="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
-      <a href="/" class="logo-text" aria-label="ABEMA AGENCY - Accueil">
+      <a href="/" class="logo-text" aria-label="Accueil">
         <span class="logo-bold">ABEMA</span><span class="logo-light"> AGENCY</span>
       </a>
       <div class="hidden md:flex items-center gap-8 text-sm font-semibold font-body text-sand">
@@ -595,7 +598,7 @@
             <a href="/secteurs/coach-consultant.html" role="menuitem" class="block px-4 py-2.5 text-sm text-sand hover:text-primary hover:bg-primary/5 transition font-body">Coachs &amp; Consultants</a>
             <a href="/secteurs/commercant.html"       role="menuitem" class="block px-4 py-2.5 text-sm text-sand hover:text-primary hover:bg-primary/5 transition font-body">Commerçants</a>
             <hr class="border-cream/10 my-1.5 mx-4" />
-            <p class="px-4 pt-1 pb-0.5 text-xs text-clay tracking-widest uppercase font-body">Par zone</p>
+            <p class="px-4 pt-1 pb-0.5 text-xs text-stone tracking-widest uppercase font-body">Par zone</p>
             <a href="/secteurs/lens.html"    role="menuitem" class="block px-4 py-2.5 text-sm text-sand hover:text-primary hover:bg-primary/5 transition font-body">Lens &amp; Liévin</a>
             <a href="/secteurs/bethune.html" role="menuitem" class="block px-4 py-2.5 text-sm text-sand hover:text-primary hover:bg-primary/5 transition font-body">Béthune &amp; Bruay</a>
             <a href="/secteurs/arras.html"   role="menuitem" class="block px-4 py-2.5 text-sm text-sand hover:text-primary hover:bg-primary/5 transition font-body">Arras</a>
@@ -618,12 +621,12 @@
         <a href="#methode"  onclick="closeMobileNav()" class="text-sand hover:text-primary transition text-base font-semibold py-1">Méthode</a>
         <a href="#offres"   onclick="closeMobileNav()" class="text-sand hover:text-primary transition text-base font-semibold py-1">Offres</a>
         <a href="/blog/"    onclick="closeMobileNav()" class="text-sand hover:text-primary transition text-base font-semibold py-1">Blog</a>
-        <p class="text-xs tracking-widest uppercase text-clay font-body mt-1">Par secteur</p>
+        <p class="text-xs tracking-widest uppercase text-stone font-body mt-1">Par secteur</p>
         <a href="/secteurs/artisan.html"          onclick="closeMobileNav()" class="text-sand hover:text-primary transition py-1 pl-3 font-body text-sm">→ Artisans</a>
         <a href="/secteurs/agent-immobilier.html" onclick="closeMobileNav()" class="text-sand hover:text-primary transition py-1 pl-3 font-body text-sm">→ Agents immobiliers</a>
         <a href="/secteurs/coach-consultant.html" onclick="closeMobileNav()" class="text-sand hover:text-primary transition py-1 pl-3 font-body text-sm">→ Coachs &amp; Consultants</a>
         <a href="/secteurs/commercant.html"       onclick="closeMobileNav()" class="text-sand hover:text-primary transition py-1 pl-3 font-body text-sm">→ Commerçants</a>
-        <p class="text-xs tracking-widest uppercase text-clay font-body mt-2">Par zone</p>
+        <p class="text-xs tracking-widest uppercase text-stone font-body mt-2">Par zone</p>
         <a href="/secteurs/lens.html"    onclick="closeMobileNav()" class="text-sand hover:text-primary transition py-1 pl-3 font-body text-sm">→ Lens &amp; Liévin</a>
         <a href="/secteurs/bethune.html" onclick="closeMobileNav()" class="text-sand hover:text-primary transition py-1 pl-3 font-body text-sm">→ Béthune &amp; Bruay</a>
         <a href="/secteurs/arras.html"   onclick="closeMobileNav()" class="text-sand hover:text-primary transition py-1 pl-3 font-body text-sm">→ Arras</a>
@@ -636,6 +639,7 @@
   </nav>
 
   <!-- HERO -->
+  <main id="main-content">
   <section class="hero" id="hero">
     <div class="hero-inner">
 
@@ -673,7 +677,6 @@
   </section>
 
   <!-- PAIN POINTS -->
-  <main id="main-content">
   <section class="py-24 px-4 section-dark">
     <div class="max-w-6xl mx-auto">
       <div class="max-w-2xl mb-14">
@@ -859,17 +862,18 @@
         </div>
       </div>
       <script>
-        /* Pré-chargement silencieux du script ElevenLabs */
-        var _elScript = document.createElement('script');
-        _elScript.src = 'https://unpkg.com/@elevenlabs/convai-widget-embed@latest';
-        _elScript.type = 'text/javascript';
-        document.head.appendChild(_elScript);
+        var _elScriptLoaded = false;
+        var _elScript = null;
 
         function elStartDemo() {
           var btn = document.getElementById('el-start-btn');
           var host = document.getElementById('elevenlabs-host');
           if (!btn || !host) return;
-          btn.style.display = 'none';
+
+          var label = btn.querySelector('span:last-child');
+          if (label) label.textContent = 'Chargement...';
+          btn.disabled = true;
+          btn.style.cursor = 'wait';
 
           function clickStartCall(w) {
             /* Clique "Start a call" dans le shadow DOM dès que le bouton apparaît */
@@ -885,6 +889,7 @@
           }
 
           function injectWidget() {
+            btn.style.display = 'none';
             var agentId = (window.ABEMA_CONFIG && window.ABEMA_CONFIG.elevenlabs)
               ? window.ABEMA_CONFIG.elevenlabs.agentId
               : 'agent_2101kpknnbb9e7vv171xzcytrp9h';
@@ -897,7 +902,17 @@
 
           if (window.customElements && window.customElements.get('elevenlabs-convai')) {
             injectWidget();
-          } else {
+            return;
+          }
+
+          if (!_elScriptLoaded) {
+            _elScriptLoaded = true;
+            _elScript = document.createElement('script');
+            _elScript.src = 'https://unpkg.com/@elevenlabs/convai-widget-embed@latest';
+            _elScript.type = 'text/javascript';
+            _elScript.onload = injectWidget;
+            document.head.appendChild(_elScript);
+          } else if (_elScript) {
             _elScript.onload = injectWidget;
           }
         }
@@ -1267,9 +1282,9 @@
             <tr style="border-bottom:1px solid rgba(240,235,224,0.10)">
               <th scope="col" class="py-5 px-5 text-stone font-body text-xs tracking-widest uppercase"></th>
               <th scope="col" class="py-5 px-4 font-display font-black tracking-wide" style="color:var(--color-brand-amber)">ABEMA</th>
-              <th scope="col" class="py-5 px-4 font-body font-semibold text-clay text-sm">Plateformes distancielles</th>
-              <th scope="col" class="py-5 px-4 font-body font-semibold text-clay text-sm">Agence IA Paris/Lyon</th>
-              <th scope="col" class="py-5 px-4 font-body font-semibold text-clay text-sm">Secrétariat humain</th>
+              <th scope="col" class="py-5 px-4 font-body font-semibold text-stone text-sm">Plateformes distancielles</th>
+              <th scope="col" class="py-5 px-4 font-body font-semibold text-stone text-sm">Agence IA Paris/Lyon</th>
+              <th scope="col" class="py-5 px-4 font-body font-semibold text-stone text-sm">Secrétariat humain</th>
             </tr>
           </thead>
           <tbody class="font-body text-sm">
@@ -1404,7 +1419,7 @@
 
       </div>
 
-      <p class="text-clay font-body text-xs text-center mt-5 max-w-3xl mx-auto">Comparatif établi à partir de la veille concurrentielle ABEMA (mai 2026) sur les solutions publiques : AirAgent, Tala, AlloAgent, Vocca, Volubile, Moneyvox, agences IA nationales. Tarifs hors taxes, susceptibles d'évoluer.</p>
+      <p class="text-stone font-body text-xs text-center mt-5 max-w-3xl mx-auto">Comparatif établi à partir de la veille concurrentielle ABEMA (mai 2026) sur les solutions publiques : AirAgent, Tala, AlloAgent, Vocca, Volubile, Moneyvox, agences IA nationales. Tarifs hors taxes, susceptibles d'évoluer.</p>
       <div class="mt-6 max-w-3xl mx-auto rounded-xl px-5 py-4 font-body" style="background:rgba(200,164,78,0.05);padding-left:20px;font-size:13px;color:#888;line-height:1.7">
         <p class="font-semibold mb-2" style="color:var(--color-brand-gold)">Pourquoi notre setup est plus cher que les plateformes DIY — et c'est votre avantage.</p>
         <p>AirAgent, VOKAI, Sylen AI affichent 0&nbsp;€ de setup parce qu'il n'y a personne derrière&nbsp;: vous configurez seul, vous ratez les premières semaines, vous abandonnez.</p>
@@ -1445,7 +1460,7 @@
             <div class="w-12 h-12 rounded-full flex items-center justify-center font-display font-black text-lg shrink-0 avatar-amber" style="background:rgba(245,158,11,0.15);color:var(--color-brand-amber)">TR</div>
             <div>
               <h3 class="text-lg font-black text-cream">Thomas R. — Artisan plombier</h3>
-              <p class="text-sm text-clay font-body">Nord de la France / Offre Starter / 99 &euro;/mois</p>
+              <p class="text-sm text-stone font-body">Nord de la France / Offre Starter / 99 &euro;/mois</p>
             </div>
           </div>
           <div class="grid md:grid-cols-3 gap-6 md:gap-8">
@@ -1477,7 +1492,7 @@
             <div class="w-12 h-12 rounded-full flex items-center justify-center font-display font-black text-lg shrink-0 avatar-amber" style="background:rgba(245,158,11,0.15);color:var(--color-brand-amber)">SM</div>
             <div>
               <h3 class="text-lg font-black text-cream">Sandra M. — Coach en développement personnel</h3>
-              <p class="text-sm text-clay font-body">Sud-Ouest / Offre PRO / 179 &euro;/mois</p>
+              <p class="text-sm text-stone font-body">Sud-Ouest / Offre PRO / 179 &euro;/mois</p>
             </div>
           </div>
           <div class="grid md:grid-cols-3 gap-6 md:gap-8">
@@ -1509,7 +1524,7 @@
             <div class="w-12 h-12 rounded-full flex items-center justify-center font-display font-black text-lg shrink-0 avatar-amber" style="background:rgba(245,158,11,0.15);color:var(--color-brand-amber)">KB</div>
             <div>
               <h3 class="text-lg font-black text-cream">Karim B. — Agent immobilier indépendant</h3>
-              <p class="text-sm text-clay font-body">Île-de-France / Offre PRO / 179 &euro;/mois</p>
+              <p class="text-sm text-stone font-body">Île-de-France / Offre PRO / 179 &euro;/mois</p>
             </div>
           </div>
           <div class="grid md:grid-cols-3 gap-6 md:gap-8">
@@ -1831,7 +1846,7 @@
   <!-- Sur mobile : s'élève au-dessus du sticky CTA (~56px + safe-area-inset) via la classe wa-fab -->
   <a href="https://wa.me/33650983972" target="_blank" rel="noopener noreferrer"
     class="wa-fab"
-    style="position:fixed; left:20px; background:#25D366; color:white; padding:12px 18px; border-radius:50px; font-size:14px; font-weight:600; z-index:99999; text-decoration:none; display:flex; align-items:center; gap:8px; box-shadow:0 4px 15px rgba(37,211,102,0.4);"
+    style="position:fixed; left:20px; background:#075E54; color:white; padding:12px 18px; border-radius:50px; font-size:14px; font-weight:600; z-index:99999; text-decoration:none; display:flex; align-items:center; gap:8px; box-shadow:0 4px 15px rgba(7,94,84,0.4);"
     aria-label="Contacter via WhatsApp">
     &#x1F4AC; Me contacter
   </a>
@@ -1844,14 +1859,14 @@
       <div style="border-top:1px solid rgba(240,235,224,0.07)" class="pt-0">
         <div class="grid md:grid-cols-3 gap-10 mb-10 pt-14">
           <div>
-            <a href="/" class="logo-text" aria-label="ABEMA AGENCY - Accueil">
+            <a href="/" class="logo-text" aria-label="Accueil">
               <span class="logo-bold">ABEMA</span><span class="logo-light"> AGENCY</span>
             </a>
             <p class="text-stone text-sm font-body" style="margin-top:0.75rem">L'IA utile et rentable pour votre entreprise</p>
             <p class="footer-expansion">Hauts-de-France (59, 62, 80, 02, 60) · France (2027) · Maroc (2027-2028)</p>
           </div>
           <div>
-            <h4 class="font-display font-black mb-4 text-cream">Navigation</h4>
+            <h3 class="font-display font-black mb-4 text-cream">Navigation</h3>
             <div class="space-y-2 text-sm text-stone font-body">
               <a href="#services" class="block hover:text-cream transition">Services</a>
               <a href="#methode"  class="block hover:text-cream transition">Méthode</a>
@@ -1863,7 +1878,7 @@
             </div>
           </div>
           <div>
-            <h4 class="font-display font-black mb-4 text-cream">Contact</h4>
+            <h3 class="font-display font-black mb-4 text-cream">Contact</h3>
             <div class="space-y-2 text-sm text-stone font-body">
               <a href="mailto:contact@abemaagency.com" class="block hover:text-cream transition">contact@abemaagency.com</a>
               <a href="tel:+33650983972" class="block hover:text-cream transition">+33 6 50 98 39 72</a>
@@ -2093,24 +2108,26 @@
 
   </script>
 
-  <!-- GSAP animations -->
+  <!-- Section scroll reveals — vanilla IntersectionObserver, zéro dépendance -->
   <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    if (typeof gsap === 'undefined') return;
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Section scroll reveals
+  (function () {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    gsap.utils.toArray('section:not(#hero), footer').forEach(el => {
-      gsap.from(el, {
-        opacity: 0,
-        y: 45,
-        duration: 0.75,
-        ease: 'power2.out',
-        scrollTrigger: { trigger: el, start: 'top 88%', once: true }
+    var els = document.querySelectorAll('section:not(#hero), footer');
+    if (!els.length) return;
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
       });
+    }, { threshold: 0, rootMargin: '0px 0px -12% 0px' });
+
+    els.forEach(function (el) {
+      el.classList.add('section-reveal');
+      observer.observe(el);
     });
-  });
+  })();
   </script>
 
   <!-- Stats reveal — vanilla IntersectionObserver, zéro dépendance -->
