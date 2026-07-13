@@ -900,6 +900,27 @@
             clickStartCall(w);
           }
 
+          function handleElScriptError() {
+            /* Filet de sécurité : si le hash SRI ne correspond plus (MAJ oubliée) ou si le
+               chargement échoue, le navigateur bloque le script sans rien afficher — on
+               réaffiche le bouton (retry possible) et on montre un repli de contact. */
+            _elScriptLoaded = false;
+            _elScript = null;
+            if (label) label.textContent = 'Démarrer la démo vocale';
+            btn.disabled = false;
+            btn.style.cursor = 'pointer';
+            btn.style.display = '';
+            if (!host.querySelector('.el-fallback-msg')) {
+              var fallback = document.createElement('p');
+              fallback.className = 'el-fallback-msg font-body text-xs mt-4';
+              fallback.style.cssText = 'color:rgba(255,255,255,0.6);width:100%;text-align:center';
+              fallback.innerHTML = 'Démo temporairement indisponible — contactez-nous directement via ' +
+                '<a href="https://wa.me/33650983972" target="_blank" rel="noopener noreferrer" class="underline hover:text-white">WhatsApp</a>' +
+                ' ou <a href="#contact" class="underline hover:text-white">le formulaire</a>.';
+              host.appendChild(fallback);
+            }
+          }
+
           if (window.customElements && window.customElements.get('elevenlabs-convai')) {
             injectWidget();
             return;
@@ -908,12 +929,20 @@
           if (!_elScriptLoaded) {
             _elScriptLoaded = true;
             _elScript = document.createElement('script');
-            _elScript.src = 'https://unpkg.com/@elevenlabs/convai-widget-embed@latest';
+            // Version épinglée pour le SRI (sécurité) — vérifier manuellement les mises
+            // à jour du package @elevenlabs/convai-widget-embed tous les 2-3 mois sur
+            // https://www.npmjs.com/package/@elevenlabs/convai-widget-embed?activeTab=versions
+            // et régénérer le hash SRI si on monte de version.
+            _elScript.src = 'https://unpkg.com/@elevenlabs/convai-widget-embed@0.14.10/dist/index.js';
+            _elScript.integrity = 'sha384-gaS2RSmecY+12MGNGwxgPHN0o+VjakVFlvY/t2GIpZx7z5IZ4/1/bVg6fomMFsyo';
+            _elScript.crossOrigin = 'anonymous';
             _elScript.type = 'text/javascript';
             _elScript.onload = injectWidget;
+            _elScript.onerror = handleElScriptError;
             document.head.appendChild(_elScript);
           } else if (_elScript) {
             _elScript.onload = injectWidget;
+            _elScript.onerror = handleElScriptError;
           }
         }
       </script>
