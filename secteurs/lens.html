@@ -43,30 +43,7 @@
   </script>
 
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;600;700;800;900&family=Mulish:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary:        '#F59E0B',
-            'primary-dark': '#D97706',
-            'primary-light':'#FCD34D',
-            foreground:     '#0A0A0F',
-            accent:         '#3B82F6',
-            cream:  '#F0EBE0',
-            sand:   '#C4BAA6',
-            stone:  '#8A8070',
-            clay:   '#625A52',
-          },
-          fontFamily: {
-            display: ['"Big Shoulders Display"', 'sans-serif'],
-            sans:    ['Mulish', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
+  <link rel="stylesheet" href="/tailwind.min.css" />
   <style>
     * { scroll-behavior: smooth; }
     .logo-text { text-decoration: none; display: inline-flex; align-items: center; }
@@ -447,9 +424,9 @@
     <div class="flex flex-col md:flex-row justify-between items-center text-sm text-stone font-body pt-6" style="border-top:1px solid rgba(240,235,224,0.08)">
       <p>&copy; 2026 ABEMA AGENCY. Tous droits réservés.</p>
       <div class="flex gap-4 mt-3 md:mt-0">
-        <a href="../mentions-legales.html"          class="hover:text-cream transition">Mentions légales</a>
-        <a href="../politique-confidentialite.html" class="hover:text-cream transition">Confidentialité</a>
-        <a href="../cgv.html"                       class="hover:text-cream transition" style="color:#C8A44E">CGV &amp; RGPD</a>
+        <a href="/mentions-legales.html"          class="hover:text-cream transition">Mentions légales</a>
+        <a href="/politique-confidentialite.html" class="hover:text-cream transition">Confidentialité</a>
+        <a href="/cgv.html"                       class="hover:text-cream transition" style="color:#C8A44E">CGV &amp; RGPD</a>
       </div>
     </div>
   </div>

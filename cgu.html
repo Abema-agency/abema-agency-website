@@ -11,14 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Mulish:wght@400;600;700&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = { theme: { extend: {
-      colors: { primary:'#F59E0B','primary-light':'#FCD34D', foreground:'#0A0A0F',
-        cream:'#F0EBE0', sand:'#C4BAA6', stone:'#8A8070', clay:'#625A52' },
-      fontFamily: { display:['"Big Shoulders Display"','sans-serif'], sans:['Mulish','sans-serif'] }
-    }}}
-  </script>
+  <link rel="stylesheet" href="/tailwind.min.css" />
   <style>
     body { font-family:'Mulish',sans-serif; background:#0A0A0F; color:#C4BAA6; }
     .logo-text { text-decoration: none; display: inline-flex; align-items: center; }
@@ -152,7 +145,7 @@
 
       <section class="legal-section pt-12">
         <h2 class="text-2xl font-black text-cream mb-4">15. Données personnelles</h2>
-        <p>Le traitement des données personnelles est encadré par notre <a href="politique-confidentialite.html" class="text-primary-light hover:text-primary transition">Politique de confidentialité</a>. Lorsque ABEMA agit en qualité de sous-traitant des données du Client, un contrat de sous-traitance conforme à l'article 28 du RGPD est conclu en complément.</p>
+        <p>Le traitement des données personnelles est encadré par notre <a href="/politique-confidentialite.html" class="text-primary-light hover:text-primary transition">Politique de confidentialité</a>. Lorsque ABEMA agit en qualité de sous-traitant des données du Client, un contrat de sous-traitance conforme à l'article 28 du RGPD est conclu en complément.</p>
       </section>
 
       <section class="legal-section pt-12">
@@ -168,7 +161,7 @@
       <section class="legal-section pt-12">
         <h2 class="text-2xl font-black text-cream mb-4">18. Droit applicable et règlement des litiges</h2>
         <p>Les présentes CGU/CGV sont soumises au droit français. À défaut de résolution amiable dans les 30 jours suivant la notification d'un différend, le litige sera porté devant les tribunaux compétents du ressort du siège social d'ABEMA AGENCY.</p>
-        <p class="mt-4 text-sm">Pour les Clients consommateurs (cas exceptionnel), les coordonnées du médiateur figurent dans les <a href="mentions-legales.html" class="text-primary-light hover:text-primary transition">mentions légales</a>.</p>
+        <p class="mt-4 text-sm">Pour les Clients consommateurs (cas exceptionnel), les coordonnées du médiateur figurent dans les <a href="/mentions-legales.html" class="text-primary-light hover:text-primary transition">mentions légales</a>.</p>
       </section>
 
     </div>
@@ -178,10 +171,10 @@
     <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-stone font-body gap-4">
       <p>&copy; 2026 ABEMA AGENCY. Tous droits réservés.</p>
       <div class="flex gap-5">
-        <a href="mentions-legales.html" class="hover:text-cream transition">Mentions légales</a>
-        <a href="politique-confidentialite.html" class="hover:text-cream transition">Confidentialité</a>
-        <a href="cgu.html" class="hover:text-cream transition">CGU/CGV</a>
-        <a href="cgv.html" class="hover:text-cream transition" style="color:#C8A44E">CGV &amp; RGPD</a>
+        <a href="/mentions-legales.html" class="hover:text-cream transition">Mentions légales</a>
+        <a href="/politique-confidentialite.html" class="hover:text-cream transition">Confidentialité</a>
+        <a href="/cgu.html" class="hover:text-cream transition">CGU/CGV</a>
+        <a href="/cgv.html" class="hover:text-cream transition" style="color:#C8A44E">CGV &amp; RGPD</a>
       </div>
     </div>
   </footer>
