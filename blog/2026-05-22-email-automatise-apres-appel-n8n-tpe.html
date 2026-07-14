@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Email automatisé après appel : le workflow n8n + Synthflow expliqué | ABEMA AGENCY</title>
-  <meta name="description" content="Après chaque appel Synthflow, n8n déclenche un email de suivi vers le client. Mise en place concrète, limites et exemple de workflow pour TPE.">
+  <title>Email automatisé après appel : le workflow n8n + ElevenLabs expliqué | ABEMA AGENCY</title>
+  <meta name="description" content="Après chaque appel géré par l'agent vocal ElevenLabs, n8n déclenche un email de suivi vers le client. Mise en place concrète, limites et exemple de workflow pour TPE.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.abemaagency.com/blog/2026-05-22-email-automatise-apres-appel-n8n-tpe.html">
 
   <!-- Open Graph -->
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Email automatisé après appel : le workflow n8n + Synthflow expliqué">
-  <meta property="og:description" content="Après chaque appel Synthflow, n8n déclenche un email de suivi vers le client. Mise en place concrète, limites et exemple de workflow pour TPE.">
+  <meta property="og:title" content="Email automatisé après appel : le workflow n8n + ElevenLabs expliqué">
+  <meta property="og:description" content="Après chaque appel géré par l'agent vocal ElevenLabs, n8n déclenche un email de suivi vers le client. Mise en place concrète, limites et exemple de workflow pour TPE.">
   <meta property="og:url" content="https://www.abemaagency.com/blog/2026-05-22-email-automatise-apres-appel-n8n-tpe.html">
   <meta property="og:site_name" content="ABEMA AGENCY">
   <meta property="og:article:published_time" content="2026-05-22">
@@ -19,8 +19,8 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Email automatisé après appel : le workflow n8n + Synthflow expliqué">
-  <meta name="twitter:description" content="Après chaque appel Synthflow, n8n déclenche un email de suivi. Workflow concret, limites honnêtes, intégrations HubSpot / Hektor.">
+  <meta name="twitter:title" content="Email automatisé après appel : le workflow n8n + ElevenLabs expliqué">
+  <meta name="twitter:description" content="Après chaque appel géré par l'agent vocal ElevenLabs, n8n déclenche un email de suivi. Workflow concret, limites honnêtes, intégrations HubSpot / Hektor.">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -61,9 +61,10 @@
   {
     "@context":"https://schema.org",
     "@type":"Article",
-    "headline":"Email automatisé après appel : le workflow n8n + Synthflow expliqué",
-    "description":"Après chaque appel Synthflow, n8n déclenche un email de suivi vers le client. Mise en place concrète, limites et exemple de workflow pour TPE.",
+    "headline":"Email automatisé après appel : le workflow n8n + ElevenLabs expliqué",
+    "description":"Après chaque appel géré par l'agent vocal ElevenLabs, n8n déclenche un email de suivi vers le client. Mise en place concrète, limites et exemple de workflow pour TPE.",
     "datePublished":"2026-05-22",
+    "dateModified":"2026-07-14",
     "author":{"@type":"Person","name":"Abdallah Ait Essaghir"},
     "publisher":{"@type":"Organization","name":"ABEMA AGENCY","url":"https://www.abemaagency.com"},
     "url":"https://www.abemaagency.com/blog/2026-05-22-email-automatise-apres-appel-n8n-tpe.html"
@@ -99,7 +100,7 @@
 
       <!-- Titre -->
       <h1 class="font-display font-black leading-tight mb-6" style="font-size:clamp(2rem,5vw,3rem);color:#F0EBE0">
-        Email automatisé après appel : le workflow n8n + Synthflow expliqué
+        Email automatisé après appel : le workflow n8n + ElevenLabs expliqué
       </h1>
 
       <!-- Auteur -->
@@ -113,7 +114,7 @@
 
       <!-- Intro -->
       <p class="font-body text-lg leading-relaxed mb-4" style="color:rgba(240,235,224,0.85)">
-        Un appel se termine. Le prospect n'a pas demandé de rappel, mais a demandé un devis. Sans intervention humaine, un email récapitulatif part dans la minute : résumé de l'échange, lien de prise de RDV, PDF de présentation. C'est ce que permettent n8n et Synthflow combinés.
+        Un appel se termine. Le prospect n'a pas demandé de rappel, mais a demandé un devis. Sans intervention humaine, un email récapitulatif part dans la minute : résumé de l'échange, lien de prise de RDV, PDF de présentation. C'est ce que permettent n8n et l'agent vocal ElevenLabs combinés.
       </p>
       <p class="font-body leading-relaxed mb-10 text-stone">
         Cet article détaille le fonctionnement technique exact de ce workflow, ses conditions de mise en place chez ABEMA, et ses limites réelles.
@@ -123,7 +124,7 @@
       <nav class="mb-12 p-5 rounded-xl border" style="background:rgba(200,164,78,0.05);border-color:rgba(200,164,78,0.2)">
         <p class="font-body text-xs font-bold uppercase tracking-widest text-clay mb-3">Sommaire</p>
         <ol class="list-none p-0 m-0 space-y-1.5">
-          <li><a href="#ce-que-synthflow-genere" class="font-body text-sm hover:text-primary transition-colors" style="color:#C8A44E">1. Ce que Synthflow génère après un appel</a></li>
+          <li><a href="#ce-que-l-agent-genere" class="font-body text-sm hover:text-primary transition-colors" style="color:#C8A44E">1. Ce que l'agent ElevenLabs génère après un appel</a></li>
           <li><a href="#workflow-n8n" class="font-body text-sm hover:text-primary transition-colors" style="color:#C8A44E">2. Le workflow n8n étape par étape</a></li>
           <li><a href="#integrations" class="font-body text-sm hover:text-primary transition-colors" style="color:#C8A44E">3. Intégrations disponibles</a></li>
           <li><a href="#limites" class="font-body text-sm hover:text-primary transition-colors" style="color:#C8A44E">4. Limites honnêtes</a></li>
@@ -132,11 +133,11 @@
         </ol>
       </nav>
 
-      <!-- 1 — Ce que Synthflow génère -->
-      <section id="ce-que-synthflow-genere" class="mb-12">
-        <h2 class="font-display font-black text-cream mb-5" style="font-size:1.6rem">1. Ce que Synthflow génère après un appel</h2>
+      <!-- 1 — Ce que l'agent ElevenLabs génère -->
+      <section id="ce-que-l-agent-genere" class="mb-12">
+        <h2 class="font-display font-black text-cream mb-5" style="font-size:1.6rem">1. Ce que l'agent ElevenLabs génère après un appel</h2>
         <p class="font-body text-stone leading-relaxed mb-4">
-          Synthflow est une plateforme d'agent vocal IA. Chaque appel traité par l'agent produit des données structurées accessibles via webhook ou API :
+          ElevenLabs est une plateforme d'agent vocal IA. Chaque appel traité par l'agent produit des données structurées accessibles via webhook ou API :
         </p>
         <ul class="space-y-2 mb-4 ml-4">
           <li class="font-body text-stone text-sm flex gap-2"><span class="text-primary mt-0.5 shrink-0">→</span> Le numéro de l'appelant (quand il est transmis par le réseau téléphonique)</li>
@@ -154,14 +155,14 @@
       <section id="workflow-n8n" class="mb-12">
         <h2 class="font-display font-black text-cream mb-5" style="font-size:1.6rem">2. Le workflow n8n étape par étape</h2>
         <p class="font-body text-stone leading-relaxed mb-6">
-          n8n est un orchestrateur open-source auto-hébergé sur notre VPS Hostinger. Il reçoit le webhook Synthflow et enchaîne les actions suivantes :
+          n8n est un orchestrateur open-source auto-hébergé sur notre VPS Hostinger. Il reçoit le webhook ElevenLabs et enchaîne les actions suivantes :
         </p>
 
         <div class="step-block">
           <div class="flex items-start gap-3">
             <span class="step-num mt-0.5">1</span>
             <div>
-              <p class="font-body font-bold text-cream text-sm mb-1">Réception du webhook Synthflow</p>
+              <p class="font-body font-bold text-cream text-sm mb-1">Réception du webhook ElevenLabs</p>
               <p class="font-body text-stone text-sm leading-relaxed">Le nœud <code class="text-primary text-xs">Webhook</code> de n8n reçoit le payload JSON : transcript, variables extraites, numéro appelant, durée.</p>
             </div>
           </div>
@@ -182,7 +183,7 @@
             <span class="step-num mt-0.5">3</span>
             <div>
               <p class="font-body font-bold text-cream text-sm mb-1">Construction du contenu email</p>
-              <p class="font-body text-stone text-sm leading-relaxed">Un nœud <code class="text-primary text-xs">Code</code> ou <code class="text-primary text-xs">Set</code> assemble le corps de l'email à partir du résumé Synthflow et des variables collectées. Le template est fixé à l'avance — aucune génération IA supplémentaire n'est appliquée ici pour minimiser les coûts.</p>
+              <p class="font-body text-stone text-sm leading-relaxed">Un nœud <code class="text-primary text-xs">Code</code> ou <code class="text-primary text-xs">Set</code> assemble le corps de l'email à partir du résumé ElevenLabs et des variables collectées. Le template est fixé à l'avance — aucune génération IA supplémentaire n'est appliquée ici pour minimiser les coûts.</p>
             </div>
           </div>
         </div>
@@ -223,7 +224,7 @@
         <h2 class="font-display font-black text-cream mb-5" style="font-size:1.6rem">3. Intégrations disponibles</h2>
         <p class="font-body text-stone leading-relaxed mb-4">Le workflow email post-appel s'appuie sur les connecteurs n8n natifs suivants :</p>
         <div class="flex flex-wrap gap-2 mb-5">
-          <span class="tag">Synthflow (webhook)</span>
+          <span class="tag">ElevenLabs (webhook)</span>
           <span class="tag">HubSpot</span>
           <span class="tag">Hektor</span>
           <span class="tag">Apimo</span>
@@ -249,7 +250,7 @@
             </li>
             <li class="font-body text-stone text-sm flex gap-2">
               <span style="color:#93C5FD" class="shrink-0">—</span>
-              <span><strong class="text-cream">La qualité du résumé dépend du prompt Synthflow.</strong> Un agent mal configuré produit des résumés génériques. La configuration du prompt est faite lors du déploiement et peut nécessiter des ajustements après les premiers appels réels.</span>
+              <span><strong class="text-cream">La qualité du résumé dépend du prompt de l'agent ElevenLabs.</strong> Un agent mal configuré produit des résumés génériques. La configuration du prompt est faite lors du déploiement et peut nécessiter des ajustements après les premiers appels réels.</span>
             </li>
             <li class="font-body text-stone text-sm flex gap-2">
               <span style="color:#93C5FD" class="shrink-0">—</span>
@@ -269,7 +270,7 @@
 
       <!-- 5 — Plans -->
       <section id="plans" class="mb-12">
-        <h2 class="font-display font-black text-cream mb-6" style="font-size:1.6rem">5. Plans ABEMA — prix au 22 mai 2026</h2>
+        <h2 class="font-display font-black text-cream mb-6" style="font-size:1.6rem">5. Plans ABEMA — prix au 14 juillet 2026</h2>
         <p class="font-body text-stone text-sm leading-relaxed mb-6">
           L'automatisation email post-appel est disponible sur tous les plans. La différence porte sur le nombre d'appels mensuels inclus (donc le volume d'emails générés).
         </p>
@@ -277,28 +278,28 @@
           <!-- STARTER -->
           <div class="rounded-xl p-5 border" style="background:rgba(200,164,78,0.05);border-color:rgba(200,164,78,0.2)">
             <p class="font-display font-black text-primary text-lg mb-1">STARTER</p>
-            <p class="font-display font-black text-cream text-3xl mb-0">79 <span class="text-base font-body text-stone">€/mois</span></p>
+            <p class="font-display font-black text-cream text-3xl mb-0">99 <span class="text-base font-body text-stone">€/mois</span></p>
             <p class="font-body text-xs text-clay mb-3">100 appels/mois</p>
             <p class="font-body text-xs text-stone">Workflow email inclus. Intégration 1 CRM + Gmail ou SMTP.</p>
           </div>
           <!-- PRO -->
           <div class="rounded-xl p-5 border" style="background:rgba(200,164,78,0.05);border-color:rgba(200,164,78,0.2)">
             <p class="font-display font-black text-primary text-lg mb-1">PRO</p>
-            <p class="font-display font-black text-cream text-3xl mb-0">149 <span class="text-base font-body text-stone">€/mois</span></p>
+            <p class="font-display font-black text-cream text-3xl mb-0">179 <span class="text-base font-body text-stone">€/mois</span></p>
             <p class="font-body text-xs text-clay mb-3">300 appels/mois</p>
             <p class="font-body text-xs text-stone">Workflow email inclus. Multi-CRM + notification Telegram.</p>
           </div>
           <!-- BUSINESS -->
           <div class="rounded-xl p-5 border" style="background:rgba(200,164,78,0.05);border-color:rgba(200,164,78,0.2)">
             <p class="font-display font-black text-primary text-lg mb-1">BUSINESS</p>
-            <p class="font-display font-black text-cream text-3xl mb-0">229 <span class="text-base font-body text-stone">€/mois</span></p>
+            <p class="font-display font-black text-cream text-3xl mb-0">269 <span class="text-base font-body text-stone">€/mois</span></p>
             <p class="font-body text-xs text-clay mb-3">800 appels/mois</p>
             <p class="font-body text-xs text-stone">Workflow email + SMS de suivi + pipeline CRM avancé.</p>
           </div>
           <!-- PREMIUM -->
           <div class="rounded-xl p-5 border" style="background:rgba(200,164,78,0.08);border-color:rgba(200,164,78,0.3)">
             <p class="font-display font-black text-primary text-lg mb-1">PREMIUM</p>
-            <p class="font-display font-black text-cream text-3xl mb-0">349 <span class="text-base font-body text-stone">€/mois</span></p>
+            <p class="font-display font-black text-cream text-3xl mb-0">399 <span class="text-base font-body text-stone">€/mois</span></p>
             <p class="font-body text-xs text-clay mb-3">Appels illimités</p>
             <p class="font-body text-xs text-stone">Workflow email + toutes intégrations + accompagnement dédié.</p>
           </div>
@@ -320,7 +321,7 @@
         <div class="space-y-3">
           <div class="step-block">
             <p class="font-body font-bold text-cream text-sm mb-1">L'email part combien de temps après l'appel ?</p>
-            <p class="font-body text-stone text-sm leading-relaxed m-0">En général moins de 60 secondes après la fin de l'appel. Le délai dépend du temps de traitement du webhook Synthflow et de la charge de l'instance n8n. En pratique, l'email arrive avant que le client ne raccroche depuis un endroit sans réseau.</p>
+            <p class="font-body text-stone text-sm leading-relaxed m-0">En général moins de 60 secondes après la fin de l'appel. Le délai dépend du temps de traitement du webhook ElevenLabs et de la charge de l'instance n8n. En pratique, l'email arrive avant que le client ne raccroche depuis un endroit sans réseau.</p>
           </div>
 
           <div class="step-block">
@@ -330,7 +331,7 @@
 
           <div class="step-block">
             <p class="font-body font-bold text-cream text-sm mb-1">L'email peut-il contenir le transcript de l'appel ?</p>
-            <p class="font-body text-stone text-sm leading-relaxed m-0">Techniquement oui, Synthflow fournit le transcript complet. En pratique, on inclut plutôt le résumé (3-5 lignes) et non le transcript intégral qui peut dépasser 10 pages pour un appel long. Le transcript complet est conservé dans le CRM.</p>
+            <p class="font-body text-stone text-sm leading-relaxed m-0">Techniquement oui, ElevenLabs fournit le transcript complet. En pratique, on inclut plutôt le résumé (3-5 lignes) et non le transcript intégral qui peut dépasser 10 pages pour un appel long. Le transcript complet est conservé dans le CRM.</p>
           </div>
 
           <div class="step-block">
@@ -356,7 +357,7 @@
             [2] <a href="https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.gmail/" target="_blank" rel="noopener noreferrer" style="color:rgba(200,164,78,0.7);text-decoration:underline">n8n Documentation — Gmail node</a> — docs.n8n.io
           </li>
           <li class="font-body text-xs" style="color:rgba(240,235,224,0.45)">
-            [3] <a href="https://docs.synthflow.ai/features/call-summary" target="_blank" rel="noopener noreferrer" style="color:rgba(200,164,78,0.7);text-decoration:underline">Synthflow — Call Summary &amp; Transcript</a> — docs.synthflow.ai
+            [3] <a href="https://elevenlabs.io/docs" target="_blank" rel="noopener noreferrer" style="color:rgba(200,164,78,0.7);text-decoration:underline">ElevenLabs — Agents, transcription &amp; webhooks</a> — elevenlabs.io/docs
           </li>
           <li class="font-body text-xs" style="color:rgba(240,235,224,0.45)">
             [4] <a href="https://developers.hubspot.com/docs/api/crm/contacts" target="_blank" rel="noopener noreferrer" style="color:rgba(200,164,78,0.7);text-decoration:underline">HubSpot API — Contacts</a> — developers.hubspot.com

@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Agent IA réceptionniste pour TPE : comment l'IA vocale prend vos appels à votre place — ABEMA</title>
-  <meta name="description" content="Comment Synthflow transforme vos appels entrants en RDV qualifiés. Fonctionnement technique, tarifs réels (79–349 €/mois), pilote 7 jours — sans promesses inventées." />
+  <meta name="description" content="Comment un agent vocal ElevenLabs orchestré par n8n transforme vos appels entrants en RDV qualifiés. Fonctionnement technique, tarifs réels (99–399 €/mois), pilote 7 jours — sans promesses inventées." />
   <link rel="canonical" href="https://www.abemaagency.com/blog/2026-05-21-agent-ia-receptionniste-tpe-automatisation-service-client.html" />
   <meta name="robots" content="index, follow" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Agent IA réceptionniste pour TPE : comment l'IA vocale prend vos appels" />
-  <meta property="og:description" content="Comment Synthflow transforme vos appels entrants en RDV qualifiés. Tarifs réels, pilote 7 jours." />
+  <meta property="og:description" content="Comment un agent vocal ElevenLabs orchestré par n8n transforme vos appels entrants en RDV qualifiés. Tarifs réels, pilote 7 jours." />
   <meta property="og:url" content="https://www.abemaagency.com/blog/2026-05-21-agent-ia-receptionniste-tpe-automatisation-service-client.html" />
   <meta property="og:locale" content="fr_FR" />
   <meta property="og:site_name" content="ABEMA — Agents IA pour TPE" />
@@ -18,21 +18,21 @@
   <meta property="article:section" content="Agents IA" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Agent IA réceptionniste pour TPE : comment l'IA vocale prend vos appels" />
-  <meta name="twitter:description" content="Fonctionnement concret de Synthflow, tarifs 79–349 €/mois, pilote 7j." />
+  <meta name="twitter:description" content="Fonctionnement concret d'un agent vocal ElevenLabs + n8n, tarifs 99–399 €/mois, pilote 7j." />
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "Agent IA réceptionniste pour TPE : comment l'IA vocale prend vos appels à votre place",
-    "description": "Comment Synthflow transforme vos appels entrants en RDV qualifiés. Fonctionnement technique, tarifs réels, pilote 7 jours.",
+    "description": "Comment un agent vocal ElevenLabs orchestré par n8n transforme vos appels entrants en RDV qualifiés. Fonctionnement technique, tarifs réels, pilote 7 jours.",
     "author": { "@type": "Person", "name": "Abdallah Ait Essaghir", "url": "https://www.abemaagency.com/#a-propos" },
     "publisher": {
       "@type": "Organization", "name": "ABEMA AGENCY",
       "logo": { "@type": "ImageObject", "url": "https://www.abemaagency.com/logo.png" }
     },
     "datePublished": "2026-05-21",
-    "dateModified": "2026-05-22",
+    "dateModified": "2026-07-14",
     "mainEntityOfPage": "https://www.abemaagency.com/blog/2026-05-21-agent-ia-receptionniste-tpe-automatisation-service-client.html"
   }
   </script>
@@ -151,9 +151,9 @@
 
   <div class="prose">
 
-    <h2>Ce qu'est Synthflow — pas de mystère</h2>
+    <h2>Ce qu'est un agent vocal ElevenLabs — pas de mystère</h2>
 
-    <p>Synthflow est une plateforme d'agents vocaux IA. Elle combine trois technologies :</p>
+    <p>ElevenLabs est une plateforme d'agents vocaux IA. Elle combine trois technologies :</p>
     <ul>
       <li>Un <strong>modèle de langage</strong> (LLM) qui comprend ce que dit votre interlocuteur et génère une réponse</li>
       <li>Un moteur de <strong>synthèse vocale</strong> (text-to-speech) qui prononce la réponse en temps réel</li>
@@ -162,14 +162,14 @@
 
     <p>Concrètement : quand quelqu'un appelle votre numéro, c'est l'agent qui décroche. Il entend, comprend, répond, pose des questions si nécessaire, et peut transmettre les informations recueillies à votre CRM ou agenda.</p>
 
-    <p>Synthflow n'est pas le seul acteur sur ce créneau (Vapi et Retell AI existent aussi), mais c'est la plateforme qu'ABEMA a retenue après tests — notamment pour sa documentation API et la qualité de sa voix en français <sup>[1]</sup>.</p>
+    <p>ElevenLabs n'est pas le seul acteur sur ce créneau (Vapi et Retell AI existent aussi), mais c'est la plateforme qu'ABEMA a retenue après tests — notamment pour la qualité de ses voix en français et sa documentation API <sup>[1]</sup>. Chez ABEMA, l'agent vocal est orchestré par n8n : c'est lui qui relie l'appel à votre CRM, votre agenda et vos emails.</p>
 
     <h2>Le flux technique pas à pas</h2>
 
     <p>Voici ce qui se passe concrètement lors d'un appel géré par l'agent :</p>
     <ol>
       <li><strong>L'appel arrive</strong> sur votre numéro (transfert ou numéro dédié)</li>
-      <li><strong>Synthflow décroche</strong> et joue un message d'accueil personnalisé à votre marque</li>
+      <li><strong>L'agent ElevenLabs décroche</strong> et joue un message d'accueil personnalisé à votre marque</li>
       <li><strong>L'agent qualifie</strong> : nom, objet de l'appel, urgence, disponibilités</li>
       <li><strong>n8n reçoit les données</strong> via webhook et déclenche les actions suivantes</li>
       <li><strong>Le CRM est mis à jour</strong> (HubSpot, Hektor, Apimo selon votre secteur)</li>
@@ -208,17 +208,17 @@
       </div>
       <div class="plan-card featured">
         <p class="font-display font-black text-cream text-lg">PRO</p>
-        <p class="font-display font-black text-2xl" style="color:#F59E0B">149 €<span class="text-base font-sans font-normal text-stone">/mois</span></p>
+        <p class="font-display font-black text-2xl" style="color:#F59E0B">179 €<span class="text-base font-sans font-normal text-stone">/mois</span></p>
         <p class="font-body text-sm text-stone mt-2">300 appels/mois · CRM + Calendar · Rapports mensuels</p>
       </div>
       <div class="plan-card">
         <p class="font-display font-black text-cream text-lg">BUSINESS</p>
-        <p class="font-display font-black text-2xl" style="color:#F59E0B">229 €<span class="text-base font-sans font-normal text-stone">/mois</span></p>
+        <p class="font-display font-black text-2xl" style="color:#F59E0B">269 €<span class="text-base font-sans font-normal text-stone">/mois</span></p>
         <p class="font-body text-sm text-stone mt-2">800 appels/mois · Intégrations Hektor/Apimo · Support prioritaire</p>
       </div>
       <div class="plan-card">
         <p class="font-display font-black text-cream text-lg">PREMIUM</p>
-        <p class="font-display font-black text-2xl" style="color:#F59E0B">349 €<span class="text-base font-sans font-normal text-stone">/mois</span></p>
+        <p class="font-display font-black text-2xl" style="color:#F59E0B">399 €<span class="text-base font-sans font-normal text-stone">/mois</span></p>
         <p class="font-body text-sm text-stone mt-2">Appels illimités · Multi-agents · Onboarding dédié</p>
       </div>
     </div>
@@ -235,12 +235,12 @@
 
     <div class="faq-item">
       <p class="font-display font-black text-cream text-base mb-2">L'agent comprend bien le français régional ?</p>
-      <p class="font-body text-sm text-stone leading-relaxed">Synthflow a été testé sur du français standard — les accents du Nord ou du Pas-de-Calais ne posent généralement pas de problème. Nous réalisons systématiquement un test en conditions réelles (avec vos propres enregistrements ou des appels simulés) avant tout déploiement.</p>
+      <p class="font-body text-sm text-stone leading-relaxed">L'agent vocal ElevenLabs a été testé sur du français standard — les accents du Nord ou du Pas-de-Calais ne posent généralement pas de problème. Nous réalisons systématiquement un test en conditions réelles (avec vos propres enregistrements ou des appels simulés) avant tout déploiement.</p>
     </div>
 
     <div class="faq-item">
       <p class="font-display font-black text-cream text-base mb-2">Mes données d'appels sont-elles stockées en Europe ?</p>
-      <p class="font-body text-sm text-stone leading-relaxed">Les appels transitent par Synthflow (USA), mais les données structurées (nom, téléphone, objet) sont stockées sur nos serveurs Hostinger en Union Européenne, conformes RGPD. Un DPA (Data Processing Agreement) est fourni à la signature <sup>[2]</sup>.</p>
+      <p class="font-body text-sm text-stone leading-relaxed">Les appels transitent par ElevenLabs (USA), mais les données structurées (nom, téléphone, objet) sont stockées sur nos serveurs Hostinger en Union Européenne, conformes RGPD. Un DPA (Data Processing Agreement) est fourni à la signature <sup>[2]</sup>.</p>
     </div>
 
     <div class="faq-item">
@@ -257,7 +257,7 @@
     <div class="mt-12 pt-6" style="border-top:1px solid rgba(240,235,224,0.07)">
       <p class="font-display font-black text-sm uppercase tracking-widest mb-4" style="color:rgba(200,195,185,0.4)">Sources &amp; références</p>
       <ul class="sources-list list-none p-0">
-        <li>[1] Documentation Synthflow : <a href="https://docs.synthflow.ai" target="_blank" rel="noopener noreferrer">docs.synthflow.ai</a> — Plateforme d'agents vocaux IA, fonctionnalités et intégrations (consulté mai 2026)</li>
+        <li>[1] Documentation ElevenLabs : <a href="https://elevenlabs.io/docs" target="_blank" rel="noopener noreferrer">elevenlabs.io/docs</a> — Plateforme d'agents vocaux IA, fonctionnalités et intégrations (consulté juillet 2026)</li>
         <li>[2] CNIL — Guide RGPD pour les TPE/PME : <a href="https://www.cnil.fr/fr/les-bases-legales" target="_blank" rel="noopener noreferrer">cnil.fr/fr/les-bases-legales</a> (consulté mai 2026)</li>
         <li>n8n documentation — Webhooks &amp; intégrations : <a href="https://docs.n8n.io" target="_blank" rel="noopener noreferrer">docs.n8n.io</a></li>
         <li>INSEE — Enquêtes sur les TPE françaises et usages numériques : <a href="https://www.insee.fr/fr/statistiques" target="_blank" rel="noopener noreferrer">insee.fr/fr/statistiques</a></li>
